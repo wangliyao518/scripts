@@ -1,0 +1,1960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170801 17:10:55.835" generator="Rebot 3.0 (Python 2.7.5 on win32)">
+<suite source="D:\TA\Test_Case_Svn\Trunk_CRT\SISO1\CIT\CPRI_Single_FZFI\FZFI_Operational_Cell_block_unblock\FZFI_Operational_Cell_block_unblock.html" id="s1" name="FZFI Operational Cell block unblock">
+<kw type="setup" name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as D:\TA_logs\TestLog_20170801165528//logs//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20170801 17:04:43.430" level="INFO">${timestamp} = 20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.430" starttime="20170801 17:04:43.387"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20170801 17:04:43.431" level="INFO">${FILE_NAME} = FZFI Operational Cell block unblock</msg>
+<status status="PASS" endtime="20170801 17:04:43.431" starttime="20170801 17:04:43.430"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20170801 17:04:43.432" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI Operational Cell block unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.432" starttime="20170801 17:04:43.431"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20170801 17:04:43.433" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.433" starttime="20170801 17:04:43.432"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.434" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.434" starttime="20170801 17:04:43.433"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.435" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443"&gt;D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170801 17:04:43.435" starttime="20170801 17:04:43.434"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.435" level="INFO">save log dir:D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.435" starttime="20170801 17:04:43.435"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.440" level="INFO">${snapshot_flag} = 0</msg>
+<status status="PASS" endtime="20170801 17:04:43.440" starttime="20170801 17:04:43.436"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.462" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:04:43.462" starttime="20170801 17:04:43.455"></status>
+</kw>
+<msg timestamp="20170801 17:04:43.462" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:04:43.462" starttime="20170801 17:04:43.455"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.463" starttime="20170801 17:04:43.463"></status>
+</kw>
+<msg timestamp="20170801 17:04:43.464" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:04:43.464" starttime="20170801 17:04:43.463"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.471" starttime="20170801 17:04:43.467"></status>
+</kw>
+<msg timestamp="20170801 17:04:43.471" level="INFO">${log dir} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.471" starttime="20170801 17:04:43.464"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:43.475" level="INFO">${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443</msg>
+<status status="PASS" endtime="20170801 17:04:43.475" starttime="20170801 17:04:43.471"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:43.475" starttime="20170801 17:04:43.454"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<kw name="Ping Should Ok" library="tdd_ev_robotws">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20170801 17:04:43.500" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20170801 17:04:43.500" starttime="20170801 17:04:43.477"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.500" starttime="20170801 17:04:43.500"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.501" starttime="20170801 17:04:43.501"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.501" starttime="20170801 17:04:43.501"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:43.502" starttime="20170801 17:04:43.502"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:43.502" starttime="20170801 17:04:43.476"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:43.502" starttime="20170801 17:04:43.476"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<kw name="Get Enb Infomation" library="tdd_ev_robotws">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20170801 17:05:29.598" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 17:05:29.683" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 17:05:40.784" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 17:05:40.818" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 17:05:41.417" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 17:05:41.462" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@210] login succeed !</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/sshservice.html'</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableSsh.cgi?stamp=1501578321&amp;token=5d64eecc8b12c7bd44439202e9266264fbd9516c7f84b23db8cd944774535726&amp;frame=sshservice'</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/3, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@266] &lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+    &lt;meta http-equiv="expires" content="0"&gt;
+    &lt;meta http-equiv="cache-control" content="public,no-cache"&gt;
+    &lt;meta http-equiv="pragma" content="no-cache"&gt;
+    &lt;/head&gt;
+    &lt;body bgcolor="#E7E7E7"&gt;
+
+    &lt;bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+    &lt;h3&gt;&lt;FONT face="Arial, Helvetica, sans-serif"&gt;
+&lt;p&gt;&lt;h3&gt;SSH Service Enabled Successfully&lt;/h3&gt;
+&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@210] login succeed !</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/RndPortsService.html'</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableRndPorts.cgi?stamp=1501578326&amp;token=3d11c32b4f0b07725b2e22e13c435594f4fce5455cdbc9953e1e614910cdefb5&amp;frame=RndPortsService'</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@94] try: 1/3, http return code: 200</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ftm_control.py@266] &lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+    &lt;meta http-equiv="expires" content="0"&gt;
+    &lt;meta http-equiv="cache-control" content="public,no-cache"&gt;
+    &lt;meta http-equiv="pragma" content="no-cache"&gt;
+    &lt;/head&gt;
+    &lt;body bgcolor="#E7E7E7"&gt;
+
+    &lt;bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+    &lt;h3&gt;&lt;FONT face="Arial, Helvetica, sans-serif"&gt;
+&lt;p&gt;&lt;h3&gt;R&amp;D Ports Service Enabled Successfully&lt;/h3&gt;
+&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:05:22 CST 2017 from 10.69.80.114 on ssh
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x052EB580&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x052EB580&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:05:31 CST 2017 from 192.168.255.126 on pts/1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0533BBE8&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18_ENB_9999_170801_065191.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0533BBE8&gt;</msg>
+<msg timestamp="20170801 17:06:05.400" level="INFO">[enb_resource.py@1086] 
+ ****Current BTS version is 'TL18_ENB_9999_170801_065191' *****</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1113] activeBuildVersion=TL18_ENB_9999_170801_065191</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:05:41 CST 2017 from 192.168.255.126 on pts/1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x052EB350&gt;</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+/ram/SiteConf.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x052EB350&gt;</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@176] /ram/SiteConf.xml</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@79] sftp download from '/ram/SiteConf.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\SiteConf.xml' is ok. local file size is 211k</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:06:02 CST 2017 from 192.168.255.126 on ssh
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04C1CC88&gt;</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04C1CC88&gt;</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@375] The real falsh folder is /ffs/fs1</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@176] /ffs/fs1/FileDirectory.xml</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/FileDirectory.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FileDirectory_20170801170529.xml' is ok. local file size is 37k</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@176] /ffs/fs1/config/SCFC_79.xml</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/config/SCFC_79.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\SCFC_79.xml' is ok. local file size is 104k</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1086] 
+ ****Current bbu type is 'FSIH' *****</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1208] HW_BBU_TYPE=FSIH</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1086] 
+ ****Current rru type is 'FZFI-f:FZFI-d' *****</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1211] HW_RRU_TYPE=FZFI-f:FZFI-d</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1086] 
+ ****Current HW type is 'null' *****</msg>
+<msg timestamp="20170801 17:06:05.401" level="INFO">[enb_resource.py@1214] BTS_HW_TYPE=null</msg>
+<status status="PASS" endtime="20170801 17:06:05.403" starttime="20170801 17:04:43.503"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:05.403" starttime="20170801 17:04:43.502"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>tdd_ev_robotws</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:05.404" starttime="20170801 17:06:05.404"></status>
+</kw>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20170801 17:06:05.408" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20170801 17:06:05.408" starttime="20170801 17:06:05.407"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20170801 17:06:05.411" level="INFO">${conn_port} = 23</msg>
+<status status="PASS" endtime="20170801 17:06:05.412" starttime="20170801 17:06:05.408"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20170801 17:06:05.415" level="INFO">${conn_type} = TELNET</msg>
+<status status="PASS" endtime="20170801 17:06:05.416" starttime="20170801 17:06:05.412"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20170801 17:06:05.420" level="INFO">${timeout} = 30</msg>
+<status status="PASS" endtime="20170801 17:06:05.420" starttime="20170801 17:06:05.416"></status>
+</kw>
+<kw name="Connect To Host" library="tdd_ev_robotws">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>${BTS_PC_INFO.IP}</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20170801 17:06:06.834" level="INFO">[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service 
+
+
+login:</msg>
+<msg timestamp="20170801 17:06:06.834" level="INFO">[telnet_common.py@276] Execute command: tdlte-tester</msg>
+<msg timestamp="20170801 17:06:06.834" level="INFO">[telnet_common.py@306] Get Response:  tdlte-tester
+
+password:</msg>
+<msg timestamp="20170801 17:06:06.834" level="INFO">[telnet_common.py@276] Execute command: btstest</msg>
+<msg timestamp="20170801 17:06:06.834" level="INFO">[telnet_common.py@246]  
+
+*===============================================================
+Microsoft Telnet Server.
+*===============================================================
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 17:06:06.835" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<status status="PASS" endtime="20170801 17:06:06.835" starttime="20170801 17:06:05.420"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:06.836" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<status status="PASS" endtime="20170801 17:06:06.836" starttime="20170801 17:06:06.835"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<kw name="Execute Shell Command" library="tdd_ev_robotws">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.036" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:06:08.037" level="INFO">[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no</msg>
+<msg timestamp="20170801 17:06:08.037" level="INFO">[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+The settings were successfully updated.
+
+C:\Users\tdlte-tester&gt;</msg>
+<status status="PASS" endtime="20170801 17:06:08.037" starttime="20170801 17:06:06.842"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:08.037" starttime="20170801 17:06:06.837"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:08.038" starttime="20170801 17:06:05.404"></status>
+</kw>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.045" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;.</msg>
+<status status="PASS" endtime="20170801 17:06:08.045" starttime="20170801 17:06:08.038"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:08.045" starttime="20170801 17:04:43.387"></status>
+</kw>
+<kw type="teardown" name="Common Suite Teardown" library="common_resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:51.727" starttime="20170801 17:10:51.724"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="tdd_ev_robotws">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20170801 17:10:51.741" level="INFO">[telnet_common.py@188]</msg>
+<msg timestamp="20170801 17:10:51.741" level="INFO">[telnet_common.py@189] Disconnect from 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:10:51.741" level="INFO">[telnet_common.py@188]</msg>
+<msg timestamp="20170801 17:10:51.741" level="INFO">[telnet_common.py@189] Disconnect from 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<status status="PASS" endtime="20170801 17:10:51.741" starttime="20170801 17:10:51.727"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:51.744" starttime="20170801 17:10:51.742"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.744" starttime="20170801 17:10:51.742"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:51.745" starttime="20170801 17:10:51.745"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.745" starttime="20170801 17:10:51.744"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.745" starttime="20170801 17:10:51.723"></status>
+</kw>
+<test id="s1-t1" name="FZFI_Operational_Cell_block_unblock">
+<kw type="setup" name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as D:\TA_logs\TestLog_20170801165528//ev_logs//D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20170801 17:06:08.051" level="INFO">${timestamp} = 20170801170608</msg>
+<status status="PASS" endtime="20170801 17:06:08.051" starttime="20170801 17:06:08.051"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20170801 17:06:08.053" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.053" starttime="20170801 17:06:08.052"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20170801 17:06:08.054" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.054" starttime="20170801 17:06:08.053"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.055" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.055" starttime="20170801 17:06:08.054"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.056" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock"&gt;D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170801 17:06:08.057" starttime="20170801 17:06:08.055"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.057" level="INFO">save log dir:D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.057" starttime="20170801 17:06:08.057"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:08.058" starttime="20170801 17:06:08.058"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:08.060" starttime="20170801 17:06:08.060"></status>
+</kw>
+<msg timestamp="20170801 17:06:08.061" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:06:08.061" starttime="20170801 17:06:08.060"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:08.062" starttime="20170801 17:06:08.062"></status>
+</kw>
+<msg timestamp="20170801 17:06:08.062" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:06:08.062" starttime="20170801 17:06:08.061"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20170801 17:06:08.066" level="INFO">${log dir} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.066" starttime="20170801 17:06:08.062"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.067" level="INFO">${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20170801 17:06:08.067" starttime="20170801 17:06:08.067"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:08.067" starttime="20170801 17:06:08.059"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:08.068" starttime="20170801 17:06:08.050"></status>
+</kw>
+<kw name="Start_Udp_And_Infomodel_Log" library="SISO1 Resource">
+<kw name="Start Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}.log</arg>
+</arguments>
+<msg timestamp="20170801 17:06:08.353" level="INFO">[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20170801 17:06:08.353" level="INFO">[btslog_control.py@174] use ip is 192.168.255.126</msg>
+<msg timestamp="20170801 17:06:08.353" level="INFO">[file_common.py@209] Directory "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20170801 17:06:08.353" starttime="20170801 17:06:08.068"></status>
+</kw>
+<kw name="Start Infomodel" library="tdd_ev_robotws">
+<doc>Setup InfoModel library and Connect to InfoModel.</doc>
+<arguments>
+<arg>port=${BTS_INFOMODEL_PORT}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:17.259" level="INFO">[infomodel_control.py@157] set up infomodel with following info succeed .
+    details: address=192.168.255.129, port=12345, definitions_file_path=None</msg>
+<msg timestamp="20170801 17:06:17.259" level="INFO">[infomodel_control.py@161] start infomodel succeed .</msg>
+<msg timestamp="20170801 17:06:17.259" level="INFO">[infomodel_control.py@163] start infomodel logger succeed .</msg>
+<status status="PASS" endtime="20170801 17:06:17.259" starttime="20170801 17:06:08.354"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:17.260" level="INFO">${case_execute_log_name} = owner_debug</msg>
+<status status="PASS" endtime="20170801 17:06:17.260" starttime="20170801 17:06:17.259"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:06:17.260" starttime="20170801 17:06:08.068"></status>
+</kw>
+<kw type="for" name="${num} IN RANGE [ ${total_times} ]">
+<kw type="foritem" name="${num} = 0">
+<kw name="_Cell_Block_Unblock_and_Attach">
+<doc>Operation with BTS</doc>
+<arguments>
+<arg>${cell_index_1}</arg>
+<arg>${frequency_b}</arg>
+<arg>${frequency_a}</arg>
+</arguments>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 17:06:17.267" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;.</msg>
+<status status="PASS" endtime="20170801 17:06:17.267" starttime="20170801 17:06:17.262"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="tdd_ev_robotws">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20170801 17:06:21.145" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<status status="PASS" endtime="20170801 17:06:21.145" starttime="20170801 17:06:17.268"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:21.154" starttime="20170801 17:06:21.153"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:21.157" starttime="20170801 17:06:21.154"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20170801 17:06:21.159" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\TA_logs\\TestLog_20170801165528\\ev_logs\\FZFI_Operational_Cell_block_unblock_20170801170443\\FZFI_Operational_Cell_bloc...</msg>
+<status status="PASS" endtime="20170801 17:06:21.159" starttime="20170801 17:06:21.157"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:06:21.160" starttime="20170801 17:06:21.160"></status>
+</kw>
+<kw name="Run Qtp" library="tdd_ev_robotws">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20170801 17:07:26.240" level="INFO">&lt;QTP&gt; Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\GUILog\qtp_log20170801170621\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20170801 17:07:26.240" starttime="20170801 17:06:21.160"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:07:26.240" starttime="20170801 17:06:21.153"></status>
+</kw>
+<kw name="GUI SM HW Action" library="gui_resource">
+<doc>this keyword is used for most HW operation,such as block,unblock,reset</doc>
+<arguments>
+<arg>CELL</arg>
+<arg>${cell_index}</arg>
+<arg>Block</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>HWType=${HWType}</arg>
+<arg>HWID=${HWID}</arg>
+<arg>HWAction=${HWAction}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20170801 17:07:26.244" level="INFO">${para_list} = [u'HWType=CELL', u'HWID=1', u'HWAction=Block', u'LogPath=D:\\TA_logs\\TestLog_20170801165528\\ev_logs\\FZFI_Operational_Cell_block_unblock_20170801170443\\FZFI_Operational_Cell_block_unblock\\']</msg>
+<status status="PASS" endtime="20170801 17:07:26.244" starttime="20170801 17:07:26.243"></status>
+</kw>
+<kw name="Run Qtp" library="tdd_ev_robotws">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}HW_Action</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20170801 17:07:48.740" level="INFO">&lt;QTP&gt; Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+HWType="CELL"
+HWID="1"
+HWAction="Block"
+LogPath="D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\"
+&lt;QTP&gt; Save log to D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\GUILog\qtp_log20170801170726\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20170801 17:07:48.741" starttime="20170801 17:07:26.245"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:07:48.741" starttime="20170801 17:07:26.242"></status>
+</kw>
+<kw name="TM500_Attach_And_Start_PPPOE_Withlog" library="SISO1 Resource">
+<arguments>
+<arg>${attach_script}</arg>
+<arg>forw mte RrcAptConfigCellSelection: ${frequency_1}</arg>
+</arguments>
+<kw name="Tm500 Setup" library="tdd_ev_robotws">
+<doc>tm500 setup.</doc>
+<msg timestamp="20170801 17:07:50.379" level="INFO">${TM500_PC_CONNECTION} = 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[robot_func.py@29] Can't get variable '${TM500_PC_CONNECTION}' ! details: 'Variable '${TM500_PC_CONNECTION}' not found.'</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service 
+
+
+login:</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: tdlte-tester</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response:  tdlte-tester
+
+password:</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: btstest</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@246]  
+
+*===============================================================
+Welcome to Microsoft Telnet Server.
+*===============================================================
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;.</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"
+*SEP* 1.0.1
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8275 -s True</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8275 -s True
+
+PsExec v1.98 - Execute processes remotely
+Copyright (C) 2001-2010 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+python started with process ID 3748.
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[process_control.py@74] Process start successed ! process id: 3748</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[remote_lib_control.py@62] start remote server succeed !</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[tm500.py@107] have setup Remotelib instance: RemoteLibInstance: 10.69.71.200:8275</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[tm500.py@407] Request TM500 Resource:
+sent -&gt; "request:15:1"
+received &lt;- "Welcome! Please use it, You are No.1 in 1 user queue.
+
+"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[tm500.py@411] Get TM500 resource success!</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;.</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: python -c "import platform;print platform.platform()"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: python -c "import platform;print platform.platform()"
+Windows-XP-5.1.2600-SP3
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;.</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[file_control.py@332] copyfile2local command: 'D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"'</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:10 minutes &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@306] Get Response: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.591" level="INFO">[telnet_common.py@276] Execute command: echo ERRORCODE is: %ERRORLEVEL%</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@306] Get Response: echo ERRORCODE is: %ERRORLEVEL%
+ERRORCODE is: 0
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[file_common.py@168] Copy file "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\FileZilla server.xml" to "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\FileZilla server.xml.change_bak" succeeded.</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[filezilla_control.py@188] Filezilla configed right, no need to change TM500 version.</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;.</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$CLOSE</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: CLOSE 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@276] Execute command: TASKKILL /F /T /IM TmaApplication.exe</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@306] Get Response: TASKKILL /F /T /IM TmaApplication.exe
+ERROR: The process "TmaApplication.exe" not found.
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@278] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\Server_Client\client.exe" localhost "C:\Program Files\Aeroflex\TM500\LTE - K4.6.4.REV55\Test Mobile Application\TmaApplication.exe" /u \"Default User\" /c y /p 5003 /a n</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@276] Execute command: Ctrl-C</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[telnet_common.py@306] Get Response: Server Keep Alive Message Interval is [12 bytes]: '3'
+Keep Alive Message from Server Received [3 bytes]: '(be 0 3)' 
+^C
+C:\Documents and Settings\bts-tester&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x053E4BC0&gt;</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@590] Prev msg: I: TMAE 0x2 Error - Raw Script Error: Cannot find C:\Documents and Settings\bts-tester\Desktop\Attach.txt</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$DISCONNECT</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: DISCONNECT 0x00 OK</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$CONNECT</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: CONNECT 0x00 ok. Waiting for User to Configure Test Mobile</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: GSTS</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: GSTS 0x00 Ok Reset</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: ABOT 0 0 1</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: ABOT 0x00 Ok 0x0000001e</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: SELR 0 0 RC2 COMBINED</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: SELR 0x00 Ok</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: EREF 0 0 0</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: EREF 0x00 Ok</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: GETR</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: GETR 0x00 Ok 
+Radio cards
+==============
+   Card   : Umbra2 LTE (20MHz)
+   Slot   : RC1
+   Chassis: 0
+   Context: -
+   RF     : type 7
+   A:  DL : 2110.0 - 2170.0 MHz
+       UL : 1920.0 - 1980.0 MHz
+   B:  DL : 2300.0 - 2400.0 MHz
+       UL : 2300.0 - 2400.0 MHz
+==============
+*  Card   : Umbra2 LTE (20MHz)
+   Slot   : RC2
+   Chassis: 0
+   Context: 0
+   RF     : type 200
+   A:  DL : 400.0 - 4000.0 MHz
+       UL : 400.0 - 4000.0 MHz
+   B:  DL : 0.0 - 0.0 MHz
+       UL : 0.0 - 0.0 MHz</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: SCFG NAS_MODE</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: SCFG 0x00 Ok NAS_MODE</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: STRT</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: STRT 0x00 Ok</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$DATA_LOG_FOLDER 1 "C:\TM500_log\"</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: DATA_LOG_FOLDER 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$DATA_LOG_OPTIONS 0 1 0</msg>
+<msg timestamp="20170801 17:09:15.592" level="INFO">[tm500.py@1735] TM500 command reply: C: DATA_LOG_OPTIONS 0x00 ok.</msg>
+<status status="PASS" endtime="20170801 17:09:15.596" starttime="20170801 17:07:48.742"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Test Variable</arg>
+<arg>${TM500_Use_Tag}</arg>
+<arg>used</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:15.597" starttime="20170801 17:09:15.597"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELLx_ATT_INFO}</arg>
+</arguments>
+<msg timestamp="20170801 17:09:19.621" level="INFO">$TA,C,0314*</msg>
+<msg timestamp="20170801 17:09:19.621" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,0314*', Receive&lt;-'$TA,C,0314*'</msg>
+<msg timestamp="20170801 17:09:19.621" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,03*', Receive&lt;-'$TA,C,0314*'
+$TA,C,0414*</msg>
+<msg timestamp="20170801 17:09:19.621" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,0414*', Receive&lt;-'$TA,C,0414*'</msg>
+<msg timestamp="20170801 17:09:19.621" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,04*', Receive&lt;-'$TA,C,0414*'</msg>
+<status status="PASS" endtime="20170801 17:09:19.621" starttime="20170801 17:09:15.597"></status>
+</kw>
+<kw name="Tm500 Configure Logging" library="tdd_ev_robotws">
+<doc>This keyword selects TM500's logging items.</doc>
+<arguments>
+<arg>${ue_log_types}</arg>
+</arguments>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: GVER</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: GVER 0x00 Ok 
+ PPC-0:
+    BSP: 2.0/n/R13
+    APP: TM500 LTE VERSION:K4.6.4:REV1:PPC:K4.6.4
+ DSP-0: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x0062
+ DSP-1: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-2: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-3: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-4: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x0062
+ DSP-5: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-6: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-7: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-8: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x101C
+ DSP-9: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-10: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-11: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-12: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x208A
+ DSP-13: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-14: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-15: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ Version Label: LTE-SUE-C0309_TDD_4X2_L1_K_04_06_04_REV55
+ UMBRA-0
+    API: 13.3.1  Product: 3
+    APP: 1.0.149  Built: Sep 25 2014 17:17:27
+    CON: 3.5.0  Build: 0
+    SIG: 2.1.1  Build: 46
+    MMC: 1.7
+    Carrier:  Loc: 12  PCB: 3.0 (OWI: 3.0)  SN: 0x4A000001D72F0323  BarCode: 20-1442-1360070-2568
+    MOD TX: 0.0.17  Build: 16  Type: 200  PCB: 3.0 (OWI: 3.0)  SN: 0xD000000167A41623  BarCode: 00000044830737250285
+    MOD RX: 0.0.31  Build: 34  PCB: 3.0</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@506] TM500 command line response of "GVER":
+C: GVER 0x00 Ok 
+ PPC-0:
+    BSP: 2.0/n/R13
+    APP: TM500 LTE VERSION:K4.6.4:REV1:PPC:K4.6.4
+ DSP-0: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x0062
+ DSP-1: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-2: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-3: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-4: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x0062
+ DSP-5: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-6: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-7: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-8: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x101C
+ DSP-9: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-10: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-11: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-12: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+    PCB: 0
+   VHDL: 0x208A
+ DSP-13: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-14: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ DSP-15: 
+    APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+ Version Label: LTE-SUE-C0309_TDD_4X2_L1_K_04_06_04_REV55
+ UMBRA-0
+    API: 13.3.1  Product: 3
+    APP: 1.0.149  Built: Sep 25 2014 17:17:27
+    CON: 3.5.0  Build: 0
+    SIG: 2.1.1  Build: 46
+    MMC: 1.7
+    Carrier:  Loc: 12  PCB: 3.0 (OWI: 3.0)  SN: 0x4A000001D72F0323  BarCode: 20-1442-1360070-2568
+    MOD TX: 0.0.17  Build: 16  Type: 200  PCB: 3.0 (OWI: 3.0)  SN: 0xD000000167A41623  BarCode: 00000044830737250285
+    MOD RX: 0.0.31  Build: 34  PCB: 3.0</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_CLEAR_ALL</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_CLEAR_ALL 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_ITM 1 1 1 Manual</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_ITM 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 100 0 0 0 UEOVERVIEW</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 1 0 0 0 ProtocolLog</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 CQIREPORTING #Subband 0-24 2</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 262 1 0 0 #GRP:CQIREPORTING</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 263 1 0 0 #GRP:CQIREPORTING</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 264 1 0 0 #GRP:CQIREPORTING</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 100 0 0 0 L1RBPOWERS #Component_Carrier 0,1 0</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 200 0 0 0 L1CELLWATCH</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLSCHRX</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLHARQRX</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 ULHARQTX</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 ULSRS</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLL1L2CONTROL</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 100 0 0 0 L1DLRSPOWER #Radio_Context_ID 0,1 0</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_ITM 0 0 0 Automatic</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_ITM 0x00 ok.</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$LC_END</msg>
+<msg timestamp="20170801 17:09:22.992" level="INFO">[tm500.py@1735] TM500 command reply: C: LC_END 0x00 ok.</msg>
+<status status="PASS" endtime="20170801 17:09:22.994" starttime="20170801 17:09:19.622"></status>
+</kw>
+<kw name="Tm500 Start Logging" library="tdd_ev_robotws">
+<doc>This keyword starts TM500's logging.</doc>
+<msg timestamp="20170801 17:09:23.668" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$START_LOGGING</msg>
+<msg timestamp="20170801 17:09:23.668" level="INFO">[tm500.py@1735] TM500 command reply: C: START_LOGGING 0x00 OK. Current logging folder is 'C:\TM500_LOG\/170801_170913_session/170801_171002'</msg>
+<msg timestamp="20170801 17:09:23.668" level="INFO">[tm500.py@1351] TM500 command line response of "START LOGGING":
+C: START_LOGGING 0x00 OK. Current logging folder is 'C:\TM500_LOG\/170801_170913_session/170801_171002'</msg>
+<msg timestamp="20170801 17:09:23.668" level="INFO">[tm500.py@1362] C:\TM500_LOG\170801_170913_session\170801_171002</msg>
+<status status="PASS" endtime="20170801 17:09:23.668" starttime="20170801 17:09:22.994"></status>
+</kw>
+<kw name="Tm500 Attach" library="tdd_ev_robotws">
+<doc>This keyword does UE attach operation of TM500.</doc>
+<arguments>
+<arg>${attach_script}</arg>
+<arg>${cmd_to_modify_list}</arg>
+</arguments>
+<assign>
+<var>${tm500_attach_result}</var>
+</assign>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[file_common.py@125] Write file "D:\TA\BTS1779\modified_attach_MIMO.txt" succeeded</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1727] TM500 command to be sent: FORW MTE RRCAPTOVERRIDEBANDSUPPORT 4{41 [1 24960 39650 1940 24960 39650 1940] [],43 [1 36000 43590 2000 36000 43590 2000] [],40 [1 23000 38650 1000 23000 38650 1000] [],39 [1 18800 38250 400 18800 38250 400] []}</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1735] TM500 command reply: C: FORW 0x00 Ok MTE RRCAPTOVERRIDEBANDSUPPORT: RETURN CODE:0 SUCCEEDED</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1727] TM500 command to be sent: FORW MTE ACTIVATE -1</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1735] TM500 command reply: C: FORW 0x00 Ok MTE ACTIVATE CNF: RETURN CODE:0</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1727] TM500 command to be sent: FORW MTE PHYSETRATTYPE 1</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1735] TM500 command reply: I: CMPI MTE 0 ACTIVATE IND: RETURN CODE:0
+
+C: FORW 0x00 Ok MTE PHYSETRATTYPE: RETURN CODE:0 SUCCEEDED
+
+I: TMAE 0x3 Critical Error - System is running out of disk space, Disconnecting TMA
+I: TMAE 0x1 Warning - Logging is being stopped automatically. Please wait for logging stopped message.</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1727] TM500 command to be sent: FORW MTE PHYSETTDDCFG 2 7</msg>
+<msg timestamp="20170801 17:09:43.931" level="INFO">[tm500.py@1735] TM500 command reply:</msg>
+<msg timestamp="20170801 17:09:43.932" level="FAIL">TM500 return message does NOT contain "Ok"! ("Ok" is case insensitive)</msg>
+<status status="FAIL" endtime="20170801 17:09:43.932" starttime="20170801 17:09:23.668"></status>
+</kw>
+<status status="FAIL" endtime="20170801 17:09:43.932" starttime="20170801 17:07:48.741"></status>
+</kw>
+<status status="FAIL" endtime="20170801 17:09:43.932" starttime="20170801 17:06:17.261"></status>
+</kw>
+<status status="FAIL" endtime="20170801 17:09:43.932" starttime="20170801 17:06:17.260"></status>
+</kw>
+<status status="FAIL" endtime="20170801 17:09:43.932" starttime="20170801 17:06:17.260"></status>
+</kw>
+<kw type="teardown" name="Test_Tear_Down_Action" library="SISO1 Resource">
+<doc>Action when case finishs</doc>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 17:09:43.938" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05477CB0&gt;.</msg>
+<status status="PASS" endtime="20170801 17:09:43.938" starttime="20170801 17:09:43.934"></status>
+</kw>
+<kw name="Kill Qtp Process" library="tdd_ev_robotws">
+<doc>This keyword is used to kill the processes related to QTP application.</doc>
+<msg timestamp="20170801 17:09:44.425" level="INFO">Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<status status="PASS" endtime="20170801 17:09:44.425" starttime="20170801 17:09:43.938"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20170801 17:09:44.432" starttime="20170801 17:09:44.426"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:44.433" starttime="20170801 17:09:44.432"></status>
+</kw>
+<msg timestamp="20170801 17:09:44.433" level="INFO">${return} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:09:44.433" starttime="20170801 17:09:44.432"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<kw name="Save Infomodel Log" library="tdd_ev_robotws">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<msg timestamp="20170801 17:09:44.451" level="INFO">[infomodel_control.py@214] save infomodel log to file: 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_Operational_Cell_block_unblock_20170801170443\FZFI_Operational_Cell_block_unblock\owner_debug' succeed .</msg>
+<status status="PASS" endtime="20170801 17:09:44.451" starttime="20170801 17:09:44.438"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:09:44.451" starttime="20170801 17:09:44.434"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:09:44.453" starttime="20170801 17:09:44.433"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Stop Infomodel" library="tdd_ev_robotws">
+<doc>Disconnect from InfoModel and teardown InfoModel. Keyword will</doc>
+<msg timestamp="20170801 17:09:45.116" level="INFO">[infomodel_control.py@186] stop infomodel logger succeed .</msg>
+<msg timestamp="20170801 17:09:45.116" level="INFO">[infomodel_control.py@198] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20170801 17:09:45.116" starttime="20170801 17:09:44.457"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:09:45.116" starttime="20170801 17:09:44.453"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:09:45.116" starttime="20170801 17:09:44.453"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Release_TM500_And_Colse_PA_Port</arg>
+</arguments>
+<kw name="Release_TM500_And_Colse_PA_Port" library="SISO1 Resource">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>${return}</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Use_Tag}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:45.118" starttime="20170801 17:09:45.118"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Use_Tag}'=='used'</arg>
+<arg>Set Attenuators Off</arg>
+<arg>${ATT_ALL_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:45.118" starttime="20170801 17:09:45.118"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<msg timestamp="20170801 17:09:45.126" level="FAIL">Variable ${TM500_Pppoe_Tag} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:09:45.126" starttime="20170801 17:09:45.119"></status>
+</kw>
+<msg timestamp="20170801 17:09:45.126" level="INFO">${return} = ('FAIL', u'Variable ${TM500_Pppoe_Tag} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:09:45.126" starttime="20170801 17:09:45.119"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Switch Host Connection</arg>
+<arg>${TM500_PC_CONNECTION}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:45.130" starttime="20170801 17:09:45.126"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Tm500 Stop Pppoe Connection</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:09:45.134" starttime="20170801 17:09:45.130"></status>
+</kw>
+<kw name="Tm500 Teardown" library="tdd_ev_robotws">
+<doc>tm500 teardown.</doc>
+<msg timestamp="20170801 17:10:10.188" level="INFO">[tm500.py@590] Prev msg: I: TMAE 0x1 Warning - Logging has been stopped automatically.
+C: FORW 0x00 Ok MTE PHYSETTDDCFG: RETURN CODE:0 SUCCEEDED</msg>
+<msg timestamp="20170801 17:10:10.188" level="INFO">[tm500.py@1727] TM500 command to be sent: #$$DISCONNECT</msg>
+<msg timestamp="20170801 17:10:10.188" level="INFO">[tm500.py@1735] TM500 command reply: C: DISCONNECT 0x02 Failure of the command(s):
+		DISCONNECT : Failure. Not connected</msg>
+<msg timestamp="20170801 17:10:10.188" level="INFO">[tm500.py@436] Release TM500 Resource:
+sent -&gt; "release"
+received &lt;- "Bye!"
+Robot Framework remote server at 0.0.0.0:8275 stopping</msg>
+<status status="PASS" endtime="20170801 17:10:10.189" starttime="20170801 17:09:45.134"></status>
+</kw>
+<kw name="Set_Allcells_Attenuation_Off" library="SISO1 Resource">
+<kw type="for" name="${index} IN RANGE [ 1 | 10 ]">
+<kw type="foritem" name="${index} = 1">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:10.191" starttime="20170801 17:10:10.191"></status>
+</kw>
+<msg timestamp="20170801 17:10:10.191" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20170801 17:10:10.191" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20170801 17:10:10.191" starttime="20170801 17:10:10.190"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:10.195" starttime="20170801 17:10:10.192"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20170801 17:10:14.223" level="INFO">$TA,C,03F0*</msg>
+<msg timestamp="20170801 17:10:14.223" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,03F0*', Receive&lt;-'$TA,C,03F0*'</msg>
+<msg timestamp="20170801 17:10:14.223" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,03*', Receive&lt;-'$TA,C,03F0*'
+$TA,C,04F0*</msg>
+<msg timestamp="20170801 17:10:14.223" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,04F0*', Receive&lt;-'$TA,C,04F0*'</msg>
+<msg timestamp="20170801 17:10:14.223" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,04*', Receive&lt;-'$TA,C,04F0*'</msg>
+<status status="PASS" endtime="20170801 17:10:14.223" starttime="20170801 17:10:10.195"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:14.224" starttime="20170801 17:10:10.190"></status>
+</kw>
+<kw type="foritem" name="${index} = 2">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:14.225" starttime="20170801 17:10:14.225"></status>
+</kw>
+<msg timestamp="20170801 17:10:14.225" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20170801 17:10:14.225" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20170801 17:10:14.225" starttime="20170801 17:10:14.224"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:14.229" starttime="20170801 17:10:14.226"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20170801 17:10:18.262" level="INFO">$TA,C,03F0*</msg>
+<msg timestamp="20170801 17:10:18.262" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,03F0*', Receive&lt;-'$TA,C,03F0*'</msg>
+<msg timestamp="20170801 17:10:18.262" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,03*', Receive&lt;-'$TA,C,03F0*'
+$TA,C,04F0*</msg>
+<msg timestamp="20170801 17:10:18.262" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,04F0*', Receive&lt;-'$TA,C,04F0*'</msg>
+<msg timestamp="20170801 17:10:18.262" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,04*', Receive&lt;-'$TA,C,04F0*'</msg>
+<status status="PASS" endtime="20170801 17:10:18.262" starttime="20170801 17:10:14.229"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.262" starttime="20170801 17:10:14.224"></status>
+</kw>
+<kw type="foritem" name="${index} = 3">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<msg timestamp="20170801 17:10:18.273" level="FAIL">Variable ${CELL3_ATT_INFO} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:10:18.273" starttime="20170801 17:10:18.264"></status>
+</kw>
+<msg timestamp="20170801 17:10:18.274" level="INFO">${ret1} = FAIL</msg>
+<msg timestamp="20170801 17:10:18.274" level="INFO">${ret2} = Variable ${CELL3_ATT_INFO} does not exist.</msg>
+<status status="PASS" endtime="20170801 17:10:18.274" starttime="20170801 17:10:18.263"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<msg timestamp="20170801 17:10:18.278" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20170801 17:10:18.278" starttime="20170801 17:10:18.274"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.278" starttime="20170801 17:10:18.263"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.278" starttime="20170801 17:10:10.189"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.278" starttime="20170801 17:10:10.189"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Test Variable</arg>
+<arg>${TM500_Use_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:18.279" starttime="20170801 17:10:18.278"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<msg timestamp="20170801 17:10:18.283" level="INFO">${TM500_Pppoe_Tag} = unused</msg>
+<status status="PASS" endtime="20170801 17:10:18.283" starttime="20170801 17:10:18.279"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.283" starttime="20170801 17:09:45.117"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:18.283" starttime="20170801 17:09:45.117"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<msg timestamp="20170801 17:10:18.291" level="FAIL">Variable ${route_add_cpe_pc} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:10:18.291" starttime="20170801 17:10:18.284"></status>
+</kw>
+<msg timestamp="20170801 17:10:18.291" level="INFO">${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:10:18.291" starttime="20170801 17:10:18.283"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${route_add_cpe_pc}'=='true'</arg>
+<arg>Execute Shell Command</arg>
+<arg>route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:18.295" starttime="20170801 17:10:18.291"></status>
+</kw>
+<kw name="Alarm Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20170801 17:10:28.932" level="ERROR">Infomodel not connected.</msg>
+<msg timestamp="20170801 17:10:29.592" level="INFO">[infomodel_control.py@82] set up infomodel with following info succeed .
+    details: address=192.168.255.1, port=12345, definitions_file_path=None
+++++++++++++++++++++++++++++++++++++++++++
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}</msg>
+<msg timestamp="20170801 17:10:29.592" level="INFO">[infomodel_control.py@100] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20170801 17:10:29.593" starttime="20170801 17:10:18.295"></status>
+</kw>
+<kw name="Fatal Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20170801 17:10:30.417" level="INFO">['fatal'] ['fatal']</msg>
+<status status="PASS" endtime="20170801 17:10:30.418" starttime="20170801 17:10:29.593"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<assign>
+<var>${return1}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<msg timestamp="20170801 17:10:30.420" level="FAIL">'FZFI_Operational_Cell_block_unblock' does not contain 'Fiber'</msg>
+<status status="FAIL" endtime="20170801 17:10:30.420" starttime="20170801 17:10:30.419"></status>
+</kw>
+<msg timestamp="20170801 17:10:30.420" level="INFO">${return1} = ('FAIL', u"'FZFI_Operational_Cell_block_unblock' does not contain 'Fiber'")</msg>
+<status status="PASS" endtime="20170801 17:10:30.420" starttime="20170801 17:10:30.418"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<assign>
+<var>${all_fiber_link}</var>
+</assign>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.427" starttime="20170801 17:10:30.422"></status>
+</kw>
+<msg timestamp="20170801 17:10:30.427" level="INFO">${all_fiber_link} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:10:30.427" starttime="20170801 17:10:30.421"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.431" starttime="20170801 17:10:30.428"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.431" starttime="20170801 17:10:30.428"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Software Reboot Bts</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.432" starttime="20170801 17:10:30.432"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Sleep</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.432" starttime="20170801 17:10:30.432"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>600</arg>
+<arg>192.168.255.1</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.433" starttime="20170801 17:10:30.433"></status>
+</kw>
+<kw name="Common Test Teardown" library="common_resource">
+<doc>[Caution] this keyword step:</doc>
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20170801 17:10:30.434" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20170801 17:10:30.434" starttime="20170801 17:10:30.434"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.439" starttime="20170801 17:10:30.436"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.439" starttime="20170801 17:10:30.435"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.439" starttime="20170801 17:10:30.434"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.443" starttime="20170801 17:10:30.440"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.443" starttime="20170801 17:10:30.440"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.444" starttime="20170801 17:10:30.439"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:30.448" starttime="20170801 17:10:30.445"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.448" starttime="20170801 17:10:30.444"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:30.448" starttime="20170801 17:10:30.444"></status>
+</kw>
+<kw name="Get Active Bts Sw Version" library="tdd_ev_robotws">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<assign>
+<var>${version}</var>
+</assign>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:06:14 CST 2017 from 192.168.255.126 on ssh
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0566CBC0&gt;</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0566CBC0&gt;</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:11:04 CST 2017 from 192.168.255.126 on pts/0
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0566C558&gt;</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18_ENB_9999_170801_065191.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:10:51.711" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0566C558&gt;</msg>
+<msg timestamp="20170801 17:10:51.712" level="INFO">${version} = TL18_ENB_9999_170801_065191</msg>
+<status status="PASS" endtime="20170801 17:10:51.712" starttime="20170801 17:10:30.448"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:51.717" starttime="20170801 17:10:51.713"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.717" starttime="20170801 17:10:51.713"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.717" starttime="20170801 17:10:51.712"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:10:51.722" starttime="20170801 17:10:51.719"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.722" starttime="20170801 17:10:51.718"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.722" starttime="20170801 17:10:51.718"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.722" starttime="20170801 17:10:30.433"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:10:51.723" starttime="20170801 17:09:43.934"></status>
+</kw>
+<tags>
+<tag>owner-jiaqi.jin@nokia.com</tag>
+<tag>QC_464834</tag>
+</tags>
+<status status="FAIL" endtime="20170801 17:10:51.723" critical="yes" starttime="20170801 17:06:08.046">TM500 return message does NOT contain "Ok"! ("Ok" is case insensitive)</status>
+</test>
+<doc>TD-LTE I&amp;V SISO1</doc>
+<status status="FAIL" endtime="20170801 17:10:51.745" starttime="20170801 17:04:42.245"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">owner-jiaqi.jin@nokia.com</stat>
+<stat fail="1" pass="0">QC_464834</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="FZFI Operational Cell block unblock" pass="0">FZFI Operational Cell block unblock</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170801 17:04:42.839" level="ERROR">Loading tdd_config has failed. Please check if: 
+       1. you executed pybot with --variable CONFIGURATION:$your_tl_config 
+          i.e. pybot --variable CONFIGURATION:Wroclaw.test 
+       2. check if there is no problem with your configuration 
+       Error msg: Variable ${CONFIGURATION} does not exist.
+</msg>
+<msg timestamp="20170801 17:10:28.932" level="ERROR">Infomodel not connected.</msg>
+</errors>
+</robot>

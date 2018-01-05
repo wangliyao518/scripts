@@ -1,0 +1,2300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171107 21:16:27.164" generator="Rebot 3.0 (Python 2.7.5 on win32)">
+<suite source="D:\TA\Test_Case_Svn\TL17A\SISO1\CPRI_Single_FZHR\FZHR_Operational_Cell_block_unblock\FZHR_Operational_Cell_block_unblock.html" id="s1" name="FZHR Operational Cell block unblock">
+<kw type="setup" name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as D:\TA\TA_logs\TestLog_20171107200128//logs//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171107 21:04:21.661" level="INFO">${timestamp} = 20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.614"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20171107 21:04:21.661" level="INFO">${FILE_NAME} = FZHR Operational Cell block unblock</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171107 21:04:21.661" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR Operational Cell block unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171107 21:04:21.661" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.661" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.661" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421"&gt;D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.661" level="INFO">save log dir:D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.661" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.676" level="INFO">${snapshot_flag} = 0</msg>
+<status status="PASS" endtime="20171107 21:04:21.676" starttime="20171107 21:04:21.661"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.692" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<status status="FAIL" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.676"></status>
+</kw>
+<msg timestamp="20171107 21:04:21.692" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.676"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.692"></status>
+</kw>
+<msg timestamp="20171107 21:04:21.692" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.692"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.692"></status>
+</kw>
+<msg timestamp="20171107 21:04:21.692" level="INFO">${log dir} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.692" starttime="20171107 21:04:21.692"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171107 21:04:21.707" level="INFO">${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421</msg>
+<status status="PASS" endtime="20171107 21:04:21.707" starttime="20171107 21:04:21.692"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:04:21.707" starttime="20171107 21:04:21.676"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<kw name="Ping Should Ok" library="tdd_ev_robotws">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20171107 21:04:21.739" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms</msg>
+<msg timestamp="20171107 21:04:21.739" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.707"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.739"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.739"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.739"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.739"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.707"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:04:21.739" starttime="20171107 21:04:21.707"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<kw name="Get Enb Infomation" library="tdd_ev_robotws">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20171107 21:05:16.526" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171107 21:05:16.557" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171107 21:05:27.711" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171107 21:05:27.774" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171107 21:05:28.304" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171107 21:05:28.351" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:04:16 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054340A8&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054340A8&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:04:35 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05447558&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL17A_ENB_0000_000506_000000.xml
+root@fctj-0a:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05447558&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:04:46 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514670&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514670&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:04:57 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514788&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL17A_ENB_0000_000506_000000.xml
+root@fctj-0a:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514788&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1238] 
+ ****Current BTS version is 'TL17A_ENB_0000_000506_000000' *****</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1268] activeBuildVersion=TL17A_ENB_0000_000506_000000</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:05:08 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514B20&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+/ram/SiteConf.xml
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514B20&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@176] /ram/SiteConf.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@79] sftp download from '/ram/SiteConf.xml' to 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\SiteConf.xml' is ok. local file size is 21k</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:05:29 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054450A8&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054450A8&gt;</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@500] The real falsh folder is /ffs/fs1</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@176] /ffs/fs1/FileDirectory.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/FileDirectory.xml' to 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FileDirectory_20171107210516.xml' is ok. local file size is 36k</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@176] /ffs/fs1/config/SCFC_176.xml</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/config/SCFC_176.xml' to 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\SCFC_176.xml' is ok. local file size is 99k</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1238] 
+ ****Current bbu type is 'ASIA' *****</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1363] HW_BBU_TYPE=ASIA</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1238] 
+ ****Current rru type is '' *****</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1366] HW_RRU_TYPE=</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1238] 
+ ****Current HW type is 'null' *****</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[enb_resource.py@1369] BTS_HW_TYPE=null</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ping_control.py@189] 
+Pinging 192.168.200.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.200.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:05:56.056" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.20 with 32 bytes of data:
+Reply from 192.168.255.126: Destination host unreachable.
+
+Ping statistics for 192.168.255.20:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),</msg>
+<status status="PASS" endtime="20171107 21:05:56.056" starttime="20171107 21:04:21.739"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:56.056" starttime="20171107 21:04:21.739"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>tdd_ev_robotws</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:05:56.056" starttime="20171107 21:05:56.056"></status>
+</kw>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171107 21:05:56.056" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20171107 21:05:56.056" starttime="20171107 21:05:56.056"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20171107 21:05:56.056" level="INFO">${conn_port} = 23</msg>
+<status status="PASS" endtime="20171107 21:05:56.056" starttime="20171107 21:05:56.056"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20171107 21:05:56.072" level="INFO">${conn_type} = TELNET</msg>
+<status status="PASS" endtime="20171107 21:05:56.072" starttime="20171107 21:05:56.056"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20171107 21:05:56.072" level="INFO">${timeout} = 30</msg>
+<status status="PASS" endtime="20171107 21:05:56.072" starttime="20171107 21:05:56.072"></status>
+</kw>
+<kw name="Connect To Host" library="tdd_ev_robotws">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>${BTS_PC_INFO.IP}</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20171107 21:05:57.538" level="INFO">[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service 
+
+
+login:</msg>
+<msg timestamp="20171107 21:05:57.538" level="INFO">[telnet_common.py@276] Execute command: tdlte-tester</msg>
+<msg timestamp="20171107 21:05:57.538" level="INFO">[telnet_common.py@306] Get Response:  tdlte-tester
+
+password:</msg>
+<msg timestamp="20171107 21:05:57.538" level="INFO">[telnet_common.py@276] Execute command: btstest</msg>
+<msg timestamp="20171107 21:05:57.538" level="INFO">[telnet_common.py@246]  
+
+*===============================================================
+Microsoft Telnet Server.
+*===============================================================
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20171107 21:05:57.538" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<status status="PASS" endtime="20171107 21:05:57.538" starttime="20171107 21:05:56.072"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:57.538" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<status status="PASS" endtime="20171107 21:05:57.538" starttime="20171107 21:05:57.538"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<kw name="Execute Shell Command" library="tdd_ev_robotws">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.771" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<msg timestamp="20171107 21:05:58.771" level="INFO">[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no</msg>
+<msg timestamp="20171107 21:05:58.771" level="INFO">[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+The settings were successfully updated.
+
+C:\Users\tdlte-tester&gt;</msg>
+<status status="PASS" endtime="20171107 21:05:58.771" starttime="20171107 21:05:57.538"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:58.771" starttime="20171107 21:05:57.538"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:58.771" starttime="20171107 21:05:56.056"></status>
+</kw>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.786" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;.</msg>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:05:58.771"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:04:21.614"></status>
+</kw>
+<kw type="teardown" name="Common Suite Teardown" library="common_resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:22.780" starttime="20171107 21:16:22.780"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="tdd_ev_robotws">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20171107 21:16:22.796" level="INFO">[telnet_common.py@188]</msg>
+<msg timestamp="20171107 21:16:22.796" level="INFO">[telnet_common.py@189] Disconnect from 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<status status="PASS" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.780"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<assign>
+<var>${para_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<msg timestamp="20171107 21:16:22.796" level="FAIL">Variable ${zip_pass_log} does not exist.</msg>
+<status status="FAIL" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.796"></status>
+</kw>
+<msg timestamp="20171107 21:16:22.796" level="INFO">${para_exist} = ('FAIL', u'Variable ${zip_pass_log} does not exist.')</msg>
+<status status="PASS" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.796"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS' == '${para_exist[0]}'</arg>
+<arg>${zip_pass_log}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${zip_log}</var>
+</assign>
+<msg timestamp="20171107 21:16:22.796" level="INFO">${zip_log} = True</msg>
+<status status="PASS" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.796"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+<var>${value}</var>
+</assign>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.796"></status>
+</kw>
+<msg timestamp="20171107 21:16:22.796" level="INFO">${status} = PASS</msg>
+<msg timestamp="20171107 21:16:22.796" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20171107 21:16:22.796" starttime="20171107 21:16:22.796"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:22.811" starttime="20171107 21:16:22.811"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.811" starttime="20171107 21:16:22.796"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.811" starttime="20171107 21:16:22.780"></status>
+</kw>
+<test id="s1-t1" name="FZHR_Operational_Cell_block_unblock">
+<kw type="setup" name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as D:\TA\TA_logs\TestLog_20171107200128//ev_logs//D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171107 21:05:58.786" level="INFO">${timestamp} = 20171107210558</msg>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171107 21:05:58.786" level="INFO">${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171107 21:05:58.786" level="INFO">${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.786" level="INFO">${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.786" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.802" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock"&gt;D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.802" level="INFO">save log dir:D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<msg timestamp="20171107 21:05:58.802" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<msg timestamp="20171107 21:05:58.802" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20171107 21:05:58.802" level="INFO">${log dir} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.802" level="INFO">${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock</msg>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.802"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:05:58.802" starttime="20171107 21:05:58.786"></status>
+</kw>
+<kw name="BTS_On_Air" library="SISO1 Resource">
+<arguments>
+<arg>${source_scf}</arg>
+<arg>${parameter_list}</arg>
+</arguments>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171107 21:05:58.818" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;.</msg>
+<status status="PASS" endtime="20171107 21:05:58.818" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Parse Ping Result" library="tdd_ev_robotws">
+<doc>This keyword test the reachability of remote system.</doc>
+<arguments>
+<arg>192.168.255.1</arg>
+</arguments>
+<assign>
+<var>${package_summary}</var>
+<var>${ping_delay}</var>
+</assign>
+<msg timestamp="20171107 21:06:03.061" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<msg timestamp="20171107 21:06:03.061" level="INFO">[telnet_common.py@276] Execute command: ping  192.168.255.1</msg>
+<msg timestamp="20171107 21:06:03.061" level="INFO">[telnet_common.py@306] Get Response: ping  192.168.255.1
+
+Pinging 192.168.255.1 with 32 bytes of data:
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\tdlte-tester&gt;
+Total ping delay is: [1, 1, 1, 1]
+Statistic ping delay is: [1, 1, 1, 1]
+Valid ping delay is: [1, 1, 1, 1]</msg>
+<msg timestamp="20171107 21:06:03.061" level="INFO">${package_summary} = ('4', '4', '0')</msg>
+<msg timestamp="20171107 21:06:03.061" level="INFO">${ping_delay} = [1, 1, 1.0]</msg>
+<status status="PASS" endtime="20171107 21:06:03.061" starttime="20171107 21:05:58.818"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${package_summary[2]}&gt;2</arg>
+<arg>Restart Device With Powerbreaker</arg>
+<arg>${bts_powerbreak}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:06:03.061" starttime="20171107 21:06:03.061"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${package_summary[2]}&gt;2</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>600</arg>
+<arg>192.168.255.1</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:06:03.076" starttime="20171107 21:06:03.061"></status>
+</kw>
+<kw name="Modify And Upload Scf File" library="tdd_ev_robotws">
+<doc>modify source_scf according parameter list and then upload to enb.</doc>
+<arguments>
+<arg>${source_scf}</arg>
+<arg>${parameters_list}</arg>
+</arguments>
+<msg timestamp="20171107 21:06:56.647" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171107 21:06:56.678" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171107 21:07:07.832" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171107 21:07:08.238" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:05:41 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05518FD0&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05518FD0&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:06:16 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05518F08&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL17A_ENB_0000_000506_000000.xml
+root@fctj-0a:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05518F08&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_resource.py@457] enable ssh and rdport failed.</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:06:27 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528B20&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528B20&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:06:37 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528378&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL17A_ENB_0000_000506_000000.xml
+root@fctj-0a:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528378&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:06:48 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528378&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05528378&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_resource.py@500] The real falsh folder is /ffs/fs1</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@176] /ffs/fs1/FileDirectory.xml</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/FileDirectory.xml' to 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\FileDirectory_20171107210645.xml' is ok. local file size is 36k</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.129</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:07:09 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514940&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@258] Execute command: rm -rf /ffs/fs1/config/hwf.bin.gz</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@314] Get Response: rm -rf /ffs/fs1/config/hwf.bin.gz
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05514940&gt;</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@61] sftp upload from 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\scf_modified.xml' to '/ffs/fs1/config/SCFC_176.xml' is ok.</msg>
+<msg timestamp="20171107 21:07:08.253" level="INFO">[sftp_control.py@176] /ffs/fs1/config/SCFC_176.xml</msg>
+<status status="PASS" endtime="20171107 21:07:08.253" starttime="20171107 21:06:03.076"></status>
+</kw>
+<kw name="Restart Bts Until Onair" library="tdd_ev_robotws">
+<doc>restart bts with powerbreaker and then wait until it is onair.</doc>
+<arguments>
+<arg>bts_powerbreak_port=${bts_powerbreak}</arg>
+</arguments>
+<msg timestamp="20171107 21:13:14.048" level="INFO">Exit code: 1</msg>
+<msg timestamp="20171107 21:13:14.048" level="INFO">STDOUT
+</msg>
+<msg timestamp="20171107 21:13:14.048" level="INFO">STDERR
+Started InfoModel server PYRO:TA_infomodel_server@localhost:41975
+</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[tools_resource.py@34] start power off ..</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@121] Connect to Facom succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[base.py@48] trial power off for 0 times</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@60] Power off port 3 succeed!</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@121] Connect to Facom succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[base.py@48] trial power off for 0 times</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@60] Power off port 6 succeed!</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[tools_resource.py@37] start power on ..</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@121] Connect to Facom succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[base.py@36] trial power on for 0 times</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@83] Power on port 3 succeed!</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@121] Connect to Facom succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[base.py@36] trial power on for 0 times</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[facom.py@83] Power on port 6 succeed!</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[tools_resource.py@39] restart port '['FACOM:10.56.7.128:3', 'FACOM:10.56.7.128:6']' with powerbreak succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[btslog_control.py@118] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[btslog_control.py@175] use ip is 192.168.255.126</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[file_common.py@209] Directory "D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock" already exists, no need to create it again.</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[ping_control.py@189] 
+Pinging 192.168.255.1 with 32 bytes of data:
+Reply from 192.168.255.1: bytes=32 time&lt;1ms TTL=255
+
+Ping statistics for 192.168.255.1:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@156] set up infomodel with following info succeed .
+    details: address=192.168.255.129, port=12345, definitions_file_path=None
+             ftp_username=toor4nsn,ftp_password=oZPS0POrRieRtu</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@160] start infomodel succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@162] start infomodel logger succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'UploadOngoing', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'UploadOngoing', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'UploadOngoing', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'commissioned', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@214] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@185] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Online'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@326] query infomodel: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@202] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+, it will sleep and try again</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@326] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@326] query infomodel: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]' succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@228] infomodel check every cell onair succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[enb_resource.py@350] bts log check onair msg succeed !</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@213] save infomodel log to file: 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\im_20171107211313' succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@185] stop infomodel logger succeed .</msg>
+<msg timestamp="20171107 21:13:14.064" level="INFO">[infomodel_control.py@197] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171107 21:13:14.064" starttime="20171107 21:07:08.253"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:13:14.064" starttime="20171107 21:05:58.802"></status>
+</kw>
+<kw name="Start_Udp_And_Infomodel_Log" library="SISO1 Resource">
+<kw name="Start Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}.log</arg>
+</arguments>
+<msg timestamp="20171107 21:13:14.500" level="INFO">[btslog_control.py@118] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<msg timestamp="20171107 21:13:14.500" level="INFO">[file_common.py@209] Directory "D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20171107 21:13:14.500" starttime="20171107 21:13:14.064"></status>
+</kw>
+<kw name="Start Infomodel" library="tdd_ev_robotws">
+<doc>Setup InfoModel library and Connect to InfoModel.</doc>
+<arguments>
+<arg>port=${BTS_INFOMODEL_PORT}</arg>
+</arguments>
+<msg timestamp="20171107 21:13:23.239" level="INFO">[infomodel_control.py@156] set up infomodel with following info succeed .
+    details: address=192.168.255.129, port=12345, definitions_file_path=None
+             ftp_username=toor4nsn,ftp_password=oZPS0POrRieRtu</msg>
+<msg timestamp="20171107 21:13:23.239" level="INFO">[infomodel_control.py@160] start infomodel succeed .</msg>
+<msg timestamp="20171107 21:13:23.239" level="INFO">[infomodel_control.py@162] start infomodel logger succeed .</msg>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:14.500"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<msg timestamp="20171107 21:13:23.239" level="INFO">${case_execute_log_name} = owner_debug</msg>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:23.239"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:14.064"></status>
+</kw>
+<kw name="UE_Reboot_SISO1" library="SISO1 Resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${UE_TYPE}'=='CPE'</arg>
+<arg>Ue Software Reboot</arg>
+<arg>${UE1_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:23.239"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${UE_TYPE}'=='CPE'</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${UE1_INFO.ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:23.239"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:13:23.239" starttime="20171107 21:13:23.239"></status>
+</kw>
+<kw type="for" name="${num} IN RANGE [ ${total_times} ]">
+<kw type="foritem" name="${num} = 0">
+<kw name="_Cell_Block_Unblock_and_Attach">
+<doc>Operation with BTS</doc>
+<arguments>
+<arg>${cell_index_1}</arg>
+<arg>${cell_index_2}</arg>
+</arguments>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171107 21:13:23.255" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;.</msg>
+<status status="PASS" endtime="20171107 21:13:23.255" starttime="20171107 21:13:23.239"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="tdd_ev_robotws">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\SISO1-632\ROOT\CIMV2:Win32_Process.Handle="6976"
+
+Instance deletion successful.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\SISO1-632\ROOT\CIMV2:Win32_Process.Handle="8128"
+
+Instance deletion successful.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171107 21:13:27.717" level="INFO">[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\tdlte-tester&gt;</msg>
+<status status="PASS" endtime="20171107 21:13:27.717" starttime="20171107 21:13:23.255"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:13:27.732" starttime="20171107 21:13:27.732"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:13:27.732" starttime="20171107 21:13:27.732"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171107 21:13:27.732" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\TA\\TA_logs\\TestLog_20171107200128\\ev_logs\\FZHR_Operational_Cell_block_unblock_20171107210421\\FZHR_Operational_Cell_...</msg>
+<status status="PASS" endtime="20171107 21:13:27.732" starttime="20171107 21:13:27.732"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:13:27.732" starttime="20171107 21:13:27.732"></status>
+</kw>
+<kw name="Run Qtp" library="tdd_ev_robotws">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171107 21:14:30.722" level="INFO">&lt;QTP&gt; Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\GUILog\qtp_log20171107211327\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171107 21:14:30.722" starttime="20171107 21:13:27.732"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:14:30.722" starttime="20171107 21:13:27.717"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>30 sec</arg>
+</arguments>
+<msg timestamp="20171107 21:15:00.737" level="INFO">Slept 30 seconds</msg>
+<status status="PASS" endtime="20171107 21:15:00.737" starttime="20171107 21:14:30.722"></status>
+</kw>
+<kw name="GUI SM HW Action" library="gui_resource">
+<doc>this keyword is used for most HW operation,such as block,unblock,reset</doc>
+<arguments>
+<arg>CELL</arg>
+<arg>${block_cell_index}</arg>
+<arg>Block</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>HWType=${HWType}</arg>
+<arg>HWID=${HWID}</arg>
+<arg>HWAction=${HWAction}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171107 21:15:00.737" level="INFO">${para_list} = [u'HWType=CELL', u'HWID=1', u'HWAction=Block', u'LogPath=D:\\TA\\TA_logs\\TestLog_20171107200128\\ev_logs\\FZHR_Operational_Cell_block_unblock_20171107210421\\FZHR_Operational_Cell_block_unblock\\']</msg>
+<status status="PASS" endtime="20171107 21:15:00.737" starttime="20171107 21:15:00.737"></status>
+</kw>
+<kw name="Run Qtp" library="tdd_ev_robotws">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}HW_Action</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171107 21:15:30.033" level="INFO">&lt;QTP&gt; Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+HWType="CELL"
+HWID="1"
+HWAction="Block"
+LogPath="D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\"
+&lt;QTP&gt; Save log to D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\GUILog\qtp_log20171107211500\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171107 21:15:30.033" starttime="20171107 21:15:00.737"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:30.033" starttime="20171107 21:15:00.737"></status>
+</kw>
+<kw name="UE_Attach_SISO1" library="SISO1 Resource">
+<doc>Example</doc>
+<arguments>
+<arg>${attach_cell_index}</arg>
+</arguments>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${cell_id}</arg>
+<arg>:</arg>
+</arguments>
+<assign>
+<var>@{cell_list}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.033" level="INFO">@{cell_list} = [ 2 ]</msg>
+<status status="PASS" endtime="20171107 21:15:30.033" starttime="20171107 21:15:30.033"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${cell_list}</arg>
+</arguments>
+<assign>
+<var>${cell_list_length}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.033" level="INFO">Length is 1</msg>
+<msg timestamp="20171107 21:15:30.033" level="INFO">${cell_list_length} = 1</msg>
+<status status="PASS" endtime="20171107 21:15:30.033" starttime="20171107 21:15:30.033"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${attach_earfcn}'!=''</arg>
+<arg>Split String</arg>
+<arg>${attach_earfcn}</arg>
+<arg>:</arg>
+</arguments>
+<assign>
+<var>${earfcn_list1}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.049" level="INFO">${earfcn_list1} = None</msg>
+<status status="PASS" endtime="20171107 21:15:30.049" starttime="20171107 21:15:30.033"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${attach_earfcn}'!=''</arg>
+<arg>Change_Earfcn_To_Freqency</arg>
+<arg>${earfcn_list1}</arg>
+</arguments>
+<assign>
+<var>${freqency_list1}</var>
+<var>${band_list1}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.049" level="INFO">${freqency_list1} = None</msg>
+<msg timestamp="20171107 21:15:30.049" level="INFO">${band_list1} = None</msg>
+<status status="PASS" endtime="20171107 21:15:30.049" starttime="20171107 21:15:30.049"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>'${attach_earfcn}'!=''</arg>
+<arg>Get_Earfcn_From_Infomodel</arg>
+</arguments>
+<assign>
+<var>${earfcn_list2}</var>
+<var>${freqency_list2}</var>
+<var>${band_list2}</var>
+</assign>
+<kw name="Get_Earfcn_From_Infomodel" library="SISO1 Resource">
+<kw name="Query Infomodel" library="tdd_ev_robotws">
+<doc>Query InfoModel with some `query`. Keyword will wait for successful result some `timeout` time or fail.</doc>
+<arguments>
+<arg>get list /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-*/LNCEL_M-*</arg>
+</arguments>
+<assign>
+<var>@{ret_earfcn}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.267" level="INFO">[infomodel_control.py@326] query infomodel: 'get list /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-*/LNCEL_M-*' succeed .</msg>
+<msg timestamp="20171107 21:15:30.267" level="INFO">@{ret_earfcn} = [ InfoModelObject /MRBTS-1/RAT-1/MCTRL-4/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-3/LNCEL_M-6514: {u'ulChBw': u'20MHz', u'dlChBw': u'20MHz', 'dist_name': u'/MRBTS-1/RAT-1/MCTRL-4/BBTOP_M-1/MRBTS_M-1/LNBTS...</msg>
+<status status="PASS" endtime="20171107 21:15:30.267" starttime="20171107 21:15:30.049"></status>
+</kw>
+<kw name="Sort List" library="Collections">
+<doc>Sorts the given list in place.</doc>
+<arguments>
+<arg>${ret_earfcn}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:30.267" starttime="20171107 21:15:30.267"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${earfcn_list}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.267" level="INFO">${earfcn_list} = []</msg>
+<status status="PASS" endtime="20171107 21:15:30.267" starttime="20171107 21:15:30.267"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${freqency_list}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.267" level="INFO">${freqency_list} = []</msg>
+<status status="PASS" endtime="20171107 21:15:30.267" starttime="20171107 21:15:30.267"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${band_list}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.267" level="INFO">${band_list} = []</msg>
+<status status="PASS" endtime="20171107 21:15:30.267" starttime="20171107 21:15:30.267"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>@{BAND_OFFSET}</arg>
+</arguments>
+<assign>
+<var>${offset_dict}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.283" level="WARN">Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.</msg>
+<msg timestamp="20171107 21:15:30.283" level="INFO">${offset_dict} = {u'38': u'1205', u'40': u'1565', u'39': u'1945', u'41': u'1469', u'42': u'759', u'43': u'759', u'37': u'1845', u'36': u'1765', u'35': u'1785', u'34': u'1610', u'33': u'1700'}</msg>
+<status status="PASS" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.267"></status>
+</kw>
+<kw type="for" name="${index} IN [ @{ret_earfcn} ]">
+<kw type="foritem" name="${index} = InfoModelObject /MRBTS-1/RAT-1/MCTRL-1/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-1/LNCEL_M-1: {u'ulChBw': u'10MHz', u'dlChBw': u'10MHz', 'dist_name': u'/MRBTS-1/RAT-1/MCTRL-1/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/...">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${index.earfcnDl}</arg>
+</arguments>
+<assign>
+<var>${index.earfcn}</var>
+</assign>
+<msg timestamp="20171107 21:15:30.283" level="FAIL">Resolving variable '${index.earfcnDl}' failed: KeyError: 'earfcnDl'</msg>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.283"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.283"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.283"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.049"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.049"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.033"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:13:23.239"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:13:23.239"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:30.283" starttime="20171107 21:13:23.239"></status>
+</kw>
+<kw type="teardown" name="Test_Tear_Down_Action" library="SISO1 Resource">
+<doc>Action when case finishs</doc>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:30.283" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0552A198&gt;.</msg>
+<status status="PASS" endtime="20171107 21:15:30.283" starttime="20171107 21:15:30.283"></status>
+</kw>
+<kw name="Kill Qtp Process" library="tdd_ev_robotws">
+<doc>This keyword is used to kill the processes related to QTP application.</doc>
+<msg timestamp="20171107 21:15:31.047" level="INFO">Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<status status="PASS" endtime="20171107 21:15:31.063" starttime="20171107 21:15:30.283"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20171107 21:15:31.079" starttime="20171107 21:15:31.063"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.079" starttime="20171107 21:15:31.079"></status>
+</kw>
+<msg timestamp="20171107 21:15:31.079" level="INFO">${return} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171107 21:15:31.079" starttime="20171107 21:15:31.079"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<kw name="Save Infomodel Log" library="tdd_ev_robotws">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:31.094" level="INFO">[infomodel_control.py@213] save infomodel log to file: 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\owner_debug' succeed .</msg>
+<status status="PASS" endtime="20171107 21:15:31.094" starttime="20171107 21:15:31.079"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:31.094" starttime="20171107 21:15:31.079"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:31.094" starttime="20171107 21:15:31.079"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Stop Infomodel" library="tdd_ev_robotws">
+<doc>Disconnect from InfoModel and teardown InfoModel. Keyword will</doc>
+<msg timestamp="20171107 21:15:31.375" level="INFO">Exit code: 1</msg>
+<msg timestamp="20171107 21:15:31.375" level="INFO">STDOUT
+</msg>
+<msg timestamp="20171107 21:15:31.375" level="INFO">STDERR
+Started InfoModel server PYRO:default_infomodel_server@localhost:36801
+</msg>
+<msg timestamp="20171107 21:15:31.375" level="INFO">[infomodel_control.py@185] stop infomodel logger succeed .</msg>
+<msg timestamp="20171107 21:15:31.375" level="INFO">[infomodel_control.py@197] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171107 21:15:31.375" starttime="20171107 21:15:31.094"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:31.375" starttime="20171107 21:15:31.094"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:31.375" starttime="20171107 21:15:31.094"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Release_TM500_And_Colse_PA_Port</arg>
+</arguments>
+<kw name="Release_TM500_And_Colse_PA_Port" library="SISO1 Resource">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>${return}</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Use_Tag}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.375" starttime="20171107 21:15:31.375"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Use_Tag}'=='used'</arg>
+<arg>Set Attenuators Off</arg>
+<arg>${ATT_ALL_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.375" starttime="20171107 21:15:31.375"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:31.391" level="FAIL">Variable ${TM500_Pppoe_Tag} does not exist.</msg>
+<status status="FAIL" endtime="20171107 21:15:31.391" starttime="20171107 21:15:31.375"></status>
+</kw>
+<msg timestamp="20171107 21:15:31.391" level="INFO">${return} = ('FAIL', u'Variable ${TM500_Pppoe_Tag} does not exist.')</msg>
+<status status="PASS" endtime="20171107 21:15:31.391" starttime="20171107 21:15:31.375"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Switch Host Connection</arg>
+<arg>${TM500_PC_CONNECTION}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.391" starttime="20171107 21:15:31.391"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Tm500 Stop Pppoe Connection</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.391" starttime="20171107 21:15:31.391"></status>
+</kw>
+<kw name="Tm500 Teardown" library="tdd_ev_robotws">
+<doc>tm500 teardown.</doc>
+<msg timestamp="20171107 21:15:31.391" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<status status="FAIL" endtime="20171107 21:15:31.391" starttime="20171107 21:15:31.391"></status>
+</kw>
+<kw name="Set_Allcells_Attenuation_Off" library="SISO1 Resource">
+<kw type="for" name="${index} IN RANGE [ 1 | 10 ]">
+<kw type="foritem" name="${index} = 1">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.406" starttime="20171107 21:15:31.406"></status>
+</kw>
+<msg timestamp="20171107 21:15:31.406" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20171107 21:15:31.406" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20171107 21:15:31.406" starttime="20171107 21:15:31.406"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:31.406" starttime="20171107 21:15:31.406"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20171107 21:15:35.478" level="INFO">$TA,C,02F0*</msg>
+<msg timestamp="20171107 21:15:35.478" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,02F0*', Receive&lt;-'$TA,C,02F0*'</msg>
+<msg timestamp="20171107 21:15:35.478" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,02*', Receive&lt;-'$TA,C,02F0*'
+$TA,C,06F0*</msg>
+<msg timestamp="20171107 21:15:35.478" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,06F0*', Receive&lt;-'$TA,C,06F0*'</msg>
+<msg timestamp="20171107 21:15:35.478" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,06*', Receive&lt;-'$TA,C,06F0*'</msg>
+<status status="PASS" endtime="20171107 21:15:35.478" starttime="20171107 21:15:31.406"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:35.478" starttime="20171107 21:15:31.391"></status>
+</kw>
+<kw type="foritem" name="${index} = 2">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:35.493" starttime="20171107 21:15:35.493"></status>
+</kw>
+<msg timestamp="20171107 21:15:35.493" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20171107 21:15:35.493" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20171107 21:15:35.493" starttime="20171107 21:15:35.478"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:35.493" starttime="20171107 21:15:35.493"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20171107 21:15:39.565" level="INFO">$TA,C,02F0*</msg>
+<msg timestamp="20171107 21:15:39.565" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,02F0*', Receive&lt;-'$TA,C,02F0*'</msg>
+<msg timestamp="20171107 21:15:39.565" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,02*', Receive&lt;-'$TA,C,02F0*'
+$TA,C,06F0*</msg>
+<msg timestamp="20171107 21:15:39.565" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,06F0*', Receive&lt;-'$TA,C,06F0*'</msg>
+<msg timestamp="20171107 21:15:39.565" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,06*', Receive&lt;-'$TA,C,06F0*'</msg>
+<status status="PASS" endtime="20171107 21:15:39.565" starttime="20171107 21:15:35.493"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:39.565" starttime="20171107 21:15:35.478"></status>
+</kw>
+<kw type="foritem" name="${index} = 3">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:39.581" starttime="20171107 21:15:39.581"></status>
+</kw>
+<msg timestamp="20171107 21:15:39.581" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20171107 21:15:39.581" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20171107 21:15:39.581" starttime="20171107 21:15:39.565"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:39.581" starttime="20171107 21:15:39.581"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20171107 21:15:43.637" level="INFO">$TA,C,02F0*</msg>
+<msg timestamp="20171107 21:15:43.637" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,02F0*', Receive&lt;-'$TA,C,02F0*'</msg>
+<msg timestamp="20171107 21:15:43.637" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,02*', Receive&lt;-'$TA,C,02F0*'
+$TA,C,06F0*</msg>
+<msg timestamp="20171107 21:15:43.637" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,06F0*', Receive&lt;-'$TA,C,06F0*'</msg>
+<msg timestamp="20171107 21:15:43.637" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,06*', Receive&lt;-'$TA,C,06F0*'</msg>
+<status status="PASS" endtime="20171107 21:15:43.637" starttime="20171107 21:15:39.581"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:43.637" starttime="20171107 21:15:39.565"></status>
+</kw>
+<kw type="foritem" name="${index} = 4">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:43.652" level="FAIL">Variable ${CELL4_ATT_INFO} does not exist.</msg>
+<status status="FAIL" endtime="20171107 21:15:43.652" starttime="20171107 21:15:43.652"></status>
+</kw>
+<msg timestamp="20171107 21:15:43.652" level="INFO">${ret1} = FAIL</msg>
+<msg timestamp="20171107 21:15:43.652" level="INFO">${ret2} = Variable ${CELL4_ATT_INFO} does not exist.</msg>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:43.652"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<msg timestamp="20171107 21:15:43.652" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:43.652"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:43.652"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:31.391"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:31.391"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Test Variable</arg>
+<arg>${TM500_Use_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:43.652" starttime="20171107 21:15:43.652"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<msg timestamp="20171107 21:15:43.668" level="INFO">${TM500_Pppoe_Tag} = unused</msg>
+<status status="PASS" endtime="20171107 21:15:43.668" starttime="20171107 21:15:43.652"></status>
+</kw>
+<status status="FAIL" endtime="20171107 21:15:43.668" starttime="20171107 21:15:31.375"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:15:43.668" starttime="20171107 21:15:31.375"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:43.668" level="FAIL">Variable ${route_add_cpe_pc} does not exist.</msg>
+<status status="FAIL" endtime="20171107 21:15:43.668" starttime="20171107 21:15:43.668"></status>
+</kw>
+<msg timestamp="20171107 21:15:43.668" level="INFO">${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')</msg>
+<status status="PASS" endtime="20171107 21:15:43.668" starttime="20171107 21:15:43.668"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${route_add_cpe_pc}'=='true'</arg>
+<arg>Execute Shell Command</arg>
+<arg>route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:15:43.668" starttime="20171107 21:15:43.668"></status>
+</kw>
+<kw name="Alarm Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20171107 21:15:58.413" level="INFO">Exit code: 1</msg>
+<msg timestamp="20171107 21:15:58.413" level="INFO">STDOUT
+</msg>
+<msg timestamp="20171107 21:15:58.413" level="INFO">STDERR
+Started InfoModel server PYRO:default_infomodel_server@localhost:41610
+</msg>
+<msg timestamp="20171107 21:15:59.021" level="INFO">[infomodel_control.py@82] set up infomodel with following info succeed .
+    details: address=192.168.255.1, port=12345, definitions_file_path=None
+++++++++++++++++++++++++++++++++++++++++++
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}
+++++++++++++++++++++++++++++++++++++++++++
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}</msg>
+<msg timestamp="20171107 21:15:59.021" level="INFO">[infomodel_control.py@100] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171107 21:15:59.037" starttime="20171107 21:15:43.668"></status>
+</kw>
+<kw name="Fatal Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20171107 21:16:01.502" level="INFO">['fatal'] ['fatal']</msg>
+<msg timestamp="20171107 21:16:01.502" level="INFO">[file_control.py@109] *HTML*&lt;a href = "D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\udplog_20171107210713.log"&gt;fail log&lt;/a&gt;
+Find '['fatal']' in 'D:\TA\TA_logs\TestLog_20171107200128\ev_logs\FZHR_Operational_Cell_block_unblock_20171107210421\FZHR_Operational_Cell_block_unblock\udplog_20171107210713.log'
+write successfully</msg>
+<status status="PASS" endtime="20171107 21:16:01.502" starttime="20171107 21:15:59.037"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<assign>
+<var>${return1}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<msg timestamp="20171107 21:16:01.502" level="FAIL">'FZHR_Operational_Cell_block_unblock' does not contain 'Fiber'</msg>
+<status status="FAIL" endtime="20171107 21:16:01.502" starttime="20171107 21:16:01.502"></status>
+</kw>
+<msg timestamp="20171107 21:16:01.502" level="INFO">${return1} = ('FAIL', u"'FZHR_Operational_Cell_block_unblock' does not contain 'Fiber'")</msg>
+<status status="PASS" endtime="20171107 21:16:01.502" starttime="20171107 21:16:01.502"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<assign>
+<var>${all_fiber_link}</var>
+</assign>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.502" starttime="20171107 21:16:01.502"></status>
+</kw>
+<msg timestamp="20171107 21:16:01.502" level="INFO">${all_fiber_link} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171107 21:16:01.502" starttime="20171107 21:16:01.502"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.502"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.502"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Software Reboot Bts</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Sleep</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>600</arg>
+<arg>192.168.255.1</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Common Test Teardown" library="common_resource">
+<doc>[Caution] this keyword step:</doc>
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171107 21:16:01.517" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.517" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:01.533" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.533" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:01.533" starttime="20171107 21:16:01.517"></status>
+</kw>
+<kw name="Get Active Bts Sw Version" library="tdd_ev_robotws">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<assign>
+<var>${version}</var>
+</assign>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@203] root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055283F0&gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055283F0&gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@203] Last login: Tue Nov  7 21:16:15 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x056E9080&gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL17A_ENB_0000_000506_000000.xml
+root@fctj-0a:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x056E9080&gt;</msg>
+<msg timestamp="20171107 21:16:22.764" level="INFO">${version} = TL17A_ENB_0000_000506_000000</msg>
+<status status="PASS" endtime="20171107 21:16:22.764" starttime="20171107 21:16:01.533"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:22.764" starttime="20171107 21:16:22.764"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.764" starttime="20171107 21:16:22.764"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.764" starttime="20171107 21:16:22.764"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20171107 21:16:22.764" starttime="20171107 21:16:22.764"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.780" starttime="20171107 21:16:22.764"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.780" starttime="20171107 21:16:22.764"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.780" starttime="20171107 21:16:01.517"></status>
+</kw>
+<status status="PASS" endtime="20171107 21:16:22.780" starttime="20171107 21:15:30.283"></status>
+</kw>
+<tags>
+<tag>owner-shaocheng.chen@nokia.com</tag>
+<tag>QC_773297</tag>
+</tags>
+<status status="FAIL" endtime="20171107 21:16:22.780" critical="yes" starttime="20171107 21:05:58.786">Resolving variable '${index.earfcnDl}' failed: KeyError: 'earfcnDl'</status>
+</test>
+<doc>TD-LTE I&amp;V SISO1</doc>
+<status status="FAIL" endtime="20171107 21:16:22.811" starttime="20171107 21:04:20.147"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">owner-shaocheng.chen@nokia.com</stat>
+<stat fail="1" pass="0">QC_773297</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="FZHR Operational Cell block unblock" pass="0">FZHR Operational Cell block unblock</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20171107 21:04:20.959" level="ERROR">Loading tdd_config has failed. Please check if: 
+       1. you executed pybot with --variable CONFIGURATION:$your_tl_config 
+          i.e. pybot --variable CONFIGURATION:Wroclaw.test 
+       2. check if there is no problem with your configuration 
+       Error msg: Variable ${CONFIGURATION} does not exist.
+</msg>
+<msg timestamp="20171107 21:15:30.283" level="WARN">Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.</msg>
+</errors>
+</robot>

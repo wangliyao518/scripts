@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170801 17:04:40.338" generator="Rebot 3.0 (Python 2.7.5 on win32)">
+<suite source="D:\TA\Test_Case_Svn\Trunk_CRT\SISO1\CIT\CPRI_Single_FZFI\FZFI_BS_FV_TX_and_RX_antenna_Calibration\FZFI_BS_FV_TX_and_RX_antenna_Calibration.html" id="s1" name="FZFI BS FV TX and RX antenna Calibration">
+<kw type="setup" name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as D:\TA_logs\TestLog_20170801165528//logs//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20170801 16:55:31.918" level="INFO">${timestamp} = 20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.918" starttime="20170801 16:55:31.872"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20170801 16:55:31.919" level="INFO">${FILE_NAME} = FZFI BS FV TX and RX antenna Calibration</msg>
+<status status="PASS" endtime="20170801 16:55:31.919" starttime="20170801 16:55:31.918"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20170801 16:55:31.920" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI BS FV TX and RX antenna Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.920" starttime="20170801 16:55:31.919"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20170801 16:55:31.921" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.921" starttime="20170801 16:55:31.920"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.921" level="INFO">${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.921" starttime="20170801 16:55:31.921"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.923" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531"&gt;D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170801 16:55:31.923" starttime="20170801 16:55:31.922"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.923" level="INFO">save log dir:D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.923" starttime="20170801 16:55:31.923"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.927" level="INFO">${snapshot_flag} = 0</msg>
+<status status="PASS" endtime="20170801 16:55:31.927" starttime="20170801 16:55:31.924"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.948" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<status status="FAIL" endtime="20170801 16:55:31.948" starttime="20170801 16:55:31.942"></status>
+</kw>
+<msg timestamp="20170801 16:55:31.948" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20170801 16:55:31.948" starttime="20170801 16:55:31.941"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.949" starttime="20170801 16:55:31.949"></status>
+</kw>
+<msg timestamp="20170801 16:55:31.950" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 16:55:31.950" starttime="20170801 16:55:31.948"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.957" starttime="20170801 16:55:31.953"></status>
+</kw>
+<msg timestamp="20170801 16:55:31.957" level="INFO">${log dir} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.957" starttime="20170801 16:55:31.950"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20170801 16:55:31.961" level="INFO">${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531</msg>
+<status status="PASS" endtime="20170801 16:55:31.961" starttime="20170801 16:55:31.957"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:55:31.961" starttime="20170801 16:55:31.941"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<kw name="Ping Should Ok" library="tdd_ev_robotws">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20170801 16:55:31.994" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20170801 16:55:31.994" starttime="20170801 16:55:31.962"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.995" starttime="20170801 16:55:31.994"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.995" starttime="20170801 16:55:31.995"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.996" starttime="20170801 16:55:31.996"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:55:31.996" starttime="20170801 16:55:31.996"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:55:31.996" starttime="20170801 16:55:31.962"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:55:31.997" starttime="20170801 16:55:31.961"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<kw name="Get Enb Infomation" library="tdd_ev_robotws">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20170801 16:56:17.415" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 16:56:17.520" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 16:56:28.798" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 16:56:28.831" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 16:56:29.344" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20170801 16:56:29.383" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@210] login succeed !</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/sshservice.html'</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableSsh.cgi?stamp=1501577768&amp;token=60badd2be2a895e6e4271bc135d479cd09c0ffacf20e2352a6f73ff45a018c18&amp;frame=sshservice'</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/3, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@266] &lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+    &lt;meta http-equiv="expires" content="0"&gt;
+    &lt;meta http-equiv="cache-control" content="public,no-cache"&gt;
+    &lt;meta http-equiv="pragma" content="no-cache"&gt;
+    &lt;/head&gt;
+    &lt;body bgcolor="#E7E7E7"&gt;
+
+    &lt;bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+    &lt;h3&gt;&lt;FONT face="Arial, Helvetica, sans-serif"&gt;
+&lt;p&gt;&lt;h3&gt;SSH Service Enabled Successfully&lt;/h3&gt;
+&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@210] login succeed !</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/RndPortsService.html'</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/1, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableRndPorts.cgi?stamp=1501577774&amp;token=cf36df175f22270a63b9644a32e92a995786aedb63ed050386ce20480bce20c1&amp;frame=RndPortsService'</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@94] try: 1/3, http return code: 200</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ftm_control.py@266] &lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+    &lt;meta http-equiv="expires" content="0"&gt;
+    &lt;meta http-equiv="cache-control" content="public,no-cache"&gt;
+    &lt;meta http-equiv="pragma" content="no-cache"&gt;
+    &lt;/head&gt;
+    &lt;body bgcolor="#E7E7E7"&gt;
+
+    &lt;bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+    &lt;h3&gt;&lt;FONT face="Arial, Helvetica, sans-serif"&gt;
+&lt;p&gt;&lt;h3&gt;R&amp;D Ports Service Enabled Successfully&lt;/h3&gt;
+&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 16:55:20 CST 2017 from 192.168.255.126 on pts/0
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058578C8&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058578C8&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 16:56:18 CST 2017 from 192.168.255.126 on pts/0
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058578A0&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18_ENB_9999_170801_065191.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058578A0&gt;</msg>
+<msg timestamp="20170801 16:56:53.402" level="INFO">[enb_resource.py@1086] 
+ ****Current BTS version is 'TL18_ENB_9999_170801_065191' *****</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1113] activeBuildVersion=TL18_ENB_9999_170801_065191</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 16:56:29 CST 2017 from 192.168.255.126 on pts/0
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058945A8&gt;</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+/ram/SiteConf.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058945A8&gt;</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@176] /ram/SiteConf.xml</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@79] sftp download from '/ram/SiteConf.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\SiteConf.xml' is ok. local file size is 211k</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 16:56:50 CST 2017 from 192.168.255.126 on ssh
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058429E0&gt;</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x058429E0&gt;</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@375] The real falsh folder is /ffs/fs1</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@176] /ffs/fs1/FileDirectory.xml</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/FileDirectory.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FileDirectory_20170801165617.xml' is ok. local file size is 37k</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@176] /ffs/fs1/config/SCFC_79.xml</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/config/SCFC_79.xml' to 'D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\SCFC_79.xml' is ok. local file size is 104k</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1086] 
+ ****Current bbu type is 'FSIH' *****</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1208] HW_BBU_TYPE=FSIH</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1086] 
+ ****Current rru type is 'FZFI-f:FZFI-d' *****</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1211] HW_RRU_TYPE=FZFI-f:FZFI-d</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1086] 
+ ****Current HW type is 'null' *****</msg>
+<msg timestamp="20170801 16:56:53.403" level="INFO">[enb_resource.py@1214] BTS_HW_TYPE=null</msg>
+<status status="PASS" endtime="20170801 16:56:53.405" starttime="20170801 16:55:31.997"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:53.405" starttime="20170801 16:55:31.997"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>tdd_ev_robotws</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:56:53.406" starttime="20170801 16:56:53.406"></status>
+</kw>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20170801 16:56:53.407" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20170801 16:56:53.407" starttime="20170801 16:56:53.407"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20170801 16:56:53.411" level="INFO">${conn_port} = 23</msg>
+<status status="PASS" endtime="20170801 16:56:53.411" starttime="20170801 16:56:53.408"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20170801 16:56:53.415" level="INFO">${conn_type} = TELNET</msg>
+<status status="PASS" endtime="20170801 16:56:53.415" starttime="20170801 16:56:53.411"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20170801 16:56:53.419" level="INFO">${timeout} = 30</msg>
+<status status="PASS" endtime="20170801 16:56:53.419" starttime="20170801 16:56:53.415"></status>
+</kw>
+<kw name="Connect To Host" library="tdd_ev_robotws">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>${BTS_PC_INFO.IP}</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20170801 16:56:54.841" level="INFO">[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service 
+
+
+login:</msg>
+<msg timestamp="20170801 16:56:54.841" level="INFO">[telnet_common.py@276] Execute command: tdlte-tester</msg>
+<msg timestamp="20170801 16:56:54.841" level="INFO">[telnet_common.py@306] Get Response:  tdlte-tester
+
+password:</msg>
+<msg timestamp="20170801 16:56:54.841" level="INFO">[telnet_common.py@276] Execute command: btstest</msg>
+<msg timestamp="20170801 16:56:54.842" level="INFO">[telnet_common.py@246]  
+
+*===============================================================
+Microsoft Telnet Server.
+*===============================================================
+C:\Users\tdlte-tester&gt;</msg>
+<msg timestamp="20170801 16:56:54.842" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;</msg>
+<status status="PASS" endtime="20170801 16:56:54.843" starttime="20170801 16:56:53.419"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:54.845" level="INFO">${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;</msg>
+<status status="PASS" endtime="20170801 16:56:54.846" starttime="20170801 16:56:54.843"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<kw name="Execute Shell Command" library="tdd_ev_robotws">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.056" level="INFO">[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;</msg>
+<msg timestamp="20170801 16:56:56.056" level="INFO">[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no</msg>
+<msg timestamp="20170801 16:56:56.056" level="INFO">[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+The settings were successfully updated.
+
+C:\Users\tdlte-tester&gt;</msg>
+<status status="PASS" endtime="20170801 16:56:56.056" starttime="20170801 16:56:54.855"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:56.056" starttime="20170801 16:56:54.847"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:56.057" starttime="20170801 16:56:53.406"></status>
+</kw>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.060" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;.</msg>
+<status status="PASS" endtime="20170801 16:56:56.060" starttime="20170801 16:56:56.057"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:56.061" starttime="20170801 16:55:31.872"></status>
+</kw>
+<kw type="teardown" name="Common Suite Teardown" library="common_resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:34.955" starttime="20170801 17:04:34.951"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="tdd_ev_robotws">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20170801 17:04:34.964" level="INFO">[telnet_common.py@188]</msg>
+<msg timestamp="20170801 17:04:34.964" level="INFO">[telnet_common.py@189] Disconnect from 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;</msg>
+<status status="PASS" endtime="20170801 17:04:34.964" starttime="20170801 17:04:34.955"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<kw name="Zip File" library="tdd_ev_robotws">
+<doc>This keyword can zip specific files.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<msg timestamp="20170801 17:04:34.995" level="INFO">[zip_control.py@316]</msg>
+<msg timestamp="20170801 17:04:34.996" level="WARN">[zip_control.py@322] zip D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531 to D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531.zip failed!</msg>
+<status status="PASS" endtime="20170801 17:04:34.996" starttime="20170801 17:04:34.966"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:34.996" starttime="20170801 17:04:34.965"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:34.996" starttime="20170801 17:04:34.965"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Remove Directory" library="OperatingSystem">
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:35.009" html="yes" level="INFO">Removed directory '&lt;a href="file://D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531"&gt;D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170801 17:04:35.009" starttime="20170801 17:04:34.998"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:35.009" starttime="20170801 17:04:34.997"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:35.009" starttime="20170801 17:04:34.996"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:35.009" starttime="20170801 17:04:34.951"></status>
+</kw>
+<test id="s1-t1" name="FZFI_BS_FV_TX_and_RX_antenna_Calibration">
+<kw type="setup" name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as D:\TA_logs\TestLog_20170801165528//ev_logs//D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531//</doc>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20170801 16:56:56.066" level="INFO">${timestamp} = 20170801165656</msg>
+<status status="PASS" endtime="20170801 16:56:56.066" starttime="20170801 16:56:56.065"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20170801 16:56:56.067" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.067" starttime="20170801 16:56:56.066"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20170801 16:56:56.067" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.067" starttime="20170801 16:56:56.067"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.068" level="INFO">${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.068" starttime="20170801 16:56:56.068"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.069" html="yes" level="INFO">Created directory '&lt;a href="file://D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration"&gt;D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170801 16:56:56.069" starttime="20170801 16:56:56.068"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.070" level="INFO">save log dir:D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.070" starttime="20170801 16:56:56.069"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:56:56.071" starttime="20170801 16:56:56.070"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:56:56.073" starttime="20170801 16:56:56.072"></status>
+</kw>
+<msg timestamp="20170801 16:56:56.073" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 16:56:56.073" starttime="20170801 16:56:56.072"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 16:56:56.074" starttime="20170801 16:56:56.074"></status>
+</kw>
+<msg timestamp="20170801 16:56:56.074" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 16:56:56.074" starttime="20170801 16:56:56.073"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20170801 16:56:56.078" level="INFO">${log dir} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.078" starttime="20170801 16:56:56.075"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20170801 16:56:56.079" level="INFO">${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration</msg>
+<status status="PASS" endtime="20170801 16:56:56.079" starttime="20170801 16:56:56.078"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:56.079" starttime="20170801 16:56:56.071"></status>
+</kw>
+<status status="PASS" endtime="20170801 16:56:56.080" starttime="20170801 16:56:56.065"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4 min</arg>
+</arguments>
+<msg timestamp="20170801 17:00:56.081" level="INFO">Slept 4 minutes</msg>
+<status status="PASS" endtime="20170801 17:00:56.081" starttime="20170801 16:56:56.080"></status>
+</kw>
+<kw name="Get_BTS_log_Check_Calibration" library="SISO1 Resource">
+<kw name="Start Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\bts_calibration.log</arg>
+</arguments>
+<msg timestamp="20170801 17:00:56.389" level="INFO">[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20170801 17:00:56.389" level="INFO">[btslog_control.py@174] use ip is 192.168.255.126</msg>
+<msg timestamp="20170801 17:00:56.389" level="INFO">[file_common.py@209] Directory "D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531\FZFI_BS_FV_TX_and_RX_antenna_Calibration" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20170801 17:00:56.389" starttime="20170801 17:00:56.083"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3 min</arg>
+</arguments>
+<msg timestamp="20170801 17:03:56.390" level="INFO">Slept 3 minutes</msg>
+<status status="PASS" endtime="20170801 17:03:56.390" starttime="20170801 17:00:56.390"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20170801 17:03:56.393" starttime="20170801 17:03:56.391"></status>
+</kw>
+<kw name="Check Udp Log Calibration" library="tdd_ev_robotws">
+<doc>This keyword is used for analyzing UDPlog calibration information</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}\\bts_calibration.log</arg>
+<arg>${bandwidth}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.424" starttime="20170801 17:03:56.393"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:03:57.424" starttime="20170801 17:00:56.082"></status>
+</kw>
+<kw type="teardown" name="Test_Tear_Down_Action" library="SISO1 Resource">
+<doc>Action when case finishs</doc>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20170801 17:03:57.429" level="INFO">[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05929A30&gt;.</msg>
+<status status="PASS" endtime="20170801 17:03:57.429" starttime="20170801 17:03:57.425"></status>
+</kw>
+<kw name="Kill Qtp Process" library="tdd_ev_robotws">
+<doc>This keyword is used to kill the processes related to QTP application.</doc>
+<msg timestamp="20170801 17:03:57.902" level="INFO">Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<status status="PASS" endtime="20170801 17:03:57.902" starttime="20170801 17:03:57.430"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<msg timestamp="20170801 17:03:57.906" level="INFO">[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<status status="PASS" endtime="20170801 17:03:57.906" starttime="20170801 17:03:57.902"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${case_execute_log_name}</arg>
+</arguments>
+<msg timestamp="20170801 17:03:57.915" level="FAIL">Variable ${case_execute_log_name} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:03:57.915" starttime="20170801 17:03:57.907"></status>
+</kw>
+<msg timestamp="20170801 17:03:57.915" level="INFO">${return} = ('FAIL', u'Variable ${case_execute_log_name} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:03:57.915" starttime="20170801 17:03:57.907"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}\\${case_execute_log_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.922" starttime="20170801 17:03:57.917"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:03:57.922" starttime="20170801 17:03:57.916"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.926" starttime="20170801 17:03:57.922"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:03:57.926" starttime="20170801 17:03:57.922"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Release_TM500_And_Colse_PA_Port</arg>
+</arguments>
+<kw name="Release_TM500_And_Colse_PA_Port" library="SISO1 Resource">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>${return}</arg>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Use_Tag}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.927" starttime="20170801 17:03:57.927"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Use_Tag}'=='used'</arg>
+<arg>Set Attenuators Off</arg>
+<arg>${ATT_ALL_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.928" starttime="20170801 17:03:57.927"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+</arguments>
+<msg timestamp="20170801 17:03:57.934" level="FAIL">Variable ${TM500_Pppoe_Tag} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:03:57.935" starttime="20170801 17:03:57.928"></status>
+</kw>
+<msg timestamp="20170801 17:03:57.935" level="INFO">${return} = ('FAIL', u'Variable ${TM500_Pppoe_Tag} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:03:57.935" starttime="20170801 17:03:57.928"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Switch Host Connection</arg>
+<arg>${TM500_PC_CONNECTION}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.938" starttime="20170801 17:03:57.935"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TM500_Pppoe_Tag}'=='used'</arg>
+<arg>Tm500 Stop Pppoe Connection</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.942" starttime="20170801 17:03:57.939"></status>
+</kw>
+<kw name="Tm500 Teardown" library="tdd_ev_robotws">
+<doc>tm500 teardown.</doc>
+<msg timestamp="20170801 17:03:57.943" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<status status="FAIL" endtime="20170801 17:03:57.943" starttime="20170801 17:03:57.942"></status>
+</kw>
+<kw name="Set_Allcells_Attenuation_Off" library="SISO1 Resource">
+<kw type="for" name="${index} IN RANGE [ 1 | 10 ]">
+<kw type="foritem" name="${index} = 1">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.945" starttime="20170801 17:03:57.945"></status>
+</kw>
+<msg timestamp="20170801 17:03:57.945" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20170801 17:03:57.945" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20170801 17:03:57.945" starttime="20170801 17:03:57.944"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:03:57.949" starttime="20170801 17:03:57.945"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20170801 17:04:01.981" level="INFO">$TA,C,03F0*</msg>
+<msg timestamp="20170801 17:04:01.981" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,03F0*', Receive&lt;-'$TA,C,03F0*'</msg>
+<msg timestamp="20170801 17:04:01.981" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,03*', Receive&lt;-'$TA,C,03F0*'
+$TA,C,04F0*</msg>
+<msg timestamp="20170801 17:04:01.981" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,04F0*', Receive&lt;-'$TA,C,04F0*'</msg>
+<msg timestamp="20170801 17:04:01.981" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,04*', Receive&lt;-'$TA,C,04F0*'</msg>
+<status status="PASS" endtime="20170801 17:04:01.981" starttime="20170801 17:03:57.949"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:01.982" starttime="20170801 17:03:57.944"></status>
+</kw>
+<kw type="foritem" name="${index} = 2">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:01.983" starttime="20170801 17:04:01.983"></status>
+</kw>
+<msg timestamp="20170801 17:04:01.983" level="INFO">${ret1} = PASS</msg>
+<msg timestamp="20170801 17:04:01.983" level="INFO">${ret2} = None</msg>
+<status status="PASS" endtime="20170801 17:04:01.983" starttime="20170801 17:04:01.982"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:01.988" starttime="20170801 17:04:01.985"></status>
+</kw>
+<kw name="Set Attenuation For One Cell" library="tdd_ev_robotws">
+<doc>This keyword set attenuation value for one eNB cell.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+<arg>120</arg>
+<arg>120</arg>
+</arguments>
+<msg timestamp="20170801 17:04:06.021" level="INFO">$TA,C,03F0*</msg>
+<msg timestamp="20170801 17:04:06.021" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,03F0*', Receive&lt;-'$TA,C,03F0*'</msg>
+<msg timestamp="20170801 17:04:06.021" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,03*', Receive&lt;-'$TA,C,03F0*'
+$TA,C,04F0*</msg>
+<msg timestamp="20170801 17:04:06.021" level="INFO">[attenuator_control.py@445] send-&gt;'$TA,C,04F0*', Receive&lt;-'$TA,C,04F0*'</msg>
+<msg timestamp="20170801 17:04:06.021" level="INFO">[attenuator_control.py@450] send-&gt;'$TA,H,04*', Receive&lt;-'$TA,C,04F0*'</msg>
+<status status="PASS" endtime="20170801 17:04:06.021" starttime="20170801 17:04:01.988"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:06.021" starttime="20170801 17:04:01.982"></status>
+</kw>
+<kw type="foritem" name="${index} = 3">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<assign>
+<var>${ret1}</var>
+<var>${ret2}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${CELL${index}_ATT_INFO}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:06.029" level="FAIL">Variable ${CELL3_ATT_INFO} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:04:06.030" starttime="20170801 17:04:06.022"></status>
+</kw>
+<msg timestamp="20170801 17:04:06.030" level="INFO">${ret1} = FAIL</msg>
+<msg timestamp="20170801 17:04:06.030" level="INFO">${ret2} = Variable ${CELL3_ATT_INFO} does not exist.</msg>
+<status status="PASS" endtime="20170801 17:04:06.030" starttime="20170801 17:04:06.022"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>'${ret1}'=='FAIL'</arg>
+</arguments>
+<msg timestamp="20170801 17:04:06.033" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20170801 17:04:06.034" starttime="20170801 17:04:06.030"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:06.034" starttime="20170801 17:04:06.021"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:06.034" starttime="20170801 17:03:57.943"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:06.034" starttime="20170801 17:03:57.943"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Test Variable</arg>
+<arg>${TM500_Use_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:06.035" starttime="20170801 17:04:06.034"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${TM500_Pppoe_Tag}</arg>
+<arg>unused</arg>
+</arguments>
+<msg timestamp="20170801 17:04:06.038" level="INFO">${TM500_Pppoe_Tag} = unused</msg>
+<status status="PASS" endtime="20170801 17:04:06.039" starttime="20170801 17:04:06.035"></status>
+</kw>
+<status status="FAIL" endtime="20170801 17:04:06.039" starttime="20170801 17:03:57.926"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:06.039" starttime="20170801 17:03:57.926"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<assign>
+<var>${return}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${route_add_cpe_pc}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:06.046" level="FAIL">Variable ${route_add_cpe_pc} does not exist.</msg>
+<status status="FAIL" endtime="20170801 17:04:06.046" starttime="20170801 17:04:06.040"></status>
+</kw>
+<msg timestamp="20170801 17:04:06.046" level="INFO">${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')</msg>
+<status status="PASS" endtime="20170801 17:04:06.046" starttime="20170801 17:04:06.039"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return[0]}'=='PASS'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${route_add_cpe_pc}'=='true'</arg>
+<arg>Execute Shell Command</arg>
+<arg>route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:06.050" starttime="20170801 17:04:06.047"></status>
+</kw>
+<kw name="Alarm Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:12.448" level="ERROR">Infomodel not connected.</msg>
+<msg timestamp="20170801 17:04:13.040" level="INFO">[infomodel_control.py@82] set up infomodel with following info succeed .
+    details: address=192.168.255.1, port=12345, definitions_file_path=None</msg>
+<msg timestamp="20170801 17:04:13.040" level="INFO">[infomodel_control.py@100] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20170801 17:04:13.040" starttime="20170801 17:04:06.050"></status>
+</kw>
+<kw name="Fatal Monitor" library="AlarmMonitor">
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>alarm_monitor.csv</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<msg timestamp="20170801 17:04:13.705" level="INFO">['fatal'] ['fatal']
+['fatal'] ['fatal']</msg>
+<status status="PASS" endtime="20170801 17:04:13.705" starttime="20170801 17:04:13.041"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<assign>
+<var>${return1}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${TEST_NAME[:50]}</arg>
+<arg>Fiber</arg>
+</arguments>
+<msg timestamp="20170801 17:04:13.707" level="FAIL">'FZFI_BS_FV_TX_and_RX_antenna_Calibration' does not contain 'Fiber'</msg>
+<status status="FAIL" endtime="20170801 17:04:13.707" starttime="20170801 17:04:13.706"></status>
+</kw>
+<msg timestamp="20170801 17:04:13.707" level="INFO">${return1} = ('FAIL', u"'FZFI_BS_FV_TX_and_RX_antenna_Calibration' does not contain 'Fiber'")</msg>
+<status status="PASS" endtime="20170801 17:04:13.707" starttime="20170801 17:04:13.706"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<assign>
+<var>${all_fiber_link}</var>
+</assign>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Get_All_Fiber_Link</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.711" starttime="20170801 17:04:13.708"></status>
+</kw>
+<msg timestamp="20170801 17:04:13.711" level="INFO">${all_fiber_link} = ('PASS', None)</msg>
+<status status="PASS" endtime="20170801 17:04:13.711" starttime="20170801 17:04:13.707"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Connect_Fiber_Link</arg>
+<arg>${all_fiber_link[1]}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.715" starttime="20170801 17:04:13.712"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:13.715" starttime="20170801 17:04:13.711"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Software Reboot Bts</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.716" starttime="20170801 17:04:13.716"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Sleep</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.716" starttime="20170801 17:04:13.716"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${return1[0]}'=='PASS'</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>600</arg>
+<arg>192.168.255.1</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.717" starttime="20170801 17:04:13.717"></status>
+</kw>
+<kw name="Common Test Teardown" library="common_resource">
+<doc>[Caution] this keyword step:</doc>
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20170801 17:04:13.719" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20170801 17:04:13.719" starttime="20170801 17:04:13.718"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.719" starttime="20170801 17:04:13.719"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.720" starttime="20170801 17:04:13.720"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:13.720" starttime="20170801 17:04:13.720"></status>
+</kw>
+<kw name="Get Active Bts Sw Version" library="tdd_ev_robotws">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<assign>
+<var>${version}</var>
+</assign>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 16:57:02 CST 2017 from 192.168.255.126 on ssh
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05A8EF30&gt;</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05A8EF30&gt;</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@203] Last login: Tue Aug  1 17:04:47 CST 2017 from 192.168.255.126 on pts/0
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05A8B0D0&gt;</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18_ENB_9999_170801_065191.xml
+-bash-4.4#</msg>
+<msg timestamp="20170801 17:04:34.948" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05A8B0D0&gt;</msg>
+<msg timestamp="20170801 17:04:34.949" level="INFO">${version} = TL18_ENB_9999_170801_065191</msg>
+<status status="PASS" endtime="20170801 17:04:34.949" starttime="20170801 17:04:13.721"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:34.949" starttime="20170801 17:04:34.949"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20170801 17:04:34.950" starttime="20170801 17:04:34.950"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:34.950" starttime="20170801 17:04:13.717"></status>
+</kw>
+<status status="PASS" endtime="20170801 17:04:34.950" starttime="20170801 17:03:57.424"></status>
+</kw>
+<tags>
+<tag>owner-jiaqi.jin@nokia.com</tag>
+<tag>QC_464833</tag>
+</tags>
+<status status="PASS" endtime="20170801 17:04:34.950" critical="yes" starttime="20170801 16:56:56.061"></status>
+</test>
+<doc>TD-LTE I&amp;V SISO1</doc>
+<status status="PASS" endtime="20170801 17:04:35.009" starttime="20170801 16:55:30.289"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">owner-jiaqi.jin@nokia.com</stat>
+<stat fail="0" pass="1">QC_464833</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="FZFI BS FV TX and RX antenna Calibration" pass="1">FZFI BS FV TX and RX antenna Calibration</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170801 16:55:30.972" level="ERROR">Loading tdd_config has failed. Please check if: 
+       1. you executed pybot with --variable CONFIGURATION:$your_tl_config 
+          i.e. pybot --variable CONFIGURATION:Wroclaw.test 
+       2. check if there is no problem with your configuration 
+       Error msg: Variable ${CONFIGURATION} does not exist.
+</msg>
+<msg timestamp="20170801 17:04:12.448" level="ERROR">Infomodel not connected.</msg>
+<msg timestamp="20170801 17:04:34.996" level="WARN">[zip_control.py@322] zip D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531 to D:\TA_logs\TestLog_20170801165528\ev_logs\FZFI_BS_FV_TX_and_RX_antenna_Calibration_20170801165531.zip failed!</msg>
+</errors>
+</robot>
