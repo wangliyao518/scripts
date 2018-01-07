@@ -44,11 +44,11 @@ clf = MultinomialNB().fit(X_train_tf, twenty_train.target)
 #docs_new = ['God is love','OpenGL on the GPU is fast']
 
 
-X_new_counts = count_vect.fit_transform(twenty_test.data)
+X_new_counts = count_vect.transform(twenty_test.data)
 X_new_tfidf = tf_transformer.transform(X_new_counts)
 print 'X_new_tfidf:', X_new_tfidf.shape
 
 predicted = clf.predict(X_new_tfidf)
 
-for doc,category in zip(X_new_counts, predicted):
+for doc, category in zip(X_new_counts, predicted):
      print("%r => %s") %(doc,twenty_train.target_names[category])
