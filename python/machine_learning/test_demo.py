@@ -12,10 +12,10 @@ from sklearn.naive_bayes import MultinomialNB
 
 #datasets.load_files(container_path, description=None, categories=None, load_content=True, shuffle=True, encoding=None, decode_error='strict', random_state=0)
 
-#os.chdir("D:\\my_python_workfile\\Thesis\\sklearn_exercise")
+#os.chdir("sklearn_exercise")
 
-twenty_train = datasets.load_files("D:\userdata\liyawang\Desktop\AI\\bydata-train")
-twenty_test = datasets.load_files("D:\userdata\liyawang\Desktop\AI\\bydata-test")
+twenty_train = datasets.load_files("bydata-train")
+twenty_test = datasets.load_files("bydata-test")
 
 
 print "\n".join(twenty_train.data[0].split("\n")[:3])
