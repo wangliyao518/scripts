@@ -1,0 +1,3324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171213 19:53:37.149" generator="Rebot 3.0.2 (Python 2.7.5 on win32)">
+<suite source="C:\TestCase\Trunk_CRT\CIT\ASMI\LTE580\TD.OM.LTE580 Session Login Delay_EI_SEM\TD.OM.LTE580_Session_Login_Delay_EI_SEM.html" id="s1" name="TA">
+<kw type="setup" name="Private Suite Setup">
+<kw name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as D:\wcrt_log\Test_Log_20171213185733//logs//</doc>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171213 19:14:22.700" level="INFO">${timestamp} = 20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.700" starttime="20171213 19:14:22.663"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20171213 19:14:22.701" level="INFO">${FILE_NAME} = TD.OM.LTE580 Session Login Delay EI SEM</msg>
+<status status="PASS" endtime="20171213 19:14:22.701" starttime="20171213 19:14:22.700"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171213 19:14:22.702" level="INFO">${SUITE_LOG_DIRECTORY} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580 Session Login Delay EI SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.702" starttime="20171213 19:14:22.701"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171213 19:14:22.702" level="INFO">${SUITE_LOG_DIRECTORY} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.702" starttime="20171213 19:14:22.702"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.703" level="INFO">${SUITE_LOG_DIRECTORY} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.703" starttime="20171213 19:14:22.703"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.704" html="yes" level="INFO">Created directory '&lt;a href="file://D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422"&gt;D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171213 19:14:22.704" starttime="20171213 19:14:22.703"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.705" level="INFO">save log dir:D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.705" starttime="20171213 19:14:22.704"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.709" level="INFO">${snapshot_flag} = 0</msg>
+<status status="PASS" endtime="20171213 19:14:22.709" starttime="20171213 19:14:22.705"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.727" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<status status="FAIL" endtime="20171213 19:14:22.728" starttime="20171213 19:14:22.721"></status>
+</kw>
+<msg timestamp="20171213 19:14:22.728" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20171213 19:14:22.728" starttime="20171213 19:14:22.721"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:22.729" starttime="20171213 19:14:22.728"></status>
+</kw>
+<msg timestamp="20171213 19:14:22.729" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171213 19:14:22.729" starttime="20171213 19:14:22.728"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:22.730" starttime="20171213 19:14:22.729"></status>
+</kw>
+<msg timestamp="20171213 19:14:22.730" level="INFO">${log dir} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.730" starttime="20171213 19:14:22.729"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171213 19:14:22.734" level="INFO">${SAVE LOG DIRECTORY} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422</msg>
+<status status="PASS" endtime="20171213 19:14:22.734" starttime="20171213 19:14:22.730"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:14:22.734" starttime="20171213 19:14:22.721"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<kw name="Ping Should Ok" library="RobotWS">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20171213 19:14:25.793" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20171213 19:14:25.793" starttime="20171213 19:14:22.735"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:25.793" starttime="20171213 19:14:25.793"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:25.794" starttime="20171213 19:14:25.794"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:25.794" starttime="20171213 19:14:25.794"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:14:25.795" starttime="20171213 19:14:25.795"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:14:25.795" starttime="20171213 19:14:22.735"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:14:25.795" starttime="20171213 19:14:22.734"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<kw name="Get Enb Infomation" library="RobotWS">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20171213 19:15:01.358" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171213 19:15:01.460" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171213 19:15:12.559" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171213 19:15:12.588" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171213 19:15:13.081" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171213 19:15:13.140" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171213 19:14:28.859" level="INFO">[ftm_control.py@287] pass this kw for PR exist</msg>
+<msg timestamp="20171213 19:14:28.864" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:14:39.240" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:08:32 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:14:39.250" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0574EE18&gt;</msg>
+<msg timestamp="20171213 19:14:39.309" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171213 19:14:39.364" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:14:39.432" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0574EE18&gt;</msg>
+<msg timestamp="20171213 19:14:39.437" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:14:49.810" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:09:34 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:14:49.819" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x045FAAA8&gt;</msg>
+<msg timestamp="20171213 19:14:49.880" level="INFO">[ssh_common.py@253] Execute command: cd /ffs/fs2;ls TargetBD*.xml</msg>
+<msg timestamp="20171213 19:14:49.934" level="INFO">[ssh_common.py@309] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+TargetBD_TL18_FSM4_9999_171212_019801.xml
+root@fctj-0a:/ffs/fs2 &gt;</msg>
+<msg timestamp="20171213 19:14:50.002" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x045FAAA8&gt;</msg>
+<msg timestamp="20171213 19:14:50.007" level="INFO">[enb_resource.py@1219] 
+ ****Current BTS version is 'TL18_FSM4_9999_171212_019801' *****</msg>
+<msg timestamp="20171213 19:14:50.018" level="INFO">[enb_resource.py@1249] activeBuildVersion=TL18_FSM4_9999_171212_019801</msg>
+<msg timestamp="20171213 19:14:50.022" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:15:00.412" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:09:45 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:15:00.428" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x045CF5D0&gt;</msg>
+<msg timestamp="20171213 19:15:00.487" level="INFO">[ssh_common.py@253] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20171213 19:15:00.542" level="INFO">[ssh_common.py@309] Get Response: ls /ram/SiteConf.xml
+/ram/SiteConf.xml
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:15:00.610" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x045CF5D0&gt;</msg>
+<msg timestamp="20171213 19:15:01.362" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171213 19:15:01.368" level="INFO">[sftp_control.py@166] /ram/SiteConf.xml</msg>
+<msg timestamp="20171213 19:15:01.460" level="INFO">[sftp_control.py@72] sftp download from '/ram/SiteConf.xml' to 'D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\SiteConf.xml' is ok. local file size is 443k</msg>
+<msg timestamp="20171213 19:15:01.477" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:15:11.851" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:10:06 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:15:11.876" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05928FA8&gt;</msg>
+<msg timestamp="20171213 19:15:11.963" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171213 19:15:12.017" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:15:12.084" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05928FA8&gt;</msg>
+<msg timestamp="20171213 19:15:12.084" level="INFO">[enb_resource.py@481] The real falsh folder is /ffs/fs2</msg>
+<msg timestamp="20171213 19:15:12.564" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171213 19:15:12.569" level="INFO">[sftp_control.py@166] /ffs/fs2/FileDirectory.xml</msg>
+<msg timestamp="20171213 19:15:12.588" level="INFO">[sftp_control.py@72] sftp download from '/ffs/fs2/FileDirectory.xml' to 'D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\FileDirectory_20171213191501.xml' is ok. local file size is 45k</msg>
+<msg timestamp="20171213 19:15:13.086" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171213 19:15:13.091" level="INFO">[sftp_control.py@166] /ffs/fs2/config/SCFC_45.xml</msg>
+<msg timestamp="20171213 19:15:13.140" level="INFO">[sftp_control.py@72] sftp download from '/ffs/fs2/config/SCFC_45.xml' to 'D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\SCFC_45.xml' is ok. local file size is 201k</msg>
+<msg timestamp="20171213 19:15:13.178" level="INFO">[enb_resource.py@1219] 
+ ****Current bbu type is 'ASIA' *****</msg>
+<msg timestamp="20171213 19:15:13.183" level="INFO">[enb_resource.py@1344] HW_BBU_TYPE=ASIA</msg>
+<msg timestamp="20171213 19:15:13.187" level="INFO">[enb_resource.py@1219] 
+ ****Current rru type is 'UZHB:UZHA:UZHA' *****</msg>
+<msg timestamp="20171213 19:15:13.193" level="INFO">[enb_resource.py@1347] HW_RRU_TYPE=UZHB:UZHA:UZHA</msg>
+<msg timestamp="20171213 19:15:13.198" level="INFO">[enb_resource.py@1219] 
+ ****Current HW type is 'null' *****</msg>
+<msg timestamp="20171213 19:15:13.202" level="INFO">[enb_resource.py@1350] BTS_HW_TYPE=null</msg>
+<status status="PASS" endtime="20171213 19:16:09.924" starttime="20171213 19:14:25.796"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:16:09.924" starttime="20171213 19:14:25.795"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>RobotWS</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:16:09.925" starttime="20171213 19:16:09.925"></status>
+</kw>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<kw name="Get Os Platform Version" library="RobotWS">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171213 19:16:09.926" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20171213 19:16:09.926" starttime="20171213 19:16:09.925"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20171213 19:16:09.927" level="INFO">${conn_port} = 23</msg>
+<status status="PASS" endtime="20171213 19:16:09.927" starttime="20171213 19:16:09.926"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20171213 19:16:09.927" level="INFO">${conn_type} = TELNET</msg>
+<status status="PASS" endtime="20171213 19:16:09.927" starttime="20171213 19:16:09.927"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20171213 19:16:09.928" level="INFO">${timeout} = 30</msg>
+<status status="PASS" endtime="20171213 19:16:09.928" starttime="20171213 19:16:09.928"></status>
+</kw>
+<kw name="Connect To Host" library="RobotWS">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>${BTS_PC_INFO.IP}</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20171213 19:16:09.992" level="INFO">[telnet_common.py@298] Get Response: Welcome to Microsoft Telnet Service 
+
+
+login:</msg>
+<msg timestamp="20171213 19:16:09.996" level="INFO">[telnet_common.py@268] Execute command: tdlte-tester</msg>
+<msg timestamp="20171213 19:16:10.057" level="INFO">[telnet_common.py@298] Get Response:  tdlte-tester
+
+password:</msg>
+<msg timestamp="20171213 19:16:10.061" level="INFO">[telnet_common.py@268] Execute command: btstest</msg>
+<msg timestamp="20171213 19:16:11.548" level="INFO">[telnet_common.py@238]  
+
+*===============================================================
+Microsoft Telnet Server.
+*===============================================================
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:16:11.549" level="INFO">${BTS_PC_CONNECTION} = 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<status status="PASS" endtime="20171213 19:16:11.549" starttime="20171213 19:16:09.928"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:16:11.550" level="INFO">${BTS_PC_CONNECTION} = 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<status status="PASS" endtime="20171213 19:16:11.550" starttime="20171213 19:16:11.549"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20171213 19:16:11.555" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:16:12.616" level="INFO">[telnet_common.py@268] Execute command: tlntadmn config timeoutactive=no</msg>
+<msg timestamp="20171213 19:16:12.757" level="INFO">[telnet_common.py@298] Get Response: tlntadmn config timeoutactive=no
+The settings were successfully updated.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:16:12.757" starttime="20171213 19:16:11.551"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:16:12.758" starttime="20171213 19:16:11.550"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:16:12.758" starttime="20171213 19:16:09.925"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:16:12.761" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:16:12.762" starttime="20171213 19:16:12.758"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:16:12.762" starttime="20171213 19:14:22.663"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Restore Paramters To Default Value</arg>
+</arguments>
+<kw name="Restore Paramters To Default Value">
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:16:12.767" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:16:12.767" starttime="20171213 19:16:12.763"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:16:12.772" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:16:13.831" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:16:14.074" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:16:14.078" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:16:15.137" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:16:15.343" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:16:15.347" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:16:16.405" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:16:16.616" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:16:16.617" starttime="20171213 19:16:12.768"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:16:16.622" starttime="20171213 19:16:16.622"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:16:16.623" starttime="20171213 19:16:16.622"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:16:16.624" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\', u'CheckExist=1']</msg>
+<status status="PASS" endtime="20171213 19:16:16.624" starttime="20171213 19:16:16.623"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:16:16.624" starttime="20171213 19:16:16.624"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:19:34.581" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\GUILog\qtp_log20171213191616\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:19:34.581" starttime="20171213 19:16:16.625"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="PASS" endtime="20171213 19:19:34.581" starttime="20171213 19:16:16.621"></status>
+</kw>
+<kw name="GUI SM Update IP View" library="gui_resource">
+<doc>This keyword is used to update the fields on IP View button.</doc>
+<arguments>
+<arg>Security</arg>
+<arg>Session login delay=@{Para_LTE580_Default_values}[0];;Failed login attempts counting period=@{Para_LTE580_Default_values}[1];;Max failed login attempt count=@{Para_LTE580_Default_values}[2];;Account lockout period=@{Para_LTE580_Default_values}[3]</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>TabName=${TabName}</arg>
+<arg>ParaName=${ParaName}</arg>
+<arg>NewValue=${NewValue}</arg>
+<arg>TableValue=${TableValue}</arg>
+<arg>OtherPara=${OtherPara}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:19:34.601" level="INFO">${para_list} = [u'TabName=Security', u'ParaName=Session login delay=1;;Failed login attempts counting period=5;;Max failed login attempt count=5;;Account lockout period=15', u'NewValue=', u'TableValue=', u'OtherPara...</msg>
+<status status="PASS" endtime="20171213 19:19:34.601" starttime="20171213 19:19:34.601"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:19:34.602" starttime="20171213 19:19:34.602"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.476" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+TabName="Security"
+ParaName="Session login delay=1;;Failed login attempts counting period=5;;Max failed login attempt count=5;;Account lockout period=15"
+NewValue=""
+TableValue=""
+OtherPara=""
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\GUILog\qtp_log20171213191934\Report
+&lt;QTP&gt; Start to run script...
+
+Start to kill QTP process.
+Finshed to kill QTP process.
+QTP result is failed! 
+&lt;QTP&gt; run Failed.
+Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<msg timestamp="20171213 19:20:00.486" level="FAIL">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</msg>
+<status status="FAIL" endtime="20171213 19:20:00.487" starttime="20171213 19:19:34.602"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:20:00.488" starttime="20171213 19:19:34.599"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:20:00.488" starttime="20171213 19:16:12.762"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:20:00.488" starttime="20171213 19:16:12.762"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:20:00.488" starttime="20171213 19:14:22.659"></status>
+</kw>
+<kw type="teardown" name="Private Suite Teardown">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If Any Tests Failed</arg>
+<arg>BTS_Common_Reboot By Command and Check</arg>
+</arguments>
+<kw name="Run Keyword If Any Tests Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if one or more tests failed.</doc>
+<arguments>
+<arg>BTS_Common_Reboot By Command and Check</arg>
+</arguments>
+<kw name="BTS_Common_Reboot By Command and Check" library="OAM3_common_resources">
+<kw name="Connect To Bts" library="RobotWS">
+<doc>connect to BTS with given ip/user/passwd.</doc>
+<assign>
+<var>${bts_connection}</var>
+</assign>
+<msg timestamp="20171213 19:43:32.321" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:43:42.820" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:31:43 CST 2017 from 10.69.80.114 on pts/1
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:43:42.836" level="INFO">${bts_connection} = 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B977D8&gt;</msg>
+<status status="PASS" endtime="20171213 19:43:42.836" starttime="20171213 19:43:32.306"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>reboot</arg>
+</arguments>
+<msg timestamp="20171213 19:43:42.851" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B977D8&gt;</msg>
+<msg timestamp="20171213 19:43:42.914" level="INFO">[ssh_common.py@253] Execute command: reboot</msg>
+<msg timestamp="20171213 19:44:02.991" level="WARN">[ssh_common.py@305]</msg>
+<msg timestamp="20171213 19:44:02.991" level="INFO">[ssh_common.py@253] Execute command: Ctrl-C</msg>
+<msg timestamp="20171213 19:44:03.053" level="INFO">[ssh_common.py@278] ^C
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:44:03.053" level="INFO">Traceback (most recent call last):
+  File "C:\TALib\tdd_robotws\RobotWS\CommonLib\connections\connection_mgr.py", line 230, in execute_shell_command
+    ret += self._current.read_until_prompt(timeout_add=timeout_add)
+  File "C:\TALib\tdd_robotws\RobotWS\CommonLib\connections\ssh_common.py", line 308, in read_until_prompt
+    timestr_to_secs(self._timeout), ret[2]))
+AssertionError: No match found for prompt "'[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$', '(Y/N|Y/N\?|\(Y/N\)\s*\?|\(Y/N\)\s*:?|\(Y/N/C\) \? |Y = YES, N = NO \):\? |\(y/n\)|\(Y/N\))\s*$|\(y/n.*\)' or '(?i)\(Yes/No/All\)|\(yes/no'" in 10.0sec, detail info: "
+
+"</msg>
+<msg timestamp="20171213 19:44:03.069" level="FAIL">CommandExecuteError: command 'reboot' execution failed, details: 'No match found for prompt "'[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$', '(Y/N|Y/N\?|\(Y/N\)\s*\?|\(Y/N\)\s*:?|\(Y/N/C\) \? |Y = YES, N = NO \):\? |\(y/n\)|\(Y/N\))\s*$|\(y/n.*\)' or '(?i)\(Yes/No/All\)|\(yes/no'" in 10.0sec, detail info: "
+
+"'</msg>
+<status status="FAIL" endtime="20171213 19:44:03.069" starttime="20171213 19:43:42.836"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>300s</arg>
+</arguments>
+<msg timestamp="20171213 19:49:03.069" level="INFO">Slept 5 minutes</msg>
+<status status="PASS" endtime="20171213 19:49:03.069" starttime="20171213 19:44:03.069"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:49:03.075" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:49:03.075" starttime="20171213 19:49:03.069"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:49:03.081" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:49:04.142" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:49:04.633" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:49:04.638" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:49:05.698" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:49:05.925" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:49:05.930" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:49:06.990" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:49:07.190" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:49:07.191" starttime="20171213 19:49:03.076"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3min</arg>
+<arg>1min</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:49:07.197" starttime="20171213 19:49:07.197"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:49:07.198" starttime="20171213 19:49:07.197"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:49:07.199" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:49:07.199" starttime="20171213 19:49:07.198"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:49:07.200" starttime="20171213 19:49:07.199"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:50:33.342" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213194907\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:50:33.342" starttime="20171213 19:49:07.200"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="PASS" endtime="20171213 19:50:33.343" starttime="20171213 19:49:07.196"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:50:33.343" starttime="20171213 19:49:07.191"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>GUI SM Check BTS HW Status</arg>
+<arg>Flexi LTE BTS</arg>
+<arg>BTS operational state=On air</arg>
+</arguments>
+<kw name="GUI SM Check BTS HW Status" library="gui_resource">
+<doc>This keyword is used to check the status on BTS Hardware panel.</doc>
+<arguments>
+<arg>Flexi LTE BTS</arg>
+<arg>BTS operational state=On air</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>CompName=${CompName}</arg>
+<arg>CheckField=${CheckField}</arg>
+<arg>WaitTime=${WaitTime}</arg>
+<arg>CheckSameFlag=${CheckSameFlag}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:50:33.363" level="INFO">${para_list} = [u'CompName=Flexi LTE BTS', u'CheckField=BTS operational state=On air', u'WaitTime=0', u'CheckSameFlag=1', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI...</msg>
+<status status="PASS" endtime="20171213 19:50:33.363" starttime="20171213 19:50:33.363"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Check_BTS_HW_Status</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:50:33.364" starttime="20171213 19:50:33.364"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Check_BTS_HW_Status</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:50:53.703" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_BTS_HW_Status is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_BTS_HW_Status ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+CompName="Flexi LTE BTS"
+CheckField="BTS operational state=On air"
+WaitTime="0"
+CheckSameFlag="1"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213195033\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:50:53.703" starttime="20171213 19:50:33.365"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:50:53.703" starttime="20171213 19:50:33.362"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:50:53.703" starttime="20171213 19:50:33.343"></status>
+</kw>
+<kw name="GUI SM Save Snapshot" library="gui_resource">
+<doc>this keyword is use to save snapshot in Site Manager</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>DetailLevel=${DetailLevel}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>PathFile=${PathFile}</arg>
+<arg>SaveParitialExist=${SaveParitialExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:50:53.705" level="INFO">${para_list} = [u'DetailLevel=1', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\\', u'PathFile=N', u...</msg>
+<status status="PASS" endtime="20171213 19:50:53.705" starttime="20171213 19:50:53.705"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:50:53.706" starttime="20171213 19:50:53.705"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:51:22.037" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+DetailLevel="1"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+PathFile="N"
+SaveParitialExist="N"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213195053\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:51:22.038" starttime="20171213 19:50:53.706"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:51:22.039" starttime="20171213 19:50:53.703"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:51:22.052" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:23.112" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:23.475" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="4296"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:51:23.481" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:24.541" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:24.763" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="1228"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:51:24.768" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:25.828" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:26.142" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:51:26.143" starttime="20171213 19:51:22.039"></status>
+</kw>
+<kw name="Disconnect From Host" library="RobotWS">
+<doc>Closes the telnet connections to the currently active remote host.</doc>
+<arguments>
+<arg>${bts_connection}</arg>
+</arguments>
+<msg timestamp="20171213 19:51:26.149" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B977D8&gt;</msg>
+<status status="PASS" endtime="20171213 19:51:26.149" starttime="20171213 19:51:26.144"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:51:26.150" starttime="20171213 19:43:32.306"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:51:26.150" starttime="20171213 19:43:32.306"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:51:26.150" starttime="20171213 19:43:32.306"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Restore Paramters To Default Value</arg>
+</arguments>
+<kw name="Restore Paramters To Default Value">
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:51:26.156" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:51:26.156" starttime="20171213 19:51:26.151"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:51:26.160" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:27.218" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:27.441" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:51:27.445" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:28.503" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:28.710" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:51:28.714" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:51:29.772" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:51:29.975" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:51:29.976" starttime="20171213 19:51:26.156"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:51:29.982" starttime="20171213 19:51:29.982"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:51:29.983" starttime="20171213 19:51:29.983"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:51:29.985" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:51:29.985" starttime="20171213 19:51:29.983"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:51:29.986" starttime="20171213 19:51:29.985"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:53:00.055" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213195129\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:53:00.055" starttime="20171213 19:51:29.986"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="PASS" endtime="20171213 19:53:00.055" starttime="20171213 19:51:29.981"></status>
+</kw>
+<kw name="GUI SM Update IP View" library="gui_resource">
+<doc>This keyword is used to update the fields on IP View button.</doc>
+<arguments>
+<arg>Security</arg>
+<arg>Session login delay=@{Para_LTE580_Default_values}[0];;Failed login attempts counting period=@{Para_LTE580_Default_values}[1];;Max failed login attempt count=@{Para_LTE580_Default_values}[2];;Account lockout period=@{Para_LTE580_Default_values}[3]</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>TabName=${TabName}</arg>
+<arg>ParaName=${ParaName}</arg>
+<arg>NewValue=${NewValue}</arg>
+<arg>TableValue=${TableValue}</arg>
+<arg>OtherPara=${OtherPara}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:53:00.081" level="INFO">${para_list} = [u'TabName=Security', u'ParaName=Session login delay=1;;Failed login attempts counting period=5;;Max failed login attempt count=5;;Account lockout period=15', u'NewValue=', u'TableValue=', u'OtherPara...</msg>
+<status status="PASS" endtime="20171213 19:53:00.081" starttime="20171213 19:53:00.080"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:53:00.081" starttime="20171213 19:53:00.081"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:53:26.617" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+TabName="Security"
+ParaName="Session login delay=1;;Failed login attempts counting period=5;;Max failed login attempt count=5;;Account lockout period=15"
+NewValue=""
+TableValue=""
+OtherPara=""
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213195300\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:53:26.617" starttime="20171213 19:53:00.081"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:26.617" starttime="20171213 19:53:00.078"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:53:26.622" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:53:27.680" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:53:27.903" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="4196"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:53:27.907" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:53:28.965" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:53:29.169" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="4520"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:53:29.173" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:53:30.232" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:53:30.426" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:53:30.427" starttime="20171213 19:53:26.618"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:30.427" starttime="20171213 19:51:26.150"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:30.427" starttime="20171213 19:51:26.150"></status>
+</kw>
+<kw name="Common Suite Teardown" library="common_resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:53:30.428" starttime="20171213 19:53:30.428"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="RobotWS">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20171213 19:53:30.432" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<msg timestamp="20171213 19:53:30.442" level="INFO">[telnet_common.py@180]</msg>
+<msg timestamp="20171213 19:53:30.457" level="INFO">[telnet_common.py@181] Disconnect from 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<status status="PASS" endtime="20171213 19:53:30.457" starttime="20171213 19:53:30.429"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<assign>
+<var>${para_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<msg timestamp="20171213 19:53:30.486" level="FAIL">Variable ${zip_pass_log} does not exist.</msg>
+<status status="FAIL" endtime="20171213 19:53:30.486" starttime="20171213 19:53:30.461"></status>
+</kw>
+<msg timestamp="20171213 19:53:30.488" level="INFO">${para_exist} = ('FAIL', u'Variable ${zip_pass_log} does not exist.')</msg>
+<status status="PASS" endtime="20171213 19:53:30.489" starttime="20171213 19:53:30.459"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS' == '${para_exist[0]}'</arg>
+<arg>${zip_pass_log}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${zip_log}</var>
+</assign>
+<msg timestamp="20171213 19:53:30.493" level="INFO">${zip_log} = True</msg>
+<status status="PASS" endtime="20171213 19:53:30.493" starttime="20171213 19:53:30.493"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+<var>${value}</var>
+</assign>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:53:30.494" starttime="20171213 19:53:30.494"></status>
+</kw>
+<msg timestamp="20171213 19:53:30.494" level="INFO">${status} = PASS</msg>
+<msg timestamp="20171213 19:53:30.494" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20171213 19:53:30.495" starttime="20171213 19:53:30.493"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:53:30.495" starttime="20171213 19:53:30.495"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:30.496" starttime="20171213 19:53:30.495"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:30.496" starttime="20171213 19:53:30.427"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:53:30.496" starttime="20171213 19:43:32.290"></status>
+</kw>
+<test id="s1-t1" name="TD.OM.LTE580_01_04_Start pending delay for SEM">
+<kw type="setup" name="Private Test Case Setup">
+<kw name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as D:\wcrt_log\Test_Log_20171213185733//ev_logs//D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422//</doc>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171213 19:20:00.494" level="INFO">${timestamp} = 20171213192000</msg>
+<status status="PASS" endtime="20171213 19:20:00.494" starttime="20171213 19:20:00.494"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171213 19:20:00.495" level="INFO">${TEST_LOG_DIR} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start pending delay for SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.495" starttime="20171213 19:20:00.495"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171213 19:20:00.496" level="INFO">${TEST_LOG_DIR} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.496" starttime="20171213 19:20:00.495"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.496" level="INFO">${TEST_LOG_DIR} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.496" starttime="20171213 19:20:00.496"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.498" html="yes" level="INFO">Created directory '&lt;a href="file://D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM"&gt;D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171213 19:20:00.498" starttime="20171213 19:20:00.497"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.498" level="INFO">save log dir:D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.498" starttime="20171213 19:20:00.498"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:00.499" starttime="20171213 19:20:00.499"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:00.501" starttime="20171213 19:20:00.500"></status>
+</kw>
+<msg timestamp="20171213 19:20:00.501" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171213 19:20:00.501" starttime="20171213 19:20:00.500"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:00.502" starttime="20171213 19:20:00.501"></status>
+</kw>
+<msg timestamp="20171213 19:20:00.502" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171213 19:20:00.502" starttime="20171213 19:20:00.501"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20171213 19:20:00.503" level="INFO">${log dir} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.503" starttime="20171213 19:20:00.502"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.504" level="INFO">${SAVE LOG DIRECTORY} = D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM</msg>
+<status status="PASS" endtime="20171213 19:20:00.504" starttime="20171213 19:20:00.503"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:20:00.504" starttime="20171213 19:20:00.500"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:20:00.504" starttime="20171213 19:20:00.494"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:20:00.508" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:20:00.508" starttime="20171213 19:20:00.504"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:20:00.512" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:20:01.568" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:20:01.914" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="1216"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:20:01.916" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:20:02.972" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:20:03.193" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="5568"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:20:03.197" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:20:04.251" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:20:04.465" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:20:04.466" starttime="20171213 19:20:00.509"></status>
+</kw>
+<kw name="Start Bts Udp Log" library="RobotWS">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>full_log_name=${TEST_LOG_DIR}${/}btslog.LOG</arg>
+</arguments>
+<msg timestamp="20171213 19:20:04.788" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20171213 19:20:04.791" level="INFO">[btslog_control.py@230] use ip is 192.168.255.126</msg>
+<msg timestamp="20171213 19:20:04.794" level="INFO">[file_common.py@209] Directory "D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20171213 19:20:04.796" starttime="20171213 19:20:04.466"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:04.805" starttime="20171213 19:20:04.804"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:04.805" starttime="20171213 19:20:04.805"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:20:04.806" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:20:04.806" starttime="20171213 19:20:04.805"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:20:04.807" starttime="20171213 19:20:04.807"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:21:58.869" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192004\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:21:58.870" starttime="20171213 19:20:04.807"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="PASS" endtime="20171213 19:21:58.870" starttime="20171213 19:20:04.803"></status>
+</kw>
+<kw name="GUI SM Save Snapshot" library="gui_resource">
+<doc>this keyword is use to save snapshot in Site Manager</doc>
+<arguments>
+<arg>1</arg>
+<arg>Y</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>DetailLevel=${DetailLevel}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>PathFile=${PathFile}</arg>
+<arg>SaveParitialExist=${SaveParitialExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:21:58.872" level="INFO">${para_list} = [u'DetailLevel=1', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\\', u'PathFile=', u'...</msg>
+<status status="PASS" endtime="20171213 19:21:58.872" starttime="20171213 19:21:58.871"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:21:58.872" starttime="20171213 19:21:58.872"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:22:26.582" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+DetailLevel="1"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+PathFile=""
+SaveParitialExist="N"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192158\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:22:26.582" starttime="20171213 19:21:58.872"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:22:26.582" starttime="20171213 19:21:58.870"></status>
+</kw>
+<kw name="Get Active Bts Sw Version" library="RobotWS">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<msg timestamp="20171213 19:22:26.586" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:22:37.047" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:10:17 CST 2017 from 192.168.255.126 on ssh
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:22:37.054" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B78E68&gt;</msg>
+<msg timestamp="20171213 19:22:37.111" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171213 19:22:37.165" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:22:37.236" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B78E68&gt;</msg>
+<msg timestamp="20171213 19:22:37.239" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171213 19:22:47.707" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:17:32 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:22:47.724" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05928E40&gt;</msg>
+<msg timestamp="20171213 19:22:47.782" level="INFO">[ssh_common.py@253] Execute command: cd /ffs/fs2;ls TargetBD*.xml</msg>
+<msg timestamp="20171213 19:22:47.842" level="INFO">[ssh_common.py@309] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+TargetBD_TL18_FSM4_9999_171212_019801.xml
+root@fctj-0a:/ffs/fs2 &gt;</msg>
+<msg timestamp="20171213 19:22:47.908" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05928E40&gt;</msg>
+<status status="PASS" endtime="20171213 19:22:47.909" starttime="20171213 19:22:26.583"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>PC_Common_Print_Process&amp;LinkStatus</arg>
+</arguments>
+<kw name="PC_Common_Print_Process&amp;LinkStatus" library="OAM3_common_resources">
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:22:47.915" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:22:47.916" starttime="20171213 19:22:47.911"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>netstat -na</arg>
+</arguments>
+<msg timestamp="20171213 19:22:47.920" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:22:48.979" level="INFO">[telnet_common.py@268] Execute command: netstat -na</msg>
+<msg timestamp="20171213 19:22:49.134" level="INFO">[telnet_common.py@298] Get Response: netstat -na
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:22             0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:23             0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5800           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5900           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:8822           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:10050          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49157          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49161          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:56344          0.0.0.0:0              LISTENING
+  TCP    10.69.67.54:23         10.69.67.54:56359      ESTABLISHED
+  TCP    10.69.67.54:139        0.0.0.0:0              LISTENING
+  TCP    10.69.67.54:49184      10.56.6.5:445          ESTABLISHED
+  TCP    10.69.67.54:49388      10.140.160.174:8000    ESTABLISHED
+  TCP    10.69.67.54:56359      10.69.67.54:23         ESTABLISHED
+  TCP    10.69.67.54:56426      10.158.100.1:8080      SYN_SENT
+  TCP    10.69.67.54:56428      10.158.100.1:8080      SYN_SENT
+  TCP    10.69.67.54:56429      10.158.100.1:8080      SYN_SENT
+  TCP    127.0.0.1:27382        0.0.0.0:0              LISTENING
+  TCP    192.168.255.126:139    0.0.0.0:0              LISTENING
+  TCP    192.168.255.126:56414  192.168.255.129:12000  ESTABLISHED
+  TCP    192.168.255.126:56424  192.168.255.1:22       TIME_WAIT
+  TCP    192.168.255.126:56427  192.168.255.1:22       TIME_WAIT
+  TCP    [::]:23                [::]:0                 LISTENING
+  TCP    [::]:135               [::]:0                 LISTENING
+  TCP    [::]:445               [::]:0                 LISTENING
+  TCP    [::]:3389              [::]:0                 LISTENING
+  TCP    [::]:5357              [::]:0                 LISTENING
+  TCP    [::]:10050             [::]:0                 LISTENING
+  TCP    [::]:49152             [::]:0                 LISTENING
+  TCP    [::]:49153             [::]:0                 LISTENING
+  TCP    [::]:49154             [::]:0                 LISTENING
+  TCP    [::]:49157             [::]:0                 LISTENING
+  TCP    [::]:49161             [::]:0                 LISTENING
+  UDP    0.0.0.0:500            *:*                    
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:4500           *:*                    
+  UDP    0.0.0.0:5355           *:*                    
+  UDP    0.0.0.0:51477          *:*                    
+  UDP    0.0.0.0:64294          *:*                    
+  UDP    10.69.67.54:137        *:*                    
+  UDP    10.69.67.54:138        *:*                    
+  UDP    10.69.67.54:1900       *:*                    
+  UDP    10.69.67.54:54826      *:*                    
+  UDP    127.0.0.1:1900         *:*                    
+  UDP    127.0.0.1:54827        *:*                    
+  UDP    127.0.0.1:60405        *:*                    
+  UDP    192.168.255.126:137    *:*                    
+  UDP    192.168.255.126:138    *:*                    
+  UDP    192.168.255.126:1900   *:*                    
+  UDP    192.168.255.126:50011  *:*                    
+  UDP    192.168.255.126:51000  *:*                    
+  UDP    192.168.255.126:51001  *:*                    
+  UDP    192.168.255.126:51003  *:*                    
+  UDP    192.168.255.126:54825  *:*                    
+  UDP    [::]:500               *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:4500              *:*                    
+  UDP    [::]:5355              *:*                    
+  UDP    [::]:64295             *:*                    
+  UDP    [::1]:1900             *:*                    
+  UDP    [::1]:54824            *:*                    
+  UDP    [fe80::8882:6c3d:31fb:3de9%13]:1900  *:*                    
+  UDP    [fe80::8882:6c3d:31fb:3de9%13]:54822  *:*                    
+  UDP    [fe80::d9d3:4f53:a5a7:36c5%11]:1900  *:*                    
+  UDP    [fe80::d9d3:4f53:a5a7:36c5%11]:54823  *:*                    
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:22:49.135" starttime="20171213 19:22:47.916"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tasklist</arg>
+</arguments>
+<msg timestamp="20171213 19:22:49.140" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:22:50.199" level="INFO">[telnet_common.py@268] Execute command: tasklist</msg>
+<msg timestamp="20171213 19:22:50.514" level="INFO">[telnet_common.py@298] Get Response: tasklist
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0         24 K
+System                           4 Services                   0      3,632 K
+smss.exe                       324 Services                   0      1,268 K
+csrss.exe                      428 Services                   0      6,732 K
+wininit.exe                    484 Services                   0      4,732 K
+services.exe                   544 Services                   0     11,612 K
+lsass.exe                      564 Services                   0     14,296 K
+lsm.exe                        572 Services                   0      6,960 K
+svchost.exe                    748 Services                   0     11,132 K
+svchost.exe                    820 Services                   0     10,588 K
+svchost.exe                    904 Services                   0     18,936 K
+svchost.exe                    968 Services                   0    204,136 K
+svchost.exe                   1004 Services                   0     14,852 K
+svchost.exe                    120 Services                   0     39,636 K
+svchost.exe                   1060 Services                   0     18,204 K
+spoolsv.exe                   1208 Services                   0     16,524 K
+taskeng.exe                   1220 Services                   0      5,744 K
+svchost.exe                   1268 Services                   0      8,352 K
+winwfpmonitor.exe             1316 Services                   0      1,988 K
+conhost.exe                   1328 Services                   0      3,304 K
+svchost.exe                   1380 Services                   0      7,608 K
+svchost.exe                   1420 Services                   0      9,904 K
+HP.UFT.HelperService.exe      1456 Services                   0      9,984 K
+LabUtilization.exe            1616 Services                   0     14,488 K
+SMSvcHost.exe                 1660 Services                   0     19,440 K
+pcas.exe                      1776 Services                   0      8,132 K
+secbizsrv.exe                 1824 Services                   0     10,872 K
+ccSvcHst.exe                  1868 Services                   0     17,484 K
+cygrunsrv.exe                 1928 Services                   0      5,196 K
+tlntsvr.exe                   1988 Services                   0      5,772 K
+sshd.exe                      2020 Services                   0      6,764 K
+conhost.exe                   2032 Services                   0      3,332 K
+tvnserver.exe                 1132 Services                   0      8,068 K
+vmtoolsd.exe                  1596 Services                   0     16,608 K
+zabbix_agentd.exe             2108 Services                   0      9,012 K
+svchost.exe                   2700 Services                   0      5,700 K
+WmiPrvSE.exe                  2928 Services                   0     24,728 K
+dllhost.exe                   2500 Services                   0     11,736 K
+msdtc.exe                     3156 Services                   0      7,780 K
+csrss.exe                     3548 Console                    2     17,168 K
+winlogon.exe                  3576 Console                    2      5,512 K
+taskhost.exe                  3140 Console                    2     15,232 K
+ccSvcHst.exe                  2420 Console                    2      3,468 K
+taskeng.exe                   3504 Console                    2      7,532 K
+ProcessGovernor.exe           3188 Console                    2      4,416 K
+ProcessLasso.exe              2376 Console                    2     11,720 K
+dwm.exe                        228 Console                    2      7,640 K
+explorer.exe                  2132 Console                    2     86,880 K
+vmtoolsd.exe                  2632 Console                    2     14,780 K
+tvnserver.exe                 2732 Console                    2      7,088 K
+PingerGui.exe                 2224 Console                    2      9,032 K
+LabUtilization.exe            2752 Console                    2      8,888 K
+SearchIndexer.exe             4204 Services                   0     17,648 K
+wmpnetwk.exe                  4352 Services                   0      3,808 K
+jp2launcher.exe               4620 Console                    2    798,716 K
+WmiPrvSE.exe                  5172 Services                   0     13,372 K
+ktpcntr.exe                   4864 Console                    2     29,624 K
+notepad.exe                   5212 Console                    2      8,160 K
+cmd.exe                       2824 Console                    2      3,216 K
+conhost.exe                   1308 Console                    2      7,108 K
+python.exe                    5676 Console                    2     15,080 K
+aliwssv.exe                   2424 Console                    2      6,740 K
+conhost.exe                   4920 Console                    2      3,288 K
+cmd.exe                        640 Console                    2      3,772 K
+python.exe                    5960 Console                    2     59,084 K
+tlntsess.exe                  4348 Services                   0      6,336 K
+conhost.exe                   5908 Services                   0      3,480 K
+cmd.exe                       3484 Services                   0        108 K
+cmd.exe                       3960 Services                   0      3,340 K
+WmiPrvSE.exe                  4672 Services                   0     10,192 K
+javaw.exe                     5964 Console                    2    361,572 K
+java.exe                      3848 Console                    2    525,372 K
+conhost.exe                    892 Console                    2      3,356 K
+QtpAutomationAgent.exe        2508 Console                    2     34,148 K
+UFT.exe                       2764 Console                    2     73,820 K
+Mediator64.exe                5872 Console                    2      8,480 K
+tasklist.exe                  5368 Services                   0      6,256 K
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:22:50.515" starttime="20171213 19:22:49.135"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:22:50.515" starttime="20171213 19:22:47.910"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:22:50.515" starttime="20171213 19:22:47.910"></status>
+</kw>
+<kw name="Delete RUEM Before">
+<kw name="Connect To Host" library="RobotWS">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>192.168.255.1</arg>
+<arg>22</arg>
+<arg>toor4nsn</arg>
+<arg>oZPS0POrRieRtu</arg>
+<arg>conn_type=ssh</arg>
+</arguments>
+<assign>
+<var>${BTS_connection}</var>
+</assign>
+<msg timestamp="20171213 19:23:20.884" level="INFO">[ssh_common.py@198] Last login: Wed Dec 13 10:17:43 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-0a:~ &gt;</msg>
+<msg timestamp="20171213 19:23:20.888" level="INFO">${BTS_connection} = 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<status status="PASS" endtime="20171213 19:23:20.888" starttime="20171213 19:22:50.516"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_connection}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:20.889" level="INFO">${BTS_connection} = 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<status status="PASS" endtime="20171213 19:23:20.889" starttime="20171213 19:23:20.888"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>cd /rom/trs_data/active/keystorage</arg>
+</arguments>
+<msg timestamp="20171213 19:23:20.899" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<msg timestamp="20171213 19:23:20.957" level="INFO">[ssh_common.py@253] Execute command: cd /rom/trs_data/active/keystorage</msg>
+<msg timestamp="20171213 19:23:21.013" level="INFO">[ssh_common.py@309] Get Response: cd /rom/trs_data/active/keystorage
+root@fctj-0a:/rom/trs_data/active/keystorage &gt;</msg>
+<status status="PASS" endtime="20171213 19:23:21.013" starttime="20171213 19:23:20.889"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>rm -rf intDBParam*</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.018" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<msg timestamp="20171213 19:23:21.083" level="INFO">[ssh_common.py@253] Execute command: rm -rf intDBParam*</msg>
+<msg timestamp="20171213 19:23:21.137" level="INFO">[ssh_common.py@309] Get Response: rm -rf intDBParam*
+root@fctj-0a:/rom/trs_data/active/keystorage &gt;</msg>
+<status status="PASS" endtime="20171213 19:23:21.137" starttime="20171213 19:23:21.014"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>rm -rf intDB*</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.141" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:30 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x05B7F878&gt;</msg>
+<msg timestamp="20171213 19:23:21.199" level="INFO">[ssh_common.py@253] Execute command: rm -rf intDB*</msg>
+<msg timestamp="20171213 19:23:21.253" level="INFO">[ssh_common.py@309] Get Response: rm -rf intDB*
+root@fctj-0a:/rom/trs_data/active/keystorage &gt;</msg>
+<status status="PASS" endtime="20171213 19:23:21.253" starttime="20171213 19:23:21.138"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:23:21.253" starttime="20171213 19:22:50.515"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:23:21.253" starttime="20171213 19:20:00.490"></status>
+</kw>
+<kw name="Set Parameters And Trigger Login Delay">
+<arguments>
+<arg>@{Para_LTE580_0104_enable}</arg>
+</arguments>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${delay_time}</arg>
+<arg>${para[0]}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.258" level="INFO">${delay_time} = 2</msg>
+<status status="PASS" endtime="20171213 19:23:21.258" starttime="20171213 19:23:21.254"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${max_attempt}</arg>
+<arg>${para[1]}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.262" level="INFO">${max_attempt} = 1</msg>
+<status status="PASS" endtime="20171213 19:23:21.262" starttime="20171213 19:23:21.258"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${counting_period}</arg>
+<arg>${para[2]}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.266" level="INFO">${counting_period} = 6</msg>
+<status status="PASS" endtime="20171213 19:23:21.266" starttime="20171213 19:23:21.262"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${lock_duration}</arg>
+<arg>${para[3]}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.270" level="INFO">${lock_duration} = 3</msg>
+<status status="PASS" endtime="20171213 19:23:21.270" starttime="20171213 19:23:21.266"></status>
+</kw>
+<kw name="Set Parameters And Check">
+<arguments>
+<arg>${delay_time}</arg>
+<arg>${max_attempt}</arg>
+<arg>${counting_period}</arg>
+<arg>${lock_duration}</arg>
+</arguments>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:23:21.275" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:23:21.275" starttime="20171213 19:23:21.270"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:23:21.279" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:23:22.337" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:23:22.682" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="5964"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:23:22.685" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:23:23.743" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:23:24.012" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="3848"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:23:24.017" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:23:25.075" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:23:25.289" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:23:25.290" starttime="20171213 19:23:21.276"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:23:25.297" starttime="20171213 19:23:25.296"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:23:25.297" starttime="20171213 19:23:25.297"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:23:25.299" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:23:25.299" starttime="20171213 19:23:25.297"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:23:25.299" starttime="20171213 19:23:25.299"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:25:17.420" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192325\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:25:17.420" starttime="20171213 19:23:25.299"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="PASS" endtime="20171213 19:25:17.420" starttime="20171213 19:23:25.296"></status>
+</kw>
+<kw name="GUI SM Update IP View" library="gui_resource">
+<doc>This keyword is used to update the fields on IP View button.</doc>
+<arguments>
+<arg>Security</arg>
+<arg>Session login delay=${delay_time};;Failed login attempts counting period=${counting_period};;Max failed login attempt count=${max_attempt};;Account lockout period=${lock_duration}</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>TabName=${TabName}</arg>
+<arg>ParaName=${ParaName}</arg>
+<arg>NewValue=${NewValue}</arg>
+<arg>TableValue=${TableValue}</arg>
+<arg>OtherPara=${OtherPara}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:25:17.441" level="INFO">${para_list} = [u'TabName=Security', u'ParaName=Session login delay=2;;Failed login attempts counting period=6;;Max failed login attempt count=1;;Account lockout period=3', u'NewValue=', u'TableValue=', u'OtherPara=...</msg>
+<status status="PASS" endtime="20171213 19:25:17.441" starttime="20171213 19:25:17.440"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:25:17.441" starttime="20171213 19:25:17.441"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}UpdateValue_IP</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:26:06.956" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\UpdateValue_IP ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+TabName="Security"
+ParaName="Session login delay=2;;Failed login attempts counting period=6;;Max failed login attempt count=1;;Account lockout period=3"
+NewValue=""
+TableValue=""
+OtherPara=""
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192517\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:26:06.957" starttime="20171213 19:25:17.442"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:26:06.957" starttime="20171213 19:25:17.439"></status>
+</kw>
+<kw name="Check TRS Commission File">
+<kw name="GUI SM Save Snapshot" library="gui_resource">
+<doc>this keyword is use to save snapshot in Site Manager</doc>
+<arguments>
+<arg>1</arg>
+<arg>${TEST_LOG_DIR}${/}snapshot_temp.zip</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>DetailLevel=${DetailLevel}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>PathFile=${PathFile}</arg>
+<arg>SaveParitialExist=${SaveParitialExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:26:06.959" level="INFO">${para_list} = [u'DetailLevel=1', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\\', u'PathFile=D:\\w...</msg>
+<status status="PASS" endtime="20171213 19:26:06.959" starttime="20171213 19:26:06.958"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:26:06.959" starttime="20171213 19:26:06.959"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:26:46.845" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+DetailLevel="1"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+PathFile="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\snapshot_temp.zip"
+SaveParitialExist="N"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192606\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:26:46.845" starttime="20171213 19:26:06.960"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:26:46.845" starttime="20171213 19:26:06.958"></status>
+</kw>
+<kw name="Unzip File" library="RobotWS">
+<doc>This keyword unzip file to specific folder.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}${/}snapshot_temp.zip</arg>
+<arg>${TEST_LOG_DIR}${/}snapshot_temp</arg>
+</arguments>
+<msg timestamp="20171213 19:26:46.930" level="INFO">[zip_control.py@278] unzip 'D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\snapshot_temp.zip' to 'D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\snapshot_temp' successfully!</msg>
+<status status="PASS" endtime="20171213 19:26:46.931" starttime="20171213 19:26:46.846"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>btsSessionLoginDelay"&gt;${delay_time}</arg>
+<arg>btsAccountLockoutDuration"&gt;${lock_duration}</arg>
+<arg>btsFailedLoginCountingPeriod"&gt;${counting_period}</arg>
+<arg>btsMaxFailedLoginAttempts"&gt;${max_attempt}</arg>
+</arguments>
+<assign>
+<var>${checklist}</var>
+</assign>
+<msg timestamp="20171213 19:26:46.931" level="INFO">${checklist} = [u'btsSessionLoginDelay"&gt;2', u'btsAccountLockoutDuration"&gt;3', u'btsFailedLoginCountingPeriod"&gt;6', u'btsMaxFailedLoginAttempts"&gt;1']</msg>
+<status status="PASS" endtime="20171213 19:26:46.931" starttime="20171213 19:26:46.931"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}${/}snapshot_temp${/}FTRS${/}TRS.xml</arg>
+<arg>${checklist}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:26:46.961" starttime="20171213 19:26:46.932"></status>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}${/}snapshot_temp.zip</arg>
+</arguments>
+<msg timestamp="20171213 19:26:46.965" html="yes" level="INFO">Removed file '&lt;a href="file://D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\snapshot_temp.zip"&gt;D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\snapshot_temp.zip&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171213 19:26:46.965" starttime="20171213 19:26:46.961"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:26:46.965" starttime="20171213 19:26:06.957"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:26:46.969" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:26:46.969" starttime="20171213 19:26:46.965"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:26:46.973" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:48.030" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:48.268" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="5824"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:26:48.271" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:49.329" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:49.545" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\TD-LTE-TEST-PC\ROOT\CIMV2:Win32_Process.Handle="4736"
+
+Instance deletion successful.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:26:49.551" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:50.608" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:50.796" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:26:50.797" starttime="20171213 19:26:46.970"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:26:50.797" starttime="20171213 19:23:21.270"></status>
+</kw>
+<kw name="Login SEM Continuously With Incorrect PW">
+<arguments>
+<arg>${Common_user_name}</arg>
+<arg>${Common_incorrect_passwords}</arg>
+<arg>${${max_attempt}+1}</arg>
+</arguments>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:26:50.802" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:26:50.802" starttime="20171213 19:26:50.798"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171213 19:26:50.806" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:51.863" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:52.061" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:26:52.064" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:53.122" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:53.322" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171213 19:26:53.326" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:26:54.384" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171213 19:26:54.602" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:26:54.603" starttime="20171213 19:26:50.802"></status>
+</kw>
+<kw type="for" name="${n} IN RANGE [ ${login_times} ]">
+<kw type="foritem" name="${n} = 0">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Check Login Message</arg>
+<arg>Wrong Permission</arg>
+<arg>${Common_login_ip}</arg>
+<arg>${account}</arg>
+<arg>${password}</arg>
+<arg>qtpkeepopen=N</arg>
+</arguments>
+<kw name="GUI SM Check Login Message" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<arguments>
+<arg>Wrong Permission</arg>
+<arg>${Common_login_ip}</arg>
+<arg>${account}</arg>
+<arg>${password}</arg>
+<arg>qtpkeepopen=N</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckType=${CheckType}</arg>
+<arg>CheckInfo=${CheckInfo}</arg>
+<arg>NotExit=${NotExit}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:26:54.606" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=incorrect', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_...</msg>
+<status status="PASS" endtime="20171213 19:26:54.606" starttime="20171213 19:26:54.605"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Check_Login_Message</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:28:01.096" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="incorrect"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckType="Wrong Permission"
+CheckInfo=""
+NotExit="0"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192654\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171213 19:28:01.096" starttime="20171213 19:26:54.606"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:28:01.097" starttime="20171213 19:26:54.604"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:28:01.097" starttime="20171213 19:26:54.603"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20171213 19:28:11.097" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20171213 19:28:11.097" starttime="20171213 19:28:01.097"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:28:11.097" starttime="20171213 19:26:54.603"></status>
+</kw>
+<kw type="foritem" name="${n} = 1">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Check Login Message</arg>
+<arg>Wrong Permission</arg>
+<arg>${Common_login_ip}</arg>
+<arg>${account}</arg>
+<arg>${password}</arg>
+<arg>qtpkeepopen=N</arg>
+</arguments>
+<kw name="GUI SM Check Login Message" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<arguments>
+<arg>Wrong Permission</arg>
+<arg>${Common_login_ip}</arg>
+<arg>${account}</arg>
+<arg>${password}</arg>
+<arg>qtpkeepopen=N</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckType=${CheckType}</arg>
+<arg>CheckInfo=${CheckInfo}</arg>
+<arg>NotExit=${NotExit}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:28:11.100" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=incorrect', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_...</msg>
+<status status="PASS" endtime="20171213 19:28:11.100" starttime="20171213 19:28:11.099"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Check_Login_Message</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:35:34.654" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="incorrect"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckType="Wrong Permission"
+CheckInfo=""
+NotExit="0"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213192811\Report
+&lt;QTP&gt; Start to run script...
+
+ Cannot find the message incorrect within 180s.
+Test Fail. SaveImage  to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\2017-12-13_19-35-14.png
+&lt;QTP&gt; run Failed.
+Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<msg timestamp="20171213 19:35:34.743" level="FAIL">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</msg>
+<status status="FAIL" endtime="20171213 19:35:34.749" starttime="20171213 19:28:11.100"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:35:34.963" starttime="20171213 19:28:11.098"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:35:34.965" starttime="20171213 19:28:11.097"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20171213 19:35:45.083" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20171213 19:35:45.088" starttime="20171213 19:35:35.042"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:35:45.089" starttime="20171213 19:28:11.097"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:35:45.090" starttime="20171213 19:26:54.603"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Loop out</arg>
+</arguments>
+<msg timestamp="20171213 19:35:45.098" level="INFO">Loop out</msg>
+<status status="PASS" endtime="20171213 19:35:45.103" starttime="20171213 19:35:45.094"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:35:45.113" starttime="20171213 19:26:50.797"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:35:45.138" starttime="20171213 19:23:21.254"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20171213 19:35:55.176" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20171213 19:35:55.178" starttime="20171213 19:35:45.171"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:35:55.251" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:35:55.251" starttime="20171213 19:35:55.178"></status>
+</kw>
+<kw name="Kill Qtp Process" library="RobotWS">
+<doc>This keyword is used to kill the processes related to QTP application.</doc>
+<msg timestamp="20171213 19:35:58.963" level="INFO">Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<status status="PASS" endtime="20171213 19:35:58.963" starttime="20171213 19:35:55.251"></status>
+</kw>
+<kw name="GUI SM Check Login Message" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<arguments>
+<arg>Given Message</arg>
+<arg>${Common_login_ip}</arg>
+<arg>${Common_user_name}</arg>
+<arg>${Common_correct_passwords}</arg>
+<arg>${Common_SEM_session_login_delay}</arg>
+<arg>N</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckType=${CheckType}</arg>
+<arg>CheckInfo=${CheckInfo}</arg>
+<arg>NotExit=${NotExit}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:35:58.967" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:35:58.967" starttime="20171213 19:35:58.966"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Check_Login_Message</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:40:12.124" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Check_Login_Message ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckType="Given Message"
+CheckInfo="Access denied due to pending login delay"
+NotExit="N"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213193558\Report
+&lt;QTP&gt; Start to run script...
+
+ Navigate_BTSSiteManager Cannot start the BTS SiteManager.Time out 60 seconds
+Test Fail. SaveImage  to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\2017-12-13_19-39-42.png
+&lt;QTP&gt; run Failed.
+Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<msg timestamp="20171213 19:40:12.133" level="FAIL">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</msg>
+<status status="FAIL" endtime="20171213 19:40:12.135" starttime="20171213 19:35:58.968"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:40:12.136" starttime="20171213 19:35:58.965"></status>
+</kw>
+<kw type="teardown" name="Private Test Case Teardown">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${TEST_LOG_DIR}${/}TRS_log</arg>
+<arg>-e rf,ttitrace,core_file,site_conf,soap,configure_file,lfs</arg>
+</arguments>
+<kw name="One Key Capture Bts Logs" library="RobotWS">
+<doc>This keyword capture logs type as ttitrace, rf, core_file(if exist), sm, site_conf, soap,</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}${/}TRS_log</arg>
+<arg>-e rf,ttitrace,core_file,site_conf,soap,configure_file,lfs</arg>
+</arguments>
+<msg timestamp="20171213 19:40:12.213" level="INFO">[enb_log_control.py@58] cd to C:\TALib\tdd_robotws\RobotWS\tools\capture_log OK!</msg>
+<msg timestamp="20171213 19:40:12.217" level="INFO">[enb_log_control.py@59] execute command:python capture_log.py -d D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\TRS_log -e rf,ttitrace,core_file,site_conf,soap,configure_file,lfs</msg>
+<msg timestamp="20171213 19:40:16.741" level="INFO">[enb_log_control.py@61]</msg>
+<msg timestamp="20171213 19:40:16.751" level="INFO">[enb_log_control.py@63] cd to C:\Users\Administrator OK!</msg>
+<msg timestamp="20171213 19:40:16.752" level="FAIL">Execute command failed 'python capture_log.py -d D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\TRS_log -e rf,ttitrace,core_file,site_conf,soap,configure_file,lfs'</msg>
+<status status="FAIL" endtime="20171213 19:40:16.752" starttime="20171213 19:40:12.147"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:40:16.752" starttime="20171213 19:40:12.146"></status>
+</kw>
+<kw name="OAM3 Common Test Teardown" library="OAM3_common_resources">
+<doc>| Time | Release | Author | Modification | Relevant feature |</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Btscli Perform Parameter Commissioning</arg>
+<arg>idleSessionTimeTwp:1</arg>
+</arguments>
+<kw name="Btscli Perform Parameter Commissioning" library="RobotWS">
+<doc>Perform a parameter commissioning.</doc>
+<arguments>
+<arg>idleSessionTimeTwp:1</arg>
+</arguments>
+<msg timestamp="20171213 19:40:17.910" level="INFO">Starting process:
+C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jre_windows\bin\java -Djava.awt.headless=true -classpath .;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\btsemappl.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\coreasset.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\ganymed-ssh2-build251beta1.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\ganymed-ssh2-build262.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\jansi-1.11.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\javabuilder.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\json-20140107.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\laf.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\log4j.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\poseidon.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\rfview.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\rpmaster.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\xmlrpc-2.0.1.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\xz.jar com.nokia.em.bts.coreasset.application.CoreAssetToolApplication -op commissioning -ne "192.168.255.129" -outdir "D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM" -parameter "idleSessionTimeTwp:1" -pw "Nemuadmin:nemuuser" -timeout "300"</msg>
+<msg timestamp="20171213 19:40:17.925" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20171213 19:41:16.233" level="INFO">Process completed.</msg>
+<msg timestamp="20171213 19:40:16.840" level="INFO">[runner.py@40] execute cmd: C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jre_windows\bin\java -Djava.awt.headless=true -classpath .;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\btsemappl.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\coreasset.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\ganymed-ssh2-build251beta1.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\ganymed-ssh2-build262.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\jansi-1.11.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\javabuilder.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\json-20140107.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\laf.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\log4j.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\poseidon.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\rfview.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\rpmaster.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\xmlrpc-2.0.1.jar;C:\TALib\tdd_robotws\RobotWS\TdlteLib\enb_lib\btscli\resource\jars\xz.jar com.nokia.em.bts.coreasset.application.CoreAssetToolApplication -op commissioning -ne "192.168.255.129" -outdir "D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM" -parameter "idleSessionTimeTwp:1" -pw "Nemuadmin:nemuuser" -timeout "300"</msg>
+<msg timestamp="20171213 19:40:17.434" level="INFO">[runner.py@44] Start to kill Site Manager process...</msg>
+<msg timestamp="20171213 19:41:16.241" level="INFO">[runner.py@60] response: 13/12 19:40:27  INFO Commissioning Tool version 4.14
+13/12 19:40:27  INFO Connecting to 192.168.255.129...
+13/12 19:40:44  INFO Create write connection to 192.168.255.129
+13/12 19:40:44  INFO Connected to 192.168.255.129
+13/12 19:41:07  INFO Successfully commissioned 192.168.255.129
+13/12 19:41:13  INFO Successfully activated 192.168.255.129
+13/12 19:41:13  INFO Disconnected from 192.168.255.129
+13/12 19:41:15  INFO Commissioning Tool finished
+13/12 19:41:16  INFO Operations finished successfully
+Picked up JAVA_TOOL_OPTIONS: -agentlib:jvmhook
+Picked up _JAVA_OPTIONS: -Xrunjvmhook -Xbootclasspath/a:"C:\Program Files (x86)\HP\Unified Functional Testing\bin\java_shared\classes";"C:\Program Files (x86)\HP\Unified Functional Testing\bin\java_shared\classes\jasmine.jar"
+Picked up JAVA_TOOL_OPTIONS: -agentlib:jvmhook</msg>
+<status status="PASS" endtime="20171213 19:41:16.244" starttime="20171213 19:40:16.788"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:41:16.244" starttime="20171213 19:40:16.788"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:41:16.251" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:41:16.251" starttime="20171213 19:41:16.244"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Stop Bts Udp Log</arg>
+</arguments>
+<kw name="Stop Bts Udp Log" library="RobotWS">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20171213 19:41:16.263" starttime="20171213 19:41:16.253"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:41:16.264" starttime="20171213 19:41:16.251"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Save Infomodel Log</arg>
+<arg>${TEST_LOG_DIR}/IMLOG.ims</arg>
+</arguments>
+<kw name="Save Infomodel Log" library="RobotWS">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}/IMLOG.ims</arg>
+</arguments>
+<msg timestamp="20171213 19:41:16.340" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<status status="FAIL" endtime="20171213 19:41:16.341" starttime="20171213 19:41:16.275"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:41:16.342" starttime="20171213 19:41:16.269"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Stop Infomodel</arg>
+</arguments>
+<kw name="Stop Infomodel" library="RobotWS">
+<doc>Disconnect from InfoModel and teardown InfoModel. Keyword will</doc>
+<msg timestamp="20171213 19:41:16.361" level="INFO">[infomodel_control.py@190] stop infomodel logger failed, details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171213 19:41:16.384" level="INFO">[infomodel_control.py@194] disconnect from infomodel failed, details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171213 19:41:16.410" level="INFO">[infomodel_control.py@198] teardown infomodel failed. details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171213 19:41:16.418" level="INFO">[infomodel_control.py@200] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171213 19:41:16.419" starttime="20171213 19:41:16.350"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:41:16.419" starttime="20171213 19:41:16.346"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Semcli Save Snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:41:16.419" starttime="20171213 19:41:16.419"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If Test Failed</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:41:16.439" starttime="20171213 19:41:16.439"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:41:16.441" starttime="20171213 19:41:16.441"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:41:16.444" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_S...</msg>
+<status status="PASS" endtime="20171213 19:41:16.444" starttime="20171213 19:41:16.442"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:41:16.445" starttime="20171213 19:41:16.444"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:43:16.706" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213194116\Report
+&lt;QTP&gt; Start to run script...
+
+ Navigate_BTSSiteManager Cannot start the BTS SiteManager.Time out 60 seconds
+Test Fail. SaveImage  to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\2017-12-13_19-43-12.png
+&lt;QTP&gt; run Failed.
+Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<msg timestamp="20171213 19:43:16.706" level="FAIL">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</msg>
+<status status="FAIL" endtime="20171213 19:43:16.706" starttime="20171213 19:41:16.445"></status>
+</kw>
+<timeout value="10 minutes"></timeout>
+<status status="FAIL" endtime="20171213 19:43:16.706" starttime="20171213 19:41:16.438"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:43:16.706" starttime="20171213 19:41:16.421"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:16.706" starttime="20171213 19:41:16.419"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If Test Failed</arg>
+<arg>GUI SM Save Snapshot</arg>
+</arguments>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>GUI SM Save Snapshot</arg>
+</arguments>
+<kw name="GUI SM Save Snapshot" library="gui_resource">
+<doc>this keyword is use to save snapshot in Site Manager</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>DetailLevel=${DetailLevel}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>PathFile=${PathFile}</arg>
+<arg>SaveParitialExist=${SaveParitialExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171213 19:43:16.721" level="INFO">${para_list} = [u'DetailLevel=3', u'LogPath=D:\\wcrt_log\\Test_Log_20171213185733\\ev_logs\\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\\', u'PathFile=N', u...</msg>
+<status status="PASS" endtime="20171213 19:43:16.721" starttime="20171213 19:43:16.721"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:43:16.721" starttime="20171213 19:43:16.721"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171213 19:43:29.248" level="INFO">&lt;QTP&gt; Test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; java addin isn't active
+&lt;QTP&gt; start to set addins to active
+&lt;QTP&gt; set addins to active successfully
+&lt;QTP&gt; start to open test C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+C:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+DetailLevel="3"
+LogPath="D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\"
+PathFile="N"
+SaveParitialExist="N"
+&lt;QTP&gt; Save log to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\GUILog\qtp_log20171213194316\Report
+&lt;QTP&gt; Start to run script...
+
+Cannot find Save Snapshot button, please check whether the site manger is normal state
+Test Fail. SaveImage  to D:\wcrt_log\Test_Log_20171213185733\ev_logs\TD.OM.LTE580_Session_Login_Delay_EI_SEM_20171213191422\TD.OM.LTE580_01_04_Start_pending_delay_for_SEM\2017-12-13_19-43-28.png
+&lt;QTP&gt; run Failed.
+Start to kill QTP process.
+Finshed to kill QTP process.</msg>
+<msg timestamp="20171213 19:43:29.248" level="FAIL">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</msg>
+<status status="FAIL" endtime="20171213 19:43:29.248" starttime="20171213 19:43:16.721"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:43:29.248" starttime="20171213 19:43:16.721"></status>
+</kw>
+<status status="FAIL" endtime="20171213 19:43:29.248" starttime="20171213 19:43:16.706"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:29.248" starttime="20171213 19:43:16.706"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If Test Failed</arg>
+<arg>PC_Common_Print_Process&amp;LinkStatus</arg>
+</arguments>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>PC_Common_Print_Process&amp;LinkStatus</arg>
+</arguments>
+<kw name="PC_Common_Print_Process&amp;LinkStatus" library="OAM3_common_resources">
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171213 19:43:29.279" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;.</msg>
+<status status="PASS" endtime="20171213 19:43:29.279" starttime="20171213 19:43:29.264"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>netstat -na</arg>
+</arguments>
+<msg timestamp="20171213 19:43:29.279" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:43:30.356" level="INFO">[telnet_common.py@268] Execute command: netstat -na</msg>
+<msg timestamp="20171213 19:43:30.761" level="INFO">[telnet_common.py@298] Get Response: netstat -na
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:22             0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:23             0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5800           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5900           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:10050          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49157          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:49161          0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:56344          0.0.0.0:0              LISTENING
+  TCP    10.69.67.54:22         10.140.24.95:54388     ESTABLISHED
+  TCP    10.69.67.54:23         10.69.67.54:56359      ESTABLISHED
+  TCP    10.69.67.54:139        0.0.0.0:0              LISTENING
+  TCP    10.69.67.54:49184      10.56.6.5:445          ESTABLISHED
+  TCP    10.69.67.54:49388      10.140.160.174:8000    ESTABLISHED
+  TCP    10.69.67.54:56359      10.69.67.54:23         ESTABLISHED
+  TCP    127.0.0.1:27382        0.0.0.0:0              LISTENING
+  TCP    192.168.255.126:139    0.0.0.0:0              LISTENING
+  TCP    192.168.255.126:56430  192.168.255.1:22       ESTABLISHED
+  TCP    [::]:23                [::]:0                 LISTENING
+  TCP    [::]:135               [::]:0                 LISTENING
+  TCP    [::]:445               [::]:0                 LISTENING
+  TCP    [::]:3389              [::]:0                 LISTENING
+  TCP    [::]:5357              [::]:0                 LISTENING
+  TCP    [::]:10050             [::]:0                 LISTENING
+  TCP    [::]:49152             [::]:0                 LISTENING
+  TCP    [::]:49153             [::]:0                 LISTENING
+  TCP    [::]:49154             [::]:0                 LISTENING
+  TCP    [::]:49157             [::]:0                 LISTENING
+  TCP    [::]:49161             [::]:0                 LISTENING
+  UDP    0.0.0.0:500            *:*                    
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:3702           *:*                    
+  UDP    0.0.0.0:4500           *:*                    
+  UDP    0.0.0.0:5355           *:*                    
+  UDP    0.0.0.0:64294          *:*                    
+  UDP    10.69.67.54:137        *:*                    
+  UDP    10.69.67.54:138        *:*                    
+  UDP    10.69.67.54:1900       *:*                    
+  UDP    10.69.67.54:54826      *:*                    
+  UDP    127.0.0.1:1900         *:*                    
+  UDP    127.0.0.1:54827        *:*                    
+  UDP    127.0.0.1:59411        *:*                    
+  UDP    127.0.0.1:60405        *:*                    
+  UDP    192.168.255.126:137    *:*                    
+  UDP    192.168.255.126:138    *:*                    
+  UDP    192.168.255.126:1900   *:*                    
+  UDP    192.168.255.126:54825  *:*                    
+  UDP    [::]:500               *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:3702              *:*                    
+  UDP    [::]:4500              *:*                    
+  UDP    [::]:5355              *:*                    
+  UDP    [::]:64295             *:*                    
+  UDP    [::1]:1900             *:*                    
+  UDP    [::1]:54824            *:*                    
+  UDP    [fe80::8882:6c3d:31fb:3de9%13]:1900  *:*                    
+  UDP    [fe80::8882:6c3d:31fb:3de9%13]:54822  *:*                    
+  UDP    [fe80::d9d3:4f53:a5a7:36c5%11]:1900  *:*                    
+  UDP    [fe80::d9d3:4f53:a5a7:36c5%11]:54823  *:*                    
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:43:30.761" starttime="20171213 19:43:29.279"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tasklist</arg>
+</arguments>
+<msg timestamp="20171213 19:43:30.777" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.54:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0594A300&gt;</msg>
+<msg timestamp="20171213 19:43:31.853" level="INFO">[telnet_common.py@268] Execute command: tasklist</msg>
+<msg timestamp="20171213 19:43:32.274" level="INFO">[telnet_common.py@298] Get Response: tasklist
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0         24 K
+System                           4 Services                   0      3,632 K
+smss.exe                       324 Services                   0      1,268 K
+csrss.exe                      428 Services                   0      6,748 K
+wininit.exe                    484 Services                   0      4,732 K
+services.exe                   544 Services                   0     11,612 K
+lsass.exe                      564 Services                   0     14,396 K
+lsm.exe                        572 Services                   0      6,996 K
+svchost.exe                    748 Services                   0     11,120 K
+svchost.exe                    820 Services                   0     10,632 K
+svchost.exe                    904 Services                   0     18,936 K
+svchost.exe                    968 Services                   0    211,696 K
+svchost.exe                   1004 Services                   0     14,604 K
+svchost.exe                    120 Services                   0     39,948 K
+svchost.exe                   1060 Services                   0     18,176 K
+spoolsv.exe                   1208 Services                   0     16,508 K
+taskeng.exe                   1220 Services                   0      5,744 K
+svchost.exe                   1268 Services                   0      8,352 K
+winwfpmonitor.exe             1316 Services                   0      1,992 K
+conhost.exe                   1328 Services                   0      3,304 K
+svchost.exe                   1380 Services                   0      7,616 K
+svchost.exe                   1420 Services                   0      9,900 K
+HP.UFT.HelperService.exe      1456 Services                   0      9,968 K
+LabUtilization.exe            1616 Services                   0     14,488 K
+SMSvcHost.exe                 1660 Services                   0     19,440 K
+pcas.exe                      1776 Services                   0      8,132 K
+secbizsrv.exe                 1824 Services                   0     10,872 K
+ccSvcHst.exe                  1868 Services                   0     16,904 K
+cygrunsrv.exe                 1928 Services                   0      5,196 K
+tlntsvr.exe                   1988 Services                   0      5,772 K
+sshd.exe                      2020 Services                   0      6,808 K
+conhost.exe                   2032 Services                   0      3,332 K
+tvnserver.exe                 1132 Services                   0      8,084 K
+vmtoolsd.exe                  1596 Services                   0     16,628 K
+zabbix_agentd.exe             2108 Services                   0      9,012 K
+svchost.exe                   2700 Services                   0      5,700 K
+WmiPrvSE.exe                  2928 Services                   0     24,732 K
+dllhost.exe                   2500 Services                   0     11,736 K
+msdtc.exe                     3156 Services                   0      7,780 K
+csrss.exe                     3548 Console                    2     17,108 K
+winlogon.exe                  3576 Console                    2      5,512 K
+taskhost.exe                  3140 Console                    2     14,784 K
+ccSvcHst.exe                  2420 Console                    2      6,336 K
+taskeng.exe                   3504 Console                    2      7,516 K
+ProcessGovernor.exe           3188 Console                    2      4,440 K
+ProcessLasso.exe              2376 Console                    2     11,512 K
+dwm.exe                        228 Console                    2      7,640 K
+explorer.exe                  2132 Console                    2     86,576 K
+vmtoolsd.exe                  2632 Console                    2     14,764 K
+tvnserver.exe                 2732 Console                    2      6,848 K
+PingerGui.exe                 2224 Console                    2      8,408 K
+LabUtilization.exe            2752 Console                    2      8,228 K
+SearchIndexer.exe             4204 Services                   0     16,444 K
+wmpnetwk.exe                  4352 Services                   0      3,808 K
+jp2launcher.exe               4620 Console                    2    798,692 K
+WmiPrvSE.exe                  5172 Services                   0     13,440 K
+notepad.exe                   5212 Console                    2      8,172 K
+cmd.exe                       2824 Console                    2      3,216 K
+conhost.exe                   1308 Console                    2      6,848 K
+python.exe                    5676 Console                    2     15,080 K
+aliwssv.exe                   2424 Console                    2      6,740 K
+conhost.exe                   4920 Console                    2      3,288 K
+cmd.exe                        640 Console                    2      3,772 K
+python.exe                    5960 Console                    2     59,608 K
+tlntsess.exe                  4348 Services                   0      6,336 K
+conhost.exe                   5908 Services                   0      3,480 K
+cmd.exe                       3484 Services                   0        108 K
+cmd.exe                       3960 Services                   0      3,364 K
+sshd.exe                      5924 Services                   0      7,392 K
+conhost.exe                   4992 Services                   0      3,352 K
+conhost.exe                   4580 Services                   0      3,452 K
+sftp-server.exe               3464 Services                   0      4,720 K
+WmiPrvSE.exe                  5672 Services                   0      9,744 K
+tasklist.exe                   184 Services                   0      6,252 K
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:43:30.761"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:43:29.264"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:43:29.248"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:43:29.248"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${Disconnect_flag}=='True'</arg>
+<arg>Disconnect All Hosts</arg>
+</arguments>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:43:32.274"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:40:16.763"></status>
+</kw>
+<status status="PASS" endtime="20171213 19:43:32.274" starttime="20171213 19:40:12.145"></status>
+</kw>
+<doc>This sub-case is to check when login is locked, incorrect and correct password for local account should be both blocked. After lock release, user can use correct password to login SEM. And all login attempts will be logged in RUEM log.</doc>
+<tags>
+<tag>OAM3</tag>
+<tag>Owner-nancy.j.liu@nokia.com</tag>
+<tag>QC_580039</tag>
+<tag>Release-TL16</tag>
+</tags>
+<status status="FAIL" endtime="20171213 19:43:32.274" critical="yes" starttime="20171213 19:20:00.488">com_error: (-2147023174, 'The RPC server is unavailable.', None, None)</status>
+</test>
+<doc>This case is to verify LTE580 SEM(Xoh) part EI functionality. Suite contains 3 test cases: LTE580_01_01;LTE580_01_03;LTE580_01_04. 
+
+This is a parameter droven feature, so if you want to modify the test content, for 0101 and 0103, you just need to modify [u'6', u'0', u'20', u'3'] and [u'7', u'1', u'18', u'2']; for 0104, you need to modify both [u'2', u'1', u'6', u'3'] and kw 'Check RUEM'.
+
+
+| Time | Release | Author | Modification | Relevant feature |
+| 2015.9.25 | TL16 | Lv Zhuo | first create | LTE580 |
+| 2015.10.09 | TL16 | Lv Zhuo | modification due to Liu Nancy J comments | LTE580 |
+| 2015.10.21 | TL16A | Lv Zhuo | modification for TL16A | LTE580 |
+| 2015.12.22 | TL16A | Lv Zhuo | Increase lockout time to fit slow test environment | LTE580 |
+| 2016.01.26 | TL16A | Lv Zhuo | Optimization for suite teardown | LTE580 |
+| 2016.01.28 | TL16A | Lv Zhuo | Optimization for QTP stability issue | LTE580 |
+| 2016.02.17 | TL16A | Lv Zhuo | Modification for FSMr4 | LTE580 |
+| 2016.05.27 | TL17 | Lv Zhuo | Porting to trunk CRT ASMI | LTE580 |
+| 2016.06.29 | TL17 | Lv Zhuo | Add ignore error in teardown | LTE580 |</doc>
+<status status="FAIL" endtime="20171213 19:53:30.496" starttime="20171213 19:14:20.737"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">OAM3</stat>
+<stat fail="1" pass="0">Owner-nancy.j.liu@nokia.com</stat>
+<stat fail="1" pass="0">QC_580039</stat>
+<stat fail="1" pass="0">Release-TL16</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="TA" pass="0">TA</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20171213 19:44:02.991" level="WARN">[ssh_common.py@305]</msg>
+</errors>
+</robot>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171218 13:14:24.519" generator="Robot 3.0.2 (Python 2.7.13 on linux2)">
+<suite source="/home/ute/robotlte/testsuite/hangzhou/trunk/DevHZ2/LTE3073/LTE3073-R-e_ET_03_Performance_monitor_for_2CC_UE.robot" id="s1" name="LTE3073-R-e ET 03 Performance monitor for 2CC UE">
+<kw type="setup" name="initialize_suite">
+<msg timestamp="20171218 13:14:26.360" level="TRACE">Arguments: [  ]</msg>
+<kw name="clean_up_env" library="tdd_common">
+<msg timestamp="20171218 13:14:26.360" level="TRACE">Arguments: [ ${enb_index}='A' ]</msg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>file_should_exist</arg>
+<arg>/opt/Software/PSTools/pscli</arg>
+</arguments>
+<assign>
+<var>${ret}</var>
+</assign>
+<msg timestamp="20171218 13:14:26.361" level="TRACE">Arguments: [ 'file_should_exist' | '/opt/Software/PSTools/pscli' ]</msg>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>/opt/Software/PSTools/pscli</arg>
+</arguments>
+<msg timestamp="20171218 13:14:26.361" level="TRACE">Arguments: [ '/opt/Software/PSTools/pscli' ]</msg>
+<msg timestamp="20171218 13:14:26.362" level="FAIL">File '/opt/Software/PSTools/pscli' does not exist.</msg>
+<msg timestamp="20171218 13:14:26.362" level="DEBUG">Traceback (most recent call last):
+  None</msg>
+<status status="FAIL" endtime="20171218 13:14:26.362" starttime="20171218 13:14:26.361"></status>
+</kw>
+<msg timestamp="20171218 13:14:26.362" level="TRACE">Return: False</msg>
+<msg timestamp="20171218 13:14:26.362" level="INFO">${ret} = False</msg>
+<status status="PASS" endtime="20171218 13:14:26.362" starttime="20171218 13:14:26.361"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ret}==False</arg>
+<arg>_download_tools_to_local_pc_from_file_server</arg>
+</arguments>
+<msg timestamp="20171218 13:14:26.362" level="TRACE">Arguments: [ 'False==False' | '_download_tools_to_local_pc_from_file_server' ]</msg>
+<kw name="_download_tools_to_local_pc_from_file_server" library="tdd_common">
+<msg timestamp="20171218 13:14:26.363" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run And Return Rc And Output" library="OperatingSystem">
+<doc>Runs the given command in the system and returns the RC and output.</doc>
+<arguments>
+<arg>sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/</arg>
+</arguments>
+<msg timestamp="20171218 13:14:26.363" level="TRACE">Arguments: [ 'sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/' ]</msg>
+<msg timestamp="20171218 13:14:26.365" level="INFO">Running command 'sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/ 2&gt;&amp;1'.</msg>
+<msg timestamp="20171218 13:14:26.417" level="TRACE">Return: (0, '')</msg>
+<status status="PASS" endtime="20171218 13:14:26.417" starttime="20171218 13:14:26.363"></status>
+</kw>
+<kw name="Get ENB Version by TargetBD" library="tdd_common">
+<assign>
+<var>${enb_version}</var>
+</assign>
+<msg timestamp="20171218 13:14:26.418" level="TRACE">Arguments: [ ${partition}='active' | ${enb_index}='A' ]</msg>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${tl.enb["${enb_index}"].fsm.hw_version}'=='FZM'</arg>
+<arg>fzm</arg>
+<arg>fsmf</arg>
+</arguments>
+<assign>
+<var>${hw_version}</var>
+</assign>
+<msg timestamp="20171218 13:14:26.419" level="TRACE">Arguments: [ "'FSMF'=='FZM'" | 'fzm' | 'fsmf' ]</msg>
+<msg timestamp="20171218 13:14:26.419" level="TRACE">Return: 'fsmf'</msg>
+<msg timestamp="20171218 13:14:26.419" level="INFO">${hw_version} = fsmf</msg>
+<status status="PASS" endtime="20171218 13:14:26.419" starttime="20171218 13:14:26.419"></status>
+</kw>
+<kw name="Setup Enb Fsm Access" library="ute_fsmaccess">
+<doc>Prepare Ssh Connection to eNB Fsm.</doc>
+<arguments>
+<arg>env=${hw_version}</arg>
+<arg>remote_host=${tl.enb['${enb_index}'].fsm_control_pc.host}</arg>
+</arguments>
+<msg timestamp="20171218 13:14:26.420" level="TRACE">Arguments: [ env='fsmf' | remote_host=b'10.42.186.77' ]</msg>
+<msg timestamp="20171218 13:14:26.420" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171218 13:14:26.420" starttime="20171218 13:14:26.420"></status>
+</kw>
+<kw name="Get Enb Targetbd File" library="ute_fsmaccess">
+<doc>Copy TargetBD file from defined partition of eNB to specified localization on PC.</doc>
+<arguments>
+<arg>${KISS DEBUG LOG DIR()}</arg>
+<arg>${partition}</arg>
+</arguments>
+<assign>
+<var>${TargetBD_name}</var>
+</assign>
+<msg timestamp="20171218 13:14:26.426" level="TRACE">Arguments: [ '/home/ute/test_results/log/LTE3073-R-e_ET_03_Performance_monitor_for_2CC_UE_20171218131426/kiss_debug_log/' | 'active' ]</msg>
+<msg timestamp="20171218 13:14:36.440" level="FAIL">timeout: timed out</msg>
+<msg timestamp="20171218 13:14:36.441" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/interface/enbfsm.py", line 132, in get_enb_targetbd_file
+    source, destination = self.enb_store.get(alias=kwargs.get('alias')).get_enb_targetbd(dst=destination, partition=partition)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 29, in __call__
+    with self.establish_ssh(args[0]):
+  File "/opt/ute/python/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 45, in establish_ssh
+    yield fsm_access.setup()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 67, in setup
+    self._fsm_connection_client = self._fsm_connection_manager.start()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/manager.py", line 68, in start
+    self._client = self._prepare_ssh_connection()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/manager.py", line 101, in _prepare_ssh_connection
+    port = self.forwarder.start()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_sshforwarder/forwarder.py", line 95, in start
+    self._create_ssh_conn_to_remote_pc()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_sshforwarder/forwarder.py", line 111, in _create_ssh_conn_to_remote_pc
+    self._ssh.login(look_for_keys=True, **self._remote_pc_login)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 146, in login
+    self._login(username, password, look_for_keys=look_for_keys)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/pythonclient.py", line 69, in _login
+    timeout=float(self.config.timeout))
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/client.py", line 305, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/util.py", line 269, in retry_on_signal
+    return function()
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/client.py", line 305, in &lt;lambda&gt;
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/ute/python/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)</msg>
+<status status="FAIL" endtime="20171218 13:14:36.441" starttime="20171218 13:14:26.421"></status>
+</kw>
+<kw type="teardown" name="Teardown Enb Fsm Access" library="ute_fsmaccess">
+<doc>Close SSH session and cleanup connection.</doc>
+<msg timestamp="20171218 13:14:36.442" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171218 13:14:36.443" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171218 13:14:36.443" starttime="20171218 13:14:36.442"></status>
+</kw>
+<status status="FAIL" endtime="20171218 13:14:36.443" starttime="20171218 13:14:26.418"></status>
+</kw>
+<status status="FAIL" endtime="20171218 13:14:36.444" starttime="20171218 13:14:26.363"></status>
+</kw>
+<status status="FAIL" endtime="20171218 13:14:36.444" starttime="20171218 13:14:26.362"></status>
+</kw>
+<status status="FAIL" endtime="20171218 13:14:36.444" starttime="20171218 13:14:26.360"></status>
+</kw>
+<status status="FAIL" endtime="20171218 13:14:36.445" starttime="20171218 13:14:26.359"></status>
+</kw>
+<test id="s1-t1" name="LTE3073-R-e_ET_03_Performance_monitor_for_2CC_UE">
+<doc>LTE3073-R-e_ET_03_Performance_monitor_for_2CC_UE</doc>
+<tags>
+<tag>CIT</tag>
+<tag>CLOUD_F</tag>
+<tag>qc_test_instance_id:577745</tag>
+<tag>qc_test_set_id:23141</tag>
+<tag>TL00</tag>
+</tags>
+<status status="FAIL" endtime="20171218 13:14:36.447" critical="yes" starttime="20171218 13:14:36.445">Parent suite setup failed:
+timeout: timed out</status>
+</test>
+<doc>LTE3073-R-e_ET_03_Performance_monitor_for_2CC_UE</doc>
+<status status="FAIL" endtime="20171218 13:14:36.448" starttime="20171218 13:14:24.521">Suite setup failed:
+timeout: timed out</status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">CIT</stat>
+<stat fail="1" pass="0">CLOUD_F</stat>
+<stat fail="1" pass="0">qc_test_instance_id:577745</stat>
+<stat fail="1" pass="0">qc_test_set_id:23141</stat>
+<stat fail="1" pass="0">TL00</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="LTE3073-R-e ET 03 Performance monitor for 2CC UE" pass="0">LTE3073-R-e ET 03 Performance monitor for 2CC UE</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

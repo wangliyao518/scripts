@@ -1,0 +1,6664 @@
+
+
+
+this keyword create suite name directory path as D:\TA\TA_logs\TestLog_20171026105106//logs//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20171026120839
+
+
+
+
+Replaces ``pattern`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_NAME[:50]}
+
+\\s+$
+
+${EMPTY}
+
+
+
+${FILE_NAME}
+
+
+${FILE_NAME} = FZHR Operational Cell block unblock
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${OUTPUT_DIR}
+
+ev_logs
+
+${FILE_NAME}_${timestamp}
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR Operational Cell block unblock_20171026120839
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_LOG_DIRECTORY}
+
+${SPACE}
+
+_
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+
+
+
+
+Creates the specified directory.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+Created directory '
+<
+a href="file://D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839"
+>
+D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${SUITE_LOG_DIRECTORY}
+
+
+save log dir:D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${snapshot_flag}
+
+0
+
+
+${snapshot_flag} = 0
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+Variable ${TEST LOG DIR} does not exist.
+
+
+
+${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+
+Sets variable based on the given condition.
+
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+
+${log dir} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Make Sure FCT Ping Ok
+
+
+
+
+This function is used for check whether ping host success, if yes, return 1, else return 0
+
+
+${FCMD_IP}
+
+
+
+${status}
+
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+${status} = True
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+300
+
+${FTM_IP}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Btscli Disable Bts Port Security
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+60
+
+${FCMD_IP}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Wait Until Keyword Succeeds
+
+5min
+
+5s
+
+_make sure fctb connect ok
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+get_enb_infomation
+
+
+
+This keyword will print bts sw version, bbu type and RRU type.
+
+[chan 0] Opened sftp connection (server version 3)
+
+[chan 0] sftp session closed.
+
+[chan 0] Opened sftp connection (server version 3)
+
+[chan 0] sftp session closed.
+
+[chan 0] Opened sftp connection (server version 3)
+
+[chan 0] sftp session closed.
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:08:27 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0546C418
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0546C418
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:08:45 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046AA300
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs2;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+
+TargetBD_TL17A_ENB_0000_000475_000000.xml
+
+root@fctj-0a:/ffs/fs2
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046AA300
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:08:55 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04D374E0
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04D374E0
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:09:07 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9378
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs2;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+
+TargetBD_TL17A_ENB_0000_000475_000000.xml
+
+root@fctj-0a:/ffs/fs2
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9378
+>
+
+[enb_resource.py@1141]
+
+****Current BTS version is 'TL17A_ENB_0000_000475_000000' *****
+
+[enb_resource.py@1171] activeBuildVersion=TL17A_ENB_0000_000475_000000
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:09:18 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9DF0
+>
+
+[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml
+
+[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+
+/ram/SiteConf.xml
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9DF0
+>
+
+[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok
+
+[sftp_control.py@176] /ram/SiteConf.xml
+
+[sftp_control.py@79] sftp download from '/ram/SiteConf.xml' to 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\SiteConf.xml' is ok. local file size is 23k
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:09:39 CST 2017 from 192.168.255.126 on ssh
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9378
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9378
+>
+
+[enb_resource.py@403] The real falsh folder is /ffs/fs2
+
+[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok
+
+[sftp_control.py@176] /ffs/fs2/FileDirectory.xml
+
+[sftp_control.py@79] sftp download from '/ffs/fs2/FileDirectory.xml' to 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FileDirectory_20171026120934.xml' is ok. local file size is 36k
+
+[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok
+
+[sftp_control.py@176] /ffs/fs2/config/SCFC_153.xml
+
+[sftp_control.py@79] sftp download from '/ffs/fs2/config/SCFC_153.xml' to 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\SCFC_153.xml' is ok. local file size is 128k
+
+[enb_resource.py@1141]
+
+****Current bbu type is 'ASIA' *****
+
+[enb_resource.py@1266] HW_BBU_TYPE=ASIA
+
+[enb_resource.py@1141]
+
+****Current rru type is '' *****
+
+[enb_resource.py@1269] HW_RRU_TYPE=
+
+[enb_resource.py@1141]
+
+****Current HW type is '#3044A-2CL1-T2-L-2' *****
+
+[enb_resource.py@1272] BTS_HW_TYPE=#3044A-2CL1-T2-L-2
+
+[ping_control.py@189]
+
+Pinging 192.168.200.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.200.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.20 with 32 bytes of data:
+
+Reply from 192.168.255.126: Destination host unreachable.
+
+
+Ping statistics for 192.168.255.20:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+
+
+
+
+
+Sets the resolution order to use when a name matches multiple keywords.
+
+
+tdd_ev_robotws
+
+OperatingSystem
+
+
+
+
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+${TELNET_PORT}
+
+${SSH_PORT}
+
+
+
+${conn_port}
+
+
+${conn_port} = 23
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+TELNET
+
+SSH
+
+
+
+${conn_type}
+
+
+${conn_type} = TELNET
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+30
+
+5
+
+
+
+${timeout}
+
+
+${timeout} = 30
+
+
+
+
+Used to connect to host, either TELNET or SSH
+
+
+${BTS_PC_INFO.IP}
+
+port=${conn_port}
+
+username=${BTS_PC_INFO.USERNAME}
+
+password=${BTS_PC_INFO.PASSWORD}
+
+conn_type=${conn_type}
+
+timeout=${timeout}
+
+
+
+${BTS_PC_CONNECTION}
+
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@246]
+
+
+*===============================================================
+
+Microsoft Telnet Server.
+
+*===============================================================
+
+C:\Users\tdlte-tester
+>
+
+${BTS_PC_CONNECTION} = 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${BTS_PC_CONNECTION}
+
+
+${BTS_PC_CONNECTION} = 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+"Windows" in "${platform_version}"
+
+Execute Shell Command
+
+tlntadmn config timeoutactive\=no
+
+
+
+Execute a command on the remote system.
+
+
+tlntadmn config timeoutactive\=no
+
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no
+
+[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+
+The settings were successfully updated.
+
+
+C:\Users\tdlte-tester
+>
+
+
+
+
+
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+.
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${REMOVE_LOGS}'=='on'
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+Closes all existing telnet connections to remote hosts.
+
+[telnet_common.py@188]
+
+[telnet_common.py@189] Disconnect from 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@188]
+
+[telnet_common.py@189] Disconnect from 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Run Keyword If
+
+${need_zip} == ${True}
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+${status}
+
+${value}
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Run Keyword If
+
+${need_zip} == ${True}
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+
+${status} = PASS
+
+${value} = None
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Run Keyword If
+
+'${status}' == 'PASS' and ${need_zip} == ${True}
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Run Keyword If
+
+'${status}' == 'PASS' and ${need_zip} == ${True}
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+
+
+
+
+
+this keyword create case name directory path as D:\TA\TA_logs\TestLog_20171026105106//ev_logs//D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20171026121016
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${SUITE_LOG_DIRECTORY}
+
+${TEST_NAME[:50]}
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${TEST_LOG_DIR}
+
+${SPACE}
+
+_
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+Creates the specified directory.
+
+
+${TEST_LOG_DIR}
+
+
+Created directory '
+<
+a href="file://D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock"
+>
+D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${TEST_LOG_DIR}
+
+
+save log dir:D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${BTS PC CONNECTION.connected}
+
+Initial Connection With BTS PC
+
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+
+
+${case_dir_exist} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+${log dir} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock
+
+
+
+
+
+
+
+
+
+${source_scf}
+
+${parameter_list}
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+.
+
+
+
+
+This keyword test the reachability of remote system.
+
+
+192.168.255.1
+
+
+
+${package_summary}
+
+${ping_delay}
+
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: ping  192.168.255.1
+
+[telnet_common.py@306] Get Response: ping  192.168.255.1
+
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+
+C:\Users\tdlte-tester
+>
+
+Total ping delay is: [1, 1, 1, 1]
+
+Statistic ping delay is: [1, 1, 1, 1]
+
+Valid ping delay is: [1, 1, 1, 1]
+
+${package_summary} = ('4', '4', '0')
+
+${ping_delay} = [1, 1, 1.0]
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+${package_summary[2]}
+>
+2
+
+Restart Device With Powerbreaker
+
+${bts_powerbreak}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+${package_summary[2]}
+>
+2
+
+Wait Until Units Startup
+
+600
+
+192.168.255.1
+
+
+
+
+
+modify source_scf according parameter list and then upload to enb.
+
+
+${source_scf}
+
+${parameters_list}
+
+
+[chan 0] Opened sftp connection (server version 3)
+
+[chan 0] sftp session closed.
+
+[chan 0] Opened sftp connection (server version 3)
+
+[chan 0] sftp session closed.
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:09:50 CST 2017 from 192.168.255.126 on ssh
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054D1A30
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054D1A30
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:10:26 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054D1648
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs2;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+
+TargetBD_TL17A_ENB_0000_000475_000000.xml
+
+root@fctj-0a:/ffs/fs2
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054D1648
+>
+
+[enb_resource.py@360] enable ssh and rdport failed.
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:10:37 CST 2017 from 192.168.255.126 on pts/1
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0531EC10
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0531EC10
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:10:47 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054770A8
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs2;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+
+TargetBD_TL17A_ENB_0000_000475_000000.xml
+
+root@fctj-0a:/ffs/fs2
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054770A8
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:10:58 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054770A8
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x054770A8
+>
+
+[enb_resource.py@403] The real falsh folder is /ffs/fs2
+
+[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok
+
+[sftp_control.py@176] /ffs/fs2/FileDirectory.xml
+
+[sftp_control.py@79] sftp download from '/ffs/fs2/FileDirectory.xml' to 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileDirectory_20171026121103.xml' is ok. local file size is 36k
+
+[enb_command_control.py@33] argument host is: 192.168.255.129
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:11:19 CST 2017 from 192.168.255.126 on ssh
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9DF0
+>
+
+[ssh_common.py@258] Execute command: rm -rf /ffs/fs2/config/hwf.bin.gz
+
+[ssh_common.py@314] Get Response: rm -rf /ffs/fs2/config/hwf.bin.gz
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x053A9DF0
+>
+
+[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok
+
+[sftp_control.py@61] sftp upload from 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\scf_modified.xml' to '/ffs/fs2/config/SCFC_153.xml' is ok.
+
+[sftp_control.py@176] /ffs/fs2/config/SCFC_153.xml
+
+
+
+
+restart bts with powerbreaker and then wait until it is onair.
+
+
+bts_powerbreak_port=${bts_powerbreak}
+
+
+[tools_resource.py@34] start power off ..
+
+[facom.py@121] Connect to Facom succeed !
+
+[base.py@48] trial power off for 0 times
+
+[facom.py@60] Power off port 3 succeed!
+
+[facom.py@121] Connect to Facom succeed !
+
+[base.py@48] trial power off for 0 times
+
+[facom.py@60] Power off port 6 succeed!
+
+[tools_resource.py@37] start power on ..
+
+[facom.py@121] Connect to Facom succeed !
+
+[base.py@36] trial power on for 0 times
+
+[facom.py@83] Power on port 3 succeed!
+
+[facom.py@121] Connect to Facom succeed !
+
+[base.py@36] trial power on for 0 times
+
+[facom.py@83] Power on port 6 succeed!
+
+[tools_resource.py@39] restart port '['FACOM:10.56.7.128:3', 'FACOM:10.56.7.128:6']' with powerbreak succeed !
+
+[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'
+
+[btslog_control.py@174] use ip is 192.168.255.126
+
+[file_common.py@209] Directory "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock" already exists, no need to create it again.
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Request timed out.
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+[infomodel_control.py@158] set up infomodel with following info succeed .
+
+details: address=192.168.255.129, port=12345, definitions_file_path=None
+
+ftp_username=toor4nsn,ftp_password=oZPS0POrRieRtu
+
+[infomodel_control.py@162] start infomodel succeed .
+
+[infomodel_control.py@164] start infomodel logger succeed .
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'UploadOngoing', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'UploadOngoing', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'UploadOngoing', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': None, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': None, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'commissioned', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Failed'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': None,
+u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': None, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will try another way
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@211] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[enb_resource.py@222] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+
+/MRBTS-1/RAT-1/BTS_L-1/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': 'PowerOn', u'btsId': 592L, u'actInterEnbDLCAggr': False, u'planHandlingState': 'Idle', u'stateInfo': {u'blockingState': 'Unblocked', u'testingState': 'Disabled', u'usageState': 'Active', u'administrativeState': 'Unlocked', u'reasoningStatus': [], u'softwareState': 'Deployed', u'proceduralState': 'integrated__Space__to__Space__RAN', u'operationalState': 'Enabled', u'availabilityStatus': 'Online'}, u'actBbPooling': False}
+
+, it will sleep and try again
+
+[infomodel_control.py@328] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .
+
+[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+
+, it will try another way
+
+[infomodel_control.py@328] query infomodel: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .
+
+[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+
+, it will sleep and try again
+
+[infomodel_control.py@328] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .
+
+[infomodel_control.py@328] query infomodel: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]' succeed .
+
+[enb_resource.py@225] infomodel check every cell onair succeed !
+
+[enb_resource.py@253] bts log check onair msg succeed !
+
+[infomodel_control.py@215] save infomodel log to file: 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\im_20171026121736' succeed .
+
+[infomodel_control.py@187] stop infomodel logger succeed .
+
+[infomodel_control.py@199] stop infomodel succeed .
+
+
+
+
+
+
+
+This keyword starts catching of BTS system(UDP) log.
+
+
+${TEST_LOG_DIR}\\${case_execute_log_name}.log
+
+
+[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'
+
+[file_common.py@209] Directory "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock" already exists, no need to create it again.
+
+
+
+
+Setup InfoModel library and Connect to InfoModel.
+
+
+port=${BTS_INFOMODEL_PORT}
+
+
+[infomodel_control.py@158] set up infomodel with following info succeed .
+
+details: address=192.168.255.129, port=12345, definitions_file_path=None
+
+ftp_username=toor4nsn,ftp_password=oZPS0POrRieRtu
+
+[infomodel_control.py@162] start infomodel succeed .
+
+[infomodel_control.py@164] start infomodel logger succeed .
+
+
+
+
+Makes a variable available everywhere within the scope of the current test.
+
+
+${case_execute_log_name}
+
+
+${case_execute_log_name} = owner_debug
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'=='CPE'
+
+Ue Software Reboot
+
+${UE1_INFO}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'=='CPE'
+
+Wait Until Units Startup
+
+300
+
+${UE1_INFO.ADDRESS}
+
+
+
+
+
+
+
+
+
+Operation with BTS
+
+
+${cell_index_1}
+
+${cell_index_2}
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+.
+
+
+
+
+used to kill sitemanager process.
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+
+Deleting instance \\SISO1-632\ROOT\CIMV2:Win32_Process.Handle="5604"
+
+
+Instance deletion successful.
+
+
+
+C:\Users\tdlte-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+
+Deleting instance \\SISO1-632\ROOT\CIMV2:Win32_Process.Handle="2176"
+
+
+Instance deletion successful.
+
+
+
+C:\Users\tdlte-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+
+No Instance(s) Available.
+
+
+
+C:\Users\tdlte-tester
+>
+
+
+
+
+This keyword used for login BTS Site Manager.
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run keyword and ignore error
+
+modify sem maxpermsize
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${CloseSEM}'=='Y'
+
+Kill SiteManager Process
+
+
+
+
+
+Returns a list containing given items.
+
+
+IPAddress=${IPAddress}
+
+UserName=${UserName}
+
+Password=${Password}
+
+LogPath=${SAVE LOG DIRECTORY}\\
+
+CheckExist=${CheckExist}
+
+
+
+${para_list}
+
+
+${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\TA\\TA_logs\\TestLog_20171026105106\\ev_logs\\FZHR_Operational_Cell_block_unblock_20171026120839\\FZHR_Operational_Cell_...
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+run qtp script
+
+${siteman_test_path}Login
+
+${para_list}
+
+${qtpkeepopen}
+
+
+
+
+
+This keyword used for run qtp script, if you use in robot please select run_qtp_script
+
+
+${siteman_test_path}Login
+
+${SAVE LOG DIRECTORY}
+
+${para_list}
+
+${qtpkeepopen}
+
+7200
+
+
+<
+QTP
+>
+Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+<
+QTP
+>
+Launched QTP successfully!
+
+
+<
+QTP
+>
+instanciation was SUCCESSFUL!
+
+<
+QTP
+>
+find java addin
+
+<
+QTP
+>
+start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+
+<
+QTP
+>
+open test successfully at 2rd time!
+
+
+<
+QTP
+>
+automated test case open was SUCCESSFUL!
+
+<
+QTP
+>
+Start to launch QTP App run on the background...
+
+
+<
+QTP
+>
+start to move current release lib path to active...
+
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+
+<
+QTP
+>
+Start to define parameters...
+
+
+<
+QTP
+>
+Parameter as below:
+
+IPAddress="Local"
+
+UserName="Nemuadmin"
+
+Password="nemuuser"
+
+LogPath="D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\"
+
+CheckExist="1"
+
+<
+QTP
+>
+Save log to D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\GUILog\qtp_log20171026121750\Report
+
+<
+QTP
+>
+Start to run script...
+
+
+
+
+
+
+Pauses the test executed for the given time.
+
+
+30 sec
+
+
+Slept 30 seconds
+
+
+
+
+this keyword is used for most HW operation,such as block,unblock,reset
+
+
+CELL
+
+${block_cell_index}
+
+Block
+
+
+
+Returns a list containing given items.
+
+
+HWType=${HWType}
+
+HWID=${HWID}
+
+HWAction=${HWAction}
+
+LogPath=${SAVE LOG DIRECTORY}\\
+
+
+
+${para_list}
+
+
+${para_list} = [u'HWType=CELL', u'HWID=1', u'HWAction=Block', u'LogPath=D:\\TA\\TA_logs\\TestLog_20171026105106\\ev_logs\\FZHR_Operational_Cell_block_unblock_20171026120839\\FZHR_Operational_Cell_block_unblock\\']
+
+
+
+
+This keyword used for run qtp script, if you use in robot please select run_qtp_script
+
+
+${siteman_test_path}HW_Action
+
+${SAVE LOG DIRECTORY}
+
+${para_list}
+
+${qtpkeepopen}
+
+7200
+
+
+<
+QTP
+>
+Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action is existence.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+<
+QTP
+>
+Launched QTP successfully!
+
+
+<
+QTP
+>
+instanciation was SUCCESSFUL!
+
+<
+QTP
+>
+find java addin
+
+<
+QTP
+>
+start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action ...
+
+
+<
+QTP
+>
+open test successfully at 2rd time!
+
+
+<
+QTP
+>
+automated test case open was SUCCESSFUL!
+
+<
+QTP
+>
+Start to launch QTP App run on the background...
+
+
+<
+QTP
+>
+start to move current release lib path to active...
+
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+
+<
+QTP
+>
+Start to define parameters...
+
+
+<
+QTP
+>
+Parameter as below:
+
+HWType="CELL"
+
+HWID="1"
+
+HWAction="Block"
+
+LogPath="D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\"
+
+<
+QTP
+>
+Save log to D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\GUILog\qtp_log20171026121920\Report
+
+<
+QTP
+>
+Start to run script...
+
+
+
+
+
+
+Example
+
+
+${attach_cell_index}
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${cell_id}
+
+:
+
+
+
+@{cell_list}
+
+
+@{cell_list} = [ 2 ]
+
+
+
+
+Returns and logs the length of the given item as an integer.
+
+
+${cell_list}
+
+
+
+${cell_list_length}
+
+
+Length is 1
+
+${cell_list_length} = 1
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${attach_earfcn}'!=''
+
+Split String
+
+${attach_earfcn}
+
+:
+
+
+
+${earfcn_list1}
+
+
+${earfcn_list1} = None
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${attach_earfcn}'!=''
+
+Change_Earfcn_To_Freqency
+
+${earfcn_list1}
+
+
+
+${freqency_list1}
+
+${band_list1}
+
+
+${freqency_list1} = None
+
+${band_list1} = None
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+'${attach_earfcn}'!=''
+
+Get_Earfcn_From_Infomodel
+
+
+
+${earfcn_list2}
+
+${freqency_list2}
+
+${band_list2}
+
+
+
+
+Query InfoModel with some `query`. Keyword will wait for successful result some `timeout` time or fail.
+
+
+get list /MRBTS-1/RAT-1/LTS-*/LNBTS_L-*/LNCEL_L-*/CARRIER_GROUP_L-1
+
+
+
+@{ret_earfcn}
+
+
+[infomodel_control.py@328] query infomodel: 'get list /MRBTS-1/RAT-1/LTS-*/LNBTS_L-*/LNCEL_L-*/CARRIER_GROUP_L-1' succeed .
+
+@{ret_earfcn} = [ InfoModelObject /MRBTS-1/RAT-1/LTS-1/LNBTS_L-1/LNCEL_L-2/CARRIER_GROUP_L-1: {u'fcnULs': [38100L], u'fcnDLs': [38100L], 'dist_name': u'/MRBTS-1/RAT-1/LTS-1/LNBTS_L-1/LNCEL_L-2/CARRIER_GROUP_L-1', u's...
+
+
+
+
+Sorts the given list in place.
+
+
+${ret_earfcn}
+
+
+
+
+
+Returns a list containing given items.
+
+
+${earfcn_list}
+
+
+${earfcn_list} = []
+
+
+
+
+Returns a list containing given items.
+
+
+${freqency_list}
+
+
+${freqency_list} = []
+
+
+
+
+Returns a list containing given items.
+
+
+${band_list}
+
+
+${band_list} = []
+
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_OFFSET}
+
+
+
+${offset_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${offset_dict} = {u'38': u'1205', u'40': u'1565', u'39': u'1945', u'41': u'1469', u'42': u'759', u'43': u'759', u'37': u'1845', u'36': u'1765', u'35': u'1785', u'34': u'1610', u'33': u'1700'}
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 37900
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 38
+
+
+
+${attach_band} = 38
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 38
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 1205
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 25850.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 25850
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 25850
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 38100
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 38
+
+
+
+${attach_band} = 38
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 38
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 1205
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 26050.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 26050
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 26050
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 42490
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38250 | 38649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38650 | 39649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 39650 | 41589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 41590 | 43589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 42
+
+
+
+${attach_band} = 42
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 42
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 759
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 34900.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 34900
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 34900
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 42690
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38250 | 38649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38650 | 39649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 39650 | 41589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 41590 | 43589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 42
+
+
+
+${attach_band} = 42
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 42
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 759
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 35100.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 35100
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 35100
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 42490
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38250 | 38649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38650 | 39649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 39650 | 41589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 41590 | 43589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 42
+
+
+
+${attach_band} = 42
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 42
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 759
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 34900.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 34900
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 34900
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${index.fcnDLs[0]}
+
+
+
+${index.earfcn}
+
+
+${index.earfcn} = 42690
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${earfcn_list}
+
+${index.earfcn}
+
+
+
+
+
+
+${index.earfcn}
+
+
+
+${attach_band}
+
+
+
+Creates and returns a dictionary based on given items.
+
+
+@{BAND_RANGE}
+
+
+
+${band_dict}
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+${band_dict} = {u'38': u'37750-38249', u'39': u'38250-38649', u'40': u'38650-39649', u'41': u'39650-41589', u'42': u'41590-43589'}
+
+
+
+
+Returns keys of the given ``dictionary``.
+
+
+${band_dict}
+
+
+
+@{keys}
+
+
+@{keys} = [ 38 | 39 | 40 | 41 | 42 ]
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 37750 | 38249 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38250 | 38649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 38650 | 39649 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 39650 | 41589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = False
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+
+
+
+
+
+
+Splits the ``string`` using ``separator`` as a delimiter string.
+
+
+${band_dict['${index}']}
+
+-
+
+
+
+@{temp1}
+
+
+@{temp1} = [ 41590 | 43589 ]
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${temp1[1]}
+>
+=${earfcn}
+>
+=${temp1[0]}
+
+
+
+${result}
+
+
+${result} = True
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+${result}
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${result}'=='False'
+
+Fail
+
+no corresponding bts band find
+
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${index}
+
+
+
+${bts_band}
+
+
+${bts_band} = 42
+
+
+
+${attach_band} = 42
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${attach_band}
+
+
+
+${attach_band}
+
+
+${attach_band} = 42
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${band_list}
+
+${attach_band}
+
+
+
+
+
+Returns a value from the given ``dictionary`` based on the given ``key``.
+
+
+${offset_dict}
+
+${attach_band}
+
+
+
+${offset}
+
+
+${offset} = 759
+
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+(${index.earfcn}*0.1-${offset})*10
+
+
+
+${freq}
+
+
+${freq} = 35100.0
+
+
+
+
+Converts the given item to an integer number.
+
+
+${freq}
+
+
+
+${fq}
+
+
+${fq} = 35100
+
+
+
+
+Converts the given item to a Unicode string.
+
+
+${fq}
+
+
+
+${freqency}
+
+
+${freqency} = 35100
+
+
+
+
+Adds ``values`` to the end of ``list``.
+
+
+${freqency_list}
+
+${freqency}
+
+
+
+
+
+
+
+
+
+
+${earfcn_list2} = [u'37900', u'38100', u'42490', u'42690', u'42490', u'42690']
+
+${freqency_list2} = [u'25850', u'26050', u'34900', u'35100', u'34900', u'35100']
+
+${band_list2} = [u'38', u'38', u'42', u'42', u'42', u'42']
+
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'!=''
+
+${earfcn_list1}
+
+'${attach_earfcn}'==''
+
+${earfcn_list2}
+
+
+
+${earfcn_list}
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'==''
+
+${earfcn_list2}
+
+
+
+
+${earfcn_list} = [u'37900', u'38100', u'42490', u'42690', u'42490', u'42690']
+
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'!=''
+
+${freqency_list1}
+
+'${attach_earfcn}'==''
+
+${freqency_list2}
+
+
+
+${freqency_list}
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'==''
+
+${freqency_list2}
+
+
+
+
+${freqency_list} = [u'25850', u'26050', u'34900', u'35100', u'34900', u'35100']
+
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'!=''
+
+${band_list1}
+
+'${attach_earfcn}'==''
+
+${band_list2}
+
+
+
+${band_list}
+
+
+
+Sets variable based on the given condition.
+
+
+'${attach_earfcn}'==''
+
+${band_list2}
+
+
+
+
+${band_list} = [u'38', u'38', u'42', u'42', u'42', u'42']
+
+
+
+
+Returns the given values which can then be assigned to a variables.
+
+
+0
+
+
+
+${cell_index1}
+
+
+${cell_index1} = 0
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${attach_earfcn}'!=''
+
+Evaluate
+
+${cell_index1}
+
+ELSE
+
+Evaluate
+
+${cell_index2}-1
+
+
+
+${cell_index}
+
+
+
+Evaluates the given expression in Python and returns the results.
+
+
+${cell_index2}-1
+
+
+
+
+${cell_index} = 1
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'!='CPE'
+
+Run Keyword If
+
+'${UE_TYPE}'!='TM500'
+
+Fail
+
+The keyword doesn't yet support this type of UE
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'!='TM500'
+
+Fail
+
+The keyword doesn't yet support this type of UE
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'=='CPE'
+
+CPE_Attach_SISO1_src
+
+${earfcn_list[${cell_index}]}
+
+${cell_index2}
+
+${band_list[${cell_index}]}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${UE_TYPE}'=='TM500'
+
+TM500_Attach_SISO1_src
+
+${freqency_list[${cell_index}]}
+
+${cell_index2}
+
+${modify_tm500_script}
+
+${attach_scripts}
+
+
+
+
+${freqency_list[${cell_index}]}
+
+${cell_index2}
+
+${modify_tm500_script}
+
+${attach_scripts}
+
+
+
+tm500 setup.
+
+${TM500_PC_CONNECTION} = 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[robot_func.py@29] Can't get variable '${TM500_PC_CONNECTION}' ! details: 'Variable '${TM500_PC_CONNECTION}' not found.'
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@246]
+
+
+*===============================================================
+
+Welcome to Microsoft Telnet Server.
+
+*===============================================================
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.co
+nnections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"
+
+*SEP* 1.0.1
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8272 -s True
+
+[telnet_common.py@306] Get Response: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8272 -s True
+
+
+PsExec v1.98 - Execute processes remotely
+
+Copyright (C) 2001-2010 Mark Russinovich
+
+Sysinternals - www.sysinternals.com
+
+
+python started with process ID 1812.
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[process_control.py@74] Process start successed ! process id: 1812
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[remote_lib_control.py@62] start remote server succeed !
+
+[tm500.py@108] have setup Remotelib instance: RemoteLibInstance: 10.69.71.200:8272
+
+[tm500.py@408] Request TM500 Resource:
+
+sent -
+>
+"request:15:1"
+
+received
+<
+- "Welcome! Please use it, You are No.1 in 1 user queue.
+
+
+"
+
+[tm500.py@412] Get TM500 resource success!
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: ls "C:\Program Files\FileZilla Server"
+
+[telnet_common.py@306] Get Response: ls "C:\Program Files\FileZilla Server"
+
+FileZilla Server Interface.exe
+
+FileZilla Server Interface.xml
+
+FileZilla Server.xml
+
+FileZilla server.exe
+
+FzGSS.dll
+
+Uninstall.exe
+
+legal.htm
+
+libeay32.dll
+
+license.txt
+
+readme.htm
+
+ssleay32.dll
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+.
+
+[file_control.py@332] copyfile2local command: 'D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileZilla server.xml"'
+
+[connection_mgr.py@208] Current connection: 10.56.6.32:23 DeviceType:Windows Timeout:10 minutes
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+
+[telnet_common.py@276] Execute command: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileZilla server.xml"
+
+[telnet_common.py@306] Get Response: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileZilla server.xml"
+
+
+C:\Users\tdlte-tester
+>
+
+[telnet_common.py@276] Execute command: echo ERRORCODE is: %ERRORLEVEL%
+
+[telnet_common.py@306] Get Response: echo ERRORCODE is: %ERRORLEVEL%
+
+ERRORCODE is: 0
+
+
+C:\Users\tdlte-tester
+>
+
+[file_common.py@168] Copy file "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileZilla server.xml" to "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\FileZilla server.xml.change_bak" succeeded.
+
+[filezilla_control.py@182] Filezilla configed right, no need to change TM500 version.
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: TASKKILL /F /T /IM TmaApplication.exe
+
+[telnet_common.py@306] Get Response: TASKKILL /F /T /IM TmaApplication.exe
+
+ERROR: The process "TmaApplication.exe" not found.
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@278] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\Server_Client\client.exe" localhost "C:\Program Files\Aeroflex\TM500\LTE - K4.6.4.REV55\Test Mobile Application\TMAApplication.exe" /u \"Default User\" /c y /p 5003 /a n
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x0576EAF8
+>
+
+[telnet_common.py@276] Execute command: Ctrl-C
+
+[telnet_common.py@400] Telnet: Elapsed time exceeds timeout -
+>
+No further check
+
+[telnet_common.py@424] Telnet:
+<
+<
+expect 2017-10-26 12:23:22 no any pattern matched
+
+[telnet_common.py@302] Get Response:
+
+[telnet_common.py@276] Execute command: Ctrl-C
+
+[telnet_common.py@145] Get Response:
+
+Traceback (most recent call last):
+
+File "D:\TA\trunk_soam\tdd_ev_robotws\CommonLib\connections\connection_mgr.py", line 237, in execute_shell_command
+
+ret += self._current.read_until_prompt(timeout_add=timeout_add)
+
+File "D:\TA\trunk_soam\tdd_ev_robotws\CommonLib\connections\telnet_common.py", line 305, in read_until_prompt
+
+timestr_to_secs(self._timeout), ret[2]))
+
+AssertionError: No match found for prompt "'[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$', '(Y/N|Y/N\?|\(Y/N\)\s*\?|\(Y/N\)\s*:?|\(Y/N/C\) \? |Y = YES, N = NO \):\? |\(y/n\)|\(Y/N\))\s*$|\(y/n.*\)' or '(?i)\(Yes/No/All\)|\(yes/no'" in 90.0sec, detail info: ""
+
+CommandExecuteError: command '' execution failed, details: 'No match found for prompt "'[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$', '(Y/N|Y/N\?|\(Y/N\)\s*\?|\(Y/N\)\s*:?|\(Y/N/C\) \? |Y = YES, N = NO \):\? |\(y/n\)|\(Y/N\))\s*$|\(y/n.*\)' or '(?i)\(Yes/No/All\)|\(yes/no'" in 90.0sec, detail info: ""'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Action when case finishs
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.32:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x054A5F30
+>
+.
+
+
+
+
+This keyword is used to kill the processes related to QTP application.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+
+
+
+This keyword stops BTS system(UDP) log catching.
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${case_execute_log_name}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${case_execute_log_name}
+
+
+
+
+${return} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+Save InfoModel log.
+
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+[infomodel_control.py@215] save infomodel log to file: 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\owner_debug' succeed .
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+Disconnect from InfoModel and teardown InfoModel. Keyword will
+
+[infomodel_control.py@187] stop infomodel logger succeed .
+
+[infomodel_control.py@199] stop infomodel succeed .
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Release_TM500_And_Colse_PA_Port
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+${return}
+
+Run Keyword And Ignore Error
+
+Variable Should Exist
+
+${TM500_Use_Tag}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Use_Tag}'=='used'
+
+Set Attenuators Off
+
+${ATT_ALL_INFO}
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,02F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,02F0*', Receive
+<
+-'$TA,C,02F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,02*', Receive
+<
+-'$TA,C,02F0*'
+
+$TA,C,06F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,06F0*', Receive
+<
+-'$TA,C,06F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,06*', Receive
+<
+-'$TA,C,06F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,02F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,02F0*', Receive
+<
+-'$TA,C,02F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,02*', Receive
+<
+-'$TA,C,02F0*'
+
+$TA,C,06F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,06F0*', Receive
+<
+-'$TA,C,06F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,06*', Receive
+<
+-'$TA,C,06F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,02F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,02F0*', Receive
+<
+-'$TA,C,02F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,02*', Receive
+<
+-'$TA,C,02F0*'
+
+$TA,C,06F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,06F0*', Receive
+<
+-'$TA,C,06F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,06*', Receive
+<
+-'$TA,C,06F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+Variable ${CELL4_ATT_INFO} does not exist.
+
+
+
+${ret1} = FAIL
+
+${ret2} = Variable ${CELL4_ATT_INFO} does not exist.
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+
+
+tm500 teardown.
+
+[tm500.py@437] Release TM500 Resource:
+
+sent -
+>
+"release"
+
+received
+<
+- "Bye!"
+
+Robot Framework remote server at 0.0.0.0:8272 stopping
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Set Test Variable
+
+${TM500_Use_Tag}
+
+unused
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${route_add_cpe_pc}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${route_add_cpe_pc}
+
+
+Variable ${route_add_cpe_pc} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${route_add_cpe_pc}'=='true'
+
+Execute Shell Command
+
+route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}
+
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+Infomodel not connected.
+
+[infomodel_control.py@82] set up infomodel with following info succeed .
+
+details: address=192.168.255.1, port=12345, definitions_file_path=None
+
+++++++++++++++++++++++++++++++++++++++++++
+
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}
+
+++++++++++++++++++++++++++++++++++++++++++
+
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}
+
+[infomodel_control.py@100] stop infomodel succeed .
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+['fatal'] ['fatal']
+
+[file_control.py@109] *HTML*
+<
+a href = "D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\udplog_20171026121131.log"
+>
+fail log
+<
+/a
+>
+
+Find '['fatal']' in 'D:\TA\TA_logs\TestLog_20171026105106\ev_logs\FZHR_Operational_Cell_block_unblock_20171026120839\FZHR_Operational_Cell_block_unblock\udplog_20171026121131.log'
+
+write successfully
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Should Contain
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+
+${return1}
+
+
+
+Fails if ``container`` does not contain ``item`` one or more times.
+
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+'FZHR_Operational_Cell_block_unblock' does not contain 'Fiber'
+
+
+
+${return1} = ('FAIL', u"'FZHR_Operational_Cell_block_unblock' does not contain 'Fiber'")
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+${all_fiber_link}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+
+${all_fiber_link} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Software Reboot Bts
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Sleep
+
+60
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Wait Until Units Startup
+
+600
+
+192.168.255.1
+
+
+
+
+
+[Caution] this keyword step:
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+
+
+
+
+
+
+get active BTS SW Build Version from enb targetBD file..
+
+
+${version}
+
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05778940
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs2
+
+root@fctj-0a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05778940
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Thu Oct 26 12:24:06 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-0a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046AA300
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs2;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+
+TargetBD_TL17A_ENB_0000_000475_000000.xml
+
+root@fctj-0a:/ffs/fs2
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046AA300
+>
+
+${version} = TL17A_ENB_0000_000475_000000
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+owner-shaocheng.chen@nokia.com
+
+QC_773297
+
+
+CommandExecuteError: command '' execution failed, details: 'No match found for prompt "'[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$', '(Y/N|Y/N\?|\(Y/N\)\s*\?|\(Y/N\)\s*:?|\(Y/N/C\) \? |Y = YES, N = NO \):\? |\(y/n\)|\(Y/N\))\s*$|\(y/n.*\)' or '(?i)\(Yes/No/All\)|\(yes/no'" in 90.0sec, detail info: ""'
+
+
+TD-LTE I
+&
+V SISO1
+
+
+
+
+
+Critical Tests
+
+All Tests
+
+
+
+owner-shaocheng.chen@nokia.com
+
+QC_773297
+
+
+
+FZHR Operational Cell block unblock
+
+
+
+
+Loading tdd_config has failed. Please check if:
+
+1. you executed pybot with --variable CONFIGURATION:$your_tl_config
+
+i.e. pybot --variable CONFIGURATION:Wroclaw.test
+
+2. check if there is no problem with your configuration
+
+Error msg: Variable ${CONFIGURATION} does not exist.
+
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+Giving keys and values separately to 'Create Dictionary' keyword is deprecated. Use 'key=value' syntax instead.
+
+[telnet_common.py@400] Telnet: Elapsed time exceeds timeout -
+>
+No further check
+
+[telnet_common.py@424] Telnet:
+<
+<
+expect 2017-10-26 12:23:22 no any pattern matched
+
+[telnet_common.py@302] Get Response:
+
+Infomodel not connected.
+
+

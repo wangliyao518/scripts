@@ -1,0 +1,2791 @@
+
+
+
+this keyword create suite name directory path as D:\TA\TA_logs\TestLog_20170724094959//logs//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20170724095013
+
+
+
+
+Replaces ``pattern`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_NAME[:50]}
+
+\\s+$
+
+${EMPTY}
+
+
+
+${FILE_NAME}
+
+
+${FILE_NAME} = FZHQ T2 Throughput UDP 20M TM4 4X2 2 7
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${OUTPUT_DIR}
+
+ev_logs
+
+${FILE_NAME}_${timestamp}
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ T2 Throughput UDP 20M TM4 4X2 2 7_20170724095013
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_LOG_DIRECTORY}
+
+${SPACE}
+
+_
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+
+
+
+
+Creates the specified directory.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+Created directory '
+<
+a href="file://D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013"
+>
+D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${SUITE_LOG_DIRECTORY}
+
+
+save log dir:D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${snapshot_flag}
+
+0
+
+
+${snapshot_flag} = 0
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+Variable ${TEST LOG DIR} does not exist.
+
+
+
+${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+
+Sets variable based on the given condition.
+
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+
+${log dir} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Make Sure FCT Ping Ok
+
+
+
+
+This function is used for check whether ping host success, if yes, return 1, else return 0
+
+
+${FCMD_IP}
+
+
+
+${status}
+
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+${status} = True
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+300
+
+${FTM_IP}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Btscli Disable Bts Port Security
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+60
+
+${FCMD_IP}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Wait Until Keyword Succeeds
+
+5min
+
+5s
+
+_make sure fctb connect ok
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+get_enb_infomation
+
+
+
+This keyword will print bts sw version, bbu type and RRU type.
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:32:35 CST 2017 from 10.69.80.114 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0551A058
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0551A058
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:50:15 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055BF440
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055BF440
+>
+
+[ftm_control.py@299] SRAN don't need to enable ssh and rdport
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:50:26 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A9648
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A9648
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:50:36 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A99B8
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A99B8
+>
+
+[enb_resource.py@1139]
+
+****Current BTS version is 'SBTS00_TDDFSM4_9999_170608_000754' *****
+
+[enb_resource.py@1169] activeBuildVersion=SBTS00_TDDFSM4_9999_170608_000754
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:50:47 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A99B8
+>
+
+[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml
+
+[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+
+ls: cannot access /ram/SiteConf.xml: No such file or directory
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x045A99B8
+>
+
+[enb_resource.py@1139]
+
+****Not find /ram/SiteConf.xml *****
+
+[ping_control.py@189]
+
+Pinging 192.168.255.20 with 32 bytes of data:
+
+Reply from 192.168.255.126: Destination host unreachable.
+
+
+Ping statistics for 192.168.255.20:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+
+
+
+
+
+Sets the resolution order to use when a name matches multiple keywords.
+
+
+tdd_ev_robotws
+
+OperatingSystem
+
+
+
+
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+${TELNET_PORT}
+
+${SSH_PORT}
+
+
+
+${conn_port}
+
+
+${conn_port} = 23
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+TELNET
+
+SSH
+
+
+
+${conn_type}
+
+
+${conn_type} = TELNET
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+30
+
+5
+
+
+
+${timeout}
+
+
+${timeout} = 30
+
+
+
+
+Used to connect to host, either TELNET or SSH
+
+
+${BTS_PC_INFO.IP}
+
+port=${conn_port}
+
+username=${BTS_PC_INFO.USERNAME}
+
+password=${BTS_PC_INFO.PASSWORD}
+
+conn_type=${conn_type}
+
+timeout=${timeout}
+
+
+
+${BTS_PC_CONNECTION}
+
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@246]
+
+
+*===============================================================
+
+Microsoft Telnet Server.
+
+*===============================================================
+
+C:\Users\tdlte-tester
+>
+
+${BTS_PC_CONNECTION} = 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${BTS_PC_CONNECTION}
+
+
+${BTS_PC_CONNECTION} = 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+"Windows" in "${platform_version}"
+
+Execute Shell Command
+
+tlntadmn config timeoutactive\=no
+
+
+
+Execute a command on the remote system.
+
+
+tlntadmn config timeoutactive\=no
+
+
+[connection_mgr.py@208] Current connection: 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+
+[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no
+
+[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+
+The settings were successfully updated.
+
+
+C:\Users\tdlte-tester
+>
+
+
+
+
+
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+.
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${REMOVE_LOGS}'=='on'
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+Closes all existing telnet connections to remote hosts.
+
+[telnet_common.py@188]
+
+[telnet_common.py@189] Disconnect from 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+
+
+
+
+
+
+this keyword create case name directory path as D:\TA\TA_logs\TestLog_20170724094959//ev_logs//D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20170724095133
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${SUITE_LOG_DIRECTORY}
+
+${TEST_NAME[:50]}
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${TEST_LOG_DIR}
+
+${SPACE}
+
+_
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+Creates the specified directory.
+
+
+${TEST_LOG_DIR}
+
+
+Created directory '
+<
+a href="file://D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7"
+>
+D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${TEST_LOG_DIR}
+
+
+save log dir:D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${BTS PC CONNECTION.connected}
+
+Initial Connection With BTS PC
+
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+
+
+${case_dir_exist} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+${log dir} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20170724094959\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095013\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7
+
+
+
+
+
+
+
+
+Setup Admin API.
+
+
+bts_host=192.168.255.129
+
+bts_port=9002
+
+use_ssl=False
+
+
+D:\TA\trunk_soam\ute_admin\resource\node\windows\bin\node.exe D:\TA\trunk_soam\ute_admin\resource\src\main.js --bts-host=192.168.255.129 --bts-port=9002 --bts-username=Nemuadmin --bts-password=nemuuser --debug=admin_api_default.log --interval=5000 --cli-port=38057 --bundles-dir=c:\users\tdlte-~1\appdata\local\temp\tmpgaup2p --insecure
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection opened.
+
+Send message: {"type": "ADMIN_API", "payload": {"requestType": "infoModel", "requestId": 10585, "parameters": {"name": "lnbtsState", "parameters": {}}}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "ongoing", "requestId": 10585, "requestMessage": "Waiting for response"}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "completed", "requestId": 10585, "requestMessage": "onAir"}}
+
+
+
+
+
+
+
+${source_scf}
+
+${parameter_list}
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+.
+
+
+
+
+This keyword test the reachability of remote system.
+
+
+192.168.255.1
+
+
+
+${package_summary}
+
+${ping_delay}
+
+
+[connection_mgr.py@208] Current connection: 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+
+[telnet_common.py@276] Execute command: ping  192.168.255.1
+
+[telnet_common.py@306] Get Response: ping  192.168.255.1
+
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+
+C:\Users\tdlte-tester
+>
+
+Total ping delay is: [1, 1, 1, 1]
+
+Statistic ping delay is: [1, 1, 1, 1]
+
+Valid ping delay is: [1, 1, 1, 1]
+
+${package_summary} = ('4', '4', '0')
+
+${ping_delay} = [1, 1, 1.0]
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+${package_summary[2]}
+>
+2
+
+Restart Device With Powerbreaker
+
+${bts_powerbreak}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+${package_summary[2]}
+>
+2
+
+Wait Until Units Startup
+
+600
+
+192.168.255.1
+
+
+
+
+
+modify source_scf according parameter list and then upload to enb.
+
+
+${source_scf}
+
+${parameters_list}
+
+bts_host=${ADMIN.IP}
+
+bts_port=${ADMIN.PORT}
+
+use_ssl=${ADMIN.USE_SSL}
+
+skip_parameter_relation_errors=${ADMIN.SKIP_PARAMETER_RELATION_ERRORS}
+
+
+D:\TA\trunk_soam\ute_admin\resource\node\windows\bin\node.exe D:\TA\trunk_soam\ute_admin\resource\src\main.js --bts-host=192.168.255.1 --bts-port=9002 --bts-username=Nemuadmin --bts-password=nemuuser --debug=admin_api_uploadscf.log --interval=5000 --cli-port=38639 --bundles-dir=c:\users\tdlte-~1\appdata\local\temp\tmpsnpyr6 --insecure
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection closed. [Errno 10061] No connection could be made because the target machine actively refused it
+
+Recived response: Connection closed.
+
+Recived response: Connection opened.
+
+Send message: {"type": "ADMIN_API", "payload": {"requestType": "infoModel", "requestId": 31561, "parameters": {"name": "lnbtsState", "parameters": {}}}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "ongoing", "requestId": 31561, "requestMessage": "Waiting for response"}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "completed", "requestId": 31561, "requestMessage": "onAir"}}
+
+Send message: {"type": "ADMIN_API", "payload": {"requestType": "procedure", "requestId": 95335, "parameters": {"name": "downloadPlan", "parameters": {"skipParameterRelationErrors": true, "inputFileContent": "", "btsId": "797", "shouldBeActivated": true}}}}
+
+Recived response: {"type": "FILE_TRANSFER", "payload": {"type": "SIZE", "id": 95335}}
+
+Send message: {"type": "FILE_TRANSFER", "payload": {"data": 108321, "type": "SIZE", "id": 95335}}
+
+Recived response: {"type": "FILE_TRANSFER", "payload": {"length": 108321, "type": "READ", "id": 95335, "offset": 0}}
+
+Send message: {"type": "FILE_TRANSFER", "payload": {"data": "PD94bWwgdm ...
+<
+type 'str'
+>
+of lenght: 144428", "type": "READ", "id": 95335}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "ongoing", "requestId": 95335, "requestMessage": "Waiting for response"}}
+
+Recived response: {"type": "FILE_TRANSFER", "payload": {"type": "CLOSE_READER", "id": 95335}}
+
+Recived response: {"type": "ADMIN_API", "payload": {"requestStatus": "failed", "requestId": 95335, "requestMessage": {"result": {"resultNode": {"distName": "/MRBTS-1/R ...
+<
+type 'unicode'
+>
+of lenght: 74", "parameters": {"deltaDN": "", "result": "Failed", "feedback": "
+<
+message
+>
+<
+...
+<
+type 'unicode'
+>
+of lenght: 211"}}, "failCause": "RESULT_FAILED", "indicationDistName": "/MRBTS-1/R ...
+<
+type 'unicode'
+>
+of lenght: 51", "confirmationNode": {"eventType": "onObjectAppeared"}}, "validationResult": {"niddValidationResult": {"status": "OK", "logs": {"objectsOccurencesErrors": null, "invalidObjectsDistnames": null, "definitionErrors": null, "skippedElementsErrors": [{"distName": "MRBTS-797", "field": "altitude", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797", "field": "latitude", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797", "field": "longitude", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797", "field": "operationalState", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797", "field": "supportedNumOfAnrMoi", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797", "field": "supportedNumOfLnadj", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNCEL-1", "field": "energySavingState", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNCEL-1", "field": "eutraCelId", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNCEL-1", "field": "operationalState", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNMME-0", "field": "mmeName", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNMME-0", "field": "relMmeCap", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"distName": "MRBTS-797/LNBTS-797/LNMME-0", "field": "s1LinkStatus", "error": [{"key": "CAN_BE_ONLY_SET_BY_SYSTEM"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 72"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 74", {"key": "NOT_EXIST"}]}, {"field": "CHANNEL", "distName": "MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 71", "removedMocs": {"notification": [{"key": "MANAGED_OBJECTS_REMOVED"}, " CHANNEL "], "removedMocsDNList": ["MRBTS-797/ ...
+<
+type 'unicode'
+>
+of lenght: 71"]}, "error": [{"key": "MANAGED_OBJECT_WITH_DIST_NAME"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 63", {"key": "SHOULD_BE_PARENT"}, " MRBTS-797 ...
+<
+type 'unicode'
+>
+of lenght: 73", {"key": "NOT_EXIST"}]}]}}, "pdlValidationResult": {"status": "FAIL", "logs": "[u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-5 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-6 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-7 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-8 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-5 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-6 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-7 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u\"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-8 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)\", u'rule failed: MRBTS-797/MNL-1/MNLENT-1/CERTH-1 CERTH(cmpCrlSrcIpAddressDN defined) have \\t    (every IPADDRESSV4(IPADDRESSV4.distname = external CERTH.cmpCrlSrcIpAddressDN) exist) \\t    or\\t    (every IPADDRESSV6(IPADDRESSV6.distname = external CERTH.cmpCrlSrcIpAddressDN) exist)', u\"rule failed: MRBTS-797/MNL-1/MNLENT-1/SYNC-1/CLOCK-1.syncInputList-0 MNL/MNLENT/SYNC(btsSyncMode = 'PhaseSync')/CLOCK.syncInputList(syncInputType = '1pps/ToD from external GNSS receiver') have CLOCK/GNSSE.gnssCableLength defined or CLOCK/GNSSE.gnssLineDelay defined\"] ...
+<
+type 'list'
+>
+of lenght: 63"}}}}}
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:50:57 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05563F58
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05563F58
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:52:07 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05522AD0
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05522AD0
+>
+
+[ftm_control.py@299] SRAN don't need to enable ssh and rdport
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:52:18 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055BF120
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x055BF120
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:52:28 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0553AC60
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0553AC60
+>
+
+[enb_resource.py@371] Start to setup admin
+
+[enb_resource.py@374] Start to perform commissioning
+
+AdminApiProcedureFailureException: Status reached: {u'result': {u'resultNode': {u'distName': u'/MRBTS-1/RAT-1/URI-4/SESSION-16/PLAN_VALIDATE_IND-0/PLAN_VALIDATE_RESULT-1', u'parameters': {u'result': u'Failed', u'feedback': u'
+<
+message
+>
+<
+p name="version"
+>
+SBTS00
+<
+/p
+>
+<
+p name="dn"
+>
+MRBTS-797
+<
+/p
+>
+<
+p name="text"
+>
+Plan operation failed.
+<
+/p
+>
+<
+p name="status"
+>
+Error
+<
+/p
+>
+<
+p name="details"
+>
+Plan download failed because BTS_DATA is invalid.
+<
+/p
+>
+<
+/message
+>
+', u'deltaDN': u''}}, u'failCause': u'RESULT_FAILED', u'indicationDistName': u'/MRBTS-1/RAT-1/URI-4/SESSION-16/PLAN_VALIDATE_IND-0', u'confirmationNode': {u'eventType': u'onObjectAppeared'}}, u'validationResult': {u'niddValidationResult': {u'status': u'OK', u'logs': {u'objectsOccurencesErrors': None, u'invalidObjectsDistnames': None, u'definitionErrors': None, u'skippedElementsErrors': [{u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'altitude'}, {u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'latitude'}, {u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'longitude'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'operationalState'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'supportedNumOfAnrMoi'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'supportedNumOfLnadj'}, {u'distName': u'MRBTS-797/LNBTS-797/LNCEL-1', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'energySavingState'}, {u'distName': u'MRBTS-797/LNBTS-797/LNCEL-1', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'eutraCelId'}, {u'distName': u'MRBTS-797/LNBTS-797/LNCEL-1', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'operationalState'}, {u'distName': u'MRBTS-797/LNBTS-797/LNMME-0', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'mmeName'}, {u'distName': u'MRBTS-797/LNBTS-797/LNMME-0', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'relMmeCap'}, {u'distName': u'MRBTS-797/LNBTS-797/LNMME-0', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u's1LinkStatus'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-10', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-10 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-10']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-11', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-11 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-11']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-12', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-12 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-12']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-13', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-13 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-13']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-14', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-14 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-14']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-15', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-15 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-15']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-16', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-16 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-16']}, u'field': u'CHANNEL'}, {u'distName': u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-9', u'error': [{u'key': u'MANAGED_OBJECT_WITH_DIST_NAME'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1 ', {u'key': u'SHOULD_BE_PARENT'}, u' MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-9 ', {u'key': u'NOT_EXIST'}], u'removedMocs': {u'notification': [{u'key': u'MANAGED_OBJECTS_REMOVED'}, u' CHANNEL '], u'removedMocsDNList': [u'MRBTS-797/MNL-1/MNLENT-1/CELLMAPPING-1/LCELL-2/CHANNELGROUP-1/CHANNEL-9']}, u'field': u'CHANNEL'}]}}, u'pdlValidationResult': {u'status': u'FAIL', u'logs': [u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-5 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-6 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-7 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-8 ANTL have vswrMinorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-5 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-6 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-7 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u"rule failed: MRBTS-797/EQM-1/APEQM-1/RMOD-1/ANTL-8 ANTL have vswrMajorThreshold undefined if (every CHANNEL(antlDN = external ANTL.distname and direction = 'TX') not exist)", u'rule failed: MRBTS-797/MNL-1/MNLENT-1/CERTH-1 CERTH(cmpCrlSrcIpAddressDN defined) have \t    (every IPADDRESSV4(IPADDRESSV4.distname = external CERTH.cmpCrlSrcIpAddressDN) exist) \t    or\t    (every IPADDRESSV6(IPADDRESSV6.distname = external CERTH.cmpCrlSrcIpAddressDN) exist)', u"rule failed: MRBTS-797/MNL-1/MNLENT-1/SYNC-1/CLOCK-1.syncInputList-0 MNL/MNLENT/SYNC(btsSyncMode = 'PhaseSync')/CLOCK.syncInputList(syncInputType = '1pps/ToD from external GNSS receiver') have CLOCK/GNSSE.gnssCableLength defined or CLOCK/GNSSE.gnssLineDelay defined", u"rule failed: MRBTS-797/TNLSVC-1/TNL-1/IPNO-1/IPIF-1/IPADDRESSV4-1 IPADDRESSV4(ipAddressAllocationMethod = 'MANUAL') have localIpAddr u
+ndefined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1 LNBTS(actIfHo='disabled')/LNCEL have a2TimeToTriggerActInterFreqMeas undefined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNBTS(actIfHo='disabled')/LNCEL have a2TimeToTriggerActInterFreqMeas undefined", u'rule failed: global LNCEL have lcrId unique', u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNCEL(actUlpcMethod in range 'PuschOLPucchCL'|'PuschCLPucchCL'|'PuschCLSrsPucchCL'|'PuschIAwPucchCL') have ulpcPucchConfig defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1 LNCEL(cellTechnology = 'TDD' and actUlpcMethod = 'PuschCLSrsPucchCL') have ulpcPucchConfig defined and ulpcPuschConfig defined and ulpcReadPeriod defined and LNCEL/LNCEL_FDD.srsActivation = 'true'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNCEL(cellTechnology = 'TDD' and actUlpcMethod = 'PuschCLSrsPucchCL') have ulpcPucchConfig defined and ulpcPuschConfig defined and ulpcReadPeriod defined and LNCEL/LNCEL_FDD.srsActivation = 'true'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNCEL(actUlpcMethod in range 'PuschCLPucchOL' | 'PuschCLPucchCL' | 'PuschCLSrsPucchOL' | 'PuschCLSrsPucchCL') have ulpcPuschConfig defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1 LNCEL(cellTechnology = 'TDD') have ulsSchedMethod in range 'interference aware'|'channel unaware'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNCEL(cellTechnology = 'TDD') have ulsSchedMethod in range 'interference aware'|'channel unaware'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode in range 'Closed Loop MIMO (4x2)'|'Closed Loop MIMO (4x4)') have activatedMimoTM defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode in range 'Closed Loop MIMO (4x2)'|'Closed Loop MIMO (4x4)') have activatedMimoTM defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode = 'Closed Loop MIMO (4x2)') have activatedMimoTM
+<
+>
+'TM9_maxLayer'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode = 'Closed Loop MIMO (4x2)') have activatedMimoTM
+<
+>
+'TM9_maxLayer'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode = 'Closed Loop MIMO (4x2)') have activatedMimoTM defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(dlMimoMode = 'Closed Loop MIMO (4x2)') have activatedMimoTM defined", u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(tddSpecSubfConf = 7) have maxNumUeDlDwPTS
+<
+>
+0 and (prachConfIndex in range 3..7 or prachConfIndex in range 51..53)', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(tddSpecSubfConf = 7) have maxNumUeDlDwPTS
+<
+>
+0 and (prachConfIndex in range 3..7 or prachConfIndex in range 51..53)', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(tddSpecSubfConf in range 3|4|6|7|9) have maxNumUeDlDwPTS
+<
+>
+0', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(tddSpecSubfConf in range 3|4|6|7|9) have maxNumUeDlDwPTS
+<
+>
+0', u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(actAutoPucchAlloc = 'false') have ulSpsConfig.ulSpsMaxNumPrb
+<
+= toPRBS(chBw) - 6 - temporary maxPucchResourceSize", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(actAutoPucchAlloc = 'false') have ulSpsConfig.ulSpsMaxNumPrb
+<
+= toPRBS(chBw) - 6 - temporary maxPucchResourceSize", u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1 LNCEL have LNCEL/LNCEL_TDD.prachFreqOff
+>
+= ceil(temporary maxPucchResourceSize / 2) and LNCEL/LNCEL_TDD.prachFreqOff
+<
+= toPRBS(LNCEL/LNCEL_TDD.chBw) - 6 - ceil(temporary maxPucchResourceSize / 2) if LNCEL/LNCEL_TDD.prachConfIndex
+<
+51 or LNCEL/LNCEL_TDD.prachConfIndex
+>
+53', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2 LNCEL have LNCEL/LNCEL_TDD.prachFreqOff
+>
+= ceil(temporary maxPucchResourceSize / 2) and LNCEL/LNCEL_TDD.prachFreqOff
+<
+= toPRBS(LNCEL/LNCEL_TDD.chBw) - 6 - ceil(temporary maxPucchResourceSize / 2) if LNCEL/LNCEL_TDD.prachConfIndex
+<
+51 or LNCEL/LNCEL_TDD.prachConfIndex
+>
+53', u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD(actReduceWimaxInterference
+<
+>
+'false' and (tddFrameConf
+<
+>
+1 or actReduceWimaxInterference
+<
+>
+'true' or (tddSpecSubfConf
+<
+>
+3 and tddSpecSubfConf
+<
+>
+4 and tddSpecSubfConf
+<
+>
+7))) have rxCalibrationConfiguration = 'noRxCalibration'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(actReduceWimaxInterference
+<
+>
+'false' and (tddFrameConf
+<
+>
+1 or actReduceWimaxInterference
+<
+>
+'true' or (tddSpecSubfConf
+<
+>
+3 and tddSpecSubfConf
+<
+>
+4 and tddSpecSubfConf
+<
+>
+7))) have rxCalibrationConfiguration = 'noRxCalibration'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(srsActivation = 'true') have srsDlMimoModeDepConf defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD(srsActivation = 'true') have srsSubfrConf defined and srsBwConf defined and srsSimAckNack defined and srsDlMimoModeDepConf defined and srsHoppingBw defined and srsPwrOffset defined and srsDuration defined", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL/LNCEL_TDD(actSuperCell = 'false') have dlSectorBeamformingMode undefined unless (every LCELL(lCellId = external LNCEL.lcrId)/CHANNELGROUP/CHANNEL(direction = 'TX') have cardinality = 8)", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL/LNCEL_TDD(actSuperCell = 'false') have dlSectorBeamformingMode undefined unless (every LCELL(lCellId = external LNCEL.lcrId)/CHANNELGROUP/CHANNEL(direction = 'TX') have cardinality = 8)", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL/LNCEL_TDD have dlSectorBeamformingMode undefined if (every LCELL(lCellId = external LNCEL.lcrId)/CHANNELGROUP/CHANNEL(direction = 'TX') have cardinality
+<
+>
+8) or actSuperCell = 'true'", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL/LNCEL_TDD have dlSectorBeamformingMode undefined if (every LCELL(lCellId = external LNCEL.lcrId)/CHANNELGROUP/CHANNEL(direction = 'TX') have cardinality
+<
+>
+8) or actSuperCell = 'true'", u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0 LNCEL_TDD have fourLayerMimoAvSpectralEff
+>
+= twoLayerMimoAvSpectralEff', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0 LNCEL_TDD have fourLayerMimoAvSpectralEff
+>
+= twoLayerMimoAvSpectralEff', u"rule failed: MRBTS-797/LNBTS-797/LNMME-0 LNMME(mmeRatSupport = 'Wideband-LTE') have (every LNCEL(cellTechnology = 'FDD') exist)", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-1/LNCEL_TDD-0/MPUCCH_TDD-0 LNCEL_TDD(chBw in range '10 MHz'|'15 MHz'|'20 MHz' and tddFrameConf = 2 and temporary ackNackResNumber defined)/MPUCCH_TDD have toPRBS(nCqiRb + ceil((((temporary ackNackResNumber + n1PucchAn) - (LNCEL_TDD.pucchNAnCs*3)/deltaPucchShift)*deltaPucchShift)/36 + ceil(LNCEL_TDD.pucchNAnCs/8)))
+<
+= 28", u"rule failed: MRBTS-797/LNBTS-797/LNCEL-2/LNCEL_TDD-0/MPUCCH_TDD-0 LNCEL_TDD(chBw in range '10 MHz'|'15 MHz'|'20 MHz' and tddFrameConf = 2 and temporary ackNackResNumber defined)/MPUCCH_TDD have toPRBS(nCqiRb + ceil((((temporary ackNackResNumber + n1PucchAn) - (LNCEL_TDD.pucchNAnCs*3)/deltaPucchShift)*deltaPucchShift)/36 + ceil(LNCEL_TDD.pucchNAnCs/8)))
+<
+= 28", u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcConnCellStop
+<
+= acbNumRrcConnCellStart', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcConnCellStop
+<
+= acbNumRrcConnCellStart', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcReqStart
+>
+acbNumRrcReqStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcReqStart
+>
+acbNumRrcReqStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcConnCellStart
+>
+= acbNumRrcConnCellStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcConnCellStart
+>
+= acbNumRrcConnCellStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcReqStop
+<
+acbNumRrcReqStart', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcReqStop
+<
+acbNumRrcReqStart', u"rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW(transportNwInUse = 'true') have (every LTAC(transportNwId = external TRSNW.trsNwId) exist)", u"rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW(transportNwInUse = 'true') have (every LNMME(transportNwId = external TRSNW.trsNwId) exist)", u'rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW have (every LTAC(transportNwId = external TRSNW.trsNwId) exist)', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13000/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13000 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13002/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13002 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13001/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13001 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13003/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13003 does not exists', u'rule failed: MRBTS-797/MNL-1/MNLENT-1/CERTH-1/cmpCrlSrcIpAddressDN Object with distName MRBTS-1/RAT-1/BTS_L-4/BTS_CONF-1/NP-1/SCF-4/10.56.126.22 does not exists']}}}
+
+
+
+
+
+
+Action when case finishs
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.28:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05614F58
+>
+.
+
+
+
+
+This keyword is used to kill the processes related to QTP application.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+
+
+
+This keyword stops BTS system(UDP) log catching.
+
+[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${case_execute_log_name}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${case_execute_log_name}
+
+
+Variable ${case_execute_log_name} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${case_execute_log_name} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+
+
+
+
+Teardown Admin API. Keyword will release used resources.
+
+Exit code: 1
+
+STDOUT
+
+CLI LOG:  CLI server is listening on localhost:38057
+
+
+STDERR
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+ute_admin.Teardown Admin
+
+alias=uploadscf
+
+
+
+Teardown Admin API. Keyword will release used resources.
+
+
+alias=uploadscf
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Release_TM500_And_Colse_PA_Port
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+${return}
+
+Run Keyword And Ignore Error
+
+Variable Should Exist
+
+${TM500_Use_Tag}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Use_Tag}'=='used'
+
+Set Attenuators Off
+
+${ATT_ALL_INFO}
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${TM500_Pppoe_Tag}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TM500_Pppoe_Tag}
+
+
+Variable ${TM500_Pppoe_Tag} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${TM500_Pppoe_Tag} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Pppoe_Tag}'=='used'
+
+Switch Host Connection
+
+${TM500_PC_CONNECTION}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Pppoe_Tag}'=='used'
+
+Tm500 Stop Pppoe Connection
+
+
+
+
+
+tm500 teardown.
+
+AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,08F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,08F0*', Receive
+<
+-'$TA,C,08F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,08*', Receive
+<
+-'$TA,C,08F0*'
+
+$TA,C,16F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,16F0*', Receive
+<
+-'$TA,C,16F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,16*', Receive
+<
+-'$TA,C,16F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,08F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,08F0*', Receive
+<
+-'$TA,C,08F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,08*', Receive
+<
+-'$TA,C,08F0*'
+
+$TA,C,16F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,16F0*', Receive
+<
+-'$TA,C,16F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,16*', Receive
+<
+-'$TA,C,16F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+Variable ${CELL3_ATT_INFO} does not exist.
+
+
+
+${ret1} = FAIL
+
+${ret2} = Variable ${CELL3_ATT_INFO} does not exist.
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Set Test Variable
+
+${TM500_Use_Tag}
+
+unused
+
+
+
+
+
+Makes a variable available everywhere within the scope of the current test.
+
+
+${TM500_Pppoe_Tag}
+
+unused
+
+
+${TM500_Pppoe_Tag} = unused
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${route_add_cpe_pc}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${route_add_cpe_pc}
+
+
+Variable ${route_add_cpe_pc} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${route_add_cpe_pc}'=='true'
+
+Execute Shell Command
+
+route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}
+
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+Infomodel not connected.
+
+[infomodel_control.py@82] set up infomodel with following info succeed .
+
+details: address=192.168.255.1, port=12345, definitions_file_path=None
+
+[infomodel_control.py@100] stop infomodel succeed .
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Should Contain
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+
+${return1}
+
+
+
+Fails if ``container`` does not contain ``item`` one or more times.
+
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+'FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7' does not contain 'Fiber'
+
+
+
+${return1} = ('FAIL', u"'FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7' does not contain 'Fiber'")
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+${all_fiber_link}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+
+${all_fiber_link} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Software Reboot Bts
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Sleep
+
+60
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Wait Until Units Startup
+
+600
+
+192.168.255.1
+
+
+
+
+
+[Caution] this keyword step:
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+
+
+
+
+
+
+get active BTS SW Build Version from enb targetBD file..
+
+
+${version}
+
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:52:39 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x057BD6C0
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x057BD6C0
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:54:01 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05536080
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05536080
+>
+
+${version} = SBTS00_TDDFSM4_9999_170608_000754
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+owner-sue.nie@nokia.com
+
+QC_720763
+
+
+AdminApiProcedureFailureException: Status reached: {u'result': {u'resultNode': {u'distName': u'/MRBTS-1/RAT-1/URI-4/SESSION-16/PLAN_VALIDATE_IND-0/PLAN_VALIDATE_RESULT-1', u'parameters': {u'result': u'Failed', u'feedback': u'
+<
+message
+>
+<
+p name="version"
+>
+SBTS00
+<
+/p
+>
+<
+p name="dn"
+>
+MRBTS-797
+<
+/p
+>
+<
+p name="text"
+>
+Plan operation failed.
+<
+/p
+>
+<
+p name="status"
+>
+Error
+<
+/p
+>
+<
+p name="details"
+>
+Plan download failed because BTS_DATA is invalid.
+<
+/p
+>
+<
+/message
+>
+', u'deltaDN': u''}}, u'failCause': u'RESULT_FAILED', u'indicationDistName': u'/MRBTS-1/RAT-1/URI-4/SESSION-16/PLAN_VALIDATE_IND-0', u'confirmationNode': {u'eventType': u'onObjectAppeared'}}, u'validationResult': {u'niddValidationResult': {u'status': u'OK', u'logs': {u'objectsOccurencesErrors': None, u'invalidObjectsDistnames': None, u'definitionErrors': None, u'skippedElementsErrors': [{u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'altitude'}, {u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'latitude'}, {u'distName': u'MRBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'longitude'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'operationalState'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'supportedNumOfAnrMoi'}, {u'distName': u'MRBTS-797/LNBTS-797', u'error': [{u'key': u'CAN_BE_ONLY_SET_BY_SYSTEM'}], u'field': u'supportedNumOfLnadj'}, {u'distName': u'MRBTS-797/LNBTS-797/LNCEL-1',...
+
+[ Message content over the limit has been removed. ]
+
+...le failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcConnCellStart
+>
+= acbNumRrcConnCellStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcConnCellStart
+>
+= acbNumRrcConnCellStop', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-1/SIB-0 SIB have acbNumRrcReqStop
+<
+acbNumRrcReqStart', u'rule failed: MRBTS-797/LNBTS-797/LNCEL-2/SIB-0 SIB have acbNumRrcReqStop
+<
+acbNumRrcReqStart', u"rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW(transportNwInUse = 'true') have (every LTAC(transportNwId = external TRSNW.trsNwId) exist)", u"rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW(transportNwInUse = 'true') have (every LNMME(transportNwId = external TRSNW.trsNwId) exist)", u'rule failed: MRBTS-797/LNBTS-797/TRSNW-1 TRSNW have (every LTAC(transportNwId = external TRSNW.trsNwId) exist)', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13000/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13000 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13002/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13002 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13001/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13001 does not exists', u'rule failed: MRBTS-797/EQM-1/HWTOP-1/CABLINK-13003/secondEndpointDN Object with distName MRBTS-797/EQM-1/APEQM-1/PHYANT-13003 does not exists', u'rule failed: MRBTS-797/MNL-1/MNLENT-1/CERTH-1/cmpCrlSrcIpAddressDN Object with distName MRBTS-1/RAT-1/BTS_L-4/BTS_CONF-1/NP-1/SCF-4/10.56.126.22 does not exists']}}}
+
+
+TD-LTE I
+&
+V SISO1
+
+
+
+
+
+Critical Tests
+
+All Tests
+
+
+
+owner-sue.nie@nokia.com
+
+QC_720763
+
+
+
+FZHQ T2 Throughput UDP 20M TM4 4X2 2 7
+
+
+
+
+Loading tdd_config has failed. Please check if:
+
+1. you executed pybot with --variable CONFIGURATION:$your_tl_config
+
+i.e. pybot --variable CONFIGURATION:Wroclaw.test
+
+2. check if there is no problem with your configuration
+
+Error msg: Variable ${CONFIGURATION} does not exist.
+
+
+Infomodel not connected.
+
+

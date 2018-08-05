@@ -1,0 +1,1161 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{python\_concurrence\_and\_parallel}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{python-concurrence-and-parallel}{%
+\section{Python concurrence and
+parallel}\label{python-concurrence-and-parallel}}
+
+\includegraphics{https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg}
+
+--by wang liyao (leo)
+
+email: leo.y.wang@nokia-sbell.com
+
+    \hypertarget{agenda}{%
+\subsection{agenda}\label{agenda}}
+
+\begin{itemize}
+\tightlist
+\item
+  why we need concurrence or parallel
+\item
+  glossary explanation
+\item
+  Parallel Handling
+\item
+  practice
+\item
+  asynchronous programming
+\item
+  Q\&A
+\end{itemize}
+
+    \hypertarget{why-we-need-concurrence-or-parallel}{%
+\subsection{why we need concurrence or
+parallel}\label{why-we-need-concurrence-or-parallel}}
+
+    \begin{figure}
+\centering
+\includegraphics{attachment:\%E5\%9B\%BE\%E7\%89\%87.png}
+\caption{\%E5\%9B\%BE\%E7\%89\%87.png}
+\end{figure}
+
+    \hypertarget{glossary-explanation}{%
+\subsection{glossary explanation}\label{glossary-explanation}}
+
+    \hypertarget{concurrency-vs-parallelism}{%
+\subsubsection{concurrency vs
+parallelism}\label{concurrency-vs-parallelism}}
+
+\begin{itemize}
+\tightlist
+\item
+  并发:一个处理器同时处理多个任务。
+\item
+  并行: 多个处理器或者是多核的处理器同时处理多个不同的任务.
+  \textgreater{}
+  前者是逻辑上的同时发生（simultaneous），而后者是物理上的同时发生．
+  \textgreater{} \textgreater{}
+  来个比喻：并发和并行的区别就是一个人同时吃三个馒头和三个人同时吃三个馒头。
+\end{itemize}
+
+    \begin{figure}
+\centering
+\includegraphics{attachment:\%E5\%9B\%BE\%E7\%89\%87.png}
+\caption{\%E5\%9B\%BE\%E7\%89\%87.png}
+\end{figure}
+
+    \begin{itemize}
+\tightlist
+\item
+  下图反映了一个包含8个操作的任务在一个有两核心的CPU中创建四个线程运行的情况。假设每个核心有两个线程.
+  \includegraphics{attachment:\%E5\%9B\%BE\%E7\%89\%87.png}
+\end{itemize}
+
+    \begin{itemize}
+\tightlist
+\item
+  那么每个CPU中两个线程会交替并发，两个CPU之间的操作会并行运算。单就一个CPU而言两个线程可以解决线程阻塞造成的不流畅问题，其本身运行效率并没有提高，多CPU的并行运算才真正解决了运行效率问题，这也正是并发和并行的区别
+\end{itemize}
+
+    \begin{quote}
+Python 中没有真正的并行，只有并发
+
+无论你的机器有多少个CPU,
+同一时间只有一个Python解析器执行。这也和大部分解释型语言一致，
+都不支持并行。这应该是python设计的先天缺陷。
+
+javascript也是相同的道理，
+javascript早起的版本只支持单任务，后来通过worker来支持并发。
+\end{quote}
+
+    \hypertarget{multiprocessing-vs-thread}{%
+\subsubsection{multiprocessing vs
+thread}\label{multiprocessing-vs-thread}}
+
+\begin{quote}
+所谓进程，简单的说就是一段程序的动态执行过程，是系统进行资源分配和调度的一个基本单位。
+-
+进程是程序的一次执行过程。若程序执行两次甚至多次，则需要两个甚至多个进程。
+-
+进程是是正在运行程序的抽象。它代表运行的CPU，也称进程是对CPU的抽象。（虚拟技术的支持，将一个CPU变幻为多个虚拟的CPU）
+- 系统资源（如内存、文件）以进程为单位分配。 -
+操作系统为每个进程分配了独立的地址空间 -
+操作系统通过``调度''把控制权交给进程。
+\end{quote}
+
+    \hypertarget{multiprocessing-vs-thread}{%
+\subsubsection{multiprocessing vs
+thread}\label{multiprocessing-vs-thread}}
+
+\begin{quote}
+　一个进程中又可以包含若干个独立的执行流，我们将这些执行流称为线程，线程是CPU调度和分配的基本单位。同一个进程的线程都有自己的专有寄存器，但内存等资源是共享的。
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  应用的需要。比如打开一个浏览器，我想一边浏览网页，一边下载文件，一边播放音乐。如果一个浏览器是一个进程，那么这样的需求需要线程机制。
+\item
+  开销的考虑。在进程内创建、终止线程比创建、终止进程要快。同一进程内的线程间切换比进程间的切换要快,尤其是用户级线程间的切换。线程之间相互通信无须通过内核（同一进程内的线程共享内存和文件）
+\item
+  性能的考虑。多个线程中，任务功能不同（有的负责计算，有的负责I/O）,如果有多个处理器，一个进程就可以有很多的任务同时在执行。
+\end{itemize}
+\end{quote}
+
+    \begin{itemize}
+\tightlist
+\item
+  \href{http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html}{大牛言论}
+\end{itemize}
+
+    \hypertarget{blocking-and-non-blocking}{%
+\subsubsection{blocking and
+non-blocking}\label{blocking-and-non-blocking}}
+
+    \hypertarget{blockingux963bux585e}{%
+\paragraph{blocking(阻塞)}\label{blockingux963bux585e}}
+
+\begin{quote}
+程序未得到所需计算资源时被挂起的状态。
+
+程序在等待某个操作完成期间，自身无法继续干别的事情，则称该程序在该操作上是阻塞的。
+
+常见的阻塞形式有：网络I/O阻塞、磁盘I/O阻塞、用户输入阻塞等。
+
+阻塞是无处不在的，包括CPU切换上下文时，所有的进程都无法真正干事情，它们也会被阻塞。（如果是多核CPU则正在执行上下文切换操作的核不可被利用。）
+\end{quote}
+
+    \hypertarget{non-blocking}{%
+\paragraph{non-blocking}\label{non-blocking}}
+
+\begin{quote}
+程序在等待某操作过程中，自身不被阻塞，可以继续运行干别的事情，则称该程序在该操作上是非阻塞的。
+
+非阻塞并不是在任何程序级别、任何情况下都可以存在的。
+
+仅当程序封装的级别可以囊括独立的子程序单元时，它才可能存在非阻塞状态
+\end{quote}
+
+    \hypertarget{synchronous-and-asynchronous}{%
+\subsubsection{Synchronous and
+asynchronous}\label{synchronous-and-asynchronous}}
+
+    \hypertarget{synchronousux540cux6b65}{%
+\paragraph{Synchronous(同步)}\label{synchronousux540cux6b65}}
+
+\begin{quote}
+不同程序单元为了完成某个任务，在执行过程中需靠某种通信方式以协调一致，称这些程序单元是同步执行的。
+
+例如购物系统中更新商品库存，需要用``行锁''作为通信信号，让不同的更新请求强制排队顺序执行，那更新库存的操作是同步的。
+
+简言之，同步意味着有序
+\end{quote}
+
+    \hypertarget{asynchronousux5f02ux6b65}{%
+\paragraph{asynchronous(异步)}\label{asynchronousux5f02ux6b65}}
+
+\begin{quote}
+为完成某个任务，不同程序单元之间过程中无需通信协调，也能完成任务的方式。
+
+不相关的程序单元之间可以是异步的。
+例如，爬虫下载网页。调度程序调用下载程序后，即可调度其他任务，而无需与该下载任务保持通信以协调行为。不同网页的下载、保存等操作都是无关的，也无需相互通知协调。这些异步操作的完成时刻并不确定。
+
+简言之，异步意味着无序。
+\end{quote}
+
+    \hypertarget{glossary-summary}{%
+\subsubsection{glossary summary}\label{glossary-summary}}
+
+\begin{itemize}
+\tightlist
+\item
+  并行是为了利用多核加速多任务完成的进度
+\item
+  并发是为了让独立的子任务都有机会被尽快执行，但不一定能加速整体进度
+\item
+  非阻塞是为了提高程序整体执行效率
+\item
+  异步是高效地组织非阻塞任务的方式
+\item
+  要支持并发，必须拆分为多任务，不同任务相对而言才有阻塞/非阻塞、同步/异步。所以，并发、异步、非阻塞三个词总是如影随形
+\end{itemize}
+
+    \hypertarget{parallel-handling}{%
+\subsection{Parallel Handling}\label{parallel-handling}}
+
+    \hypertarget{non-parallell}{%
+\subsubsection{non-parallell}\label{non-parallell}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} fetch content size from a series of web sites}
+        \PY{k+kn}{import} \PY{n+nn}{urllib}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        
+        \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        \PY{n}{begin} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{for} \PY{n}{url} \PY{o+ow}{in} \PY{n}{urls}\PY{p}{:}
+            \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{proxies}\PY{o}{=}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{used time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end}\PY{o}{\PYZhy{}}\PY{n}{begin}
+\end{Verbatim}
+
+
+    \hypertarget{thread}{%
+\subsubsection{Thread}\label{thread}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce thread}
+        \PY{k+kn}{from} \PY{n+nn}{threading} \PY{k+kn}{import} \PY{n}{Thread}
+        \PY{k+kn}{import} \PY{n+nn}{urllib}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        
+        \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{k}{class} \PY{n+nc}{UrlFetchThread}\PY{p}{(}\PY{n}{Thread}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{url}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{super}\PY{p}{(}\PY{n}{UrlFetchThread}\PY{p}{,} \PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}url} \PY{o}{=} \PY{n}{url}
+                
+            \PY{k}{def} \PY{n+nf}{run}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        
+        \PY{n}{begin} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{threads} \PY{o}{=} \PY{n+nb}{map}\PY{p}{(}\PY{n}{UrlFetchThread}\PY{p}{,} \PY{n}{urls}\PY{p}{)}
+        \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n}{threads}\PY{p}{:}
+            \PY{n}{t}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+            \PY{n}{t}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{used time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end}\PY{o}{\PYZhy{}}\PY{n}{begin}
+\end{Verbatim}
+
+
+    \hypertarget{multiprocess}{%
+\subsubsection{multiprocess}\label{multiprocess}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce multi process}
+        \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k+kn}{import} \PY{n}{Process}
+        \PY{k+kn}{import} \PY{n+nn}{urllib}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        
+        \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{k}{class} \PY{n+nc}{UrlFetchProcess}\PY{p}{(}\PY{n}{Process}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{url}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{super}\PY{p}{(}\PY{n}{UrlFetchProcess}\PY{p}{,} \PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}url} \PY{o}{=} \PY{n}{url}
+                
+            \PY{k}{def} \PY{n+nf}{run}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{n}{begin} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}        
+        \PY{n}{processes} \PY{o}{=} \PY{n+nb}{map}\PY{p}{(}\PY{n}{UrlFetchProcess}\PY{p}{,} \PY{n}{urls}\PY{p}{)}
+        \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{processes}\PY{p}{:}
+            \PY{n}{p}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+            \PY{n}{p}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{used time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{begin}
+\end{Verbatim}
+
+
+    \hypertarget{pool}{%
+\subsubsection{pool}\label{pool}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} use Pool}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k+kn}{import} \PY{n}{Pool}
+        \PY{k+kn}{from} \PY{n+nn}{multiprocessing.dummy} \PY{k+kn}{import} \PY{n}{Pool} \PY{k}{as} \PY{n}{ThreadPool}
+        
+        \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{k}{def} \PY{n+nf}{fetch\PYZus{}content}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{begin test!}\PY{l+s+s1}{\PYZsq{}}
+        \PY{n}{procss\PYZus{}start\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{pool} \PY{o}{=} \PY{n}{Pool}\PY{p}{(}\PY{p}{)}
+        \PY{n}{pool}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n}{fetch\PYZus{}content}\PY{p}{,} \PY{n}{urls}\PY{p}{)}
+        \PY{n}{pool}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        \PY{n}{pool}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+        \PY{n}{procss\PYZus{}end\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{proces use time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{procss\PYZus{}end\PYZus{}time} \PY{o}{\PYZhy{}} \PY{n}{procss\PYZus{}start\PYZus{}time}
+        
+        \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+        \PY{n}{thread\PYZus{}start\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{thread\PYZus{}pool} \PY{o}{=} \PY{n}{ThreadPool}\PY{p}{(}\PY{p}{)}
+        \PY{n}{thread\PYZus{}pool}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n}{fetch\PYZus{}content}\PY{p}{,} \PY{n}{urls}\PY{p}{)}
+        \PY{n}{thread\PYZus{}pool}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        \PY{n}{thread\PYZus{}pool}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+        \PY{n}{thread\PYZus{}end\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{thread use time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{thread\PYZus{}end\PYZus{}time} \PY{o}{\PYZhy{}} \PY{n}{thread\PYZus{}start\PYZus{}time}
+\end{Verbatim}
+
+
+    \hypertarget{queue}{%
+\subsubsection{Queue}\label{queue}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Queue}
+        \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k+kn}{import} \PY{n}{Process}\PY{p}{,} \PY{n}{Queue}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        
+        \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{q}\PY{p}{,} \PY{n}{num}\PY{p}{)}\PY{p}{:}
+            \PY{n}{q}\PY{o}{.}\PY{n}{put}\PY{p}{(}\PY{p}{[}\PY{n}{num}\PY{p}{,} \PY{n+nb+bp}{None}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hello}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        
+        \PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+            \PY{n}{q} \PY{o}{=} \PY{n}{Queue}\PY{p}{(}\PY{p}{)}
+            \PY{n}{begin}  \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+            \PY{n}{p1} \PY{o}{=} \PY{n}{Process}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{f}\PY{p}{,} \PY{n}{args}\PY{o}{=}\PY{p}{(}\PY{n}{q}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+            \PY{n}{p2} \PY{o}{=} \PY{n}{Process}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{f}\PY{p}{,} \PY{n}{args}\PY{o}{=}\PY{p}{(}\PY{n}{q}\PY{p}{,} \PY{l+m+mi}{24}\PY{p}{)}\PY{p}{)}
+            \PY{n}{p1}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+            \PY{n}{p2}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+            \PY{k}{print} \PY{n}{q}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{p}{)}
+            \PY{k}{print} \PY{n}{q}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{p}{)}
+            \PY{n}{p1}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+            \PY{n}{p2}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{)}
+            \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+            \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{used time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{begin}
+\end{Verbatim}
+
+
+    \hypertarget{gevent}{%
+\subsubsection{gevent}\label{gevent}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce gevent}
+        \PY{k+kn}{import} \PY{n+nn}{gevent}
+        \PY{k+kn}{from} \PY{n+nn}{gevent} \PY{k+kn}{import} \PY{n}{monkey}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{n}{monkey}\PY{o}{.}\PY{n}{patch\PYZus{}all}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{k}{def} \PY{n+nf}{fetch\PYZus{}content}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{n}{begin} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}    
+        \PY{p}{[}\PY{n}{gevent}\PY{o}{.}\PY{n}{spawn}\PY{p}{(}\PY{n}{fetch\PYZus{}content}\PY{p}{,} \PY{n}{url}\PY{p}{)} \PY{k}{for} \PY{n}{url} \PY{o+ow}{in} \PY{n}{urls}\PY{p}{]}
+        
+        \PY{n}{gevent}\PY{o}{.}\PY{n}{wait}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{used time:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{begin}
+\end{Verbatim}
+
+
+    \hypertarget{practice}{%
+\subsubsection{Practice}\label{practice}}
+
+    \hypertarget{ux5b8cux6210btslog-ux6293syslogux7684ux529fux80fd}{%
+\paragraph{完成btslog
+抓syslog的功能}\label{ux5b8cux6210btslog-ux6293syslogux7684ux529fux80fd}}
+
+\begin{itemize}
+\tightlist
+\item
+  需求, 提供一个命令行终端输入模式, 如: ./syslog -l syslog\_1.txt,
+  执行命令, 终端提示:输入stop, 停止抓log
+\end{itemize}
+
+    \hypertarget{fibonacci-program}{%
+\subsection{Fibonacci program}\label{fibonacci-program}}
+
+    \begin{quote}
+斐波那契数列（意大利语： Successione di
+Fibonacci)，又称黄金分割数列、费波那西数列、费波拿契数、费氏数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、\ldots{}\ldots{}在数学上，斐波纳契数列以如下被以递归的方法定义：F0=0，F1=1，Fn=Fn-1+Fn-2（n\textgreater{}=2，n∈N*），用文字来说，就是斐波那契数列列由
+0 和 1 开始，之后的斐波那契数列系数就由之前的两数相加
+
+要求:提供 fabnacci 函数module, 函数输入值是:序列第n位, 输出为
+第n位的值，　如：f(0) = 0, f(1) = 1, f(2) =1, f(3) = 2, f(4) =3
+
+提供一个 socket server, 为client提供 fabnacci计算,返回给client正确的值
+\end{quote}
+
+    \hypertarget{asynchronous-programming-ux5f02ux6b65ioux8fdbux5316ux4e4bux8def}{%
+\subsection{asynchronous programming
+异步I/O进化之路}\label{asynchronous-programming-ux5f02ux6b65ioux8fdbux5316ux4e4bux8def}}
+
+    《约束理论与企业优化》中指出：``除了瓶颈之外，任何改进都是幻觉。''
+
+CPU告诉我们，它自己很快，而上下文切换慢、内存读数据慢、磁盘寻址与取数据慢、网络传输慢\ldots{}\ldots{}
+总之，离开CPU
+后的一切，除了一级高速缓存，都很慢。我们观察计算机的组成可以知道，主要由运算器、控制器、存储器、输入设备、输出设备五部分组成。运算器和控制器主要集成在CPU中，除此之外全是I/O，包括读写内存、读写磁盘、读写网卡全都是I/O。I/O成了最大的瓶颈
+
+    \hypertarget{the-traditional-approach}{%
+\subsubsection{The Traditional
+Approach}\label{the-traditional-approach}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{socket}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{k}{def} \PY{n+nf}{blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{sock} \PY{o}{=} \PY{n}{socket}\PY{o}{.}\PY{n}{socket}\PY{p}{(}\PY{p}{)}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{baidu.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}\PY{p}{)}
+            \PY{n}{request} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Host: baidu.com}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{request}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ascii}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+            \PY{n}{response} \PY{o}{=} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{while} \PY{n}{chunk}\PY{p}{:}
+                \PY{n}{response} \PY{o}{+}\PY{o}{=} \PY{n}{chunk}
+                \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{return} \PY{n}{response}
+        
+        \PY{k}{def} \PY{n+nf}{sync\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{result} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+                \PY{n}{result}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n}{result}
+        \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{result} \PY{o}{=} \PY{n}{sync\PYZus{}way}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}
+\end{Verbatim}
+
+
+    \hypertarget{the-process-approach}{%
+\subsubsection{The Process Approach}\label{the-process-approach}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{socket}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{k+kn}{from} \PY{n+nn}{concurrent} \PY{k+kn}{import} \PY{n}{futures}
+        \PY{k}{def} \PY{n+nf}{blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{sock} \PY{o}{=} \PY{n}{socket}\PY{o}{.}\PY{n}{socket}\PY{p}{(}\PY{p}{)}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{baidu.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}\PY{p}{)}
+            \PY{n}{request} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Host: baidu.com}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{request}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ascii}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+            \PY{n}{response} \PY{o}{=} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{while} \PY{n}{chunk}\PY{p}{:}
+                \PY{n}{response} \PY{o}{+}\PY{o}{=} \PY{n}{chunk}
+                \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{return} \PY{n}{response}
+        
+        \PY{k}{def} \PY{n+nf}{process\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{works} \PY{o}{=} \PY{l+m+mi}{10}
+            \PY{k}{with} \PY{n}{futures}\PY{o}{.}\PY{n}{ProcessPoolExecutor}\PY{p}{(}\PY{n}{works}\PY{p}{)} \PY{k}{as} \PY{n}{executor}\PY{p}{:}
+                \PY{n}{futs} \PY{o}{=} \PY{p}{[}\PY{n}{executor}\PY{o}{.}\PY{n}{submit}\PY{p}{(}\PY{n}{blocking\PYZus{}way}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{works}\PY{p}{)}\PY{p}{]}
+            \PY{n}{result} \PY{o}{=} \PY{p}{[}\PY{n}{fut}\PY{o}{.}\PY{n}{result} \PY{k}{for} \PY{n}{fut} \PY{o+ow}{in} \PY{n}{futs}\PY{p}{]}
+            \PY{k}{return} \PY{n}{result}
+        \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{result} \PY{o}{=} \PY{n}{process\PYZus{}way}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}
+\end{Verbatim}
+
+
+    \hypertarget{the-thread-approach}{%
+\subsubsection{The Thread Approach}\label{the-thread-approach}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{socket}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{k+kn}{from} \PY{n+nn}{concurrent} \PY{k+kn}{import} \PY{n}{futures}
+        \PY{k}{def} \PY{n+nf}{blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{sock} \PY{o}{=} \PY{n}{socket}\PY{o}{.}\PY{n}{socket}\PY{p}{(}\PY{p}{)}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{baidu.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}\PY{p}{)}
+            \PY{n}{request} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Host: baidu.com}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{request}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ascii}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+            \PY{n}{response} \PY{o}{=} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{while} \PY{n}{chunk}\PY{p}{:}
+                \PY{n}{response} \PY{o}{+}\PY{o}{=} \PY{n}{chunk}
+                \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+            \PY{k}{return} \PY{n}{response}
+        
+        \PY{k}{def} \PY{n+nf}{thread\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{works} \PY{o}{=} \PY{l+m+mi}{10}
+            \PY{k}{with} \PY{n}{futures}\PY{o}{.}\PY{n}{ThreadPoolExecutor}\PY{p}{(}\PY{n}{works}\PY{p}{)} \PY{k}{as} \PY{n}{executor}\PY{p}{:}
+                \PY{n}{futs} \PY{o}{=} \PY{p}{[}\PY{n}{executor}\PY{o}{.}\PY{n}{submit}\PY{p}{(}\PY{n}{blocking\PYZus{}way}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{works}\PY{p}{)}\PY{p}{]}
+            \PY{n}{result} \PY{o}{=} \PY{p}{[}\PY{n}{fut}\PY{o}{.}\PY{n}{result} \PY{k}{for} \PY{n}{fut} \PY{o+ow}{in} \PY{n}{futs}\PY{p}{]}
+            \PY{k}{return} \PY{n}{result}
+        \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{result} \PY{o}{=} \PY{n}{thread\PYZus{}way}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}
+\end{Verbatim}
+
+
+    \hypertarget{non-blocking-way}{%
+\subsubsection{non-blocking way}\label{non-blocking-way}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{socket}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{k}{def} \PY{n+nf}{non\PYZus{}blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{sock} \PY{o}{=} \PY{n}{socket}\PY{o}{.}\PY{n}{socket}\PY{p}{(}\PY{p}{)}
+            \PY{n}{sock}\PY{o}{.}\PY{n}{setblocking}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
+            \PY{k}{try}\PY{p}{:}
+                \PY{n}{sock}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{baidu.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}\PY{p}{)}
+            \PY{k}{except}\PY{p}{:}
+                \PY{k}{pass}
+                \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blocking IO error!}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{request} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Host: baidu.com}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}
+            \PY{n}{send\PYZus{}data} \PY{o}{=} \PY{n}{request}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ascii}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{response} \PY{o}{=} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+                \PY{k}{try}\PY{p}{:}
+                    \PY{n}{sock}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{send\PYZus{}data}\PY{p}{)}
+                    \PY{k}{break}
+                \PY{k}{except}\PY{p}{:}
+                    \PY{k}{pass}
+                    \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bocking send data}\PY{l+s+s1}{\PYZsq{}}
+            \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+                \PY{k}{try}\PY{p}{:}
+                    \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+                    \PY{k}{while} \PY{n}{chunk}\PY{p}{:}
+                        \PY{n}{response} \PY{o}{+}\PY{o}{=} \PY{n}{chunk}
+                        \PY{n}{chunk} \PY{o}{=} \PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+                    \PY{k}{break}
+                \PY{k}{except}\PY{p}{:}
+                    \PY{k}{pass}
+                    \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blocking receive data}\PY{l+s+s1}{\PYZsq{}}
+            \PY{k}{return} \PY{n}{response}
+        
+        \PY{k}{def} \PY{n+nf}{sync\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{result} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+                \PY{n}{result}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{non\PYZus{}blocking\PYZus{}way}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n}{result}
+        \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{result} \PY{o}{=} \PY{n}{sync\PYZus{}way}\PY{p}{(}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}
+\end{Verbatim}
+
+
+    \hypertarget{non-blocking-improve---select}{%
+\subsubsection{non-blocking improve -
+select}\label{non-blocking-improve---select}}
+
+    判断非阻塞调用是否就绪如果 OS
+能做，是不是应用程序就可以不用自己去等待和判断了，就可以利用这个空闲去做其他事情以提高效率。
+
+所以OS将I/O状态的变化都封装成了事件，如可读事件、可写事件。并且提供了专门的系统模块让应用程序可以接收事件通知。这个模块就是select。让应用程序可以通过select注册文件描述符和回调函数。当文件描述符的状态发生变化时，select
+就调用事先注册的回调函数。
+
+select因其算法效率比较低，后来改进成了poll，再后来又有进一步改进，BSD内核改进成了kqueue模块，而Linux内核改进成了epoll模块。这四个模块的作用都相同，暴露给程序员使用的API也几乎一致，区别在于kqueue
+和 epoll 在处理大量文件描述符时效率更高。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} \PYZhy{}*\PYZhy{} coding: utf\PYZhy{}8 \PYZhy{}*\PYZhy{}}
+        \PY{k+kn}{import} \PY{n+nn}{socket}
+        \PY{k+kn}{from} \PY{n+nn}{selectors} \PY{k+kn}{import} \PY{n}{DefaultSelector}\PY{p}{,} \PY{n}{EVENT\PYZus{}WRITE}\PY{p}{,} \PY{n}{EVENT\PYZus{}READ}
+        
+        \PY{n}{selector} \PY{o}{=} \PY{n}{DefaultSelector}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{stopped} \PY{o}{=} \PY{n+nb+bp}{False}
+        
+        
+        \PY{k}{class} \PY{n+nc}{Future}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{result} \PY{o}{=} \PY{n+nb+bp}{None}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}callbacks} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        
+            \PY{k}{def} \PY{n+nf}{add\PYZus{}done\PYZus{}callback}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{fn}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}callbacks}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{fn}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{set\PYZus{}result}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{result}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{result} \PY{o}{=} \PY{n}{result}
+                \PY{k}{for} \PY{n}{fn} \PY{o+ow}{in} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}callbacks}\PY{p}{:}
+                    \PY{n}{fn}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}
+        
+        \PY{k}{class} \PY{n+nc}{Crawler}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+            \PY{n}{counter} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.56.78.25}\PY{l+s+s1}{\PYZsq{}}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock} \PY{o}{=} \PY{n+nb+bp}{None}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{response} \PY{o}{=} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+        
+            \PY{k}{def} \PY{n+nf}{fetch}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock} \PY{o}{=} \PY{n}{socket}\PY{o}{.}\PY{n}{socket}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock}\PY{o}{.}\PY{n}{setblocking}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
+                \PY{k}{try}\PY{p}{:}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}\PY{p}{)}
+                \PY{k}{except}\PY{p}{:}
+                    \PY{k}{pass}
+                \PY{n}{selector}\PY{o}{.}\PY{n}{register}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock}\PY{o}{.}\PY{n}{fileno}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{EVENT\PYZus{}WRITE}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{connected}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{connected}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{key}\PY{p}{,} \PY{n}{mask}\PY{p}{)}\PY{p}{:}
+                \PY{n}{selector}\PY{o}{.}\PY{n}{unregister}\PY{p}{(}\PY{n}{key}\PY{o}{.}\PY{n}{fd}\PY{p}{)}
+                \PY{n}{get} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{HOST: 10.56.78.25}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{get}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ascii}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n}{selector}\PY{o}{.}\PY{n}{register}\PY{p}{(}\PY{n}{key}\PY{o}{.}\PY{n}{fd}\PY{p}{,} \PY{n}{EVENT\PYZus{}READ}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{read\PYZus{}response}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{read\PYZus{}response}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{key}\PY{p}{,} \PY{n}{mask}\PY{p}{)}\PY{p}{:}
+                \PY{k}{global} \PY{n}{stopped}
+                \PY{n}{chunk} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sock}\PY{o}{.}\PY{n}{recv}\PY{p}{(}\PY{l+m+mi}{4096}\PY{p}{)}
+                \PY{k}{if} \PY{n}{chunk}\PY{p}{:}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{response} \PY{o}{+}\PY{o}{=} \PY{n}{chunk}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{n}{selector}\PY{o}{.}\PY{n}{unregister}\PY{p}{(}\PY{n}{key}\PY{o}{.}\PY{n}{fd}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}urls\PYZus{}todo.remove(self.url)}
+                    \PY{n}{Crawler}\PY{o}{.}\PY{n}{counter} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                    \PY{c+c1}{\PYZsh{}print(\PYZdq{}response:\PYZdq{},self.response)}
+                    \PY{k}{if} \PY{n}{Crawler}\PY{o}{.}\PY{n}{counter} \PY{o}{==} \PY{l+m+mi}{10}\PY{p}{:}
+                        \PY{n}{stopped} \PY{o}{=} \PY{n+nb+bp}{True}
+        
+        
+        \PY{k}{def} \PY{n+nf}{loop}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{while} \PY{o+ow}{not} \PY{n}{stopped}\PY{p}{:}
+                \PY{n}{events} \PY{o}{=} \PY{n}{selector}\PY{o}{.}\PY{n}{select}\PY{p}{(}\PY{p}{)}
+                \PY{k}{for} \PY{n}{event\PYZus{}key}\PY{p}{,} \PY{n}{event\PYZus{}mask} \PY{o+ow}{in} \PY{n}{events}\PY{p}{:}
+                    \PY{n}{callback} \PY{o}{=} \PY{n}{event\PYZus{}key}\PY{o}{.}\PY{n}{data}
+                    \PY{n}{callback}\PY{p}{(}\PY{n}{event\PYZus{}key}\PY{p}{,} \PY{n}{event\PYZus{}mask}\PY{p}{)}
+        
+        \PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+            \PY{k+kn}{import} \PY{n+nn}{time}
+            \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+                \PY{n}{crawler} \PY{o}{=} \PY{n}{Crawler}\PY{p}{(}\PY{p}{)}
+                \PY{n}{crawler}\PY{o}{.}\PY{n}{fetch}\PY{p}{(}\PY{p}{)}
+            \PY{n}{loop}\PY{p}{(}\PY{p}{)}
+            \PY{k}{print}\PY{p}{(}\PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{start}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{co-routineux534fux7a0b}{%
+\subsubsection{Co-routine(协程)}\label{co-routineux534fux7a0b}}
+
+\begin{itemize}
+\tightlist
+\item
+  协程(Co-routine)，Coroutine其实是corporate routine的缩写,
+  即是协作式的例程。
+\end{itemize}
+
+在linux系统中，线程就是轻量级的进程，而我们通常也把协程称为轻量级的线程即微线程。
+
+它是非抢占式的多任务子例程的概括，可以允许有多个入口点在例程中确定的位置来控制程序的暂停与恢复执行
+
+    所以子程序调用是通过栈实现的，一个线程就是执行一个子程序。
+
+子程序调用总是一个入口，一次返回，调用顺序是明确的。而协程的调用和子程序不同。
+
+协程看上去也是子程序，但执行过程中，在子程序内部可中断，然后转而执行别的子程序，在适当的时候再返回来接着执行。
+
+注意，在一个子程序中中断，去执行其他子程序，不是函数调用，有点类似CPU的中断。比如子程序A、B：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ A():}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'1'}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'2'}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'3'}\NormalTok{)}
+
+\KeywordTok{def}\NormalTok{ B():}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'x'}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'y'}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{'z'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+在执行A的过程中，可以随时中断，去执行B，B也可能在执行过程中中断再去执行A，结果可能是：
+
+\begin{verbatim}
+1
+2
+x
+y
+3
+z
+\end{verbatim}
+
+    \hypertarget{example}{%
+\paragraph{example}\label{example}}
+
+\begin{itemize}
+\tightlist
+\item
+  Python对协程的支持是通过generator实现的。
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k}{def} \PY{n+nf}{simple\PYZus{}coroutine}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZgt{} start}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{x} \PY{o}{=} \PY{k}{yield}
+            \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZgt{} recived}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{x}\PY{p}{)}
+        
+        \PY{n}{sc} \PY{o}{=} \PY{n}{simple\PYZus{}coroutine}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n+nb}{next}\PY{p}{(}\PY{n}{sc}\PY{p}{)}
+        \PY{n}{sc}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{itemize}
+\tightlist
+\item
+  consumer and producer
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k}{def} \PY{n+nf}{consumer}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{r} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}
+            \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+                \PY{n}{n} \PY{o}{=} \PY{k}{yield} \PY{n}{r}
+                \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[CONSUMER] Consuming }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{...}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{n}\PY{p}{)}
+                \PY{n}{r} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{200 OK}\PY{l+s+s1}{\PYZsq{}}
+        
+        \PY{k}{def} \PY{n+nf}{produce}\PY{p}{(}\PY{n}{c}\PY{p}{)}\PY{p}{:}
+            \PY{n}{c}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n+nb+bp}{None}\PY{p}{)}
+            \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{while} \PY{n}{n} \PY{o}{\PYZlt{}} \PY{l+m+mi}{5}\PY{p}{:}
+                \PY{n}{n} \PY{o}{=} \PY{n}{n} \PY{o}{+} \PY{l+m+mi}{1}
+                \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[PRODUCER] Producing }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{...}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{n}\PY{p}{)}
+                \PY{n}{r} \PY{o}{=} \PY{n}{c}\PY{o}{.}\PY{n}{send}\PY{p}{(}\PY{n}{n}\PY{p}{)}
+                \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[PRODUCER] Consumer return: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{r}\PY{p}{)}
+            \PY{n}{c}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{c} \PY{o}{=} \PY{n}{consumer}\PY{p}{(}\PY{p}{)}
+        \PY{n}{produce}\PY{p}{(}\PY{n}{c}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{ux57faux4e8eux751fux6210ux5668ux7684ux534fux7a0b}{%
+\paragraph{基于生成器的协程}\label{ux57faux4e8eux751fux6210ux5668ux7684ux534fux7a0b}}
+
+\begin{itemize}
+\item
+  asyncio是Python 3.4版本引入的标准库，直接内置了对异步IO的支持。
+\item
+  asyncio的编程模型就是一个消息循环。我们从asyncio模块中直接获取一个EventLoop的引用，然后把需要执行的协程扔到EventLoop中执行，就实现了异步IO。
+\end{itemize}
+
+    \hypertarget{asyncio-hello-world-example}{%
+\paragraph{asyncio ``hello world''
+example}\label{asyncio-hello-world-example}}
+
+    \begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ asyncio}
+
+\AttributeTok{@asyncio.coroutine}
+\KeywordTok{def}\NormalTok{ hello():}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Hello world!"}\NormalTok{)}
+    \CommentTok{# 异步调用asyncio.sleep(1):}
+\NormalTok{    r }\OperatorTok{=} \ControlFlowTok{yield} \ImportTok{from}\NormalTok{ asyncio.sleep(}\DecValTok{1}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Hello again!"}\NormalTok{)}
+
+\CommentTok{# 获取EventLoop:}
+\NormalTok{loop }\OperatorTok{=}\NormalTok{ asyncio.get_event_loop()}
+\CommentTok{# 执行coroutine}
+\NormalTok{loop.run_until_complete(hello())}
+\NormalTok{loop.close()}
+\end{Highlighting}
+\end{Shaded}
+
+@asyncio.coroutine把一个generator标记为coroutine类型，然后，我们就把这个coroutine扔到EventLoop中执行。
+
+hello()会首先打印出Hello world!，然后，yield
+from语法可以让我们方便地调用另一个generator。由于asyncio.sleep()也是一个coroutine，所以线程不会等待asyncio.sleep()，而是直接中断并执行下一个消息循环。当asyncio.sleep()返回时，线程就可以从yield
+from拿到返回值（此处是None），然后接着执行下一行语句。
+
+把asyncio.sleep(1)看成是一个耗时1秒的IO操作，在此期间，主线程并未等待，而是去执行EventLoop中其他可以执行的coroutine了，因此可以实现并发执行。
+
+    \hypertarget{asyncio-add-task-example}{%
+\paragraph{asyncio add task example}\label{asyncio-add-task-example}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{threading}
+        \PY{k+kn}{import} \PY{n+nn}{asyncio}
+        
+        \PY{n+nd}{@asyncio.coroutine}
+        \PY{k}{def} \PY{n+nf}{hello}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello world! (}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{threading}\PY{o}{.}\PY{n}{currentThread}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{yield from} \PY{n}{asyncio}\PY{o}{.}\PY{n}{sleep}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello again! (}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{threading}\PY{o}{.}\PY{n}{currentThread}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        
+        \PY{n}{loop} \PY{o}{=} \PY{n}{asyncio}\PY{o}{.}\PY{n}{get\PYZus{}event\PYZus{}loop}\PY{p}{(}\PY{p}{)}
+        \PY{n}{tasks} \PY{o}{=} \PY{p}{[}\PY{n}{hello}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{hello}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+        \PY{n}{loop}\PY{o}{.}\PY{n}{run\PYZus{}until\PYZus{}complete}\PY{p}{(}\PY{n}{asyncio}\PY{o}{.}\PY{n}{wait}\PY{p}{(}\PY{n}{tasks}\PY{p}{)}\PY{p}{)}
+        \PY{n}{loop}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{refactor-the-before-example-code}{%
+\paragraph{refactor the before example
+code}\label{refactor-the-before-example-code}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{asyncio}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        
+        \PY{n+nd}{@asyncio.coroutine}
+        \PY{k}{def} \PY{n+nf}{wget}\PY{p}{(}\PY{n}{host}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{}print(\PYZsq{}wget \PYZpc{}s...\PYZsq{} \PYZpc{} host)}
+            \PY{n}{connect} \PY{o}{=} \PY{n}{asyncio}\PY{o}{.}\PY{n}{open\PYZus{}connection}\PY{p}{(}\PY{n}{host}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{)}
+            \PY{n}{reader}\PY{p}{,} \PY{n}{writer} \PY{o}{=} \PY{k}{yield from} \PY{n}{connect}
+            \PY{n}{header} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{GET / HTTP/1.0}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Host: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{host}
+            \PY{n}{writer}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{header}\PY{o}{.}\PY{n}{encode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+            \PY{k}{yield from} \PY{n}{writer}\PY{o}{.}\PY{n}{drain}\PY{p}{(}\PY{p}{)}
+            \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+                \PY{n}{line} \PY{o}{=} \PY{k}{yield from} \PY{n}{reader}\PY{o}{.}\PY{n}{readline}\PY{p}{(}\PY{p}{)}
+                \PY{k}{if} \PY{n}{line} \PY{o}{==} \PY{l+s+sa}{b}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}r}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+                    \PY{k}{break}
+                \PY{c+c1}{\PYZsh{}print(\PYZsq{}\PYZpc{}s header \PYZgt{} \PYZpc{}s\PYZsq{} \PYZpc{} (host, line.decode(\PYZsq{}utf\PYZhy{}8\PYZsq{}).rstrip()))}
+            \PY{c+c1}{\PYZsh{} Ignore the body, close the socket}
+            \PY{n}{writer}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{start\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+        \PY{n}{loop} \PY{o}{=} \PY{n}{asyncio}\PY{o}{.}\PY{n}{get\PYZus{}event\PYZus{}loop}\PY{p}{(}\PY{p}{)}
+        \PY{n}{tasks} \PY{o}{=} \PY{p}{[}\PY{n}{wget}\PY{p}{(}\PY{n}{host}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.56.78.25}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{]}
+        \PY{n}{loop}\PY{o}{.}\PY{n}{run\PYZus{}until\PYZus{}complete}\PY{p}{(}\PY{n}{asyncio}\PY{o}{.}\PY{n}{wait}\PY{p}{(}\PY{n}{tasks}\PY{p}{)}\PY{p}{)}
+        \PY{n}{loop}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{use time:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{start\PYZus{}time}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{reference}{%
+\subsection{Reference}\label{reference}}
+
+\begin{itemize}
+\tightlist
+\item
+  https://wiki.python.org/moin/Generators
+\item
+  https://docs.python.org/2/library/threading.html
+\item
+  https://docs.python.org/2/library/multiprocessing.html
+\item
+  https://www.cnblogs.com/zhaof/p/7536569.html
+\item
+  https://blog.csdn.net/drdairen/article/details/69487643
+\item
+  https://blog.csdn.net/u011019726/article/details/78191193?locationNum=6\&fps=1
+\item
+  https://www.reddit.com/r/Python/comments/1s7eae/asyncio\_vs\_gevent/
+\item
+  http://www.ruanyifeng.com/blog/2013/04/processes\_and\_threads.html
+\item
+  https://blog.csdn.net/andybegin/article/details/77884645
+\item
+  https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090954004980bd351f2cd4cc18c9e6c06d855c498000
+\item
+  https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090171191d05dae6e129940518d1d6cf6eeaaa969000
+\item
+  https://www.cnblogs.com/tomato0906/articles/4807774.html
+\item
+  http://www.dabeaz.com/python/GIL.pdf
+\item
+  http://www.dabeaz.com/python/UnderstandingGIL.pdf
+\end{itemize}
+
+    \hypertarget{q-a}{%
+\subsection{Q \& A}\label{q-a}}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

@@ -1,0 +1,2600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171212 21:39:43.614" generator="Robot 3.0 (Python 2.7.11 on win32)">
+<suite source="D:\TestCase\Trunk_CRT\CRT\Common + Common\FM\LTE2313-T-u_01_03 Fault_6707_EFaultId_DspApplicationFatalErrAl\LTE2313-T-u_01_03 Fault_6707_EFaultId_DspApplicationFatalErrAl.html" id="s1" name="LTE2313-T-u 01 03 Fault 6707 EFaultId DspApplicationFatalErrAl">
+<kw type="setup" name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as D:\Temp\Test_Log_20171212170430//logs//</doc>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171212 21:39:44.856" level="INFO">${timestamp} = 20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.856" starttime="20171212 21:39:44.822"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20171212 21:39:44.856" level="INFO">${FILE_NAME} = LTE2313-T-u 01 03 Fault 6707 EFaultId DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:39:44.856" starttime="20171212 21:39:44.856"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171212 21:39:44.857" level="INFO">${SUITE_LOG_DIRECTORY} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u 01 03 Fault 6707 EFaultId DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.857" starttime="20171212 21:39:44.857"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171212 21:39:44.858" level="INFO">${SUITE_LOG_DIRECTORY} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.858" starttime="20171212 21:39:44.857"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.858" level="INFO">${SUITE_LOG_DIRECTORY} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.858" starttime="20171212 21:39:44.858"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.859" html="yes" level="INFO">Created directory '&lt;a href="file://D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944"&gt;D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171212 21:39:44.859" starttime="20171212 21:39:44.858"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.859" level="INFO">save log dir:D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.859" starttime="20171212 21:39:44.859"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.862" level="INFO">${snapshot_flag} = 0</msg>
+<status status="PASS" endtime="20171212 21:39:44.862" starttime="20171212 21:39:44.860"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.876" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<status status="FAIL" endtime="20171212 21:39:44.876" starttime="20171212 21:39:44.872"></status>
+</kw>
+<msg timestamp="20171212 21:39:44.876" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20171212 21:39:44.876" starttime="20171212 21:39:44.871"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:44.877" starttime="20171212 21:39:44.877"></status>
+</kw>
+<msg timestamp="20171212 21:39:44.877" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171212 21:39:44.877" starttime="20171212 21:39:44.876"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:44.882" starttime="20171212 21:39:44.880"></status>
+</kw>
+<msg timestamp="20171212 21:39:44.882" level="INFO">${log dir} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.882" starttime="20171212 21:39:44.877"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171212 21:39:44.884" level="INFO">${SAVE LOG DIRECTORY} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944</msg>
+<status status="PASS" endtime="20171212 21:39:44.884" starttime="20171212 21:39:44.882"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:39:44.885" starttime="20171212 21:39:44.871"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<kw name="Ping Should Ok" library="RobotWS">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20171212 21:39:47.909" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20171212 21:39:47.909" starttime="20171212 21:39:44.885"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:47.909" starttime="20171212 21:39:47.909"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:47.910" starttime="20171212 21:39:47.909"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:47.910" starttime="20171212 21:39:47.910"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:39:47.910" starttime="20171212 21:39:47.910"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:39:47.910" starttime="20171212 21:39:44.885"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:39:47.910" starttime="20171212 21:39:44.885"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<kw name="Get Enb Infomation" library="RobotWS">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20171212 21:40:23.091" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171212 21:40:23.122" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171212 21:40:34.169" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171212 21:40:34.191" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171212 21:40:34.682" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171212 21:40:34.712" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171212 21:39:50.940" level="INFO">[ftm_control.py@287] pass this kw for PR exist</msg>
+<msg timestamp="20171212 21:39:50.943" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:40:01.327" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:36:58 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:01.333" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0568B580&gt;</msg>
+<msg timestamp="20171212 21:40:01.388" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171212 21:40:01.441" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:01.507" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0568B580&gt;</msg>
+<msg timestamp="20171212 21:40:01.509" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:40:11.878" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:39:53 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:11.884" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0568B580&gt;</msg>
+<msg timestamp="20171212 21:40:11.939" level="INFO">[ssh_common.py@253] Execute command: cd /ffs/fs2;ls TargetBD*.xml</msg>
+<msg timestamp="20171212 21:40:11.991" level="INFO">[ssh_common.py@309] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+TargetBD_TL18_FSM4_9999_171211_019786.xml
+root@fctj-4a:/ffs/fs2 &gt;</msg>
+<msg timestamp="20171212 21:40:12.057" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0568B580&gt;</msg>
+<msg timestamp="20171212 21:40:12.060" level="INFO">[enb_resource.py@1219] 
+ ****Current BTS version is 'TL18_FSM4_9999_171211_019786' *****</msg>
+<msg timestamp="20171212 21:40:12.063" level="INFO">[enb_resource.py@1249] activeBuildVersion=TL18_FSM4_9999_171211_019786</msg>
+<msg timestamp="20171212 21:40:12.066" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:40:22.434" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:40:04 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:22.440" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x03C07878&gt;</msg>
+<msg timestamp="20171212 21:40:22.495" level="INFO">[ssh_common.py@253] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20171212 21:40:22.547" level="INFO">[ssh_common.py@309] Get Response: ls /ram/SiteConf.xml
+/ram/SiteConf.xml
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:22.613" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x03C07878&gt;</msg>
+<msg timestamp="20171212 21:40:23.094" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171212 21:40:23.096" level="INFO">[sftp_control.py@166] /ram/SiteConf.xml</msg>
+<msg timestamp="20171212 21:40:23.121" level="INFO">[sftp_control.py@72] sftp download from '/ram/SiteConf.xml' to 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\SiteConf.xml' is ok. local file size is 231k</msg>
+<msg timestamp="20171212 21:40:23.130" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:40:33.504" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:40:25 CST 2017 from 192.168.255.126 on ssh
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:33.509" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0569D378&gt;</msg>
+<msg timestamp="20171212 21:40:33.564" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171212 21:40:33.617" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:40:33.683" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x0569D378&gt;</msg>
+<msg timestamp="20171212 21:40:33.685" level="INFO">[enb_resource.py@481] The real falsh folder is /ffs/fs2</msg>
+<msg timestamp="20171212 21:40:34.172" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171212 21:40:34.174" level="INFO">[sftp_control.py@166] /ffs/fs2/FileDirectory.xml</msg>
+<msg timestamp="20171212 21:40:34.191" level="INFO">[sftp_control.py@72] sftp download from '/ffs/fs2/FileDirectory.xml' to 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\FileDirectory_20171212214023.xml' is ok. local file size is 45k</msg>
+<msg timestamp="20171212 21:40:34.685" level="INFO">[sftp_control.py@30] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171212 21:40:34.687" level="INFO">[sftp_control.py@166] /ffs/fs2/config/SCFC_3.xml</msg>
+<msg timestamp="20171212 21:40:34.712" level="INFO">[sftp_control.py@72] sftp download from '/ffs/fs2/config/SCFC_3.xml' to 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\SCFC_3.xml' is ok. local file size is 205k</msg>
+<msg timestamp="20171212 21:40:34.752" level="INFO">[enb_resource.py@1219] 
+ ****Current bbu type is 'ASIA' *****</msg>
+<msg timestamp="20171212 21:40:34.756" level="INFO">[enb_resource.py@1344] HW_BBU_TYPE=ASIA</msg>
+<msg timestamp="20171212 21:40:34.759" level="INFO">[enb_resource.py@1219] 
+ ****Current rru type is 'FZHA:FZHA:FZHA' *****</msg>
+<msg timestamp="20171212 21:40:34.762" level="INFO">[enb_resource.py@1347] HW_RRU_TYPE=FZHA:FZHA:FZHA</msg>
+<msg timestamp="20171212 21:40:34.765" level="INFO">[enb_resource.py@1219] 
+ ****Current HW type is 'null' *****</msg>
+<msg timestamp="20171212 21:40:34.769" level="INFO">[enb_resource.py@1350] BTS_HW_TYPE=null</msg>
+<status status="PASS" endtime="20171212 21:41:31.496" starttime="20171212 21:39:47.911"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:31.496" starttime="20171212 21:39:47.911"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>RobotWS</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:41:31.497" starttime="20171212 21:41:31.496"></status>
+</kw>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<kw name="Get Os Platform Version" library="RobotWS">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171212 21:41:31.499" level="INFO">${platform_version} = Windows-7-6.1.7601-SP1</msg>
+<status status="PASS" endtime="20171212 21:41:31.499" starttime="20171212 21:41:31.497"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20171212 21:41:31.502" level="INFO">${conn_port} = 23</msg>
+<status status="PASS" endtime="20171212 21:41:31.502" starttime="20171212 21:41:31.499"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20171212 21:41:31.504" level="INFO">${conn_type} = TELNET</msg>
+<status status="PASS" endtime="20171212 21:41:31.504" starttime="20171212 21:41:31.502"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20171212 21:41:31.506" level="INFO">${timeout} = 30</msg>
+<status status="PASS" endtime="20171212 21:41:31.506" starttime="20171212 21:41:31.504"></status>
+</kw>
+<kw name="Connect To Host" library="RobotWS">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>${BTS_PC_INFO.IP}</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20171212 21:41:31.564" level="INFO">[telnet_common.py@298] Get Response: Welcome to Microsoft Telnet Service 
+
+login:</msg>
+<msg timestamp="20171212 21:41:31.566" level="INFO">[telnet_common.py@268] Execute command: tdlte-tester</msg>
+<msg timestamp="20171212 21:41:31.624" level="INFO">[telnet_common.py@298] Get Response:  tdlte-tester
+password:</msg>
+<msg timestamp="20171212 21:41:31.626" level="INFO">[telnet_common.py@268] Execute command: btstest</msg>
+<msg timestamp="20171212 21:41:32.923" level="INFO">[telnet_common.py@238]  
+
+*===============================================================
+Microsoft Telnet Server.
+*===============================================================
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:41:32.924" level="INFO">${BTS_PC_CONNECTION} = 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<status status="PASS" endtime="20171212 21:41:32.924" starttime="20171212 21:41:31.506"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:32.925" level="INFO">${BTS_PC_CONNECTION} = 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<status status="PASS" endtime="20171212 21:41:32.925" starttime="20171212 21:41:32.924"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20171212 21:41:32.930" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:41:33.985" level="INFO">[telnet_common.py@268] Execute command: tlntadmn config timeoutactive=no</msg>
+<msg timestamp="20171212 21:41:34.099" level="INFO">[telnet_common.py@298] Get Response: tlntadmn config timeoutactive=no
+The settings were successfully updated.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:41:34.099" starttime="20171212 21:41:32.927"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:34.099" starttime="20171212 21:41:32.925"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:34.099" starttime="20171212 21:41:31.497"></status>
+</kw>
+<kw name="Switch Host Connection" library="RobotWS">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:34.102" level="INFO">[connection_mgr.py@139] Switch to connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;.</msg>
+<status status="PASS" endtime="20171212 21:41:34.102" starttime="20171212 21:41:34.100"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:34.102" starttime="20171212 21:39:44.822"></status>
+</kw>
+<test id="s1-t1" name="LTE2313-T-u_01_03 Fault_6707_EFaultId_DspApplicationFatalErrAl">
+<kw type="setup" name="_Init Env">
+<kw name="Initial Test Connection" library="OM_resources_new">
+<kw name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as D:\Temp\Test_Log_20171212170430//ev_logs//D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944//</doc>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171212 21:41:34.107" level="INFO">${timestamp} = 20171212214134</msg>
+<status status="PASS" endtime="20171212 21:41:34.107" starttime="20171212 21:41:34.107"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171212 21:41:34.107" level="INFO">${TEST_LOG_DIR} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03 Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.107" starttime="20171212 21:41:34.107"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171212 21:41:34.108" level="INFO">${TEST_LOG_DIR} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.108" starttime="20171212 21:41:34.108"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:34.109" level="INFO">${TEST_LOG_DIR} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.109" starttime="20171212 21:41:34.108"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:34.109" html="yes" level="INFO">Created directory '&lt;a href="file://D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati"&gt;D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20171212 21:41:34.109" starttime="20171212 21:41:34.109"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:34.110" level="INFO">save log dir:D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.110" starttime="20171212 21:41:34.109"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:41:34.110" starttime="20171212 21:41:34.110"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:41:34.112" starttime="20171212 21:41:34.111"></status>
+</kw>
+<msg timestamp="20171212 21:41:34.112" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171212 21:41:34.112" starttime="20171212 21:41:34.111"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:41:34.112" starttime="20171212 21:41:34.112"></status>
+</kw>
+<msg timestamp="20171212 21:41:34.113" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171212 21:41:34.113" starttime="20171212 21:41:34.112"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20171212 21:41:34.115" level="INFO">${log dir} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.115" starttime="20171212 21:41:34.113"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:34.116" level="INFO">${SAVE LOG DIRECTORY} = D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati</msg>
+<status status="PASS" endtime="20171212 21:41:34.116" starttime="20171212 21:41:34.115"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:34.116" starttime="20171212 21:41:34.111"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:34.116" starttime="20171212 21:41:34.106"></status>
+</kw>
+<kw name="Recover Active Version If NOT Matched" library="OM_resources_new">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Check Active Version Is Not Correct</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+<var>${value}</var>
+</assign>
+<kw name="Check Active Version Is Not Correct" library="OM_resources_new">
+<kw name="Get Active Bts Sw Version" library="RobotWS">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<assign>
+<var>${active_build}</var>
+</assign>
+<msg timestamp="20171212 21:41:34.121" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:41:44.495" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:40:36 CST 2017 from 192.168.255.126 on ssh
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:41:44.502" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x057114E0&gt;</msg>
+<msg timestamp="20171212 21:41:44.559" level="INFO">[ssh_common.py@253] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171212 21:41:44.614" level="INFO">[ssh_common.py@309] Get Response: readlink /ffs/run
+/ffs/fs2
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:41:44.681" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x057114E0&gt;</msg>
+<msg timestamp="20171212 21:41:44.684" level="INFO">[enb_command_control.py@32] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171212 21:41:55.060" level="INFO">[ssh_common.py@198] Last login: Tue Dec 12 21:41:37 CST 2017 from 192.168.255.126 on pts/0
+root@fctj-4a:~ &gt;</msg>
+<msg timestamp="20171212 21:41:55.067" level="INFO">[connection_mgr.py@184] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x04634850&gt;</msg>
+<msg timestamp="20171212 21:41:55.124" level="INFO">[ssh_common.py@253] Execute command: cd /ffs/fs2;ls TargetBD*.xml</msg>
+<msg timestamp="20171212 21:41:55.178" level="INFO">[ssh_common.py@309] Get Response: cd /ffs/fs2;ls TargetBD*.xml
+TargetBD_TL18_FSM4_9999_171211_019786.xml
+root@fctj-4a:/ffs/fs2 &gt;</msg>
+<msg timestamp="20171212 21:41:55.245" level="INFO">[ssh_common.py@136] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;RobotWS.CommonLib.connections.ssh_common.SshCommon instance at 0x04634850&gt;</msg>
+<msg timestamp="20171212 21:41:55.246" level="INFO">${active_build} = TL18_FSM4_9999_171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.246" starttime="20171212 21:41:34.117"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${active_build}</arg>
+<arg>TL\\w+_(\\w+)_\\d+_(\\d+_\\d+T?)</arg>
+</arguments>
+<assign>
+<var>${match}</var>
+<var>${group1}</var>
+<var>${group2}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.247" level="INFO">${match} = TL18_FSM4_9999_171211_019786</msg>
+<msg timestamp="20171212 21:41:55.247" level="INFO">${group1} = FSM4</msg>
+<msg timestamp="20171212 21:41:55.247" level="INFO">${group2} = 171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.247" starttime="20171212 21:41:55.246"></status>
+</kw>
+<kw name="Get BTS Version Info" library="OM_resources_new">
+<doc>Get BTS Version Info From Local PC Fixed File Fold</doc>
+<arguments>
+<arg>${ENB3}</arg>
+</arguments>
+<kw name="List Files In Directory" library="OperatingSystem">
+<doc>Wrapper for `List Directory` that returns only files.</doc>
+<arguments>
+<arg>${BTS_Version_Directory}</arg>
+<arg>${file_type}</arg>
+</arguments>
+<assign>
+<var>${List File}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.248" html="yes" level="INFO">Listing contents of directory '&lt;a href="file://D:\BTS_SW\TA SW\ENB3"&gt;D:\BTS_SW\TA SW\ENB3&lt;/a&gt;'.</msg>
+<msg timestamp="20171212 21:41:55.248" level="INFO">1 file:
+TL00_FSM4_9999_171211_019786_release_BTSSM_downloadable.zip</msg>
+<msg timestamp="20171212 21:41:55.248" level="INFO">${List File} = [u'TL00_FSM4_9999_171211_019786_release_BTSSM_downloadable.zip']</msg>
+<status status="PASS" endtime="20171212 21:41:55.248" starttime="20171212 21:41:55.247"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${List File[0]}</arg>
+</arguments>
+<assign>
+<var>${file_name}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.249" level="INFO">${file_name} = TL00_FSM4_9999_171211_019786_release_BTSSM_downloadable.zip</msg>
+<status status="PASS" endtime="20171212 21:41:55.249" starttime="20171212 21:41:55.248"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${file_name}</arg>
+<arg>TL\\w+_(\\w+)_\\d+_(\\d+_\\d+)</arg>
+</arguments>
+<assign>
+<var>${match}</var>
+<var>${split_begin}</var>
+<var>${group2}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.249" level="INFO">${match} = TL00_FSM4_9999_171211_019786</msg>
+<msg timestamp="20171212 21:41:55.249" level="INFO">${split_begin} = FSM4</msg>
+<msg timestamp="20171212 21:41:55.249" level="INFO">${group2} = 171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.249" starttime="20171212 21:41:55.249"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${group2}</arg>
+</arguments>
+<assign>
+<var>${ENB_Version}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.250" level="INFO">${ENB_Version} = 171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.250" starttime="20171212 21:41:55.250"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${file_name}</arg>
+</arguments>
+<assign>
+<var>${Convert File}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.250" level="INFO">${Convert File} = TL00_FSM4_9999_171211_019786_release_BTSSM_downloadable.zip</msg>
+<status status="PASS" endtime="20171212 21:41:55.250" starttime="20171212 21:41:55.250"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${Convert File}</arg>
+<arg>${split_begin}_</arg>
+</arguments>
+<assign>
+<var>${First Split File}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.251" level="INFO">${First Split File} = [u'TL00_', u'9999_171211_019786_release_BTSSM_downloadable.zip']</msg>
+<status status="PASS" endtime="20171212 21:41:55.251" starttime="20171212 21:41:55.251"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${First Split File[-1]}</arg>
+<arg>${split_end}</arg>
+</arguments>
+<assign>
+<var>${Second Split File}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.251" level="INFO">${Second Split File} = [u'9999_171211_019786', u'_BTSSM_downloadable.zip']</msg>
+<status status="PASS" endtime="20171212 21:41:55.251" starttime="20171212 21:41:55.251"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${Second Split File[0]}</arg>
+</arguments>
+<assign>
+<var>${BTS_Version}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.252" level="INFO">${BTS_Version} = 9999_171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.252" starttime="20171212 21:41:55.252"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${BTS_Version}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${Convert Version}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.252" level="INFO">${Convert Version} = [u'9999', u'171211', u'019786']</msg>
+<status status="PASS" endtime="20171212 21:41:55.252" starttime="20171212 21:41:55.252"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${Convert Version[0]}</arg>
+</arguments>
+<assign>
+<var>${A_vsersion}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.253" level="INFO">${A_vsersion} = 9999</msg>
+<status status="PASS" endtime="20171212 21:41:55.253" starttime="20171212 21:41:55.253"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${Convert Version[1]}</arg>
+</arguments>
+<assign>
+<var>${B_vsersion}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.253" level="INFO">${B_vsersion} = 171211</msg>
+<status status="PASS" endtime="20171212 21:41:55.253" starttime="20171212 21:41:55.253"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${Convert Version[2]}</arg>
+</arguments>
+<assign>
+<var>${C_vsersion}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.254" level="INFO">${C_vsersion} = 019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.254" starttime="20171212 21:41:55.254"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${A_vsersion} ${B_vsersion}${C_vsersion}</arg>
+</arguments>
+<assign>
+<var>${Current_vsersion}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.254" level="INFO">${Current_vsersion} = 9999 171211019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.255" starttime="20171212 21:41:55.254"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_Version}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.255" level="INFO">${BTS_Version} = 9999_171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.255" starttime="20171212 21:41:55.255"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Current_vsersion}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.256" level="INFO">${Current_vsersion} = 9999 171211019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.256" starttime="20171212 21:41:55.255"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${List File}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.256" level="INFO">${List File} = [u'TL00_FSM4_9999_171211_019786_release_BTSSM_downloadable.zip']</msg>
+<status status="PASS" endtime="20171212 21:41:55.256" starttime="20171212 21:41:55.256"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ENB_Version}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.257" level="INFO">${ENB_Version} = 171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.257" starttime="20171212 21:41:55.256"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:55.257" starttime="20171212 21:41:55.247"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${group2}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.257" level="INFO">171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.257" starttime="20171212 21:41:55.257"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ENB_Version}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.258" level="INFO">171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.258" starttime="20171212 21:41:55.257"></status>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are equal.</doc>
+<arguments>
+<arg>${group2}</arg>
+<arg>${ENB_Version}</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.258" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20171212 21:41:55.258" level="FAIL">171211_019786 == 171211_019786</msg>
+<status status="FAIL" endtime="20171212 21:41:55.258" starttime="20171212 21:41:55.258"></status>
+</kw>
+<status status="FAIL" endtime="20171212 21:41:55.258" starttime="20171212 21:41:34.117"></status>
+</kw>
+<msg timestamp="20171212 21:41:55.259" level="INFO">${status} = FAIL</msg>
+<msg timestamp="20171212 21:41:55.259" level="INFO">${value} = 171211_019786 == 171211_019786</msg>
+<status status="PASS" endtime="20171212 21:41:55.259" starttime="20171212 21:41:34.116"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'PASS'</arg>
+<arg>Recover Version</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:41:55.261" starttime="20171212 21:41:55.259"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:41:55.261" starttime="20171212 21:41:34.116"></status>
+</kw>
+<kw name="Reset BTS If Not Onair" library="OM_resources_new">
+<doc>Reset BTS only if it is not onair</doc>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20171212 21:41:55.262" level="INFO">${time} = 20171212214155</msg>
+<status status="PASS" endtime="20171212 21:41:55.262" starttime="20171212 21:41:55.262"></status>
+</kw>
+<kw name="Start Bts Udp Log" library="RobotWS">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}BTSLOG_${time}.LOG</arg>
+</arguments>
+<msg timestamp="20171212 21:41:55.426" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20171212 21:41:55.428" level="INFO">[btslog_control.py@230] use ip is 192.168.255.126</msg>
+<msg timestamp="20171212 21:41:55.431" level="INFO">[file_common.py@209] Directory "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20171212 21:41:55.432" starttime="20171212 21:41:55.262"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Check BTS Is Onair With Infomodel</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+<var>${value}</var>
+</assign>
+<kw name="Check BTS Is Onair With Infomodel" library="OM_resources_new">
+<kw name="Start IM Log" library="OM_resources_new">
+<kw name="Start Infomodel" library="RobotWS">
+<doc>Setup InfoModel library and Connect to InfoModel.</doc>
+<arguments>
+<arg>port=${IM_PORT}</arg>
+</arguments>
+<msg timestamp="20171212 21:42:00.567" level="INFO">[infomodel_control.py@159] set up infomodel with following info succeed .
+    details: address=192.168.255.129, port=12345, definitions_file_path=None</msg>
+<msg timestamp="20171212 21:42:02.414" level="INFO">[infomodel_control.py@163] start infomodel succeed .</msg>
+<msg timestamp="20171212 21:42:02.425" level="INFO">[infomodel_control.py@165] start infomodel logger succeed .</msg>
+<status status="PASS" endtime="20171212 21:42:02.425" starttime="20171212 21:41:55.434"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:02.425" starttime="20171212 21:41:55.433"></status>
+</kw>
+<kw name="Query Infomodel" library="RobotWS">
+<doc>Query InfoModel with some `query`. Keyword will wait for successful result some `timeout` time or fail.</doc>
+<arguments>
+<arg>query=/MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]</arg>
+<arg>timeout=20</arg>
+</arguments>
+<msg timestamp="20171212 21:42:03.046" level="INFO">[infomodel_control.py@329] query infomodel: '/MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<status status="PASS" endtime="20171212 21:42:03.046" starttime="20171212 21:42:02.426"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Query infomodel</arg>
+<arg>query=every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]</arg>
+<arg>timeout=20</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Query Infomodel" library="RobotWS">
+<doc>Query InfoModel with some `query`. Keyword will wait for successful result some `timeout` time or fail.</doc>
+<arguments>
+<arg>query=every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]</arg>
+<arg>timeout=20</arg>
+</arguments>
+<msg timestamp="20171212 21:42:23.126" level="FAIL">InfoModelQueryTimeoutException: Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=20.0. Not found any object matching given dist name.</msg>
+<status status="FAIL" endtime="20171212 21:42:23.126" starttime="20171212 21:42:03.047"></status>
+</kw>
+<msg timestamp="20171212 21:42:23.126" level="INFO">${status} = False</msg>
+<status status="PASS" endtime="20171212 21:42:23.126" starttime="20171212 21:42:03.046"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}'=='False'</arg>
+<arg>Query infomodel</arg>
+<arg>query=every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]</arg>
+<arg>timeout=20</arg>
+</arguments>
+<kw name="Query Infomodel" library="RobotWS">
+<doc>Query InfoModel with some `query`. Keyword will wait for successful result some `timeout` time or fail.</doc>
+<arguments>
+<arg>query=every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]</arg>
+<arg>timeout=20</arg>
+</arguments>
+<msg timestamp="20171212 21:42:23.180" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]' succeed .</msg>
+<status status="PASS" endtime="20171212 21:42:23.180" starttime="20171212 21:42:23.129"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.180" starttime="20171212 21:42:23.127"></status>
+</kw>
+<kw name="Save IM Log" library="OM_resources_new">
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20171212 21:42:23.181" level="INFO">${time} = 20171212214223</msg>
+<status status="PASS" endtime="20171212 21:42:23.182" starttime="20171212 21:42:23.181"></status>
+</kw>
+<kw name="Save Infomodel Log" library="RobotWS">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}infomodel_${time}</arg>
+</arguments>
+<msg timestamp="20171212 21:42:23.198" level="INFO">[infomodel_control.py@216] save infomodel log to file: 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\infomodel_20171212214223' succeed .</msg>
+<status status="PASS" endtime="20171212 21:42:23.198" starttime="20171212 21:42:23.182"></status>
+</kw>
+<kw name="Stop Infomodel" library="RobotWS">
+<doc>Disconnect from InfoModel and teardown InfoModel. Keyword will</doc>
+<msg timestamp="20171212 21:42:23.483" level="INFO">Exit code: 1</msg>
+<msg timestamp="20171212 21:42:23.483" level="INFO">STDOUT
+</msg>
+<msg timestamp="20171212 21:42:23.483" level="INFO">STDERR
+Started InfoModel server PYRO:default_infomodel_server@localhost:38350
+</msg>
+<msg timestamp="20171212 21:42:23.208" level="INFO">[infomodel_control.py@188] stop infomodel logger succeed .</msg>
+<msg timestamp="20171212 21:42:23.487" level="INFO">[infomodel_control.py@200] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171212 21:42:23.487" starttime="20171212 21:42:23.199"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.487" starttime="20171212 21:42:23.180"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.487" starttime="20171212 21:41:55.433"></status>
+</kw>
+<msg timestamp="20171212 21:42:23.487" level="INFO">${status} = PASS</msg>
+<msg timestamp="20171212 21:42:23.488" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20171212 21:42:23.488" starttime="20171212 21:41:55.432"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'FAIL'</arg>
+<arg>CLI Upload SCFC And Config File To Recover Env</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:42:23.490" starttime="20171212 21:42:23.488"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="RobotWS">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20171212 21:42:23.492" starttime="20171212 21:42:23.490"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.492" starttime="20171212 21:41:55.261"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.492" starttime="20171212 21:41:34.104"></status>
+</kw>
+<kw name="Start Bts Udp Log" library="RobotWS">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+</arguments>
+<msg timestamp="20171212 21:42:23.644" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<msg timestamp="20171212 21:42:23.646" level="INFO">[file_common.py@209] Directory "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20171212 21:42:23.647" starttime="20171212 21:42:23.492"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:42:23.648" starttime="20171212 21:41:34.103"></status>
+</kw>
+<kw name="_Trigger Fault 6707 By Dsp Crash Tool">
+<doc>1.Run Crash Tool To Dsp</doc>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:42:23.651" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:42:24.705" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:42:24.850" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:42:24.852" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:42:25.907" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:42:26.057" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:42:26.059" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:42:27.113" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:42:27.254" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:42:27.255" starttime="20171212 21:42:23.648"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:42:27.260" starttime="20171212 21:42:27.260"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:42:27.263" starttime="20171212 21:42:27.260"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:42:27.263" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_0...</msg>
+<status status="PASS" endtime="20171212 21:42:27.263" starttime="20171212 21:42:27.263"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:42:27.264" starttime="20171212 21:42:27.263"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:43:15.138" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214227\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:43:15.139" starttime="20171212 21:42:27.264"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:43:15.139" starttime="20171212 21:42:27.260"></status>
+</kw>
+<kw name="GUI SM Alarm Oper" library="gui_resource">
+<doc>this keyword provide check Active/History alarm in BTS SiteManager window</doc>
+<arguments>
+<arg>Check Alarm Not Existed</arg>
+<arg>Active</arg>
+<arg>FaultName=Diagnostic Files collected (6450);;Source=BTS: BS ${BTS_INFO.ID} / ${BTS_INFO.SYSTEM_MODEL_TYPE} 1</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>AlarmType=${AlarmType}</arg>
+<arg>OperType=${OperType}</arg>
+<arg>AlarmInfo=${AlarmInfo}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:43:15.141" level="INFO">${para_list} = [u'AlarmType=Active', u'OperType=Check Alarm Not Existed', u'AlarmInfo=FaultName=Diagnostic Files collected (6450);;Source=BTS: BS 1492 / ASIA 1', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\...</msg>
+<status status="PASS" endtime="20171212 21:43:15.141" starttime="20171212 21:43:15.140"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Alarm_Oper</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:43:21.308" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Alarm_Oper is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Alarm_Oper ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+AlarmType="Active"
+OperType="Check Alarm Not Existed"
+AlarmInfo="FaultName=Diagnostic Files collected (6450);;Source=BTS: BS 1492 / ASIA 1"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214315\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:43:21.308" starttime="20171212 21:43:15.141"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:43:21.308" starttime="20171212 21:43:15.139"></status>
+</kw>
+<kw name="Execute Shell Command" library="RobotWS">
+<doc>Execute a command on the remote system.</doc>
+<arguments>
+<arg>${CRASH_FILE} -b 0x12 -k 0x31 -u 6707</arg>
+</arguments>
+<msg timestamp="20171212 21:43:21.311" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:43:22.365" level="INFO">[telnet_common.py@268] Execute command: D:\TestCase\Trunk_CRT\Resource\NonSRANResource\OAM1_resources\DspCrash.py -b 0x12 -k 0x31 -u 6707</msg>
+<msg timestamp="20171212 21:43:22.610" level="INFO">[telnet_common.py@298] Get Response: D:\TestCase\Trunk_CRT\Resource\NonSRANResource\OAM1_resources\DspCrash.py -b 0x12 -k 0x31 -u 6707
+Local current time : 2017-12-12 21:43:22
+Open connection to 192.168.255.1 : 15003
+Connection established
+Sending FAULT_IND_MSG 0x8008 with faultId:6707 from board:0x12, cpu:0x31
+Closing connection
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:43:22.611" starttime="20171212 21:43:21.308"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:43:22.611" starttime="20171212 21:42:23.648"></status>
+</kw>
+<kw name="_Verify Check Points From BTSLog">
+<doc>1.verify check points</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>WRN/FRI/FRI.*Detector 6707.*active</arg>
+<arg>INF/FRI/FRI.*Detector 6707.*filtering timer 2s started</arg>
+</arguments>
+<assign>
+<var>${msg_check}</var>
+</assign>
+<msg timestamp="20171212 21:43:22.613" level="INFO">${msg_check} = [u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']</msg>
+<status status="PASS" endtime="20171212 21:43:22.613" starttime="20171212 21:43:22.612"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>5min</arg>
+<arg>30sec</arg>
+<arg>File Should Contain</arg>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:43:22.802" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:43:22.802" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:43:22.803" starttime="20171212 21:43:22.614"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:43:53.066" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:43:53.067" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:43:53.067" starttime="20171212 21:43:52.803"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:44:23.422" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:44:23.422" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:44:23.423" starttime="20171212 21:44:23.067"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:44:53.857" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:44:53.858" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:44:53.858" starttime="20171212 21:44:53.423"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:45:24.398" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:45:24.398" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:45:24.398" starttime="20171212 21:45:23.858"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:45:55.014" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:45:55.014" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:45:55.014" starttime="20171212 21:45:54.398"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:46:25.734" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:46:25.734" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:46:25.734" starttime="20171212 21:46:25.014"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:46:56.519" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:46:56.520" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:46:56.520" starttime="20171212 21:46:55.734"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:47:27.410" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:47:27.411" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:47:27.411" starttime="20171212 21:47:26.520"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:47:58.362" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:47:58.362" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:47:58.362" starttime="20171212 21:47:57.411"></status>
+</kw>
+<kw name="File Should Contain" library="RobotWS">
+<doc>This keyword checks whether file contains specified messages.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}btslog_check.LOG</arg>
+<arg>${msg_check}</arg>
+</arguments>
+<msg timestamp="20171212 21:48:29.417" level="INFO">[file_control.py@78] *HTML*&lt;a href = "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG"&gt;fail log&lt;/a&gt;</msg>
+<msg timestamp="20171212 21:48:29.417" level="FAIL">Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:48:29.417" starttime="20171212 21:48:28.362"></status>
+</kw>
+<msg timestamp="20171212 21:48:29.417" level="FAIL">Keyword 'File Should Contain' failed after retrying for 5 minutes. The last error was: Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</msg>
+<status status="FAIL" endtime="20171212 21:48:29.417" starttime="20171212 21:43:22.613"></status>
+</kw>
+<status status="FAIL" endtime="20171212 21:48:29.418" starttime="20171212 21:43:22.612"></status>
+</kw>
+<kw type="teardown" name="_Disconnect All Connection">
+<doc>Dis-connectionation</doc>
+<kw name="Stop Bts Udp Log" library="RobotWS">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<status status="PASS" endtime="20171212 21:48:29.420" starttime="20171212 21:48:29.419"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Capture_OAM_LOG</arg>
+</arguments>
+<kw name="Capture OAM LOG" library="OM_resources_new">
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20171212 21:48:29.421" level="INFO">${time} = 20171212214829</msg>
+<status status="PASS" endtime="20171212 21:48:29.421" starttime="20171212 21:48:29.420"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Captuer Screen</arg>
+</arguments>
+<kw name="GUI SM Captuer Screen" library="gui_resource">
+<doc>this keyword is used for capture the screen</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:48:29.422" level="INFO">${para_list} = [u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\\']</msg>
+<status status="PASS" endtime="20171212 21:48:29.422" starttime="20171212 21:48:29.422"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}CaptureImage</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:48:35.066" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214829\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:48:35.066" starttime="20171212 21:48:29.423"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:48:35.067" starttime="20171212 21:48:29.422"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:48:35.067" starttime="20171212 21:48:29.421"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Capture Screen</arg>
+</arguments>
+<kw name="Capture Screen" library="OM_resources_new">
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:48:35.072" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:48:36.130" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:48:36.318" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="420"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:48:36.322" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:48:37.380" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:48:37.542" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="8120"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:48:37.546" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:48:38.604" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:48:38.748" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:48:38.749" starttime="20171212 21:48:35.068"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:48:38.752" starttime="20171212 21:48:38.752"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:48:38.755" starttime="20171212 21:48:38.753"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:48:38.756" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_0...</msg>
+<status status="PASS" endtime="20171212 21:48:38.756" starttime="20171212 21:48:38.755"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:48:38.756" starttime="20171212 21:48:38.756"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:49:23.969" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214838\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:49:23.969" starttime="20171212 21:48:38.756"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:49:23.969" starttime="20171212 21:48:38.752"></status>
+</kw>
+<kw name="GUI SM Captuer Screen" library="gui_resource">
+<doc>this keyword is used for capture the screen</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:49:23.970" level="INFO">${para_list} = [u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\\']</msg>
+<status status="PASS" endtime="20171212 21:49:23.970" starttime="20171212 21:49:23.970"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}CaptureImage</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:49:32.698" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214923\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:49:32.698" starttime="20171212 21:49:23.971"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:49:32.698" starttime="20171212 21:49:23.970"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:49:32.703" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:33.761" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:33.952" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="6844"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:49:33.956" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:35.014" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:35.219" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="7376"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:49:35.223" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:36.281" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:36.433" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:49:36.434" starttime="20171212 21:49:32.698"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:49:36.434" starttime="20171212 21:48:35.067"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:49:36.434" starttime="20171212 21:48:35.067"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:49:36.438" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:37.494" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:37.646" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:49:37.649" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:38.705" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:38.848" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:49:38.851" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:49:39.907" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:49:40.050" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:49:40.051" starttime="20171212 21:49:36.434"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Semcli Save Snapshot</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:49:40.051" starttime="20171212 21:49:40.051"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Login</arg>
+</arguments>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:49:40.055" starttime="20171212 21:49:40.055"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:49:40.058" starttime="20171212 21:49:40.055"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:49:40.058" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_0...</msg>
+<status status="PASS" endtime="20171212 21:49:40.058" starttime="20171212 21:49:40.058"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:49:40.059" starttime="20171212 21:49:40.059"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:50:26.061" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212214940\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:50:26.061" starttime="20171212 21:49:40.059"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:50:26.061" starttime="20171212 21:49:40.055"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:50:26.061" starttime="20171212 21:49:40.052"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Save Snapshot</arg>
+</arguments>
+<kw name="GUI SM Save Snapshot" library="gui_resource">
+<doc>this keyword is use to save snapshot in Site Manager</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>DetailLevel=${DetailLevel}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>PathFile=${PathFile}</arg>
+<arg>SaveParitialExist=${SaveParitialExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:50:26.063" level="INFO">${para_list} = [u'DetailLevel=3', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\\', u'Pat...</msg>
+<status status="PASS" endtime="20171212 21:50:26.063" starttime="20171212 21:50:26.062"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:50:26.063" starttime="20171212 21:50:26.063"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}SaveSnapshot</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:52:11.200" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\SaveSnapshot ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+DetailLevel="3"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+PathFile="N"
+SaveParitialExist="N"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212215026\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:52:11.201" starttime="20171212 21:50:26.063"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:11.201" starttime="20171212 21:50:26.062"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:11.201" starttime="20171212 21:50:26.061"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="RobotWS">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<msg timestamp="20171212 21:52:11.205" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<status status="PASS" endtime="20171212 21:52:11.205" starttime="20171212 21:52:11.201"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:11.205" starttime="20171212 21:48:29.420"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:11.205" starttime="20171212 21:48:29.420"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Reset BTS Check Status</arg>
+</arguments>
+<kw name="Reset BTS Check Status" library="OM_resources_new">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>GUI SM Captuer Screen</arg>
+</arguments>
+<kw name="GUI SM Captuer Screen" library="gui_resource">
+<doc>this keyword is used for capture the screen</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:52:11.207" level="INFO">${para_list} = [u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\\']</msg>
+<status status="PASS" endtime="20171212 21:52:11.207" starttime="20171212 21:52:11.207"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}CaptureImage</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:52:17.153" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212215211\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:52:17.153" starttime="20171212 21:52:11.207"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:17.153" starttime="20171212 21:52:11.206"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:52:17.153" starttime="20171212 21:52:11.206"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Capture Screen</arg>
+</arguments>
+<kw name="Capture Screen" library="OM_resources_new">
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:52:17.158" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:52:18.216" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:52:18.385" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="7844"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:52:18.389" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:52:19.447" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:52:19.639" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="7456"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:52:19.643" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:52:20.701" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:52:20.853" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:52:20.854" starttime="20171212 21:52:17.154"></status>
+</kw>
+<kw name="GUI SM Login" library="gui_resource">
+<doc>This keyword used for login BTS Site Manager.</doc>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run keyword and ignore error</arg>
+<arg>modify sem maxpermsize</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:52:20.857" starttime="20171212 21:52:20.857"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${CloseSEM}'=='Y'</arg>
+<arg>Kill SiteManager Process</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:52:20.860" starttime="20171212 21:52:20.858"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>IPAddress=${IPAddress}</arg>
+<arg>UserName=${UserName}</arg>
+<arg>Password=${Password}</arg>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+<arg>CheckExist=${CheckExist}</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:52:20.861" level="INFO">${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_0...</msg>
+<status status="PASS" endtime="20171212 21:52:20.861" starttime="20171212 21:52:20.860"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run qtp script</arg>
+<arg>${siteman_test_path}Login</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:52:20.861" starttime="20171212 21:52:20.861"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}Login</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:53:14.718" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+IPAddress="Local"
+UserName="Nemuadmin"
+Password="nemuuser"
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+CheckExist="1"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212215220\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:53:14.718" starttime="20171212 21:52:20.861"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:53:14.718" starttime="20171212 21:52:20.857"></status>
+</kw>
+<kw name="GUI SM Captuer Screen" library="gui_resource">
+<doc>this keyword is used for capture the screen</doc>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>LogPath=${SAVE LOG DIRECTORY}\\</arg>
+</arguments>
+<assign>
+<var>${para_list}</var>
+</assign>
+<msg timestamp="20171212 21:53:14.719" level="INFO">${para_list} = [u'LogPath=D:\\Temp\\Test_Log_20171212170430\\ev_logs\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\\']</msg>
+<status status="PASS" endtime="20171212 21:53:14.719" starttime="20171212 21:53:14.719"></status>
+</kw>
+<kw name="Run Qtp" library="RobotWS">
+<doc>This keyword used for run qtp script, if you use in robot please select run_qtp_script</doc>
+<arguments>
+<arg>${siteman_test_path}CaptureImage</arg>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${para_list}</arg>
+<arg>${qtpkeepopen}</arg>
+<arg>7200</arg>
+</arguments>
+<msg timestamp="20171212 21:53:21.684" level="INFO">&lt;QTP&gt; Test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage is existence.
+Start to kill QTP process.
+Finshed to kill QTP process.
+&lt;QTP&gt; Launched QTP successfully!
+
+&lt;QTP&gt; instanciation was SUCCESSFUL!
+&lt;QTP&gt; find java addin
+&lt;QTP&gt; start to open test D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65\SiteMan\CaptureImage ...
+
+&lt;QTP&gt; open test successfully at 2rd time!
+
+&lt;QTP&gt; automated test case open was SUCCESSFUL!
+&lt;QTP&gt; Start to launch QTP App run on the background...
+
+&lt;QTP&gt; start to move current release lib path to active...
+
+D:\TALib\tdd_robotws\GUI_Databases\QTP\RL65
+&lt;QTP&gt; Start to define parameters...
+
+&lt;QTP&gt; Parameter as below:
+LogPath="D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\"
+&lt;QTP&gt; Save log to D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\GUILog\qtp_log20171212215314\Report
+&lt;QTP&gt; Start to run script...</msg>
+<status status="PASS" endtime="20171212 21:53:21.684" starttime="20171212 21:53:14.720"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:53:21.684" starttime="20171212 21:53:14.719"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:53:21.689" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:53:22.747" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:53:22.935" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="5232"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:53:22.939" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:53:23.997" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:53:24.162" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+Deleting instance \\NOKIA-20170515I\ROOT\CIMV2:Win32_Process.Handle="6860"
+Instance deletion successful.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:53:24.167" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:53:25.225" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:53:25.378" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:53:25.379" starttime="20171212 21:53:21.684"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:53:25.379" starttime="20171212 21:52:17.154"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:53:25.379" starttime="20171212 21:52:17.154"></status>
+</kw>
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20171212 21:53:25.380" level="INFO">${time} = 20171212215325</msg>
+<status status="PASS" endtime="20171212 21:53:25.380" starttime="20171212 21:53:25.379"></status>
+</kw>
+<kw name="Start Bts Udp Log" library="RobotWS">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}BTSLOG_${time}.LOG</arg>
+</arguments>
+<msg timestamp="20171212 21:53:25.544" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<msg timestamp="20171212 21:53:25.547" level="INFO">[file_common.py@209] Directory "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati" already exists, no need to create it again.</msg>
+<status status="PASS" endtime="20171212 21:53:25.549" starttime="20171212 21:53:25.380"></status>
+</kw>
+<kw name="Power Off" library="RobotWS">
+<doc>control powerbreaker to power off a outlet</doc>
+<arguments>
+<arg>${BTS_POWERBREAK_PORT[0]}</arg>
+</arguments>
+<msg timestamp="20171212 21:53:25.562" level="INFO">[facom.py@113] Connect to Facom succeed !</msg>
+<msg timestamp="20171212 21:53:25.565" level="INFO">[base.py@40] trial power off for 0 times</msg>
+<msg timestamp="20171212 21:53:25.579" level="INFO">[facom.py@52] Power off port 5 succeed!</msg>
+<status status="PASS" endtime="20171212 21:53:25.580" starttime="20171212 21:53:25.549"></status>
+</kw>
+<kw name="Power On" library="RobotWS">
+<doc>control powerbreaker to power on a outlet</doc>
+<arguments>
+<arg>${BTS_POWERBREAK_PORT[0]}</arg>
+</arguments>
+<msg timestamp="20171212 21:53:25.593" level="INFO">[facom.py@113] Connect to Facom succeed !</msg>
+<msg timestamp="20171212 21:53:25.595" level="INFO">[base.py@28] trial power on for 0 times</msg>
+<msg timestamp="20171212 21:53:25.610" level="INFO">[facom.py@75] Power on port 5 succeed!</msg>
+<status status="PASS" endtime="20171212 21:53:25.611" starttime="20171212 21:53:25.580"></status>
+</kw>
+<kw name="Wait Until Units Startup" library="RobotWS">
+<doc>This keyword tests the reachability of given unit/units.</doc>
+<arguments>
+<arg>300</arg>
+<arg>${BTS_FCM}</arg>
+</arguments>
+<msg timestamp="20171212 21:55:53.518" level="INFO">[ping_control.py@145] ping 192.168.255.1 OK!</msg>
+<status status="PASS" endtime="20171212 21:56:03.519" starttime="20171212 21:53:25.611"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Save IM Log</arg>
+</arguments>
+<kw name="Save IM Log" library="OM_resources_new">
+<kw name="Get Timestamp" library="RobotWS">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20171212 21:56:03.520" level="INFO">${time} = 20171212215603</msg>
+<status status="PASS" endtime="20171212 21:56:03.520" starttime="20171212 21:56:03.520"></status>
+</kw>
+<kw name="Save Infomodel Log" library="RobotWS">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${TEST LOG DIR}${/}infomodel_${time}</arg>
+</arguments>
+<msg timestamp="20171212 21:56:03.521" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<status status="FAIL" endtime="20171212 21:56:03.521" starttime="20171212 21:56:03.520"></status>
+</kw>
+<kw name="Stop Infomodel" library="RobotWS">
+<doc>Disconnect from InfoModel and teardown InfoModel. Keyword will</doc>
+<msg timestamp="20171212 21:56:03.527" level="INFO">[infomodel_control.py@190] stop infomodel logger failed, details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171212 21:56:03.530" level="INFO">[infomodel_control.py@194] disconnect from infomodel failed, details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171212 21:56:03.536" level="INFO">[infomodel_control.py@198] teardown infomodel failed. details: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171212 21:56:03.539" level="INFO">[infomodel_control.py@200] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171212 21:56:03.539" starttime="20171212 21:56:03.521"></status>
+</kw>
+<status status="FAIL" endtime="20171212 21:56:03.540" starttime="20171212 21:56:03.520"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:56:03.540" starttime="20171212 21:56:03.519"></status>
+</kw>
+<kw name="Check Bts Until Onair" library="RobotWS">
+<doc>check bts until all cell is onair with infomodel, and have PBCH in udp log.</doc>
+<arguments>
+<arg>onair_check_msg=['']</arg>
+</arguments>
+<msg timestamp="20171212 21:57:56.510" level="INFO">Exit code: 1</msg>
+<msg timestamp="20171212 21:57:56.510" level="INFO">STDOUT
+</msg>
+<msg timestamp="20171212 21:57:56.510" level="INFO">STDERR
+Started InfoModel server PYRO:TA_infomodel_server@localhost:36078
+</msg>
+<msg timestamp="20171212 21:56:03.704" level="INFO">[file_common.py@209] Directory "D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati" already exists, no need to create it again.</msg>
+<msg timestamp="20171212 21:56:12.861" level="INFO">[infomodel_control.py@159] set up infomodel with following info succeed .
+    details: address=192.168.255.129, port=12345, definitions_file_path=None</msg>
+<msg timestamp="20171212 21:56:15.143" level="INFO">[infomodel_control.py@163] start infomodel succeed .</msg>
+<msg timestamp="20171212 21:56:15.151" level="INFO">[infomodel_control.py@165] start infomodel logger succeed .</msg>
+<msg timestamp="20171212 21:56:15.156" level="INFO">[enb_resource.py@158] The current check mode is INFOMODEL</msg>
+<msg timestamp="20171212 21:56:16.220" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:56:17.269" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:18.308" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:19.353" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:30.368" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:56:31.391" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:32.422" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:33.454" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:44.479" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:56:45.499" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:46.553" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:47.574" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Failed'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:56:58.594" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:56:59.611" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:00.642" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:01.655" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:12.683" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:57:13.697" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:14.739" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:15.766" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:26.792" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will try another way</msg>
+<msg timestamp="20171212 21:57:27.805" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:28.821" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:29.836" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/BTS_L-4/LNBTS-1 : {u'actDLCAggr': False, u'restartCause': u'PowerOn', u'btsId': 1492L, u'actInterEnbDLCAggr': False, u'planHandlingState': u'Idle', u'stateInfo': {u'blockingState': u'Unblocked', u'testingState': u'Disabled', u'usageState': u'Active', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'softwareState': u'Deployed', u'proceduralState': u'integrated to RAN', u'operationalState': u'Enabled', u'availabilityStatus': u'Degraded'}, u'actBbPooling': False}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:39.869" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:40.893" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+, it will try another way</msg>
+<msg timestamp="20171212 21:57:40.926" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:41.937" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:41.969" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:43.008" level="INFO">[enb_resource.py@213] check onair failed for 3rd way, Query: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/MCTRL-4/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-2 : {u'routingState': u'Routable', u'bbCalcState': u'CalculationDone', u'rat': u'LTE', u'gainCalcState': u'NotCalculated', u'setupAllowed': False, u'carriersState': u'UpdatedTiming', u'testingState': u'Disabled', u'setupBlockingScenarios': [], u'delayCalculationState': u'CalculationDone', u'feedback': u'', u'configurationAgentsReadiness': False, u'stateInfo': {u'automaticBlockState': u'Unblocked', u'powerBreakLockingState': u'Unlocked', u'blockingState': u'Unblocked', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'proceduralState': u'Validated', u'recoveryLockingState': u'Unlocked', u'operationalState': u'Disabled', u'availabilityStatus': u'Offline'}, u'deploymentCalcState': u'CalculationDone', u'timeDomainState': u'NotEnoughHardwareConfigured'}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:43.038" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:44.070" level="INFO">[enb_resource.py@225] check onair failed for 4rd way, Query: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.operationalState=Enabled]' doesn't pass in timeout=1.0. Object does not match given predicates.
+/MRBTS-1/RAT-1/MCTRL-4/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-2 : {u'routingState': u'Routable', u'bbCalcState': u'CalculationDone', u'rat': u'LTE', u'gainCalcState': u'NotCalculated', u'setupAllowed': False, u'carriersState': u'UpdatedTiming', u'testingState': u'Disabled', u'setupBlockingScenarios': [], u'delayCalculationState': u'CalculationDone', u'feedback': u'', u'configurationAgentsReadiness': False, u'stateInfo': {u'automaticBlockState': u'Unblocked', u'powerBreakLockingState': u'Unlocked', u'blockingState': u'Unblocked', u'administrativeState': u'Unlocked', u'reasoningStatus': [], u'proceduralState': u'Validated', u'recoveryLockingState': u'Unlocked', u'operationalState': u'Disabled', u'availabilityStatus': u'Offline'}, u'deploymentCalcState': u'CalculationDone', u'timeDomainState': u'NotEnoughHardwareConfigured'}
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:54.100" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:55.111" level="INFO">[enb_resource.py@182] check onair failed 1st way, Query: 'every /MRBTS-1/RAT-1//LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+, it will try another way</msg>
+<msg timestamp="20171212 21:57:55.153" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:56.172" level="INFO">[enb_resource.py@199] check onair failed for 2rd way, Query: 'every /MRBTS-1/RAT-1/BTS_L-*/LNBTS-*/LCELL-* is [stateInfo.proceduralState=onAirDone]' doesn't pass in timeout=1.0. Not found any object matching given dist name.
+, it will sleep and try again</msg>
+<msg timestamp="20171212 21:57:56.204" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1//LNBTS-* is [stateInfo.proceduralState=onAir]' succeed .</msg>
+<msg timestamp="20171212 21:57:56.233" level="INFO">[infomodel_control.py@329] query infomodel: 'every /MRBTS-1/RAT-1/MCTRL-*/BBTOP_M-1/MRBTS_M-1/LNBTS_M-1/CELL_M-* is [stateInfo.proceduralState=OnAirDone]' succeed .</msg>
+<msg timestamp="20171212 21:57:56.236" level="INFO">[enb_resource.py@228] infomodel check every cell onair succeed !</msg>
+<msg timestamp="20171212 21:57:56.239" level="INFO">[enb_resource.py@351] bts log check onair msg succeed !</msg>
+<msg timestamp="20171212 21:57:56.249" level="INFO">[infomodel_control.py@216] save infomodel log to file: 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\im_20171212215756' succeed .</msg>
+<msg timestamp="20171212 21:57:56.253" level="INFO">[infomodel_control.py@188] stop infomodel logger succeed .</msg>
+<msg timestamp="20171212 21:57:56.513" level="INFO">[infomodel_control.py@200] stop infomodel succeed .</msg>
+<status status="PASS" endtime="20171212 21:57:56.517" starttime="20171212 21:56:03.540"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="RobotWS">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<msg timestamp="20171212 21:57:56.520" level="INFO">[btslog_control.py@173] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'isAlive'</msg>
+<status status="PASS" endtime="20171212 21:57:56.520" starttime="20171212 21:57:56.517"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:57:56.520" starttime="20171212 21:52:11.206"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:57:56.520" starttime="20171212 21:52:11.205"></status>
+</kw>
+<kw name="Kill Sitemanager Process" library="RobotWS">
+<doc>used to kill sitemanager process.</doc>
+<msg timestamp="20171212 21:57:56.523" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:57:57.577" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:57:57.724" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:57:57.726" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:57:58.780" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:57:58.930" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<msg timestamp="20171212 21:57:58.933" level="INFO">[connection_mgr.py@184] Current connection: 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<msg timestamp="20171212 21:57:59.987" level="INFO">[telnet_common.py@268] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete</msg>
+<msg timestamp="20171212 21:58:00.134" level="INFO">[telnet_common.py@298] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+No Instance(s) Available.
+
+C:\Users\Administrator&gt;</msg>
+<status status="PASS" endtime="20171212 21:58:00.134" starttime="20171212 21:57:56.521"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="RobotWS">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20171212 21:58:00.137" level="INFO">[telnet_common.py@180]</msg>
+<msg timestamp="20171212 21:58:00.139" level="INFO">[telnet_common.py@181] Disconnect from 10.69.67.26:23 DeviceType:Windows Timeout:30 seconds &lt;RobotWS.CommonLib.connections.telnet_common.TelnetCommon instance at 0x056F5F08&gt;</msg>
+<status status="PASS" endtime="20171212 21:58:00.140" starttime="20171212 21:58:00.135"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:58:00.140" starttime="20171212 21:48:29.418"></status>
+</kw>
+<doc>Purpose: The purpose of the test is to verify OAM and eNb behaviour with handling fault 6707_EFaultId_DspApplicationFatalErrAl</doc>
+<tags>
+<tag>Common + Common</tag>
+<tag>configuration:ALL</tag>
+<tag>developer-henry.1.wang@nsn.com</tag>
+<tag>Domain:TEST</tag>
+<tag>HW:FSIP *</tag>
+<tag>OAM1</tag>
+<tag>Owner-ziyu.yuan@nokia.com</tag>
+<tag>QC_577093</tag>
+<tag>Requirement:None</tag>
+</tags>
+<status status="FAIL" endtime="20171212 21:58:00.141" critical="yes" starttime="20171212 21:41:34.102">Keyword 'File Should Contain' failed after retrying for 5 minutes. The last error was: Not find '[u'WRN/FRI/FRI.*Detector 6707.*active', u'INF/FRI/FRI.*Detector 6707.*filtering timer 2s started']' in 'D:\Temp\Test_Log_20171212170430\ev_logs\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati_20171212213944\LTE2313-T-u_01_03_Fault_6707_EFaultId_DspApplicati\btslog_check.LOG'</status>
+</test>
+<kw type="teardown" name="Common Suite Teardown" library="common_resource">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:58:00.148" starttime="20171212 21:58:00.145"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="RobotWS">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<status status="PASS" endtime="20171212 21:58:00.148" starttime="20171212 21:58:00.148"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<assign>
+<var>${para_exist}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${zip_pass_log}</arg>
+</arguments>
+<msg timestamp="20171212 21:58:00.153" level="FAIL">Variable ${zip_pass_log} does not exist.</msg>
+<status status="FAIL" endtime="20171212 21:58:00.153" starttime="20171212 21:58:00.149"></status>
+</kw>
+<msg timestamp="20171212 21:58:00.153" level="INFO">${para_exist} = ('FAIL', u'Variable ${zip_pass_log} does not exist.')</msg>
+<status status="PASS" endtime="20171212 21:58:00.153" starttime="20171212 21:58:00.148"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS' == '${para_exist[0]}'</arg>
+<arg>${zip_pass_log}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${zip_log}</var>
+</assign>
+<msg timestamp="20171212 21:58:00.156" level="INFO">${zip_log} = True</msg>
+<status status="PASS" endtime="20171212 21:58:00.156" starttime="20171212 21:58:00.154"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+<var>${value}</var>
+</assign>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${zip_log} == ${True}</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:58:00.157" starttime="20171212 21:58:00.156"></status>
+</kw>
+<msg timestamp="20171212 21:58:00.157" level="INFO">${status} = PASS</msg>
+<msg timestamp="20171212 21:58:00.157" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20171212 21:58:00.157" starttime="20171212 21:58:00.156"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${status}' == 'PASS' and ${zip_log} == ${True}</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171212 21:58:00.158" starttime="20171212 21:58:00.157"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:58:00.158" starttime="20171212 21:58:00.157"></status>
+</kw>
+<status status="PASS" endtime="20171212 21:58:00.158" starttime="20171212 21:58:00.145"></status>
+</kw>
+<doc>LTE2313-T-u_01_03 Fault_6707_EFaultId_DspApplicationFatalErrAl</doc>
+<status status="FAIL" endtime="20171212 21:58:00.158" starttime="20171212 21:39:43.632"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Common + Common</stat>
+<stat fail="1" pass="0">configuration:ALL</stat>
+<stat fail="1" pass="0">developer-henry.1.wang@nsn.com</stat>
+<stat fail="1" pass="0">Domain:TEST</stat>
+<stat fail="1" pass="0">HW:FSIP *</stat>
+<stat fail="1" pass="0">OAM1</stat>
+<stat fail="1" pass="0">Owner-ziyu.yuan@nokia.com</stat>
+<stat fail="1" pass="0">QC_577093</stat>
+<stat fail="1" pass="0">Requirement:None</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="LTE2313-T-u 01 03 Fault 6707 EFaultId DspApplicationFatalErrAl" pass="0">LTE2313-T-u 01 03 Fault 6707 EFaultId DspApplicationFatalErrAl</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20171212 21:39:44.335" level="ERROR">Adding keyword 'iphy_attach_ue' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'attach_ue'</msg>
+<msg timestamp="20171212 21:39:44.337" level="ERROR">Adding keyword 'iphy_detach_ue' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'detach_ue'</msg>
+<msg timestamp="20171212 21:39:44.338" level="ERROR">Adding keyword 'iphy_start_ul_udp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'start_ul_udp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.340" level="ERROR">Adding keyword 'iphy_start_dl_udp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'start_dl_udp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.341" level="ERROR">Adding keyword 'iphy_start_ul_tcp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'start_ul_tcp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.343" level="ERROR">Adding keyword 'iphy_start_dl_tcp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'start_dl_tcp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.344" level="ERROR">Adding keyword 'iphy_start_ue_logging' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'start_ue_logging'</msg>
+<msg timestamp="20171212 21:39:44.346" level="ERROR">Adding keyword 'iphy_stop_ue_logging' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'stop_ue_logging'</msg>
+<msg timestamp="20171212 21:39:44.347" level="ERROR">Adding keyword 'iphy_get_ue_log' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ue_log'</msg>
+<msg timestamp="20171212 21:39:44.349" level="ERROR">Adding keyword 'iphy_get_ul_throughput_ave' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ul_throughput_ave'</msg>
+<msg timestamp="20171212 21:39:44.350" level="ERROR">Adding keyword 'iphy_get_dl_throughput_ave' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_dl_throughput_ave'</msg>
+<msg timestamp="20171212 21:39:44.352" level="ERROR">Adding keyword 'iphy_get_ul_throughput_max' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ul_throughput_max'</msg>
+<msg timestamp="20171212 21:39:44.353" level="ERROR">Adding keyword 'iphy_get_dl_throughput_max' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_dl_throughput_max'</msg>
+<msg timestamp="20171212 21:39:44.354" level="ERROR">Adding keyword 'iphy_stop_dl_udp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'stop_dl_udp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.356" level="ERROR">Adding keyword 'iphy_stop_ul_udp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'stop_ul_udp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.357" level="ERROR">Adding keyword 'iphy_stop_dl_tcp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'stop_dl_tcp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.359" level="ERROR">Adding keyword 'iphy_stop_ul_tcp_data_traffic' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'stop_ul_tcp_data_traffic'</msg>
+<msg timestamp="20171212 21:39:44.360" level="ERROR">Adding keyword 'iphy_setup_ue' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'setup_ue'</msg>
+<msg timestamp="20171212 21:39:44.362" level="ERROR">Adding keyword 'iphy_get_ue_state' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ue_state'</msg>
+<msg timestamp="20171212 21:39:44.363" level="ERROR">Adding keyword 'iphy_teardown_ue' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'teardown_ue'</msg>
+<msg timestamp="20171212 21:39:44.364" level="ERROR">Adding keyword 'iphy_execute_ue_command' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'execute_ue_command'</msg>
+<msg timestamp="20171212 21:39:44.366" level="ERROR">Adding keyword 'iphy_wait_until_sib1_and_sib2_received' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'wait_until_sib1_and_sib2_received'</msg>
+<msg timestamp="20171212 21:39:44.367" level="ERROR">Adding keyword 'iphy_detach_all_ue' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'detach_all_ue'</msg>
+<msg timestamp="20171212 21:39:44.369" level="ERROR">Adding keyword 'iphy_validate_bearer_is_active' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'validate_bearer_is_active'</msg>
+<msg timestamp="20171212 21:39:44.370" level="ERROR">Adding keyword 'iphy_create_bearer' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'create_bearer'</msg>
+<msg timestamp="20171212 21:39:44.371" level="ERROR">Adding keyword 'iphy_delete_bearer' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'delete_bearer'</msg>
+<msg timestamp="20171212 21:39:44.373" level="ERROR">Adding keyword 'iphy_modify_bearer' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'modify_bearer'</msg>
+<msg timestamp="20171212 21:39:44.374" level="ERROR">Adding keyword 'iphy_get_active_bearer_qci' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_active_bearer_qci'</msg>
+<msg timestamp="20171212 21:39:44.375" level="ERROR">Adding keyword 'iphy_get_cell_states' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_cell_states'</msg>
+<msg timestamp="20171212 21:39:44.376" level="ERROR">Adding keyword 'iphy_get_cell_throughput_ave' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_cell_throughput_ave'</msg>
+<msg timestamp="20171212 21:39:44.378" level="ERROR">Adding keyword 'iphy_check_ue_is_active' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'check_ue_is_active'</msg>
+<msg timestamp="20171212 21:39:44.379" level="ERROR">Adding keyword 'iphy_modify_pathloss' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'modify_pathloss'</msg>
+<msg timestamp="20171212 21:39:44.380" level="ERROR">Adding keyword 'iphy_get_ul_bler_ave' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ul_bler_ave'</msg>
+<msg timestamp="20171212 21:39:44.381" level="ERROR">Adding keyword 'iphy_get_dl_bler_ave' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_dl_bler_ave'</msg>
+<msg timestamp="20171212 21:39:44.383" level="ERROR">Adding keyword 'iphy_get_ue_throughput_on_specific_scell' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ue_throughput_on_specific_scell'</msg>
+<msg timestamp="20171212 21:39:44.384" level="ERROR">Adding keyword 'iphy_get_ue_last_allocation_info' to library 'RobotWS' failed: AttributeError: 'NoneType' object has no attribute 'get_ue_last_allocation_info'</msg>
+<msg timestamp="20171212 21:39:44.396" level="ERROR">Error in file 'D:\TALib\tdd_robotws\RobotWS.html': Processing variable file 'D:\TALib\tdd_config' failed: Importing variable file 'D:\TALib\tdd_config' failed: ImportError: cannot import name enb
+Traceback (most recent call last):
+  File "D:\TALib\tdd_config\__init__.py", line 166, in &lt;module&gt;
+    tl = importlib.import_module("%s." % config_module + CONFIGURATION)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Python27\lib\site-packages\config\evcommon\__init__.py", line 8, in &lt;module&gt;
+    from .enb import enb as enb_local
+PYTHONPATH:
+  D:\TALib\tdd_robotws
+  D:\TALib\tdd_robotws\RobotWS\tools\RemoteSwing\remoteswinglibrary-2.0.3.jar
+  C:\Python27\lib\site-packages\robotframework-3.0-py2.7.egg
+  C:\Python27\lib\site-packages\pygments-1.6-py2.7.egg
+  C:\Python27\lib\site-packages\robotframework_ride-1.5.2.1-py2.7.egg
+  C:\Python27\lib\site-packages\pycrypto-2.6-py2.7-win32.egg
+  C:\Python27\lib\site-packages\ecdsa-0.11-py2.7.egg
+  C:\Python27\lib\site-packages\paramiko-1.15.2-py2.7.egg
+  C:\Python27\lib\site-packages\robotframework_sshlibrary-2.1.1-py2.7.egg
+  C:\Python27\lib\site-packages\xlrd-0.9.2-py2.7.egg
+  C:\Python27\lib\site-packages\xlwt-0.7.5-py2.7.egg
+  C:\Python27\lib\site-packages\xlutils-1.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\lxml-3.1.0-py2.7-win32.egg
+  C:\Python27\lib\site-packages\pyserial-2.7-py2.7.egg
+  C:\Python27\lib\site-packages\pyasn1-0.1.7-py2.7.egg
+  C:\Python27\lib\site-packages\pysnmp-4.2.4-py2.7.egg
+  C:\Python27\lib\site-packages\pytz-2014.4-py2.7.egg
+  C:\Python27\lib\site-packages\zope.interface-4.1.2-py2.7-win32.egg
+  C:\Python27\lib\site-packages\datetime-4.0.1-py2.7.egg
+  C:\Python27\lib\site-packages\json_rpc-1.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\wrapt-1.10.4-py2.7.egg
+  C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\configobj-4.7.2-py2.7.egg
+  C:\Python27\lib\site-packages\mock-1.0.1-py2.7.egg
+  C:\Python27\lib\site-packages\wheel-0.29.0-py2.7.egg
+  C:\Python27\lib\site-packages\ute_installer-1.2.1-py2.7.egg
+  C:\Python27\lib\site-packages\threadsaferequests-2.9.1-py2.7.egg
+  C:\Python27\lib\site-packages\sutool-1.0.0-py2.7.egg
+  C:\Python27\lib\site-packages\common_lib_sessions-1.0.2-py2.7.egg
+  C:\Python27\lib\site-packages\easyprocess-0.2.2-py2.7.egg
+  C:\Python27\lib\site-packages\pyvirtualdisplay-0.2-py2.7.egg
+  C:\Python27\lib\site-packages\pyvisa-1.5.dev4-py2.7.egg
+  C:\Python27\lib\site-packages\serpent-1.7-py2.7.egg
+  C:\Python27\lib\site-packages\pyro4-4.29-py2.7.egg
+  C:\Python27\lib\site-packages\selenium-2.48.0-py2.7.egg
+  C:\Python27\lib\site-packages\decorator-3.4.0-py2.7.egg
+  C:\Windows\system32\python27.zip
+  C:\Python27\DLLs
+  C:\Python27\lib
+  C:\Python27\lib\plat-win
+  C:\Python27\lib\lib-tk
+  C:\Python27
+  C:\Python27\lib\site-packages
+  C:\Python27\lib\site-packages\win32
+  C:\Python27\lib\site-packages\win32\lib
+  C:\Python27\lib\site-packages\Pythonwin
+  D:\TALib
+  D:\TALib\tdd_robotws
+  C:\Python27\lib\site-packages\wx-2.8-msw-unicode
+  D:\TALib\ute_infomodel\resource
+  .
+  .
+  .</msg>
+<msg timestamp="20171212 21:39:44.572" level="ERROR">Error in file 'D:\TALib\tdd_robotws\RobotWS\resources\common_resource.robot': Importing test library 'tdd_config' failed: ImportError: cannot import name enb
+Traceback (most recent call last):
+  File "D:\TALib\tdd_config\__init__.py", line 166, in &lt;module&gt;
+    tl = importlib.import_module("%s." % config_module + CONFIGURATION)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Python27\lib\site-packages\config\evcommon\__init__.py", line 8, in &lt;module&gt;
+    from .enb import enb as enb_local
+PYTHONPATH:
+  D:\TALib\tdd_robotws
+  D:\TALib\tdd_robotws\RobotWS\tools\RemoteSwing\remoteswinglibrary-2.0.3.jar
+  C:\Python27\lib\site-packages\robotframework-3.0-py2.7.egg
+  C:\Python27\lib\site-packages\pygments-1.6-py2.7.egg
+  C:\Python27\lib\site-packages\robotframework_ride-1.5.2.1-py2.7.egg
+  C:\Python27\lib\site-packages\pycrypto-2.6-py2.7-win32.egg
+  C:\Python27\lib\site-packages\ecdsa-0.11-py2.7.egg
+  C:\Python27\lib\site-packages\paramiko-1.15.2-py2.7.egg
+  C:\Python27\lib\site-packages\robotframework_sshlibrary-2.1.1-py2.7.egg
+  C:\Python27\lib\site-packages\xlrd-0.9.2-py2.7.egg
+  C:\Python27\lib\site-packages\xlwt-0.7.5-py2.7.egg
+  C:\Python27\lib\site-packages\xlutils-1.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\lxml-3.1.0-py2.7-win32.egg
+  C:\Python27\lib\site-packages\pyserial-2.7-py2.7.egg
+  C:\Python27\lib\site-packages\pyasn1-0.1.7-py2.7.egg
+  C:\Python27\lib\site-packages\pysnmp-4.2.4-py2.7.egg
+  C:\Python27\lib\site-packages\pytz-2014.4-py2.7.egg
+  C:\Python27\lib\site-packages\zope.interface-4.1.2-py2.7-win32.egg
+  C:\Python27\lib\site-packages\datetime-4.0.1-py2.7.egg
+  C:\Python27\lib\site-packages\json_rpc-1.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\wrapt-1.10.4-py2.7.egg
+  C:\Python27\lib\site-packages\requests-2.7.0-py2.7.egg
+  C:\Python27\lib\site-packages\configobj-4.7.2-py2.7.egg
+  C:\Python27\lib\site-packages\mock-1.0.1-py2.7.egg
+  C:\Python27\lib\site-packages\wheel-0.29.0-py2.7.egg
+  C:\Python27\lib\site-packages\ute_installer-1.2.1-py2.7.egg
+  C:\Python27\lib\site-packages\threadsaferequests-2.9.1-py2.7.egg
+  C:\Python27\lib\site-packages\sutool-1.0.0-py2.7.egg
+  C:\Python27\lib\site-packages\common_lib_sessions-1.0.2-py2.7.egg
+  C:\Python27\lib\site-packages\easyprocess-0.2.2-py2.7.egg
+  C:\Python27\lib\site-packages\pyvirtualdisplay-0.2-py2.7.egg
+  C:\Python27\lib\site-packages\pyvisa-1.5.dev4-py2.7.egg
+  C:\Python27\lib\site-packages\serpent-1.7-py2.7.egg
+  C:\Python27\lib\site-packages\pyro4-4.29-py2.7.egg
+  C:\Python27\lib\site-packages\selenium-2.48.0-py2.7.egg
+  C:\Python27\lib\site-packages\decorator-3.4.0-py2.7.egg
+  C:\Windows\system32\python27.zip
+  C:\Python27\DLLs
+  C:\Python27\lib
+  C:\Python27\lib\plat-win
+  C:\Python27\lib\lib-tk
+  C:\Python27
+  C:\Python27\lib\site-packages
+  C:\Python27\lib\site-packages\win32
+  C:\Python27\lib\site-packages\win32\lib
+  C:\Python27\lib\site-packages\Pythonwin
+  D:\TALib
+  D:\TALib\tdd_robotws
+  C:\Python27\lib\site-packages\wx-2.8-msw-unicode
+  D:\TALib\ute_infomodel\resource
+  .
+  .
+  .</msg>
+</errors>
+</robot>

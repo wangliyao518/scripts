@@ -1,0 +1,3430 @@
+
+
+
+this keyword create suite name directory path as D:\TA_logs\TestLog_20170730170849//logs//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20170730172900
+
+
+
+
+Replaces ``pattern`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_NAME[:50]}
+
+\\s+$
+
+${EMPTY}
+
+
+
+${FILE_NAME}
+
+
+${FILE_NAME} = FZFI Operational Cell block unblock
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${OUTPUT_DIR}
+
+ev_logs
+
+${FILE_NAME}_${timestamp}
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI Operational Cell block unblock_20170730172900
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_LOG_DIRECTORY}
+
+${SPACE}
+
+_
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+
+
+
+
+Creates the specified directory.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+Created directory '
+<
+a href="file://D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900"
+>
+D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${SUITE_LOG_DIRECTORY}
+
+
+save log dir:D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${snapshot_flag}
+
+0
+
+
+${snapshot_flag} = 0
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+Variable ${TEST LOG DIR} does not exist.
+
+
+
+${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+
+Sets variable based on the given condition.
+
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+
+${log dir} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Make Sure FCT Ping Ok
+
+
+
+
+This function is used for check whether ping host success, if yes, return 1, else return 0
+
+
+${FCMD_IP}
+
+
+
+${status}
+
+
+${status} = True
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+300
+
+${FTM_IP}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Btscli Disable Bts Port Security
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+60
+
+${FCMD_IP}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Wait Until Keyword Succeeds
+
+5min
+
+5s
+
+_make sure fctb connect ok
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+get_enb_infomation
+
+
+
+This keyword will print bts sw version, bbu type and RRU type.
+
+[ftm_control.py@94] try: 1/1, http return code: 200
+
+[ftm_control.py@210] login succeed !
+
+[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/sshservice.html'
+
+[ftm_control.py@94] try: 1/1, http return code: 200
+
+[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableSsh.cgi?stamp=1501406968
+&
+token=6b84d90835e7007a76a7397b5b333568ed716a867e633be7faa8300cfb5fcf7d
+&
+frame=sshservice'
+
+[ftm_control.py@94] try: 1/3, http return code: 200
+
+[ftm_control.py@266]
+<
+!doctype html public "-//w3c//dtd html 4.0 transitional//en"
+>
+
+<
+html
+>
+
+
+<
+head
+>
+
+
+<
+meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
+>
+
+
+<
+meta http-equiv="expires" content="0"
+>
+
+
+<
+meta http-equiv="cache-control" content="public,no-cache"
+>
+
+
+<
+meta http-equiv="pragma" content="no-cache"
+>
+
+
+<
+/head
+>
+
+
+<
+body bgcolor="#E7E7E7"
+>
+
+
+
+<
+bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"
+>
+
+
+
+<
+h3
+>
+<
+FONT face="Arial, Helvetica, sans-serif"
+>
+
+<
+p
+>
+<
+h3
+>
+SSH Service Enabled Successfully
+<
+/h3
+>
+
+<
+/p
+>
+<
+/body
+>
+
+<
+/html
+>
+
+[ftm_control.py@94] try: 1/1, http return code: 200
+
+[ftm_control.py@210] login succeed !
+
+[ftm_control.py@65] request on FTM: 'https://192.168.255.129/protected/RndPortsService.html'
+
+[ftm_control.py@94] try: 1/1, http return code: 200
+
+[ftm_control.py@237] Calling CGI script on FTM: 'https://192.168.255.129/protected/enableRndPorts.cgi?stamp=1501406973
+&
+token=4fd0f3985357350794b609502f3fb32533964fff99d456d968052779344f6841
+&
+frame=RndPortsService'
+
+[ftm_control.py@94] try: 1/3, http return code: 200
+
+[ftm_control.py@266]
+<
+!doctype html public "-//w3c//dtd html 4.0 transitional//en"
+>
+
+<
+html
+>
+
+
+<
+head
+>
+
+
+<
+meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
+>
+
+
+<
+meta http-equiv="expires" content="0"
+>
+
+
+<
+meta http-equiv="cache-control" content="public,no-cache"
+>
+
+
+<
+meta http-equiv="pragma" content="no-cache"
+>
+
+
+<
+/head
+>
+
+
+<
+body bgcolor="#E7E7E7"
+>
+
+
+
+<
+bgcolor="#00FF00" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"
+>
+
+
+
+<
+h3
+>
+<
+FONT face="Arial, Helvetica, sans-serif"
+>
+
+<
+p
+>
+<
+h3
+>
+R
+&
+D Ports Service Enabled Successfully
+<
+/h3
+>
+
+<
+/p
+>
+<
+/body
+>
+
+<
+/html
+>
+
+[enb_command_control.py@32] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Sun Jul 30 17:29:06 CST 2017 from 192.168.255.126 on pts/0
+
+-bash-4.4#
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B210
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+-bash-4.4#
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B210
+>
+
+[enb_command_control.py@32] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Sun Jul 30 17:29:38 CST 2017 from 192.168.255.126 on pts/0
+
+-bash-4.4#
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05558A30
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_TL18_ENB_9999_170730_065118.xml
+
+-bash-4.4#
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05558A30
+>
+
+[enb_resource.py@1086]
+
+****Current BTS version is 'TL18_ENB_9999_170730_065118' *****
+
+[enb_resource.py@1113] activeBuildVersion=TL18_ENB_9999_170730_065118
+
+[enb_command_control.py@32] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Sun Jul 30 17:29:48 CST 2017 from 192.168.255.126 on pts/0
+
+-bash-4.4#
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B9E0
+>
+
+[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml
+
+[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+
+ls: /ram/SiteConf.xml: No such file or directory
+
+-bash-4.4#
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B9E0
+>
+
+[enb_resource.py@1086]
+
+****Not find /ram/SiteConf.xml *****
+
+
+
+
+
+
+Sets the resolution order to use when a name matches multiple keywords.
+
+
+tdd_ev_robotws
+
+OperatingSystem
+
+
+
+
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+${TELNET_PORT}
+
+${SSH_PORT}
+
+
+
+${conn_port}
+
+
+${conn_port} = 23
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+TELNET
+
+SSH
+
+
+
+${conn_type}
+
+
+${conn_type} = TELNET
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+30
+
+5
+
+
+
+${timeout}
+
+
+${timeout} = 30
+
+
+
+
+Used to connect to host, either TELNET or SSH
+
+
+${BTS_PC_INFO.IP}
+
+port=${conn_port}
+
+username=${BTS_PC_INFO.USERNAME}
+
+password=${BTS_PC_INFO.PASSWORD}
+
+conn_type=${conn_type}
+
+timeout=${timeout}
+
+
+
+${BTS_PC_CONNECTION}
+
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@246]
+
+
+*===============================================================
+
+Microsoft Telnet Server.
+
+*===============================================================
+
+C:\Users\tdlte-tester
+>
+
+${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${BTS_PC_CONNECTION}
+
+
+${BTS_PC_CONNECTION} = 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+"Windows" in "${platform_version}"
+
+Execute Shell Command
+
+tlntadmn config timeoutactive\=no
+
+
+
+Execute a command on the remote system.
+
+
+tlntadmn config timeoutactive\=no
+
+
+[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@276] Execute command: tlntadmn config timeoutactive=no
+
+[telnet_common.py@306] Get Response: tlntadmn config timeoutactive=no
+
+The settings were successfully updated.
+
+
+C:\Users\tdlte-tester
+>
+
+
+
+
+
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+.
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${REMOVE_LOGS}'=='on'
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+Closes all existing telnet connections to remote hosts.
+
+[telnet_common.py@188]
+
+[telnet_common.py@189] Disconnect from 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@188]
+
+[telnet_common.py@189] Disconnect from 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+
+
+
+
+
+this keyword create case name directory path as D:\TA_logs\TestLog_20170730170849//ev_logs//D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20170730173012
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${SUITE_LOG_DIRECTORY}
+
+${TEST_NAME[:50]}
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${TEST_LOG_DIR}
+
+${SPACE}
+
+_
+
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${TEST_LOG_DIR}
+
+
+${TEST_LOG_DIR} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+Creates the specified directory.
+
+
+${TEST_LOG_DIR}
+
+
+Created directory '
+<
+a href="file://D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock"
+>
+D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${TEST_LOG_DIR}
+
+
+save log dir:D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${BTS PC CONNECTION.connected}
+
+Initial Connection With BTS PC
+
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+
+
+${case_dir_exist} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+${log dir} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock
+
+
+
+
+
+
+
+
+
+This keyword starts catching of BTS system(UDP) log.
+
+
+${TEST_LOG_DIR}\\${case_execute_log_name}.log
+
+
+[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'
+
+[btslog_control.py@174] use ip is 192.168.255.126
+
+[file_common.py@209] Directory "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock" already exists, no need to create it again.
+
+
+
+
+Setup InfoModel library and Connect to InfoModel.
+
+
+port=${BTS_INFOMODEL_PORT}
+
+
+[infomodel_control.py@157] set up infomodel with following info succeed .
+
+details: address=192.168.255.129, port=12345, definitions_file_path=None
+
+[infomodel_control.py@161] start infomodel succeed .
+
+[infomodel_control.py@163] start infomodel logger succeed .
+
+
+
+
+Makes a variable available everywhere within the scope of the current test.
+
+
+${case_execute_log_name}
+
+
+${case_execute_log_name} = owner_debug
+
+
+
+
+
+
+
+
+Operation with BTS
+
+
+${cell_index_1}
+
+${frequency_b}
+
+${frequency_a}
+
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+.
+
+
+
+
+used to kill sitemanager process.
+
+[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.poseidon.PoseidonStarter%%' and not commandline like '%wmic%'" delete
+
+No Instance(s) Available.
+
+
+
+C:\Users\tdlte-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%com.nokia.em.sitemgr.SitemgrStarter%%' and not commandline like '%wmic%'" delete
+
+No Instance(s) Available.
+
+
+
+C:\Users\tdlte-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@276] Execute command: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+
+[telnet_common.py@306] Get Response: C:/WINDOWS/System32/Wbem/wmic process where "commandline like '%%alclient.jar%%' and not commandline like '%wmic%'" delete
+
+No Instance(s) Available.
+
+
+
+C:\Users\tdlte-tester
+>
+
+
+
+
+This keyword used for login BTS Site Manager.
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run keyword and ignore error
+
+modify sem maxpermsize
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${CloseSEM}'=='Y'
+
+Kill SiteManager Process
+
+
+
+
+
+Returns a list containing given items.
+
+
+IPAddress=${IPAddress}
+
+UserName=${UserName}
+
+Password=${Password}
+
+LogPath=${SAVE LOG DIRECTORY}\\
+
+CheckExist=${CheckExist}
+
+
+
+${para_list}
+
+
+${para_list} = [u'IPAddress=Local', u'UserName=Nemuadmin', u'Password=nemuuser', u'LogPath=D:\\TA_logs\\TestLog_20170730170849\\ev_logs\\FZFI_Operational_Cell_block_unblock_20170730172900\\FZFI_Operational_Cell_bloc...
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+run qtp script
+
+${siteman_test_path}Login
+
+${para_list}
+
+${qtpkeepopen}
+
+
+
+
+
+This keyword used for run qtp script, if you use in robot please select run_qtp_script
+
+
+${siteman_test_path}Login
+
+${SAVE LOG DIRECTORY}
+
+${para_list}
+
+${qtpkeepopen}
+
+7200
+
+
+<
+QTP
+>
+Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login is existence.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+<
+QTP
+>
+Launched QTP successfully!
+
+
+<
+QTP
+>
+instanciation was SUCCESSFUL!
+
+<
+QTP
+>
+find java addin
+
+<
+QTP
+>
+start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\Login ...
+
+
+<
+QTP
+>
+open test successfully at 2rd time!
+
+
+<
+QTP
+>
+automated test case open was SUCCESSFUL!
+
+<
+QTP
+>
+Start to launch QTP App run on the background...
+
+
+<
+QTP
+>
+start to move current release lib path to active...
+
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+
+<
+QTP
+>
+Start to define parameters...
+
+
+<
+QTP
+>
+Parameter as below:
+
+IPAddress="Local"
+
+UserName="Nemuadmin"
+
+Password="nemuuser"
+
+LogPath="D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\"
+
+CheckExist="1"
+
+<
+QTP
+>
+Save log to D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\GUILog\qtp_log20170730173025\Report
+
+<
+QTP
+>
+Start to run script...
+
+
+
+
+
+
+this keyword is used for most HW operation,such as block,unblock,reset
+
+
+CELL
+
+${cell_index}
+
+Block
+
+
+
+Returns a list containing given items.
+
+
+HWType=${HWType}
+
+HWID=${HWID}
+
+HWAction=${HWAction}
+
+LogPath=${SAVE LOG DIRECTORY}\\
+
+
+
+${para_list}
+
+
+${para_list} = [u'HWType=CELL', u'HWID=1', u'HWAction=Block', u'LogPath=D:\\TA_logs\\TestLog_20170730170849\\ev_logs\\FZFI_Operational_Cell_block_unblock_20170730172900\\FZFI_Operational_Cell_block_unblock\\']
+
+
+
+
+This keyword used for run qtp script, if you use in robot please select run_qtp_script
+
+
+${siteman_test_path}HW_Action
+
+${SAVE LOG DIRECTORY}
+
+${para_list}
+
+${qtpkeepopen}
+
+7200
+
+
+<
+QTP
+>
+Test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action is existence.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+<
+QTP
+>
+Launched QTP successfully!
+
+
+<
+QTP
+>
+instanciation was SUCCESSFUL!
+
+<
+QTP
+>
+find java addin
+
+<
+QTP
+>
+start to open test D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65\SiteMan\HW_Action ...
+
+
+<
+QTP
+>
+open test successfully at 2rd time!
+
+
+<
+QTP
+>
+automated test case open was SUCCESSFUL!
+
+<
+QTP
+>
+Start to launch QTP App run on the background...
+
+
+<
+QTP
+>
+start to move current release lib path to active...
+
+
+D:\TA\trunk_soam\tdd_ev_others\GUI_Databases\QTP\RL65
+
+<
+QTP
+>
+Start to define parameters...
+
+
+<
+QTP
+>
+Parameter as below:
+
+HWType="CELL"
+
+HWID="1"
+
+HWAction="Block"
+
+LogPath="D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\"
+
+<
+QTP
+>
+Save log to D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\GUILog\qtp_log20170730173130\Report
+
+<
+QTP
+>
+Start to run script...
+
+
+
+
+
+
+
+${attach_script}
+
+forw mte RrcAptConfigCellSelection: ${frequency_1}
+
+
+
+tm500 setup.
+
+${TM500_PC_CONNECTION} = 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[robot_func.py@29] Can't get variable '${TM500_PC_CONNECTION}' ! details: 'Variable '${TM500_PC_CONNECTION}' not found.'
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@246]
+
+
+*===============================================================
+
+Welcome to Microsoft Telnet Server.
+
+*===============================================================
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',tdd_ev_robotws.__version__"
+
+*SEP* 1.0.1
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8275 -s True
+
+[telnet_common.py@306] Get Response: "D:\TA\trunk_soam\tdd_ev_robotws\tools\psexec.exe" -i -d python "D:\TA\trunk_soam\tdd_ev_robotws\tools\robotremoteserver.py"  -l tdd_ev_robotws -i 0.0.0.0 -p 8275 -s True
+
+
+PsExec v1.98 - Execute processes remotely
+
+Copyright (C) 2001-2010 Mark Russinovich
+
+Sysinternals - www.sysinternals.com
+
+
+python started with process ID 724.
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[process_control.py@74] Process start successed ! process id: 724
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[remote_lib_control.py@62] start remote server succeed !
+
+[tm500.py@107] have setup Remotelib instance: RemoteLibInstance: 10.69.71.200:8275
+
+[tm500.py@407] Request TM500 Resource:
+
+sent -
+>
+"request:15:1"
+
+received
+<
+- "Welcome! Please use it, You are No.1 in 1 user queue.
+
+
+"
+
+[tm500.py@411] Get TM500 resource success!
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: python -c "import platform;print platform.platform()"
+
+[telnet_common.py@306] Get Response: python -c "import platform;print platform.platform()"
+
+Windows-XP-5.1.2600-SP3
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+.
+
+[file_control.py@332] copyfile2local command: 'D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"'
+
+[connection_mgr.py@208] Current connection: 10.56.6.31:23 DeviceType:Windows Timeout:10 minutes
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+
+[telnet_common.py@276] Execute command: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"
+
+[telnet_common.py@306] Get Response: D:\TA\trunk_soam\tdd_ev_robotws\tools\pscp.exe -r -q -scp -unsafe -pw btstest tdlte-tester@10.69.71.200:"C:/Program\ Files/FileZilla\ Server/FileZilla\ server.xml" "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\FileZilla server.xml"
+
+
+C:\Users\tdlte-tester
+>
+
+[telnet_common.py@276] Execute command: echo ERRORCODE is: %ERRORLEVEL%
+
+[telnet_common.py@306] Get Response: echo ERRORCODE is: %ERRORLEVEL%
+
+ERRORCODE is: 0
+
+
+C:\Users\tdlte-tester
+>
+
+[file_common.py@168] Copy file "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\FileZilla server.xml" to "D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\FileZilla server.xml.change_bak" succeeded.
+
+[filezilla_control.py@188] Filezilla configed right, no need to change TM500 version.
+
+[connection_mgr.py@147] Switch to connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[tm500.py@1727] TM500 command to be sent: #$$CLOSE
+
+[tm500.py@1735] TM500 command reply: C: CLOSE 0x00 ok.
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: TASKKILL /F /T /IM TmaApplication.exe
+
+[telnet_common.py@306] Get Response: TASKKILL /F /T /IM TmaApplication.exe
+
+ERROR: The process "TmaApplication.exe" not found.
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+[telnet_common.py@306] Get Response: python -c "import tdd_ev_robotws, os;print '*SEP*',os.path.dirname(tdd_ev_robotws.__file__)"
+
+*SEP* D:\TA\trunk_soam\tdd_ev_robotws
+
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@278] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: "D:\TA\trunk_soam\tdd_ev_robotws\tools\Server_Client\client.exe" localhost "C:\Program Files\Aeroflex\TM500\LTE - K4.6.4.REV55\Test Mobile Application\TmaApplication.exe" /u \"Default User\" /c y /p 5003 /a n
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[telnet_common.py@276] Execute command: Ctrl-C
+
+[telnet_common.py@306] Get Response: Server Keep Alive Message Interval is [4 bytes]: '3'
+
+Keep Alive Message from Server Received [3 bytes]: '(be 0 3)'
+
+Keep Alive Message from Server Received [3 bytes]: '(be 0 3)'
+
+^C
+
+C:\Documents and Settings\bts-tester
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[connection_mgr.py@208] Current connection: 10.69.71.200:23 DeviceType:Windows Timeout:1 minute 30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05690CD8
+>
+
+[tm500.py@590] Prev msg:
+
+[tm500.py@1727] TM500 command to be sent: #$$DISCONNECT
+
+[tm500.py@1735] TM500 command reply: C: DISCONNECT 0x00 OK
+
+[tm500.py@1727] TM500 command to be sent: #$$CONNECT
+
+[tm500.py@1735] TM500 command reply: C: CONNECT 0x00 ok. Waiting for User to Configure Test Mobile
+
+[tm500.py@1727] TM500 command to be sent: GSTS
+
+[tm500.py@1735] TM500 command reply: C: GSTS 0x00 Ok Reset
+
+[tm500.py@1727] TM500 command to be sent: ABOT 0 0 1
+
+[tm500.py@1735] TM500 command reply: C: ABOT 0x00 Ok 0x0000001e
+
+[tm500.py@1727] TM500 command to be sent: SELR 0 0 RC2 COMBINED
+
+[tm500.py@1735] TM500 command reply: C: SELR 0x00 Ok
+
+[tm500.py@1727] TM500 command to be sent: EREF 0 0 0
+
+[tm500.py@1735] TM500 command reply: C: EREF 0x00 Ok
+
+[tm500.py@1727] TM500 command to be sent: GETR
+
+[tm500.py@1735] TM500 command reply: C: GETR 0x00 Ok
+
+Radio cards
+
+==============
+
+Card   : Umbra2 LTE (20MHz)
+
+Slot   : RC1
+
+Chassis: 0
+
+Context: -
+
+RF     : type 7
+
+A:  DL : 2110.0 - 2170.0 MHz
+
+UL : 1920.0 - 1980.0 MHz
+
+B:  DL : 2300.0 - 2400.0 MHz
+
+UL : 2300.0 - 2400.0 MHz
+
+==============
+
+*  Card   : Umbra2 LTE (20MHz)
+
+Slot   : RC2
+
+Chassis: 0
+
+Context: 0
+
+RF     : type 200
+
+A:  DL : 400.0 - 4000.0 MHz
+
+UL : 400.0 - 4000.0 MHz
+
+B:  DL : 0.0 - 0.0 MHz
+
+UL : 0.0 - 0.0 MHz
+
+[tm500.py@1727] TM500 command to be sent: SCFG NAS_MODE
+
+[tm500.py@1735] TM500 command reply: C: SCFG 0x00 Ok NAS_MODE
+
+[tm500.py@1727] TM500 command to be sent: STRT
+
+[tm500.py@1735] TM500 command reply: C: STRT 0x00 Ok
+
+[tm500.py@1727] TM500 command to be sent: #$$DATA_LOG_FOLDER 1 "C:\TM500_log\"
+
+[tm500.py@1735] TM500 command reply: C: DATA_LOG_FOLDER 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$DATA_LOG_OPTIONS 0 1 0
+
+[tm500.py@1735] TM500 command reply: C: DATA_LOG_OPTIONS 0x00 ok.
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Set Test Variable
+
+${TM500_Use_Tag}
+
+used
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELLx_ATT_INFO}
+
+
+$TA,C,0314*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,0314*', Receive
+<
+-'$TA,C,0314*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,03*', Receive
+<
+-'$TA,C,0314*'
+
+$TA,C,0414*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,0414*', Receive
+<
+-'$TA,C,0414*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,04*', Receive
+<
+-'$TA,C,0414*'
+
+
+
+
+This keyword selects TM500's logging items.
+
+
+${ue_log_types}
+
+
+[tm500.py@1727] TM500 command to be sent: GVER
+
+[tm500.py@1735] TM500 command reply: C: GVER 0x00 Ok
+
+PPC-0:
+
+BSP: 2.0/n/R13
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:PPC:K4.6.4
+
+DSP-0:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x0062
+
+DSP-1:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-2:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-3:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-4:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x0062
+
+DSP-5:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-6:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-7:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-8:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x101C
+
+DSP-9:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-10:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-11:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-12:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x208A
+
+DSP-13:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-14:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-15:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+Version Label: LTE-SUE-C0309_TDD_4X2_L1_K_04_06_04_REV55
+
+UMBRA-0
+
+API: 13.3.1  Product: 3
+
+APP: 1.0.149  Built: Sep 25 2014 17:17:27
+
+CON: 3.5.0  Build: 0
+
+SIG: 2.1.1  Build: 46
+
+MMC: 1.7
+
+Carrier:  Loc: 12  PCB: 3.0 (OWI: 3.0)  SN: 0x4A000001D72F0323  BarCode: 20-1442-1360070-2568
+
+MOD TX: 0.0.17  Build: 16  Type: 200  PCB: 3.0 (OWI: 3.0)  SN: 0xD000000167A41623  BarCode: 00000044830737250285
+
+MOD RX: 0.0.31  Build: 34  PCB: 3.0
+
+[tm500.py@506] TM500 command line response of "GVER":
+
+C: GVER 0x00 Ok
+
+PPC-0:
+
+BSP: 2.0/n/R13
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:PPC:K4.6.4
+
+DSP-0:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x0062
+
+DSP-1:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-2:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-3:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-4:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x0062
+
+DSP-5:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-6:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-7:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-8:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x101C
+
+DSP-9:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-10:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-11:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-12:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+PCB: 0
+
+VHDL: 0x208A
+
+DSP-13:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-14:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+DSP-15:
+
+APP: TM500 LTE VERSION:K4.6.4:REV1:DSP:K4.6.4
+
+Version Label: LTE-SUE-C0309_TDD_4X2_L1_K_04_06_04_REV55
+
+UMBRA-0
+
+API: 13.3.1  Product: 3
+
+APP: 1.0.149  Built: Sep 25 2014 17:17:27
+
+CON: 3.5.0  Build: 0
+
+SIG: 2.1.1  Build: 46
+
+MMC: 1.7
+
+Carrier:  Loc: 12  PCB: 3.0 (OWI: 3.0)  SN: 0x4A000001D72F0323  BarCode: 20-1442-1360070-2568
+
+MOD TX: 0.0.17  Build: 16  Type: 200  PCB: 3.0 (OWI: 3.0)  SN: 0xD000000167A41623  BarCode: 00000044830737250285
+
+MOD RX: 0.0.31  Build: 34  PCB: 3.0
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_CLEAR_ALL
+
+[tm500.py@1735] TM500 command reply: C: LC_CLEAR_ALL 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_ITM 1 1 1 Manual
+
+[tm500.py@1735] TM500 command reply: C: LC_ITM 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 100 0 0 0 UEOVERVIEW
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 1 0 0 0 ProtocolLog
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 CQIREPORTING #Subband 0-24 2
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 262 1 0 0 #GRP:CQIREPORTING
+
+[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 263 1 0 0 #GRP:CQIREPORTING
+
+[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_CAT 264 1 0 0 #GRP:CQIREPORTING
+
+[tm500.py@1735] TM500 command reply: C: LC_CAT 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 100 0 0 0 L1RBPOWERS #Component_Carrier 0,1 0
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 200 0 0 0 L1CELLWATCH
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLSCHRX
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLHARQRX
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 ULHARQTX
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 ULSRS
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 0 1 0 0 0 DLL1L2CONTROL
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_GRP 0 1 1 100 0 0 0 L1DLRSPOWER #Radio_Context_ID 0,1 0
+
+[tm500.py@1735] TM500 command reply: C: LC_GRP 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_ITM 0 0 0 Automatic
+
+[tm500.py@1735] TM500 command reply: C: LC_ITM 0x00 ok.
+
+[tm500.py@1727] TM500 command to be sent: #$$LC_END
+
+[tm500.py@1735] TM500 command reply: C: LC_END 0x00 ok.
+
+
+
+
+This keyword starts TM500's logging.
+
+[tm500.py@1727] TM500 command to be sent: #$$START_LOGGING
+
+[tm500.py@1735] TM500 command reply: C: START_LOGGING 0x00 OK. Current logging folder is 'C:\TM500_LOG\/170730_173305_session/170730_173359'
+
+[tm500.py@1351] TM500 command line response of "START LOGGING":
+
+C: START_LOGGING 0x00 OK. Current logging folder is 'C:\TM500_LOG\/170730_173305_session/170730_173359'
+
+[tm500.py@1362] C:\TM500_LOG\170730_173305_session\170730_173359
+
+
+
+
+This keyword does UE attach operation of TM500.
+
+
+${attach_script}
+
+${cmd_to_modify_list}
+
+
+
+${tm500_attach_result}
+
+
+[file_common.py@125] Write file "D:\TA\BTS1779\modified_attach_MIMO.txt" succeeded
+
+[tm500.py@1727] TM500 command to be sent: FORW MTE RRCAPTOVERRIDEBANDSUPPORT 1{41 [1 24690 26900 1940 24690 26900 1940] []}
+
+[tm500.py@1735] TM500 command reply: C: FORW 0x00 Ok MTE RRCAPTOVERRIDEBANDSUPPORT: RETURN CODE:0 SUCCEEDED
+
+[tm500.py@1727] TM500 command to be sent: FORW MTE ACTIVATE -1
+
+[tm500.py@1735] TM500 command reply: C: FORW 0x00 Ok MTE ACTIVATE CNF: RETURN CODE:0
+
+[tm500.py@1727] TM500 command to be sent: SETP RRC_NUM_DL_ANTENNAS 2
+
+[tm500.py@1735] TM500 command reply: I: CMPI MTE 0 ACTIVATE IND: RETURN CODE:0
+
+
+C: SETP 0x00 Ok RRC_NUM_DL_ANTENNAS 0x00000002
+
+I: TMAE 0x3 Critical Error - System is running out of disk space, Disconnecting TMA
+
+I: TMAE 0x1 Warning - Logging is being stopped automatically. Please wait for logging stopped message.
+
+[tm500.py@1727] TM500 command to be sent: LCFG DSP 15  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0X00000040 0 0 0 0 0X00000080 0 0 0 0 0 0 0 0 0 0 0 0
+
+[tm500.py@1735] TM500 command reply:
+
+TM500 return message does NOT contain "Ok"! ("Ok" is case insensitive)
+
+
+
+
+
+
+
+
+
+
+
+
+Action when case finishs
+
+
+Switch to the connection identified by 'conn'.
+
+
+${BTS_PC_CONNECTION}
+
+
+[connection_mgr.py@147] Switch to connection: 10.56.6.31:23 DeviceType:Windows Timeout:30 seconds
+<
+tdd_ev_robotws.CommonLib.connections.telnet_common.TelnetCommon instance at 0x05685198
+>
+.
+
+
+
+
+This keyword is used to kill the processes related to QTP application.
+
+Start to kill QTP process.
+
+Finshed to kill QTP process.
+
+
+
+
+This keyword stops BTS system(UDP) log catching.
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${case_execute_log_name}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${case_execute_log_name}
+
+
+
+
+${return} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Save Infomodel Log
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+
+Save InfoModel log.
+
+
+${TEST_LOG_DIR}\\${case_execute_log_name}
+
+
+[infomodel_control.py@214] save infomodel log to file: 'D:\TA_logs\TestLog_20170730170849\ev_logs\FZFI_Operational_Cell_block_unblock_20170730172900\FZFI_Operational_Cell_block_unblock\owner_debug' succeed .
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Stop Infomodel
+
+
+
+Disconnect from InfoModel and teardown InfoModel. Keyword will
+
+[infomodel_control.py@186] stop infomodel logger succeed .
+
+[infomodel_control.py@198] stop infomodel succeed .
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Release_TM500_And_Colse_PA_Port
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+${return}
+
+Run Keyword And Ignore Error
+
+Variable Should Exist
+
+${TM500_Use_Tag}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword If
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Use_Tag}'=='used'
+
+Set Attenuators Off
+
+${ATT_ALL_INFO}
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${TM500_Pppoe_Tag}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TM500_Pppoe_Tag}
+
+
+Variable ${TM500_Pppoe_Tag} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${TM500_Pppoe_Tag} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Pppoe_Tag} '=='used'
+
+Switch Host Connection
+
+${TM500_PC_CONNECTION}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${TM500_Pppoe_Tag} '=='used'
+
+Tm500 Stop Pppoe Connection
+
+
+
+
+
+tm500 teardown.
+
+[tm500.py@590] Prev msg: C: LCFG 0x00 Ok
+
+I: TMAE 0x1 Warning - Logging has been stopped automatically.
+
+[tm500.py@1727] TM500 command to be sent: #$$DISCONNECT
+
+[tm500.py@1735] TM500 command reply: C: DISCONNECT 0x02 Failure of the command(s):
+
+DISCONNECT : Failure. Not connected
+
+[tm500.py@436] Release TM500 Resource:
+
+sent -
+>
+"release"
+
+received
+<
+- "Bye!"
+
+Robot Framework remote server at 0.0.0.0:8275 stopping
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,03F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,03F0*', Receive
+<
+-'$TA,C,03F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,03*', Receive
+<
+-'$TA,C,03F0*'
+
+$TA,C,04F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,04F0*', Receive
+<
+-'$TA,C,04F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,04*', Receive
+<
+-'$TA,C,04F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+
+
+${ret1} = PASS
+
+${ret2} = None
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+
+
+
+This keyword set attenuation value for one eNB cell.
+
+
+${CELL${index}_ATT_INFO}
+
+120
+
+120
+
+
+$TA,C,03F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,03F0*', Receive
+<
+-'$TA,C,03F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,03*', Receive
+<
+-'$TA,C,03F0*'
+
+$TA,C,04F0*
+
+[attenuator_control.py@445] send-
+>
+'$TA,C,04F0*', Receive
+<
+-'$TA,C,04F0*'
+
+[attenuator_control.py@450] send-
+>
+'$TA,H,04*', Receive
+<
+-'$TA,C,04F0*'
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${CELL${index}_ATT_INFO}
+
+
+
+${ret1}
+
+${ret2}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${CELL${index}_ATT_INFO}
+
+
+Variable ${CELL3_ATT_INFO} does not exist.
+
+
+
+${ret1} = FAIL
+
+${ret2} = Variable ${CELL3_ATT_INFO} does not exist.
+
+
+
+
+Stops executing the enclosing for loop if the ``condition`` is true.
+
+
+'${ret1}'=='FAIL'
+
+
+Exiting for loop altogether.
+
+
+
+
+
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Set Test Variable
+
+${TM500_Use_Tag}
+
+unused
+
+
+
+
+
+Makes a variable available everywhere within the scope of the current test.
+
+
+${TM500_Pppoe_Tag}
+
+unused
+
+
+${TM500_Pppoe_Tag} = unused
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Variable Should Exist
+
+${route_add_cpe_pc}
+
+
+
+${return}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${route_add_cpe_pc}
+
+
+Variable ${route_add_cpe_pc} does not exist.
+
+
+
+${return} = ('FAIL', u'Variable ${route_add_cpe_pc} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return[0]}'=='PASS'
+
+Run Keyword If
+
+'${route_add_cpe_pc}'=='true'
+
+Execute Shell Command
+
+route delete ${BTS_PC_INFO.IP} mask 255.255.255.255 ${UE1_INFO.ADDRESS}
+
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+Infomodel not connected.
+
+[infomodel_control.py@82] set up infomodel with following info succeed .
+
+details: address=192.168.255.1, port=12345, definitions_file_path=None
+
+++++++++++++++++++++++++++++++++++++++++++
+
+{'alarm2': [], 'alarm1': [], 'data': {'alarm2': [], 'alarm1': []}}
+
+[infomodel_control.py@100] stop infomodel succeed .
+
+
+
+
+
+${TEST_LOG_DIR}
+
+${OUTPUT_DIR}
+
+alarm_monitor.csv
+
+${TEST_NAME[:50]}
+
+
+['fatal'] ['fatal']
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Should Contain
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+
+${return1}
+
+
+
+Fails if ``container`` does not contain ``item`` one or more times.
+
+
+${TEST_NAME[:50]}
+
+Fiber
+
+
+'FZFI_Operational_Cell_block_unblock' does not contain 'Fiber'
+
+
+
+${return1} = ('FAIL', u"'FZFI_Operational_Cell_block_unblock' does not contain 'Fiber'")
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+${all_fiber_link}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Get_All_Fiber_Link
+
+
+
+
+${all_fiber_link} = ('PASS', None)
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${return1[0]}'=='PASS'
+
+Connect_Fiber_Link
+
+${all_fiber_link[1]}
+
+
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Software Reboot Bts
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Sleep
+
+60
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${return1[0]}'=='PASS'
+
+Wait Until Units Startup
+
+600
+
+192.168.255.1
+
+
+
+
+
+[Caution] this keyword step:
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'
+
+One Key Capture Bts Logs
+
+${SAVE_LOG_DIRECTORY}${/}capture_logs
+
+${one_key_capture_logs_option}
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Login
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"
+
+GUI SM Save Snapshot
+
+3
+
+
+
+
+
+
+
+
+
+get active BTS SW Build Version from enb targetBD file..
+
+
+${version}
+
+
+[enb_command_control.py@32] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Sun Jul 30 17:29:59 CST 2017 from 192.168.255.126 on pts/0
+
+-bash-4.4#
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0578D508
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+-bash-4.4#
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x0578D508
+>
+
+[enb_command_control.py@32] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Sun Jul 30 17:35:03 CST 2017 from 192.168.255.126 on pts/0
+
+-bash-4.4#
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B9E0
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_TL18_ENB_9999_170730_065118.xml
+
+-bash-4.4#
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x04E6B9E0
+>
+
+${version} = TL18_ENB_9999_170730_065118
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"
+
+semcli save snapshot
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if the test failed.
+
+
+Run Keyword And Ignore Error
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"
+
+_soam_snapshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+owner-jiaqi.jin@nokia.com
+
+QC_464834
+
+
+TM500 return message does NOT contain "Ok"! ("Ok" is case insensitive)
+
+
+TD-LTE I
+&
+V SISO1
+
+
+
+
+
+Critical Tests
+
+All Tests
+
+
+
+owner-jiaqi.jin@nokia.com
+
+QC_464834
+
+
+
+FZFI Operational Cell block unblock
+
+
+
+
+Loading tdd_config has failed. Please check if:
+
+1. you executed pybot with --variable CONFIGURATION:$your_tl_config
+
+i.e. pybot --variable CONFIGURATION:Wroclaw.test
+
+2. check if there is no problem with your configuration
+
+Error msg: Variable ${CONFIGURATION} does not exist.
+
+
+Infomodel not connected.
+
+

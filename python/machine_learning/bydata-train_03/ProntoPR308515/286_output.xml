@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180104 12:18:35.966" generator="Robot 3.0.2 (Python 2.7.13 on linux2)">
+<suite source="/home/ute/robotlte/testsuite/hangzhou/trunk/DevHZ1/LTE2104_T222_FSMF/PUSCHReceiver4UEs/LTE2104_PUSCHReceiver4UEs_T222.robot" id="s1" name="LTE2104 PUSCHReceiver4UEs T222">
+<kw type="setup" name="suiteSetup" library="Cactus">
+<msg timestamp="20180104 12:18:37.686" level="TRACE">Arguments: [  ]</msg>
+<kw name="clean_up_env" library="tdd_common">
+<msg timestamp="20180104 12:18:37.686" level="TRACE">Arguments: [ ${enb_index}='A' ]</msg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>file_should_exist</arg>
+<arg>/opt/Software/PSTools/pscli</arg>
+</arguments>
+<assign>
+<var>${ret}</var>
+</assign>
+<msg timestamp="20180104 12:18:37.687" level="TRACE">Arguments: [ 'file_should_exist' | '/opt/Software/PSTools/pscli' ]</msg>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>/opt/Software/PSTools/pscli</arg>
+</arguments>
+<msg timestamp="20180104 12:18:37.687" level="TRACE">Arguments: [ '/opt/Software/PSTools/pscli' ]</msg>
+<msg timestamp="20180104 12:18:37.688" level="FAIL">File '/opt/Software/PSTools/pscli' does not exist.</msg>
+<msg timestamp="20180104 12:18:37.688" level="DEBUG">Traceback (most recent call last):
+  None</msg>
+<status status="FAIL" endtime="20180104 12:18:37.688" starttime="20180104 12:18:37.687"></status>
+</kw>
+<msg timestamp="20180104 12:18:37.688" level="TRACE">Return: False</msg>
+<msg timestamp="20180104 12:18:37.688" level="INFO">${ret} = False</msg>
+<status status="PASS" endtime="20180104 12:18:37.688" starttime="20180104 12:18:37.687"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ret}==False</arg>
+<arg>_download_tools_to_local_pc_from_file_server</arg>
+</arguments>
+<msg timestamp="20180104 12:18:37.689" level="TRACE">Arguments: [ 'False==False' | '_download_tools_to_local_pc_from_file_server' ]</msg>
+<kw name="_download_tools_to_local_pc_from_file_server" library="tdd_common">
+<msg timestamp="20180104 12:18:37.689" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run And Return Rc And Output" library="OperatingSystem">
+<doc>Runs the given command in the system and returns the RC and output.</doc>
+<arguments>
+<arg>sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/</arg>
+</arguments>
+<msg timestamp="20180104 12:18:37.690" level="TRACE">Arguments: [ 'sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/' ]</msg>
+<msg timestamp="20180104 12:18:37.693" level="INFO">Running command 'sudo mkdir -p /opt/Software/ ;sudo chown -R ute /opt/Software/; sudo chgrp -R ute /opt/Software/ 2&gt;&amp;1'.</msg>
+<msg timestamp="20180104 12:18:37.712" level="TRACE">Return: (0, '')</msg>
+<status status="PASS" endtime="20180104 12:18:37.712" starttime="20180104 12:18:37.690"></status>
+</kw>
+<kw name="Get ENB Version by TargetBD" library="tdd_common">
+<assign>
+<var>${enb_version}</var>
+</assign>
+<msg timestamp="20180104 12:18:37.713" level="TRACE">Arguments: [ ${partition}='active' | ${enb_index}='A' ]</msg>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${tl.enb["${enb_index}"].fsm.hw_version}'=='FZM'</arg>
+<arg>fzm</arg>
+<arg>fsmf</arg>
+</arguments>
+<assign>
+<var>${hw_version}</var>
+</assign>
+<msg timestamp="20180104 12:18:37.714" level="TRACE">Arguments: [ "'FSMF'=='FZM'" | 'fzm' | 'fsmf' ]</msg>
+<msg timestamp="20180104 12:18:37.714" level="TRACE">Return: 'fsmf'</msg>
+<msg timestamp="20180104 12:18:37.714" level="INFO">${hw_version} = fsmf</msg>
+<status status="PASS" endtime="20180104 12:18:37.715" starttime="20180104 12:18:37.713"></status>
+</kw>
+<kw name="Setup Enb Fsm Access" library="ute_fsmaccess">
+<doc>Prepare Ssh Connection to eNB Fsm.</doc>
+<arguments>
+<arg>env=${hw_version}</arg>
+<arg>remote_host=${tl.enb['${enb_index}'].fsm_control_pc.host}</arg>
+</arguments>
+<msg timestamp="20180104 12:18:37.715" level="TRACE">Arguments: [ env='fsmf' | remote_host=b'127.0.0.1' ]</msg>
+<msg timestamp="20180104 12:18:37.716" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20180104 12:18:37.716" starttime="20180104 12:18:37.715"></status>
+</kw>
+<kw name="Get Enb Targetbd File" library="ute_fsmaccess">
+<doc>Copy TargetBD file from defined partition of eNB to specified localization on PC.</doc>
+<arguments>
+<arg>${KISS DEBUG LOG DIR()}</arg>
+<arg>${partition}</arg>
+</arguments>
+<assign>
+<var>${TargetBD_name}</var>
+</assign>
+<msg timestamp="20180104 12:18:37.723" level="TRACE">Arguments: [ '/home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837/kiss_debug_log/' | 'active' ]</msg>
+<msg timestamp="20180104 12:18:37.992" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: be00a1b25f2c5ac11d950265f546bf14</msg>
+<msg timestamp="20180104 12:18:37.994" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20180104 12:18:38.059" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20180104 12:18:38.398" level="DEBUG">Adding ssh-rsa host key for [127.0.0.1]:38151: 7606fa38ca8e1d48d00ce5eeaf4daa19</msg>
+<msg timestamp="20180104 12:18:38.399" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20180104 12:18:38.480" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20180104 12:18:58.754" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20180104 12:18:58.761" level="FAIL">SSHClientException: No match found for ' &gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:17:15 CST 2018 from 192.168.255.126 on ssh
+-bash-4.4# .</msg>
+<msg timestamp="20180104 12:18:58.761" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/interface/enbfsm.py", line 132, in get_enb_targetbd_file
+    source, destination = self.enb_store.get(alias=kwargs.get('alias')).get_enb_targetbd(dst=destination, partition=partition)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 29, in __call__
+    with self.establish_ssh(args[0]):
+  File "/opt/ute/python/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 45, in establish_ssh
+    yield fsm_access.setup()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/fsmaccess.py", line 67, in setup
+    self._fsm_connection_client = self._fsm_connection_manager.start()
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_fsmaccess/manager.py", line 77, in start
+    self.client.login(self.user, self.password, look_for_keys=True)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 150, in login
+    return self._read_login_output(delay)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 164, in _read_login_output
+    return self.read_until_prompt()
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 395, in read_until_prompt
+    return self.read_until(self.config.prompt)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 349, in read_until
+    return self._read_until(lambda s: expected in s, expected)
+  File "/opt/ute/python/lib/python2.7/site-packages/SSHLibrary/abstractclient.py", line 360, in _read_until
+    % (expected, timeout, output))</msg>
+<status status="FAIL" endtime="20180104 12:18:58.762" starttime="20180104 12:18:37.716"></status>
+</kw>
+<kw type="teardown" name="Teardown Enb Fsm Access" library="ute_fsmaccess">
+<doc>Close SSH session and cleanup connection.</doc>
+<msg timestamp="20180104 12:18:58.764" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20180104 12:18:58.764" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20180104 12:18:58.764" starttime="20180104 12:18:58.763"></status>
+</kw>
+<status status="FAIL" endtime="20180104 12:18:58.764" starttime="20180104 12:18:37.712"></status>
+</kw>
+<status status="FAIL" endtime="20180104 12:18:58.766" starttime="20180104 12:18:37.689"></status>
+</kw>
+<status status="FAIL" endtime="20180104 12:18:58.766" starttime="20180104 12:18:37.689"></status>
+</kw>
+<status status="FAIL" endtime="20180104 12:18:58.767" starttime="20180104 12:18:37.686"></status>
+</kw>
+<status status="FAIL" endtime="20180104 12:18:58.767" starttime="20180104 12:18:37.685"></status>
+</kw>
+<test id="s1-t1" name="LTE2104_A_d_PUSCH_Receiver_4UEs_T222">
+<tags>
+<tag>CIT</tag>
+<tag>CLOUD_FAA</tag>
+<tag>qc_test_instance_id:282987</tag>
+<tag>qc_test_set_id:23141</tag>
+<tag>TL00</tag>
+</tags>
+<status status="FAIL" endtime="20180104 12:18:58.770" critical="yes" starttime="20180104 12:18:58.768">Parent suite setup failed:
+SSHClientException: No match found for ' &gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:17:15 CST 2018 from 192.168.255.126 on ssh
+-bash-4.4# .</status>
+</test>
+<kw type="teardown" name="suiteTeardown" library="Cactus">
+<msg timestamp="20180104 12:18:58.772" level="TRACE">Arguments: [  ]</msg>
+<kw name="Teardown Ue" library="tdd_ue">
+<doc>kill ssh connetion on ue control pc</doc>
+<msg timestamp="20180104 12:18:58.774" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20180104 12:18:58.776" level="WARN">Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20180104 12:18:58.778" level="TRACE">Return: None</msg>
+<msg timestamp="20180104 12:18:58.779" level="FAIL">AttributeError: 'tdd_ue' object has no attribute '_ue_exist'</msg>
+<msg timestamp="20180104 12:18:58.780" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 86, in teardown_ue
+    if not self._ue_exist:</msg>
+<status status="FAIL" endtime="20180104 12:18:58.780" starttime="20180104 12:18:58.774"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>stop_aatrace</arg>
+<arg>alias=aatrace_BTS_Startup_first</arg>
+</arguments>
+<msg timestamp="20180104 12:18:58.782" level="TRACE">Arguments: [ 'stop_aatrace' | 'alias=aatrace_BTS_Startup_first' ]</msg>
+<kw name="Stop Aatrace" library="tdd_aatrace">
+<doc>Stops aatrace service.</doc>
+<arguments>
+<arg>alias=aatrace_BTS_Startup_first</arg>
+</arguments>
+<msg timestamp="20180104 12:18:58.784" level="TRACE">Arguments: [ alias='aatrace_BTS_Startup_first' ]</msg>
+<msg timestamp="20180104 12:18:58.785" level="TRACE">Return: None</msg>
+<msg timestamp="20180104 12:18:58.785" level="FAIL">AliasError: Provided alias (aatrace_BTS_Startup_first) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20180104 12:18:58.785" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_aatrace/interface.py", line 209, in stop_aatrace
+    self.json_store.remove(alias)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 67, in remove
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20180104 12:18:58.785" starttime="20180104 12:18:58.784"></status>
+</kw>
+<msg timestamp="20180104 12:18:58.786" level="TRACE">Return: (b'FAIL', "AliasError: Provided alias (aatrace_BTS_Startup_first) doesn't exist. Please setup library before any other operation.")</msg>
+<status status="PASS" endtime="20180104 12:18:58.786" starttime="20180104 12:18:58.781"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>stop_and_collect_enb_syslog</arg>
+</arguments>
+<msg timestamp="20180104 12:18:58.786" level="TRACE">Arguments: [ 'stop_and_collect_enb_syslog' ]</msg>
+<kw name="Stop And Collect Enb Syslog" library="tdd_bts">
+<doc>Stop syslogging and download the created file to the test result directory.</doc>
+<msg timestamp="20180104 12:18:58.787" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20180104 12:18:58.788" level="TRACE">Return: None</msg>
+<msg timestamp="20180104 12:18:58.788" level="FAIL">AliasError: Provided alias (enb) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20180104 12:18:58.788" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_bts/interface.py", line 72, in stop_and_collect_enb_syslog
+    log_dir = self._store.get(alias)['enb_syslog']
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20180104 12:18:58.788" starttime="20180104 12:18:58.787"></status>
+</kw>
+<msg timestamp="20180104 12:18:58.789" level="TRACE">Return: (b'FAIL', "AliasError: Provided alias (enb) doesn't exist. Please setup library before any other operation.")</msg>
+<status status="PASS" endtime="20180104 12:18:58.789" starttime="20180104 12:18:58.786"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>stop and collect iphy syslog</arg>
+</arguments>
+<msg timestamp="20180104 12:18:58.789" level="TRACE">Arguments: [ 'stop and collect iphy syslog' ]</msg>
+<kw name="Stop And Collect Iphy Syslog" library="tdd_ue">
+<doc>Stop syslogging and download the created file to the test result directory.</doc>
+<msg timestamp="20180104 12:18:58.790" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20180104 12:18:58.791" level="TRACE">Return: None</msg>
+<msg timestamp="20180104 12:18:58.791" level="FAIL">AliasError: Provided alias (wts) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20180104 12:18:58.791" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/resource.py", line 142, in stop_and_collect_iphy_syslog
+    log_dir = self._store.get(alias)['iphy_syslog']
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20180104 12:18:58.791" starttime="20180104 12:18:58.790"></status>
+</kw>
+<msg timestamp="20180104 12:18:58.791" level="TRACE">Return: (b'FAIL', "AliasError: Provided alias (wts) doesn't exist. Please setup library before any other operation.")</msg>
+<status status="PASS" endtime="20180104 12:18:58.791" starttime="20180104 12:18:58.789"></status>
+</kw>
+<kw name="Get Enb Specific File" library="tdd_bts">
+<doc>This keyword for get specific file(s) from enb, you can get more than two files one time.</doc>
+<arguments>
+<arg>${TEST LOG DIRECTORY()}</arg>
+<arg>scfc</arg>
+</arguments>
+<assign>
+<var>${full_scfc_path}</var>
+</assign>
+<msg timestamp="20180104 12:18:58.799" level="TRACE">Arguments: [ '/home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837/' | 'scfc' ]</msg>
+<msg timestamp="20180104 12:18:58.882" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: be00a1b25f2c5ac11d950265f546bf14</msg>
+<msg timestamp="20180104 12:18:58.884" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20180104 12:18:58.949" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20180104 12:18:59.220" level="DEBUG">Adding ssh-rsa host key for [127.0.0.1]:24698: 7606fa38ca8e1d48d00ce5eeaf4daa19</msg>
+<msg timestamp="20180104 12:18:59.222" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20180104 12:18:59.339" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20180104 12:19:19.607" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20180104 12:19:19.612" level="TRACE">Return: None</msg>
+<msg timestamp="20180104 12:19:19.612" level="INFO">${full_scfc_path} = None</msg>
+<msg timestamp="20180104 12:19:19.612" level="FAIL">[get scfc error]: No match found for '&gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:18:38 CST 2018 from 192.168.255.126 on pts/0
+-bash-4.4# .</msg>
+<msg timestamp="20180104 12:19:19.613" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_bts/interface.py", line 688, in get_enb_specific_file
+    snapshot_timeout=int(snapshot_timeout), alias=alias)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_bts/filecollector/get_file.py", line 280, in get_enb_specific_file
+    raise Exception(e)</msg>
+<status status="FAIL" endtime="20180104 12:19:19.613" starttime="20180104 12:18:58.792"></status>
+</kw>
+<kw name="run_process_and_get_output" library="tdd_robot_builtin">
+<doc>This keyword for run command and returns the output.</doc>
+<arguments>
+<arg>grep -w "FATAL" ${TEST LOG DIRECTORY()}${/}btslog_startup* | wc -l</arg>
+</arguments>
+<assign>
+<var>${btslog_fatal_startup}</var>
+</assign>
+<msg timestamp="20180104 12:19:19.619" level="TRACE">Arguments: [ ${command}='grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//btslog_startup* | wc -l' ]</msg>
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180104 12:19:19.620" level="TRACE">Arguments: [ 'grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//btslog_startup* | wc -l' | shell='True' ]</msg>
+<msg timestamp="20180104 12:19:19.620" level="INFO">Starting process:
+grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//btslog_startup* | wc -l</msg>
+<msg timestamp="20180104 12:19:19.620" level="DEBUG">Process configuration:
+cwd:     /home/ute/robotlte
+shell:   True
+stdout:  PIPE
+stderr:  PIPE
+alias:   None
+env:     None</msg>
+<msg timestamp="20180104 12:19:19.626" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20180104 12:19:19.628" level="INFO">Process completed.</msg>
+<msg timestamp="20180104 12:19:19.629" level="TRACE">Return: &lt;robot.libraries.Process.ExecutionResult object at 0x7f90152f4850&gt;</msg>
+<msg timestamp="20180104 12:19:19.631" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20180104 12:19:19.631" starttime="20180104 12:19:19.620"></status>
+</kw>
+<msg timestamp="20180104 12:19:19.634" level="TRACE">Return: '0'</msg>
+<msg timestamp="20180104 12:19:19.634" level="INFO">${btslog_fatal_startup} = 0</msg>
+<status status="PASS" endtime="20180104 12:19:19.634" starttime="20180104 12:19:19.613"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${btslog_fatal_startup}==0</arg>
+</arguments>
+<msg timestamp="20180104 12:19:19.639" level="TRACE">Arguments: [ '0==0' ]</msg>
+<msg timestamp="20180104 12:19:19.639" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20180104 12:19:19.640" starttime="20180104 12:19:19.637"></status>
+</kw>
+<kw name="run_process_and_get_output" library="tdd_robot_builtin">
+<doc>This keyword for run command and returns the output.</doc>
+<arguments>
+<arg>grep -w "FATAL" ${TEST LOG DIRECTORY()}${/}iphylog_startup* | wc -l</arg>
+</arguments>
+<assign>
+<var>${iphylog_fatal_startup}</var>
+</assign>
+<msg timestamp="20180104 12:19:19.651" level="TRACE">Arguments: [ ${command}='grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//iphylog_startup* | wc -l' ]</msg>
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180104 12:19:19.653" level="TRACE">Arguments: [ 'grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//iphylog_startup* | wc -l' | shell='True' ]</msg>
+<msg timestamp="20180104 12:19:19.653" level="INFO">Starting process:
+grep -w "FATAL" /home/ute/test_results/log/LTE2104_PUSCHReceiver4UEs_T222_20180104121837//iphylog_startup* | wc -l</msg>
+<msg timestamp="20180104 12:19:19.653" level="DEBUG">Process configuration:
+cwd:     /home/ute/robotlte
+shell:   True
+stdout:  PIPE
+stderr:  PIPE
+alias:   None
+env:     None</msg>
+<msg timestamp="20180104 12:19:19.658" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20180104 12:19:19.660" level="INFO">Process completed.</msg>
+<msg timestamp="20180104 12:19:19.660" level="TRACE">Return: &lt;robot.libraries.Process.ExecutionResult object at 0x7f90164e1c90&gt;</msg>
+<msg timestamp="20180104 12:19:19.660" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" endtime="20180104 12:19:19.660" starttime="20180104 12:19:19.652"></status>
+</kw>
+<msg timestamp="20180104 12:19:19.661" level="TRACE">Return: '0'</msg>
+<msg timestamp="20180104 12:19:19.661" level="INFO">${iphylog_fatal_startup} = 0</msg>
+<status status="PASS" endtime="20180104 12:19:19.661" starttime="20180104 12:19:19.641"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${iphylog_fatal_startup}==0</arg>
+</arguments>
+<msg timestamp="20180104 12:19:19.663" level="TRACE">Arguments: [ '0==0' ]</msg>
+<msg timestamp="20180104 12:19:19.663" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20180104 12:19:19.663" starttime="20180104 12:19:19.662"></status>
+</kw>
+<msg timestamp="20180104 12:19:19.664" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20180104 12:19:19.664" starttime="20180104 12:18:58.771">Several failures occurred:
+
+1) AttributeError: 'tdd_ue' object has no attribute '_ue_exist'
+
+2) [get scfc error]: No match found for '&gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:18:38 CST 2018 from 192.168.255.126 on pts/0
+-bash-4.4# .</status>
+</kw>
+<doc>LTE2104_T222 active UlCoMp with softbit combining</doc>
+<status status="FAIL" endtime="20180104 12:19:19.665" starttime="20180104 12:18:35.968">Suite setup failed:
+SSHClientException: No match found for ' &gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:17:15 CST 2018 from 192.168.255.126 on ssh
+-bash-4.4# .
+
+Also suite teardown failed:
+Several failures occurred:
+
+1) AttributeError: 'tdd_ue' object has no attribute '_ue_exist'
+
+2) [get scfc error]: No match found for '&gt;' in 20 seconds
+Output:
+Last login: Thu Jan  4 19:18:38 CST 2018 from 192.168.255.126 on pts/0
+-bash-4.4# .</status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">CIT</stat>
+<stat fail="1" pass="0">CLOUD_FAA</stat>
+<stat fail="1" pass="0">qc_test_instance_id:282987</stat>
+<stat fail="1" pass="0">qc_test_set_id:23141</stat>
+<stat fail="1" pass="0">TL00</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="LTE2104 PUSCHReceiver4UEs T222" pass="0">LTE2104 PUSCHReceiver4UEs T222</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180104 12:18:58.776" level="WARN">Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+</errors>
+</robot>

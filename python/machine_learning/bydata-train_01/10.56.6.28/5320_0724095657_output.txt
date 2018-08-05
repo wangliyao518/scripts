@@ -1,0 +1,838 @@
+
+
+
+this keyword create suite name directory path as D:\TA\TA_logs\TestLog_20170724095525//logs//
+
+
+This keyword return the time stamp, default format is: 'yyyymmddhhmmss'
+
+
+${timestamp}
+
+
+${timestamp} = 20170724095537
+
+
+
+
+Replaces ``pattern`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_NAME[:50]}
+
+\\s+$
+
+${EMPTY}
+
+
+
+${FILE_NAME}
+
+
+${FILE_NAME} = FZHQ T2 Throughput UDP 20M TM4 4X2 2 7
+
+
+
+
+Catenates the given items together and returns the resulted string.
+
+
+SEPARATOR=${/}
+
+${OUTPUT_DIR}
+
+ev_logs
+
+${FILE_NAME}_${timestamp}
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ T2 Throughput UDP 20M TM4 4X2 2 7_20170724095537
+
+
+
+
+Replaces ``search_for`` in the given ``string`` with ``replace_with``.
+
+
+${SUITE_LOG_DIRECTORY}
+
+${SPACE}
+
+_
+
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+${SUITE_LOG_DIRECTORY} = D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+
+
+
+
+Creates the specified directory.
+
+
+${SUITE_LOG_DIRECTORY}
+
+
+Created directory '
+<
+a href="file://D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537"
+>
+D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+<
+/a
+>
+'.
+
+
+
+
+Logs the given message with the given level.
+
+
+save log dir:${SUITE_LOG_DIRECTORY}
+
+
+save log dir:D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${snapshot_flag}
+
+0
+
+
+${snapshot_flag} = 0
+
+
+
+
+This keyword return useable LOG directory.
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${TEST LOG DIR}
+
+
+
+${case_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${TEST LOG DIR}
+
+
+Variable ${TEST LOG DIR} does not exist.
+
+
+
+${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+variable should exist
+
+${SUITE LOG DIRECTORY}
+
+
+
+${suite_dir_exist}
+
+
+
+Fails unless the given variable exists within the current scope.
+
+
+${SUITE LOG DIRECTORY}
+
+
+
+
+${suite_dir_exist} = ('PASS', None)
+
+
+
+
+Sets variable based on the given condition.
+
+
+'PASS'=='${case_dir_exist[0]}'
+
+${TEST LOG DIR}
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+${log dir}
+
+
+
+Sets variable based on the given condition.
+
+
+'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'
+
+${SUITE LOG DIRECTORY}
+
+'FAIL'=='${suite_dir_exist[0]}'
+
+${OUTPUT_DIR}
+
+
+
+
+${log dir} = D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+
+
+
+
+Makes a variable available everywhere within the scope of the current suite.
+
+
+${SAVE LOG DIRECTORY}
+
+${log dir}
+
+
+${SAVE LOG DIRECTORY} = D:\TA\TA_logs\TestLog_20170724095525\ev_logs\FZHQ_T2_Throughput_UDP_20M_TM4_4X2_2_7_20170724095537
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Make Sure FCT Ping Ok
+
+
+
+
+This function is used for check whether ping host success, if yes, return 1, else return 0
+
+
+${FCMD_IP}
+
+
+
+${status}
+
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+${status} = True
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+300
+
+${FTM_IP}
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Btscli Disable Bts Port Security
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is false.
+
+
+${status}
+
+Wait Until Units Startup
+
+60
+
+${FCMD_IP}
+
+
+
+
+
+Displays the given messages in the log file as keyword arguments.
+
+
+Wait Until Keyword Succeeds
+
+5min
+
+5s
+
+_make sure fctb connect ok
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+get_enb_infomation
+
+
+
+This keyword will print bts sw version, bbu type and RRU type.
+
+[ping_control.py@189]
+
+Pinging 192.168.255.1 with 32 bytes of data:
+
+Reply from 192.168.255.1: bytes=32 time
+<
+1ms TTL=255
+
+
+Ping statistics for 192.168.255.1:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+Approximate round trip times in milli-seconds:
+
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:54:12 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05411DA0
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05411DA0
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:55:39 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05489288
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05489288
+>
+
+[ftm_control.py@299] SRAN don't need to enable ssh and rdport
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:55:49 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x026EF1C0
+>
+
+[ssh_common.py@258] Execute command: readlink /ffs/run
+
+[ssh_common.py@314] Get Response: readlink /ffs/run
+
+/ffs/fs1
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x026EF1C0
+>
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:56:00 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046A9FA8
+>
+
+[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml
+
+[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+
+TargetBD_SBTS00_TDDFSM4_9999_170608_000754.xml
+
+root@fctj-4a:/ffs/fs1
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x046A9FA8
+>
+
+[enb_resource.py@1139]
+
+****Current BTS version is 'SBTS00_TDDFSM4_9999_170608_000754' *****
+
+[enb_resource.py@1169] activeBuildVersion=SBTS00_TDDFSM4_9999_170608_000754
+
+[enb_command_control.py@33] argument host is: 192.168.255.1
+
+[ssh_common.py@203] Last login: Mon Jul 24 09:56:10 CST 2017 from 192.168.255.126 on pts/0
+
+root@fctj-4a:~
+>
+
+[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05411AA8
+>
+
+[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml
+
+[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+
+ls: cannot access /ram/SiteConf.xml: No such file or directory
+
+root@fctj-4a:~
+>
+
+[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds
+<
+tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x05411AA8
+>
+
+[enb_resource.py@1139]
+
+****Not find /ram/SiteConf.xml *****
+
+[ping_control.py@189]
+
+Pinging 192.168.255.20 with 32 bytes of data:
+
+Reply from 192.168.255.126: Destination host unreachable.
+
+
+Ping statistics for 192.168.255.20:
+
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+
+
+
+
+
+Sets the resolution order to use when a name matches multiple keywords.
+
+
+tdd_ev_robotws
+
+OperatingSystem
+
+
+
+
+
+
+used to get operation system platform version, can be used to judge if
+
+
+with_connection=${false}
+
+
+
+${platform_version}
+
+
+${platform_version} = Windows-7-6.1.7601-SP1
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+${TELNET_PORT}
+
+${SSH_PORT}
+
+
+
+${conn_port}
+
+
+${conn_port} = 23
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+TELNET
+
+SSH
+
+
+
+${conn_type}
+
+
+${conn_type} = TELNET
+
+
+
+
+Sets variable based on the given condition.
+
+
+"Windows" in "${platform_version}"
+
+30
+
+5
+
+
+
+${timeout}
+
+
+${timeout} = 30
+
+
+
+
+Used to connect to host, either TELNET or SSH
+
+
+${BTS_PC_INFO.IP}
+
+port=${conn_port}
+
+username=${BTS_PC_INFO.USERNAME}
+
+password=${BTS_PC_INFO.PASSWORD}
+
+conn_type=${conn_type}
+
+timeout=${timeout}
+
+
+
+${BTS_PC_CONNECTION}
+
+
+[telnet_common.py@306] Get Response: Welcome to Microsoft Telnet Service
+
+
+
+login:
+
+[telnet_common.py@276] Execute command: tdlte-tester
+
+[telnet_common.py@306] Get Response:  tdlte-tester
+
+
+password:
+
+[telnet_common.py@276] Execute command: btstest
+
+[telnet_common.py@394] Telnet: Eof detected
+
+[telnet_common.py@424] Telnet:
+<
+<
+expect 2017-07-24 09:56:54 no any pattern matched
+
+[telnet_common.py@235] Get Response:
+
+Denying new connections due to the limit on number of connections.
+
+No match found for prompt "'[\\;\[\.\-a-zA-Z0-9\s]+@.*[$
+>
+#]{1}\s{0,1}$', '[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$' or '^[a-zA-Z0-9@_\-\(\)\.\s]*[$#
+>
+]{1}\s{0,1}$'" in 30.0sec, detail info: "
+
+Denying new connections due to the limit on number of connections."
+
+
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments, if ``condition`` is true.
+
+
+'${REMOVE_LOGS}'=='on'
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+Closes all existing telnet connections to remote hosts.
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Zip File
+
+${SUITE_LOG_DIRECTORY}
+
+${SUITE_LOG_DIRECTORY}.zip
+
+
+
+
+
+
+
+Runs the given keyword with the given arguments and ignores possible error.
+
+
+Run Keyword If All Tests Passed
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+Runs the given keyword with the given arguments, if all tests passed.
+
+
+Remove Directory
+
+${SUITE_LOG_DIRECTORY}
+
+${True}
+
+
+
+
+
+
+
+
+
+
+owner-sue.nie@nokia.com
+
+QC_720763
+
+
+Parent suite setup failed:
+
+No match found for prompt "'[\\;\[\.\-a-zA-Z0-9\s]+@.*[$
+>
+#]{1}\s{0,1}$', '[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$' or '^[a-zA-Z0-9@_\-\(\)\.\s]*[$#
+>
+]{1}\s{0,1}$'" in 30.0sec, detail info: "
+
+Denying new connections due to the limit on number of connections."
+
+
+TD-LTE I
+&
+V SISO1
+
+Suite setup failed:
+
+No match found for prompt "'[\\;\[\.\-a-zA-Z0-9\s]+@.*[$
+>
+#]{1}\s{0,1}$', '[CDEFGHcdefgh]:[\\/\-a-zA-Z0-9\s\._~
+&
+\(\)]*[^\s]
+>
+\s?$' or '^[a-zA-Z0-9@_\-\(\)\.\s]*[$#
+>
+]{1}\s{0,1}$'" in 30.0sec, detail info: "
+
+Denying new connections due to the limit on number of connections."
+
+
+
+
+Critical Tests
+
+All Tests
+
+
+
+owner-sue.nie@nokia.com
+
+QC_720763
+
+
+
+FZHQ T2 Throughput UDP 20M TM4 4X2 2 7
+
+
+
+
+Loading tdd_config has failed. Please check if:
+
+1. you executed pybot with --variable CONFIGURATION:$your_tl_config
+
+i.e. pybot --variable CONFIGURATION:Wroclaw.test
+
+2. check if there is no problem with your configuration
+
+Error msg: Variable ${CONFIGURATION} does not exist.
+
+
+[telnet_common.py@394] Telnet: Eof detected
+
+[telnet_common.py@424] Telnet:
+<
+<
+expect 2017-07-24 09:56:54 no any pattern matched
+
+[telnet_common.py@235] Get Response:
+
+Denying new connections due to the limit on number of connections.
+
+

@@ -1,0 +1,1978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171225 10:48:12.489" generator="Robot 3.0.2 (Python 2.7.13 on linux2)">
+<suite source="/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/Case/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability.robot" id="s1" name="TA TD LTE TM8 Tput UDP 20M 1 7 stability">
+<kw type="setup" name="Common Suite Setup FEVE" library="RT3_iphy_resource">
+<doc>1. Initial Connection For Tshark</doc>
+<msg timestamp="20171225 10:49:48.023" level="TRACE">Arguments: [  ]</msg>
+<kw name="Common Suite Setup" library="common_resource">
+<doc>this keyword create suite name directory path as /home/ute/test_results//logs//</doc>
+<msg timestamp="20171225 10:49:48.027" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.028" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 10:49:48.059" level="TRACE">Return: b'20171225104948'</msg>
+<msg timestamp="20171225 10:49:48.059" level="INFO">${timestamp} = 20171225104948</msg>
+<status status="PASS" endtime="20171225 10:49:48.059" starttime="20171225 10:49:48.027"></status>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_NAME[:50]}</arg>
+<arg>\\s+$</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<assign>
+<var>${FILE_NAME}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.060" level="TRACE">Arguments: [ 'TA TD LTE TM8 Tput UDP 20M 1 7 stability' | '\\s+$' | b'' ]</msg>
+<msg timestamp="20171225 10:49:48.061" level="TRACE">Return: 'TA TD LTE TM8 Tput UDP 20M 1 7 stability'</msg>
+<msg timestamp="20171225 10:49:48.061" level="INFO">${FILE_NAME} = TA TD LTE TM8 Tput UDP 20M 1 7 stability</msg>
+<status status="PASS" endtime="20171225 10:49:48.061" starttime="20171225 10:49:48.060"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${OUTPUT_DIR}</arg>
+<arg>ev_logs</arg>
+<arg>${FILE_NAME}_${timestamp}</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.062" level="TRACE">Arguments: [ 'SEPARATOR=/' | '/home/ute/test_results' | 'ev_logs' | 'TA TD LTE TM8 Tput UDP 20M 1 7 stability_20171225104948' ]</msg>
+<msg timestamp="20171225 10:49:48.062" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA TD LTE TM8 Tput UDP 20M 1 7 stability_20171225104948'</msg>
+<msg timestamp="20171225 10:49:48.063" level="INFO">${SUITE_LOG_DIRECTORY} = /home/ute/test_results/ev_logs/TA TD LTE TM8 Tput UDP 20M 1 7 stability_20171225104948</msg>
+<status status="PASS" endtime="20171225 10:49:48.063" starttime="20171225 10:49:48.062"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${SUITE_LOG_DIRECTORY}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.064" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA TD LTE TM8 Tput UDP 20M 1 7 stability_20171225104948' | b' ' | '_' ]</msg>
+<msg timestamp="20171225 10:49:48.064" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948'</msg>
+<msg timestamp="20171225 10:49:48.064" level="INFO">${SUITE_LOG_DIRECTORY} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948</msg>
+<status status="PASS" endtime="20171225 10:49:48.064" starttime="20171225 10:49:48.063"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.065" level="TRACE">Arguments: [ '${SUITE_LOG_DIRECTORY}' ]</msg>
+<msg timestamp="20171225 10:49:48.065" level="INFO">${SUITE_LOG_DIRECTORY} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948</msg>
+<msg timestamp="20171225 10:49:48.065" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.065" starttime="20171225 10:49:48.065"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.066" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948' ]</msg>
+<msg timestamp="20171225 10:49:48.067" html="yes" level="INFO">Created directory '&lt;a href="file:///home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948"&gt;/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948&lt;/a&gt;'.</msg>
+<msg timestamp="20171225 10:49:48.067" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.067" starttime="20171225 10:49:48.066"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${SUITE_LOG_DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.068" level="TRACE">Arguments: [ 'save log dir:/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948' ]</msg>
+<msg timestamp="20171225 10:49:48.068" level="INFO">save log dir:/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948</msg>
+<msg timestamp="20171225 10:49:48.068" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.068" starttime="20171225 10:49:48.067"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${snapshot_flag}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.069" level="TRACE">Arguments: [ '${snapshot_flag}' | '0' ]</msg>
+<msg timestamp="20171225 10:49:48.073" level="INFO">${snapshot_flag} = 0</msg>
+<msg timestamp="20171225 10:49:48.073" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.073" starttime="20171225 10:49:48.069"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<msg timestamp="20171225 10:49:48.088" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.089" level="TRACE">Arguments: [ 'variable should exist' | '${TEST LOG DIR}' ]</msg>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.090" level="TRACE">Arguments: [ '${TEST LOG DIR}' ]</msg>
+<msg timestamp="20171225 10:49:48.098" level="FAIL">Variable ${TEST LOG DIR} does not exist.</msg>
+<msg timestamp="20171225 10:49:48.098" level="DEBUG">Traceback (most recent call last):
+  None</msg>
+<status status="FAIL" endtime="20171225 10:49:48.098" starttime="20171225 10:49:48.089"></status>
+</kw>
+<msg timestamp="20171225 10:49:48.098" level="TRACE">Return: (b'FAIL', 'Variable ${TEST LOG DIR} does not exist.')</msg>
+<msg timestamp="20171225 10:49:48.099" level="INFO">${case_dir_exist} = ('FAIL', u'Variable ${TEST LOG DIR} does not exist.')</msg>
+<status status="PASS" endtime="20171225 10:49:48.099" starttime="20171225 10:49:48.089"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.100" level="TRACE">Arguments: [ 'variable should exist' | '${SUITE LOG DIRECTORY}' ]</msg>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.101" level="TRACE">Arguments: [ '${SUITE LOG DIRECTORY}' ]</msg>
+<msg timestamp="20171225 10:49:48.101" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.101" starttime="20171225 10:49:48.100"></status>
+</kw>
+<msg timestamp="20171225 10:49:48.102" level="TRACE">Return: (b'PASS', None)</msg>
+<msg timestamp="20171225 10:49:48.104" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:49:48.104" starttime="20171225 10:49:48.099"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.105" level="TRACE">Arguments: [ "'PASS'=='FAIL'" | '${TEST LOG DIR}' | "'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'" | '${SUITE LOG DIRECTORY}' | "'FAIL'=='${suite_dir_exist[0]}'" | '${OUTPUT_DIR}' ]</msg>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.106" level="TRACE">Arguments: [ "'FAIL'=='FAIL' and 'PASS'=='PASS'" | '${SUITE LOG DIRECTORY}' | "'FAIL'=='${suite_dir_exist[0]}'" | '${OUTPUT_DIR}' ]</msg>
+<msg timestamp="20171225 10:49:48.107" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948'</msg>
+<status status="PASS" endtime="20171225 10:49:48.107" starttime="20171225 10:49:48.106"></status>
+</kw>
+<msg timestamp="20171225 10:49:48.107" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948'</msg>
+<msg timestamp="20171225 10:49:48.107" level="INFO">${log dir} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948</msg>
+<status status="PASS" endtime="20171225 10:49:48.107" starttime="20171225 10:49:48.104"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.108" level="TRACE">Arguments: [ '${SAVE LOG DIRECTORY}' | '${log dir}' ]</msg>
+<msg timestamp="20171225 10:49:48.113" level="INFO">${SAVE LOG DIRECTORY} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948</msg>
+<msg timestamp="20171225 10:49:48.113" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:49:48.113" starttime="20171225 10:49:48.108"></status>
+</kw>
+<msg timestamp="20171225 10:49:48.114" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948'</msg>
+<status status="PASS" endtime="20171225 10:49:48.114" starttime="20171225 10:49:48.088"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>20min</arg>
+<arg>30sec</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<msg timestamp="20171225 10:49:48.115" level="TRACE">Arguments: [ '20min' | '30sec' | 'Initial Connection With BTS PC' ]</msg>
+<kw name="Initial Connection With BTS PC" library="common_resource">
+<msg timestamp="20171225 10:49:48.116" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.117" level="TRACE">Arguments: [ with_connection=False ]</msg>
+<msg timestamp="20171225 10:49:48.118" level="TRACE">Return: b'Linux-3.16.0-4-amd64-x86_64-with-debian-8.9'</msg>
+<msg timestamp="20171225 10:49:48.118" level="INFO">${platform_version} = Linux-3.16.0-4-amd64-x86_64-with-debian-8.9</msg>
+<status status="PASS" endtime="20171225 10:49:48.118" starttime="20171225 10:49:48.116"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>${TELNET_PORT}</arg>
+<arg>${SSH_PORT}</arg>
+</arguments>
+<assign>
+<var>${conn_port}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.119" level="TRACE">Arguments: [ '"Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | '${TELNET_PORT}' | '${SSH_PORT}' ]</msg>
+<msg timestamp="20171225 10:49:48.119" level="TRACE">Return: 22</msg>
+<msg timestamp="20171225 10:49:48.119" level="INFO">${conn_port} = 22</msg>
+<status status="PASS" endtime="20171225 10:49:48.119" starttime="20171225 10:49:48.118"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>TELNET</arg>
+<arg>SSH</arg>
+</arguments>
+<assign>
+<var>${conn_type}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.120" level="TRACE">Arguments: [ '"Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | 'TELNET' | 'SSH' ]</msg>
+<msg timestamp="20171225 10:49:48.121" level="TRACE">Return: 'SSH'</msg>
+<msg timestamp="20171225 10:49:48.121" level="INFO">${conn_type} = SSH</msg>
+<status status="PASS" endtime="20171225 10:49:48.121" starttime="20171225 10:49:48.120"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>30</arg>
+<arg>25</arg>
+</arguments>
+<assign>
+<var>${timeout}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.122" level="TRACE">Arguments: [ '"Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | '30' | '25' ]</msg>
+<msg timestamp="20171225 10:49:48.122" level="TRACE">Return: '25'</msg>
+<msg timestamp="20171225 10:49:48.122" level="INFO">${timeout} = 25</msg>
+<status status="PASS" endtime="20171225 10:49:48.122" starttime="20171225 10:49:48.121"></status>
+</kw>
+<kw name="Connect To Host" library="tdd_ev_robotws">
+<doc>Used to connect to host, either TELNET or SSH</doc>
+<arguments>
+<arg>127.0.0.1</arg>
+<arg>port=${conn_port}</arg>
+<arg>username=${BTS_PC_INFO.USERNAME}</arg>
+<arg>password=${BTS_PC_INFO.PASSWORD}</arg>
+<arg>conn_type=${conn_type}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<assign>
+<var>${BTS_PC_CONNECTION}</var>
+</assign>
+<msg timestamp="20171225 10:49:48.124" level="TRACE">Arguments: [ '127.0.0.1' | port=22 | username=b'ute' | password=b'' | conn_type='SSH' | timeout='25' ]</msg>
+<msg timestamp="20171225 10:49:48.227" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:49:48.228" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:49:48.311" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:50:13.365" level="INFO">[ssh_common.py@203] Notice: The use of this system is restricted to users who have been granted access and authorization by Nokia. Your use of this system constitutes your express consent to Nokia's monitoring, recording and auditing of all system activities as permitted by law. Your unauthorized use of this system, or any unauthorized disclosure or use of the contents of this system by you, may be subject to company disciplinary actions and/or criminal and civil penalties.
+Last login: Mon Dec 25 10:44:55 2017 from 10.42.7.42
+ute@2-16-CLOUD912:~$</msg>
+<msg timestamp="20171225 10:50:13.368" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:50:13.383" level="TRACE">Return: &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<msg timestamp="20171225 10:50:13.384" level="INFO">${BTS_PC_CONNECTION} = 127.0.0.1:22 DeviceType:Linux Timeout:25 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<status status="PASS" endtime="20171225 10:50:13.384" starttime="20171225 10:49:48.123"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.385" level="TRACE">Arguments: [ '${BTS_PC_CONNECTION}' ]</msg>
+<msg timestamp="20171225 10:50:13.385" level="INFO">${BTS_PC_CONNECTION} = 127.0.0.1:22 DeviceType:Linux Timeout:25 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<msg timestamp="20171225 10:50:13.386" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.386" starttime="20171225 10:50:13.385"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"Windows" in "${platform_version}"</arg>
+<arg>Execute Shell Command</arg>
+<arg>tlntadmn config timeoutactive\=no</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.387" level="TRACE">Arguments: [ '"Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | 'Execute Shell Command' | 'tlntadmn config timeoutactive\\=no' ]</msg>
+<msg timestamp="20171225 10:50:13.387" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.387" starttime="20171225 10:50:13.386"></status>
+</kw>
+<msg timestamp="20171225 10:50:13.388" level="TRACE">Return: &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<status status="PASS" endtime="20171225 10:50:13.388" starttime="20171225 10:49:48.115"></status>
+</kw>
+<msg timestamp="20171225 10:50:13.388" level="TRACE">Return: &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<status status="PASS" endtime="20171225 10:50:13.388" starttime="20171225 10:49:48.115"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Make Sure FCT Ping Ok</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.389" level="TRACE">Arguments: [ 'Make Sure FCT Ping Ok' ]</msg>
+<kw name="Make Sure FCT Ping Ok" library="common_resource">
+<msg timestamp="20171225 10:50:13.390" level="TRACE">Arguments: [  ]</msg>
+<kw name="Ping Should Ok" library="tdd_ev_robotws">
+<doc>This function is used for check whether ping host success, if yes, return 1, else return 0</doc>
+<arguments>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20171225 10:50:13.390" level="TRACE">Arguments: [ b'192.168.255.1' ]</msg>
+<msg timestamp="20171225 10:50:13.401" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+64 bytes from 192.168.255.1: icmp_seq=1 ttl=255 time=0.274 ms
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.274/0.274/0.274/0.000 ms</msg>
+<msg timestamp="20171225 10:50:13.402" level="TRACE">Return: True</msg>
+<msg timestamp="20171225 10:50:13.403" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20171225 10:50:13.403" starttime="20171225 10:50:13.390"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>300</arg>
+<arg>${FTM_IP}</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.404" level="TRACE">Arguments: [ True | 'Wait Until Units Startup' | '300' | '${FTM_IP}' ]</msg>
+<msg timestamp="20171225 10:50:13.404" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.404" starttime="20171225 10:50:13.403"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Btscli Disable Bts Port Security</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.405" level="TRACE">Arguments: [ True | 'Btscli Disable Bts Port Security' ]</msg>
+<msg timestamp="20171225 10:50:13.405" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.405" starttime="20171225 10:50:13.405"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>Wait Until Units Startup</arg>
+<arg>60</arg>
+<arg>${FCMD_IP}</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.406" level="TRACE">Arguments: [ True | 'Wait Until Units Startup' | '60' | '${FCMD_IP}' ]</msg>
+<msg timestamp="20171225 10:50:13.406" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.407" starttime="20171225 10:50:13.406"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>5min</arg>
+<arg>5s</arg>
+<arg>_make sure fctb connect ok</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.407" level="TRACE">Arguments: [ 'Wait Until Keyword Succeeds' | '5min' | '5s' | '_make sure fctb connect ok' ]</msg>
+<msg timestamp="20171225 10:50:13.407" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.408" starttime="20171225 10:50:13.407"></status>
+</kw>
+<msg timestamp="20171225 10:50:13.408" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:50:13.408" starttime="20171225 10:50:13.389"></status>
+</kw>
+<msg timestamp="20171225 10:50:13.408" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:50:13.408" starttime="20171225 10:50:13.389"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>get_enb_infomation</arg>
+</arguments>
+<msg timestamp="20171225 10:50:13.409" level="TRACE">Arguments: [ 'get_enb_infomation' ]</msg>
+<kw name="Get Enb Infomation" library="tdd_ev_robotws">
+<doc>This keyword will print bts sw version, bbu type and RRU type.</doc>
+<msg timestamp="20171225 10:50:13.410" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 10:50:13.627" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:50:13.629" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:50:13.759" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:50:24.199" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:50:24.200" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:50:24.367" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:50:34.796" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:50:34.798" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:50:34.965" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:50:48.353" level="DEBUG">Adding ssh-rsa host key for 192.168.200.1: c8d66dd13343a62f733273066d79a235</msg>
+<msg timestamp="20171225 10:50:48.354" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:50:48.485" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:50:13.455" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+64 bytes from 192.168.255.1: icmp_seq=1 ttl=255 time=0.255 ms
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.255/0.255/0.255/0.000 ms</msg>
+<msg timestamp="20171225 10:50:13.457" level="INFO">[ftm_control.py@292] Temporary pass this keyword until PR is fixed!</msg>
+<msg timestamp="20171225 10:50:13.459" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:50:23.812" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:44:49 CST 2017 from 192.168.255.126 on ssh
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:50:23.814" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:50:23.817" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d8781e60&gt;</msg>
+<msg timestamp="20171225 10:50:23.870" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:50:23.873" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171225 10:50:23.926" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:50:23.992" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d8781e60&gt;</msg>
+<msg timestamp="20171225 10:50:23.994" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:50:34.419" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:50:13 CST 2017 from 192.168.255.126 on pts/0
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:50:34.420" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:50:34.422" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e8046c20&gt;</msg>
+<msg timestamp="20171225 10:50:34.475" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:50:34.478" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171225 10:50:34.531" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18SP_ENB_9999_171225_071845.xml
+root@FCTB:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171225 10:50:34.598" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e8046c20&gt;</msg>
+<msg timestamp="20171225 10:50:34.600" level="INFO">[enb_resource.py@1158] 
+ ****Current BTS version is 'TL18SP_ENB_9999_171225_071845' *****</msg>
+<msg timestamp="20171225 10:50:34.602" level="INFO">[enb_resource.py@1188] activeBuildVersion=TL18SP_ENB_9999_171225_071845</msg>
+<msg timestamp="20171225 10:50:34.605" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:50:45.017" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:50:24 CST 2017 from 192.168.255.126 on pts/0
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:50:45.019" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:50:45.022" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d871bb00&gt;</msg>
+<msg timestamp="20171225 10:50:45.075" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:50:45.078" level="INFO">[ssh_common.py@258] Execute command: ls /ram/SiteConf.xml</msg>
+<msg timestamp="20171225 10:50:45.132" level="INFO">[ssh_common.py@314] Get Response: ls /ram/SiteConf.xml
+ls: /ram/SiteConf.xml: No such file or directory
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:50:45.199" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d871bb00&gt;</msg>
+<msg timestamp="20171225 10:50:45.201" level="INFO">[enb_resource.py@1158] 
+ ****Not find /ram/SiteConf.xml *****</msg>
+<msg timestamp="20171225 10:50:45.211" level="INFO">[ping_control.py@189] PING 192.168.200.1 (192.168.200.1) 56(84) bytes of data.
+64 bytes from 192.168.200.1: icmp_seq=1 ttl=255 time=0.354 ms
+
+--- 192.168.200.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.354/0.354/0.354/0.000 ms</msg>
+<msg timestamp="20171225 10:50:48.219" level="INFO">[ping_control.py@189] PING 192.168.255.20 (192.168.255.20) 56(84) bytes of data.
+From 192.168.255.140 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.20 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:51:18.537" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 09:44:49 UTC 2017 from 192.168.200.126 on ssh
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:18.539" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:51:18.543" level="INFO">[connection_mgr.py@208] Current connection: 192.168.200.1:22 DeviceType:Linux Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1eaf9b9e0&gt;</msg>
+<msg timestamp="20171225 10:51:18.596" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:51:18.598" level="INFO">[ssh_common.py@258] Execute command: cd /flash/simmode/;ls iphy-db_WTS_*.xml</msg>
+<msg timestamp="20171225 10:51:18.652" level="INFO">[ssh_common.py@314] Get Response: cd /flash/simmode/;ls iphy-db_WTS_*.xml
+iphy-db_WTS_trunk_28972.xml
+root@FCTB:/flash/simmode &gt;</msg>
+<msg timestamp="20171225 10:51:18.655" level="INFO">[enb_resource.py@1158] 
+ ****Current IPHY version is '28972' *****</msg>
+<msg timestamp="20171225 10:51:18.657" level="INFO">[enb_resource.py@1333] activeIphyVersion=28972</msg>
+<msg timestamp="20171225 10:51:18.663" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.663" starttime="20171225 10:50:13.410"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.663" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:51:18.663" starttime="20171225 10:50:13.409"></status>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<arguments>
+<arg>tdd_ev_robotws</arg>
+<arg>OperatingSystem</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.665" level="TRACE">Arguments: [ 'tdd_ev_robotws' | 'OperatingSystem' ]</msg>
+<msg timestamp="20171225 10:51:18.665" level="TRACE">Return: ()</msg>
+<status status="PASS" endtime="20171225 10:51:18.665" starttime="20171225 10:51:18.664"></status>
+</kw>
+<kw name="Switch Host Connection" library="tdd_ev_robotws">
+<doc>Switch to the connection identified by 'conn'.</doc>
+<arguments>
+<arg>${BTS_PC_CONNECTION}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.666" level="TRACE">Arguments: [ &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt; ]</msg>
+<msg timestamp="20171225 10:51:18.668" level="INFO">[connection_mgr.py@147] Switch to connection: 127.0.0.1:22 DeviceType:Linux Timeout:25 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;.</msg>
+<msg timestamp="20171225 10:51:18.669" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.669" starttime="20171225 10:51:18.666"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.669" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.669" starttime="20171225 10:49:48.027"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.670" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.670" starttime="20171225 10:49:48.023"></status>
+</kw>
+<test id="s1-t1" name="TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability">
+<kw type="setup" name="Common Test Setup FEVE" library="RT3_iphy_resource">
+<arguments>
+<arg>${UE_NUMBER}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.672" level="TRACE">Arguments: [ ${UE_NUMBER}='1' ]</msg>
+<kw name="Common Test Setup" library="common_resource">
+<doc>this keyword create case name directory path as /home/ute/test_results//ev_logs///home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948//</doc>
+<msg timestamp="20171225 10:51:18.678" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Timestamp" library="tdd_ev_robotws">
+<doc>This keyword return the time stamp, default format is: 'yyyymmddhhmmss'</doc>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.679" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 10:51:18.679" level="TRACE">Return: b'20171225105118'</msg>
+<msg timestamp="20171225 10:51:18.679" level="INFO">${timestamp} = 20171225105118</msg>
+<status status="PASS" endtime="20171225 10:51:18.679" starttime="20171225 10:51:18.678"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=${/}</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${TEST_NAME[:50]}</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.680" level="TRACE">Arguments: [ 'SEPARATOR=/' | '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948' | 'TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 10:51:18.681" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability'</msg>
+<msg timestamp="20171225 10:51:18.681" level="INFO">${TEST_LOG_DIR} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<status status="PASS" endtime="20171225 10:51:18.681" starttime="20171225 10:51:18.680"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+</arguments>
+<assign>
+<var>${TEST_LOG_DIR}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.683" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' | b' ' | '_' ]</msg>
+<msg timestamp="20171225 10:51:18.683" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability'</msg>
+<msg timestamp="20171225 10:51:18.683" level="INFO">${TEST_LOG_DIR} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<status status="PASS" endtime="20171225 10:51:18.683" starttime="20171225 10:51:18.681"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.684" level="TRACE">Arguments: [ '${TEST_LOG_DIR}' ]</msg>
+<msg timestamp="20171225 10:51:18.684" level="INFO">${TEST_LOG_DIR} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<msg timestamp="20171225 10:51:18.685" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.685" starttime="20171225 10:51:18.684"></status>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.685" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 10:51:18.686" html="yes" level="INFO">Created directory '&lt;a href="file:///home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability"&gt;/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability&lt;/a&gt;'.</msg>
+<msg timestamp="20171225 10:51:18.686" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.686" starttime="20171225 10:51:18.685"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>save log dir:${TEST_LOG_DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.687" level="TRACE">Arguments: [ 'save log dir:/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 10:51:18.687" level="INFO">save log dir:/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<msg timestamp="20171225 10:51:18.687" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.687" starttime="20171225 10:51:18.687"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>${BTS PC CONNECTION.connected}</arg>
+<arg>Initial Connection With BTS PC</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.688" level="TRACE">Arguments: [ True | 'Initial Connection With BTS PC' ]</msg>
+<msg timestamp="20171225 10:51:18.689" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.689" starttime="20171225 10:51:18.688"></status>
+</kw>
+<kw name="Get Log Save Directory" library="common_resource">
+<doc>This keyword return useable LOG directory.</doc>
+<msg timestamp="20171225 10:51:18.690" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<assign>
+<var>${case_dir_exist}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.691" level="TRACE">Arguments: [ 'variable should exist' | '${TEST LOG DIR}' ]</msg>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${TEST LOG DIR}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.692" level="TRACE">Arguments: [ '${TEST LOG DIR}' ]</msg>
+<msg timestamp="20171225 10:51:18.692" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.692" starttime="20171225 10:51:18.691"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.692" level="TRACE">Return: (b'PASS', None)</msg>
+<msg timestamp="20171225 10:51:18.692" level="INFO">${case_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:51:18.692" starttime="20171225 10:51:18.690"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<assign>
+<var>${suite_dir_exist}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.693" level="TRACE">Arguments: [ 'variable should exist' | '${SUITE LOG DIRECTORY}' ]</msg>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${SUITE LOG DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.694" level="TRACE">Arguments: [ '${SUITE LOG DIRECTORY}' ]</msg>
+<msg timestamp="20171225 10:51:18.694" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.694" starttime="20171225 10:51:18.694"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.695" level="TRACE">Return: (b'PASS', None)</msg>
+<msg timestamp="20171225 10:51:18.695" level="INFO">${suite_dir_exist} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:51:18.695" starttime="20171225 10:51:18.693"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${case_dir_exist[0]}'</arg>
+<arg>${TEST LOG DIR}</arg>
+<arg>'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'</arg>
+<arg>${SUITE LOG DIRECTORY}</arg>
+<arg>'FAIL'=='${suite_dir_exist[0]}'</arg>
+<arg>${OUTPUT_DIR}</arg>
+</arguments>
+<assign>
+<var>${log dir}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.696" level="TRACE">Arguments: [ "'PASS'=='PASS'" | '${TEST LOG DIR}' | "'FAIL'=='${case_dir_exist[0]}' and 'PASS'=='${suite_dir_exist[0]}'" | '${SUITE LOG DIRECTORY}' | "'FAIL'=='${suite_dir_exist[0]}'" | '${OUTPUT_DIR}' ]</msg>
+<msg timestamp="20171225 10:51:18.696" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability'</msg>
+<msg timestamp="20171225 10:51:18.696" level="INFO">${log dir} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<status status="PASS" endtime="20171225 10:51:18.697" starttime="20171225 10:51:18.695"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+<arg>${log dir}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.697" level="TRACE">Arguments: [ '${SAVE LOG DIRECTORY}' | '${log dir}' ]</msg>
+<msg timestamp="20171225 10:51:18.698" level="INFO">${SAVE LOG DIRECTORY} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<msg timestamp="20171225 10:51:18.698" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.698" starttime="20171225 10:51:18.697"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.698" level="TRACE">Return: '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability'</msg>
+<status status="PASS" endtime="20171225 10:51:18.699" starttime="20171225 10:51:18.690"></status>
+</kw>
+<msg timestamp="20171225 10:51:18.699" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.699" starttime="20171225 10:51:18.678"></status>
+</kw>
+<kw name="Start Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword starts catching of BTS system(UDP) log.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}${/}btslog.LOG</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.700" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/btslog.LOG' ]</msg>
+<msg timestamp="20171225 10:51:18.701" level="DEBUG">[process_control.py@162] Run command: pkill -f btslog.exe</msg>
+<msg timestamp="20171225 10:51:18.714" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 10:51:18.716" level="DEBUG">[process_control.py@162] Run command: pkill -f BTSlog2.exe</msg>
+<msg timestamp="20171225 10:51:18.726" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 10:51:18.727" level="DEBUG">[process_control.py@162] Run command: pkill -f btslog</msg>
+<msg timestamp="20171225 10:51:18.737" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 10:51:18.737" level="INFO">[btslog_control.py@117] Warn: BTS log is not started ! details: 'NoneType' object has no attribute 'stop_btslog'</msg>
+<msg timestamp="20171225 10:51:18.738" level="INFO">[btslog_control.py@174] use ip is 192.168.255.126</msg>
+<msg timestamp="20171225 10:51:18.740" level="INFO">[file_common.py@209] Directory "/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability" already exists, no need to create it again.</msg>
+<msg timestamp="20171225 10:51:18.742" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:18.742" starttime="20171225 10:51:18.699"></status>
+</kw>
+<kw name="iphy_start_udp_log" library="iphy_resource">
+<arguments>
+<arg>${SAVE LOG DIRECTORY}${/}iphylog.LOG</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.743" level="TRACE">Arguments: [ ${full_log_name}='/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/iphylog.LOG' | ${ip}='192.168.255.127' | ${alias}='default' ]</msg>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>os.path.dirname("${full_log_name}")</arg>
+<arg>modules=os</arg>
+</arguments>
+<assign>
+<var>${dir}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.744" level="TRACE">Arguments: [ 'os.path.dirname("/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/iphylog.LOG")' | modules='os' ]</msg>
+<msg timestamp="20171225 10:51:18.744" level="TRACE">Return: b'/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability'</msg>
+<msg timestamp="20171225 10:51:18.744" level="INFO">${dir} = /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<status status="PASS" endtime="20171225 10:51:18.744" starttime="20171225 10:51:18.743"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>os.path.basename("${full_log_name}")</arg>
+<arg>modules=os</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20171225 10:51:18.745" level="TRACE">Arguments: [ 'os.path.basename("/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/iphylog.LOG")' | modules='os' ]</msg>
+<msg timestamp="20171225 10:51:18.745" level="TRACE">Return: b'iphylog.LOG'</msg>
+<msg timestamp="20171225 10:51:18.745" level="INFO">${name} = iphylog.LOG</msg>
+<status status="PASS" endtime="20171225 10:51:18.745" starttime="20171225 10:51:18.744"></status>
+</kw>
+<kw name="Start Collect Iphy Syslog" library="tdd_ue">
+<doc>Start collecting iphy syslog.</doc>
+<arguments>
+<arg>log_name=${name}</arg>
+<arg>log_dir=${dir}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:18.746" level="TRACE">Arguments: [ log_name=b'iphylog.LOG' | log_dir=b'/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 10:51:18.853" level="DEBUG">Adding ssh-rsa host key for 10.42.219.40: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:51:18.854" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:18.886" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:19.173" level="DEBUG">Adding ssh-rsa host key for [127.0.0.1]:11913: c8d66dd13343a62f733273066d79a235</msg>
+<msg timestamp="20171225 10:51:19.175" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:19.258" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:19.365" level="DEBUG">[chan 1] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:19.381" level="INFO">[chan 1] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171225 10:51:19.382" level="DEBUG">[chan 1] normalize('.')</msg>
+<msg timestamp="20171225 10:51:19.383" level="DEBUG">[chan 1] stat('/ffs/run')</msg>
+<msg timestamp="20171225 10:51:19.385" level="DEBUG">[chan 1] listdir('/ffs/run')</msg>
+<msg timestamp="20171225 10:51:19.433" level="DEBUG">[chan 1] normalize('/ffs/run')</msg>
+<msg timestamp="20171225 10:51:19.435" level="DEBUG">[chan 1] stat('/ffs/fs2/swconfig.txt')</msg>
+<msg timestamp="20171225 10:51:19.437" level="DEBUG">[chan 1] open('/ffs/fs2/swconfig.txt', 'rb')</msg>
+<msg timestamp="20171225 10:51:19.438" level="DEBUG">[chan 1] open('/ffs/fs2/swconfig.txt', 'rb') -&gt; 00000000</msg>
+<msg timestamp="20171225 10:51:19.444" level="DEBUG">[chan 1] close(00000000)</msg>
+<msg timestamp="20171225 10:51:19.445" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:51:19.553" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:51:19.557" level="DEBUG">swconfig.txt is in /home/ute/test_results/log/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225105118/kiss_debug_log/swconfig.txt</msg>
+<msg timestamp="20171225 10:51:19.558" level="DEBUG">0x10042=0xC0A8C87E #ccs.service.aasyslog.udpaddress
+</msg>
+<msg timestamp="20171225 10:51:19.558" level="DEBUG">ip used for iphy syslog get from swconfig , is : 192.168.200.126</msg>
+<msg timestamp="20171225 10:51:19.661" level="DEBUG">Adding ssh-rsa host key for 10.42.219.40: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:51:19.662" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:19.726" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:19.863" level="INFO">Attempting to stop syslog but no instance found.</msg>
+<msg timestamp="20171225 10:51:20.795" level="INFO">Syslog started successfully!
+Sylog pid: 6423</msg>
+<msg timestamp="20171225 10:51:20.795" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.795" starttime="20171225 10:51:18.745"></status>
+</kw>
+<msg timestamp="20171225 10:51:20.795" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.795" starttime="20171225 10:51:18.742"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run keyword and ignore error</arg>
+<arg>Start Infomodel</arg>
+<arg>port=${BTS_INFOMODEL_PORT}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:20.796" level="TRACE">Arguments: [ 'run keyword and ignore error' | 'Start Infomodel' | 'port=${BTS_INFOMODEL_PORT}' ]</msg>
+<msg timestamp="20171225 10:51:20.796" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.796" starttime="20171225 10:51:20.796"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>iphy setup ue</arg>
+<arg>${UE_NUMBER}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:20.797" level="TRACE">Arguments: [ 'iphy setup ue' | '${UE_NUMBER}' ]</msg>
+<msg timestamp="20171225 10:51:20.797" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.797" starttime="20171225 10:51:20.796"></status>
+</kw>
+<msg timestamp="20171225 10:51:20.797" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.797" starttime="20171225 10:51:18.672"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Delete Para From Xml</arg>
+<arg>${source_scf_file_dir}</arg>
+<arg>${BTS_INFO.MRBTS}/${BTS_INFO.LNBTS}/${CELL1_INFO.LNCELL}</arg>
+<arg>Dual Stream Beamforming</arg>
+</arguments>
+<msg timestamp="20171225 10:51:20.798" level="TRACE">Arguments: [ 'Delete Para From Xml' | '${source_scf_file_dir}' | '${BTS_INFO.MRBTS}/${BTS_INFO.LNBTS}/${CELL1_INFO.LNCELL}' | 'Dual Stream Beamforming' ]</msg>
+<msg timestamp="20171225 10:51:20.798" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.798" starttime="20171225 10:51:20.797"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Upload SCF and Check iphy Bts On Air</arg>
+<arg>SCFC_1_removed.xml</arg>
+<arg>scf_change_list=${scf_change_list}</arg>
+<arg>egate_console_log=egate_console_LTE541</arg>
+</arguments>
+<msg timestamp="20171225 10:51:20.798" level="TRACE">Arguments: [ 'Upload SCF and Check iphy Bts On Air' | 'SCFC_1_removed.xml' | 'scf_change_list=${scf_change_list}' | 'egate_console_log=egate_console_LTE541' ]</msg>
+<msg timestamp="20171225 10:51:20.798" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:20.798" starttime="20171225 10:51:20.798"></status>
+</kw>
+<kw name="Upload File To Bts" library="tdd_ev_robotws">
+<doc>upload file to bts use sftp.</doc>
+<arguments>
+<arg>/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/Case/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability${/}${R3_iphy}</arg>
+<arg>iphy.xml</arg>
+<arg>/ffs/run/simmode</arg>
+<arg>host=192.168.200.1</arg>
+</arguments>
+<msg timestamp="20171225 10:51:20.799" level="TRACE">Arguments: [ '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/Case/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/../../resources/R3_iphy/iphy.xml' | 'iphy.xml' | '/ffs/run/simmode' | host='192.168.200.1' ]</msg>
+<msg timestamp="20171225 10:51:20.934" level="DEBUG">Attempting password auth...</msg>
+<msg timestamp="20171225 10:51:21.035" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:21.114" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171225 10:51:21.116" level="DEBUG">[chan 0] open('/ffs/run/simmode/iphy.xml', 'wb')</msg>
+<msg timestamp="20171225 10:51:21.132" level="DEBUG">[chan 0] open('/ffs/run/simmode/iphy.xml', 'wb') -&gt; 00000000</msg>
+<msg timestamp="20171225 10:51:21.145" level="DEBUG">[chan 0] close(00000000)</msg>
+<msg timestamp="20171225 10:51:21.291" level="DEBUG">[chan 0] lstat('/ffs/run/simmode/iphy.xml')</msg>
+<msg timestamp="20171225 10:51:21.294" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171225 10:51:21.294" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:51:20.801" level="DEBUG">[sftp_control.py@30] transport is ok, host:'192.168.200.1', port:'22'</msg>
+<msg timestamp="20171225 10:51:21.115" level="INFO">[sftp_control.py@39] sftp connect to '192.168.200.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171225 10:51:21.288" level="INFO">[sftp_control.py@61] sftp upload from '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/Case/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/../../resources/R3_iphy/iphy.xml' to '/ffs/run/simmode/iphy.xml' is ok.</msg>
+<msg timestamp="20171225 10:51:21.290" level="INFO">[sftp_control.py@176] /ffs/run/simmode/iphy.xml</msg>
+<msg timestamp="20171225 10:51:21.293" level="DEBUG">[sftp_control.py@54] sftp get file size '/ffs/run/simmode/iphy.xml' is wrong: not a file or not exist</msg>
+<msg timestamp="20171225 10:51:21.297" level="DEBUG">[sftp_control.py@168] sftp close is ok</msg>
+<msg timestamp="20171225 10:51:21.299" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:21.299" starttime="20171225 10:51:20.799"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Upload SCF and Check iphy Bts On Air</arg>
+<arg>${source_scf_file_dir}</arg>
+<arg>scf_change_list=${scf_change_list}</arg>
+<arg>egate_console_log=egate_console_LTE1543</arg>
+</arguments>
+<msg timestamp="20171225 10:51:21.300" level="TRACE">Arguments: [ 'Upload SCF and Check iphy Bts On Air' | '${source_scf_file_dir}' | 'scf_change_list=${scf_change_list}' | 'egate_console_log=egate_console_LTE1543' ]</msg>
+<msg timestamp="20171225 10:51:21.300" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:51:21.301" starttime="20171225 10:51:21.299"></status>
+</kw>
+<kw name="Config and Restart BTS and Waite Onair" library="RRMTEL3_resources">
+<arguments>
+<arg>${SCF_Config}</arg>
+<arg>${scf_change_list}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:21.302" level="TRACE">Arguments: [ ${BtsConfig}='GConfig_RT3' | ${ParaForBTS}=["text|20 MHz|//*[contains(@distName, 'LNCEL-1')]/*[@name='chBw']",
+ "text|Dual Stream Beamforming|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlMimoMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='riEnable']",
+ "text|TXDiv|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlInterferenceSpatialMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='actFastMimoSwitch']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddFrameConf']",
+ "text|7|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddSpecSubfConf']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNrSymPdcch']",
+ "text|false|//*[contains(@distName, 'LNCEL-1')]/*[@name='actTmSwitch']",
+ "text|16QAMHighMCS|//*[contains(@distName, 'LNCEL-1')]/*[@name='actModulationSchemeUL']",
+ "text|4|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNumUeDlDwPTS']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='srsActivation']",
+ "text|100 PRB|//*[contains(@distName, 'LNCEL-1')]/*[@name='prsBandwidth']"] | ${wait_timeout}='600s' ]</msg>
+<kw name="IPhy Upload SCFC to BTS" library="RRMTEL3_resources">
+<arguments>
+<arg>${BtsConfig}</arg>
+<arg>${ParaForBTS}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:21.304" level="TRACE">Arguments: [ ${BtsConfig}='GConfig_RT3' | ${ParaForBTS}=["text|20 MHz|//*[contains(@distName, 'LNCEL-1')]/*[@name='chBw']",
+ "text|Dual Stream Beamforming|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlMimoMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='riEnable']",
+ "text|TXDiv|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlInterferenceSpatialMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='actFastMimoSwitch']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddFrameConf']",
+ "text|7|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddSpecSubfConf']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNrSymPdcch']",
+ "text|false|//*[contains(@distName, 'LNCEL-1')]/*[@name='actTmSwitch']",
+ "text|16QAMHighMCS|//*[contains(@distName, 'LNCEL-1')]/*[@name='actModulationSchemeUL']",
+ "text|4|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNumUeDlDwPTS']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='srsActivation']",
+ "text|100 PRB|//*[contains(@distName, 'LNCEL-1')]/*[@name='prsBandwidth']"] ]</msg>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources${/}EV_Config${/}SCFC_1.xml</arg>
+</arguments>
+<assign>
+<var>${SCFC_Path}</var>
+</assign>
+<msg timestamp="20171225 10:51:21.305" level="TRACE">Arguments: [ '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/SCFC_1.xml' ]</msg>
+<msg timestamp="20171225 10:51:21.305" level="TRACE">Return: '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/SCFC_1.xml'</msg>
+<msg timestamp="20171225 10:51:21.306" level="INFO">${SCFC_Path} = /home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/SCFC_1.xml</msg>
+<status status="PASS" endtime="20171225 10:51:21.306" starttime="20171225 10:51:21.305"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources${/}EV_Config${/}iphy.xml</arg>
+</arguments>
+<assign>
+<var>${IPHY_Path}</var>
+</assign>
+<msg timestamp="20171225 10:51:21.307" level="TRACE">Arguments: [ '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/iphy.xml' ]</msg>
+<msg timestamp="20171225 10:51:21.307" level="TRACE">Return: '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/iphy.xml'</msg>
+<msg timestamp="20171225 10:51:21.307" level="INFO">${IPHY_Path} = /home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/iphy.xml</msg>
+<status status="PASS" endtime="20171225 10:51:21.307" starttime="20171225 10:51:21.306"></status>
+</kw>
+<kw name="Modify And Upload Scf File" library="tdd_ev_robotws">
+<doc>modify source_scf according parameter list and then upload to enb.</doc>
+<arguments>
+<arg>${SCFC_Path}</arg>
+<arg>${ParaForBTS}</arg>
+</arguments>
+<msg timestamp="20171225 10:51:21.308" level="TRACE">Arguments: [ '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/SCFC_1.xml' | ["text|20 MHz|//*[contains(@distName, 'LNCEL-1')]/*[@name='chBw']",
+ "text|Dual Stream Beamforming|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlMimoMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='riEnable']",
+ "text|TXDiv|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlInterferenceSpatialMode']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='actFastMimoSwitch']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddFrameConf']",
+ "text|7|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddSpecSubfConf']",
+ "text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNrSymPdcch']",
+ "text|false|//*[contains(@distName, 'LNCEL-1')]/*[@name='actTmSwitch']",
+ "text|16QAMHighMCS|//*[contains(@distName, 'LNCEL-1')]/*[@name='actModulationSchemeUL']",
+ "text|4|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNumUeDlDwPTS']",
+ "text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='srsActivation']",
+ "text|100 PRB|//*[contains(@distName, 'LNCEL-1')]/*[@name='prsBandwidth']"] ]</msg>
+<msg timestamp="20171225 10:51:21.355" level="DEBUG">Command to execute: sshpass -p oZPS0POrRieRtu ssh toor4nsn@192.168.255.129 'ls -d /ffs/run/swpool/OAM'</msg>
+<msg timestamp="20171225 10:51:21.640" level="DEBUG">Command output:
+You are about to access a private system. This system is for the use of authorized users only. All connections are logged to the extent and by means acceptable by the local legislation. Any unauthorized access or access attempts may be punished to the fullest extent possible under the applicable local legislation.
+ls: /ffs/run/swpool/OAM: No such file or directory
+</msg>
+<msg timestamp="20171225 10:51:21.640" level="DEBUG">Command ends with exit code: 1</msg>
+<msg timestamp="20171225 10:51:21.641" level="DEBUG">Command to execute: sshpass -p oZPS0POrRieRtu scp toor4nsn@192.168.255.129:\/ffs\/run/SCFD*.txt \/tmp\/tmpy3A0xc/.</msg>
+<msg timestamp="20171225 10:51:23.066" level="DEBUG">Command output:
+You are about to access a private system. This system is for the use of authorized users only. All connections are logged to the extent and by means acceptable by the local legislation. Any unauthorized access or access attempts may be punished to the fullest extent possible under the applicable local legislation.
+</msg>
+<msg timestamp="20171225 10:51:23.066" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 10:51:23.267" level="DEBUG">Command to execute: sshpass -p oZPS0POrRieRtu ssh toor4nsn@192.168.255.129 'ls /ffs/run/AdaptationVersions*.xml'</msg>
+<msg timestamp="20171225 10:51:23.577" level="DEBUG">Command output:
+You are about to access a private system. This system is for the use of authorized users only. All connections are logged to the extent and by means acceptable by the local legislation. Any unauthorized access or access attempts may be punished to the fullest extent possible under the applicable local legislation.
+/ffs/run/AdaptationVersions_T1112243.xml
+</msg>
+<msg timestamp="20171225 10:51:23.578" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 10:51:23.678" level="DEBUG">Command to execute: sshpass -p oZPS0POrRieRtu scp toor4nsn@192.168.255.129:\/ffs\/run/AdaptationVersions_T1112243.xml \/tmp\/tmpy3A0xc/AdaptationVersions_T1112243.xml</msg>
+<msg timestamp="20171225 10:51:24.024" level="DEBUG">Command output:
+You are about to access a private system. This system is for the use of authorized users only. All connections are logged to the extent and by means acceptable by the local legislation. Any unauthorized access or access attempts may be punished to the fullest extent possible under the applicable local legislation.
+</msg>
+<msg timestamp="20171225 10:51:24.024" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 10:51:25.359" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:51:25.360" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:25.490" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:35.890" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:51:35.892" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:36.059" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:46.467" level="DEBUG">Adding ssh-rsa host key for 192.168.255.1: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:51:46.468" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:46.598" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:56.986" level="DEBUG">Attempting password auth...</msg>
+<msg timestamp="20171225 10:51:57.087" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:51:57.171" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171225 10:51:57.176" level="DEBUG">[chan 0] lstat('/ffs/fs1/FileDirectory.xml')</msg>
+<msg timestamp="20171225 10:51:57.179" level="DEBUG">[chan 0] lstat('/ffs/fs1/FileDirectory.xml')</msg>
+<msg timestamp="20171225 10:51:57.184" level="DEBUG">[chan 0] stat('/ffs/fs1/FileDirectory.xml')</msg>
+<msg timestamp="20171225 10:51:57.185" level="DEBUG">[chan 0] open('/ffs/fs1/FileDirectory.xml', 'rb')</msg>
+<msg timestamp="20171225 10:51:57.186" level="DEBUG">[chan 0] open('/ffs/fs1/FileDirectory.xml', 'rb') -&gt; 00000000</msg>
+<msg timestamp="20171225 10:51:57.276" level="DEBUG">[chan 0] close(00000000)</msg>
+<msg timestamp="20171225 10:51:57.280" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171225 10:51:57.281" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:51:57.481" level="DEBUG">Adding ssh-rsa host key for 192.168.255.129: 05ccb1aefaa16901431356da79e1e668</msg>
+<msg timestamp="20171225 10:51:57.482" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:51:57.613" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:52:08.194" level="DEBUG">Attempting password auth...</msg>
+<msg timestamp="20171225 10:52:08.359" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:52:08.469" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171225 10:52:08.472" level="DEBUG">[chan 0] open('/ffs/fs1/config/SCFC_1.xml', 'wb')</msg>
+<msg timestamp="20171225 10:52:08.479" level="DEBUG">[chan 0] open('/ffs/fs1/config/SCFC_1.xml', 'wb') -&gt; 00000000</msg>
+<msg timestamp="20171225 10:52:08.483" level="DEBUG">[chan 0] close(00000000)</msg>
+<msg timestamp="20171225 10:52:08.647" level="DEBUG">[chan 0] lstat('/ffs/fs1/config/SCFC_1.xml')</msg>
+<msg timestamp="20171225 10:52:08.649" level="DEBUG">[chan 0] lstat('/ffs/fs1/config/SCFC_1.xml')</msg>
+<msg timestamp="20171225 10:52:08.653" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171225 10:52:08.653" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:51:21.352" level="INFO">[enb_resource.py@350] src file is /home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/SCFC_1.xml</msg>
+<msg timestamp="20171225 10:51:21.353" level="INFO">[enb_resource.py@351] migrate file is /home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/scf_migrate.xml</msg>
+<msg timestamp="20171225 10:51:25.134" level="INFO">[enb_resource.py@360] migrage scfc return code is '17'</msg>
+<msg timestamp="20171225 10:51:25.136" level="INFO">[enb_resource.py@363] final src file is /home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/scf_migrate.xml</msg>
+<msg timestamp="20171225 10:51:25.163" level="INFO">[enb_resource.py@316] No element matching '//*[@name='positionInSubrack']' found.</msg>
+<msg timestamp="20171225 10:51:25.165" level="INFO">[enb_resource.py@370] modify paramters is [u"text|20 MHz|//*[contains(@distName, 'LNCEL-1')]/*[@name='chBw']", u"text|Dual Stream Beamforming|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlMimoMode']", u"text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='riEnable']", u"text|TXDiv|//*[contains(@distName, 'LNCEL-1')]/*[@name='dlInterferenceSpatialMode']", u"text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='actFastMimoSwitch']", u"text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddFrameConf']", u"text|7|//*[contains(@distName, 'LNCEL-1')]/*[@name='tddSpecSubfConf']", u"text|1|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNrSymPdcch']", u"text|false|//*[contains(@distName, 'LNCEL-1')]/*[@name='actTmSwitch']", u"text|16QAMHighMCS|//*[contains(@distName, 'LNCEL-1')]/*[@name='actModulationSchemeUL']", u"text|4|//*[contains(@distName, 'LNCEL-1')]/*[@name='maxNumUeDlDwPTS']", u"text|true|//*[contains(@distName, 'LNCEL-1')]/*[@name='srsActivation']", u"text|100 PRB|//*[contains(@distName, 'LNCEL-1')]/*[@name='prsBandwidth']"]</msg>
+<msg timestamp="20171225 10:51:25.215" level="INFO">[ftm_control.py@292] Temporary pass this keyword until PR is fixed!</msg>
+<msg timestamp="20171225 10:51:25.216" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:51:35.542" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:51:24 CST 2017 from 192.168.255.126 on ssh
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:35.545" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:51:35.547" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9427e60&gt;</msg>
+<msg timestamp="20171225 10:51:35.600" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:51:35.602" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171225 10:51:35.655" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:35.721" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9427e60&gt;</msg>
+<msg timestamp="20171225 10:51:35.723" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:51:46.110" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:51:25 CST 2017 from 192.168.255.126 on pts/0
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:46.112" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:51:46.114" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9442248&gt;</msg>
+<msg timestamp="20171225 10:51:46.166" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:51:46.168" level="INFO">[ssh_common.py@258] Execute command: cd /ffs/fs1;ls TargetBD*.xml</msg>
+<msg timestamp="20171225 10:51:46.222" level="INFO">[ssh_common.py@314] Get Response: cd /ffs/fs1;ls TargetBD*.xml
+TargetBD_TL18SP_ENB_9999_171225_071845.xml
+root@FCTB:/ffs/fs1 &gt;</msg>
+<msg timestamp="20171225 10:51:46.288" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9442248&gt;</msg>
+<msg timestamp="20171225 10:51:46.290" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 10:51:56.649" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:51:36 CST 2017 from 192.168.255.126 on pts/0
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:56.652" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:51:56.654" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d85d7ab8&gt;</msg>
+<msg timestamp="20171225 10:51:56.707" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:51:56.710" level="INFO">[ssh_common.py@258] Execute command: readlink /ffs/run</msg>
+<msg timestamp="20171225 10:51:56.762" level="INFO">[ssh_common.py@314] Get Response: readlink /ffs/run
+/ffs/fs1
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:51:56.829" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.1:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d85d7ab8&gt;</msg>
+<msg timestamp="20171225 10:51:56.831" level="INFO">[enb_resource.py@420] The real falsh folder is /ffs/fs1</msg>
+<msg timestamp="20171225 10:51:56.834" level="DEBUG">[sftp_control.py@30] transport is ok, host:'192.168.255.1', port:'22'</msg>
+<msg timestamp="20171225 10:51:57.173" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171225 10:51:57.176" level="INFO">[sftp_control.py@176] /ffs/fs1/FileDirectory.xml</msg>
+<msg timestamp="20171225 10:51:57.183" level="DEBUG">[sftp_control.py@49] sftp get file size '/ffs/fs1/FileDirectory.xml' is 39KB</msg>
+<msg timestamp="20171225 10:51:57.280" level="INFO">[sftp_control.py@79] sftp download from '/ffs/fs1/FileDirectory.xml' to '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/FileDirectory_20171225105146.xml' is ok. local file size is 39k</msg>
+<msg timestamp="20171225 10:51:57.286" level="DEBUG">[sftp_control.py@168] sftp close is ok</msg>
+<msg timestamp="20171225 10:51:57.292" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.129</msg>
+<msg timestamp="20171225 10:52:07.664" level="INFO">[ssh_common.py@203] Last login: Mon Dec 25 17:51:57 CST 2017 from 192.168.255.126 on ssh
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:52:07.665" level="DEBUG">[ssh_common.py@208] Select pattern '[\\;\[\.\-a-zA-Z0-9\s]+@.*[$&gt;#]{1}\s{0,1}$' as default pattern</msg>
+<msg timestamp="20171225 10:52:07.666" level="INFO">[connection_mgr.py@208] Current connection: 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9427b90&gt;</msg>
+<msg timestamp="20171225 10:52:07.718" level="DEBUG">[ssh_common.py@283]</msg>
+<msg timestamp="20171225 10:52:07.720" level="INFO">[ssh_common.py@258] Execute command: rm -rf /ffs/fs1/config/hwf.bin.gz</msg>
+<msg timestamp="20171225 10:52:07.773" level="INFO">[ssh_common.py@314] Get Response: rm -rf /ffs/fs1/config/hwf.bin.gz
+root@FCTB:~ &gt;</msg>
+<msg timestamp="20171225 10:52:07.889" level="INFO">[ssh_common.py@141] Disconnect from 192.168.255.129:22 DeviceType:Linux Timeout:10 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1e9427b90&gt;</msg>
+<msg timestamp="20171225 10:52:07.893" level="DEBUG">[sftp_control.py@30] transport is ok, host:'192.168.255.1', port:'22'</msg>
+<msg timestamp="20171225 10:52:08.471" level="INFO">[sftp_control.py@39] sftp connect to '192.168.255.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171225 10:52:08.645" level="INFO">[sftp_control.py@61] sftp upload from '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/scf_modified.xml' to '/ffs/fs1/config/SCFC_1.xml' is ok.</msg>
+<msg timestamp="20171225 10:52:08.646" level="INFO">[sftp_control.py@176] /ffs/fs1/config/SCFC_1.xml</msg>
+<msg timestamp="20171225 10:52:08.652" level="DEBUG">[sftp_control.py@49] sftp get file size '/ffs/fs1/config/SCFC_1.xml' is 105KB</msg>
+<msg timestamp="20171225 10:52:08.658" level="DEBUG">[sftp_control.py@168] sftp close is ok</msg>
+<msg timestamp="20171225 10:52:08.663" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:08.663" starttime="20171225 10:51:21.308"></status>
+</kw>
+<kw name="Upload File To Bts" library="tdd_ev_robotws">
+<doc>upload file to bts use sftp.</doc>
+<arguments>
+<arg>${IPHY_Path}</arg>
+<arg>iphy.xml</arg>
+<arg>/ffs/run/simmode</arg>
+<arg>host=192.168.200.1</arg>
+</arguments>
+<msg timestamp="20171225 10:52:08.665" level="TRACE">Arguments: [ '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/iphy.xml' | 'iphy.xml' | '/ffs/run/simmode' | host='192.168.200.1' ]</msg>
+<msg timestamp="20171225 10:52:08.795" level="DEBUG">Attempting password auth...</msg>
+<msg timestamp="20171225 10:52:08.860" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:52:08.938" level="INFO">[chan 0] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20171225 10:52:08.941" level="DEBUG">[chan 0] open('/ffs/run/simmode/iphy.xml', 'wb')</msg>
+<msg timestamp="20171225 10:52:09.021" level="DEBUG">[chan 0] open('/ffs/run/simmode/iphy.xml', 'wb') -&gt; 00000000</msg>
+<msg timestamp="20171225 10:52:09.048" level="DEBUG">[chan 0] close(00000000)</msg>
+<msg timestamp="20171225 10:52:09.061" level="DEBUG">[chan 0] lstat('/ffs/run/simmode/iphy.xml')</msg>
+<msg timestamp="20171225 10:52:09.064" level="INFO">[chan 0] sftp session closed.</msg>
+<msg timestamp="20171225 10:52:09.065" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 10:52:08.666" level="DEBUG">[sftp_control.py@30] transport is ok, host:'192.168.200.1', port:'22'</msg>
+<msg timestamp="20171225 10:52:08.940" level="INFO">[sftp_control.py@39] sftp connect to '192.168.200.1', username:'toor4nsn', password:'oZPS0POrRieRtu' is ok</msg>
+<msg timestamp="20171225 10:52:09.059" level="INFO">[sftp_control.py@61] sftp upload from '/home/ute/robotlte/testsuite/hangzhou/trunk/DEVHZ2_ST/Trunk/CIT1/iphy/resources/EV_Config/iphy.xml' to '/ffs/run/simmode/iphy.xml' is ok.</msg>
+<msg timestamp="20171225 10:52:09.061" level="INFO">[sftp_control.py@176] /ffs/run/simmode/iphy.xml</msg>
+<msg timestamp="20171225 10:52:09.064" level="DEBUG">[sftp_control.py@54] sftp get file size '/ffs/run/simmode/iphy.xml' is wrong: not a file or not exist</msg>
+<msg timestamp="20171225 10:52:09.069" level="DEBUG">[sftp_control.py@168] sftp close is ok</msg>
+<msg timestamp="20171225 10:52:09.071" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:09.071" starttime="20171225 10:52:08.664"></status>
+</kw>
+<msg timestamp="20171225 10:52:09.071" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:09.072" starttime="20171225 10:51:21.303"></status>
+</kw>
+<kw name="Restart BTS and IPhy and Check Onair" library="RRMTEL3_resources">
+<arguments>
+<arg>${wait_timeout}</arg>
+</arguments>
+<msg timestamp="20171225 10:52:09.073" level="TRACE">Arguments: [ ${wait_timeout}='600s' ]</msg>
+<kw name="iphy restart BTS" library="RT3_iphy_resource">
+<msg timestamp="20171225 10:52:09.074" level="TRACE">Arguments: [  ]</msg>
+<kw name="Power Off" library="tdd_ev_robotws">
+<doc>control powerbreaker to power off a outlet</doc>
+<arguments>
+<arg>${BTS_POWERBREAK_PORT[0]}</arg>
+</arguments>
+<msg timestamp="20171225 10:52:09.075" level="TRACE">Arguments: [ b'ATEN:10.42.222.167:4' ]</msg>
+<msg timestamp="20171225 10:52:09.117" level="DEBUG">Setting outlet 4 to off</msg>
+<msg timestamp="20171225 10:52:09.133" level="DEBUG">Verifying outlet 4 status is off</msg>
+<msg timestamp="20171225 10:52:11.717" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:09.077" level="DEBUG">[powerbreaker_control.py@88] start power off 'ATEN:10.42.222.167:4'</msg>
+<msg timestamp="20171225 10:52:11.726" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:11.727" starttime="20171225 10:52:09.074"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20171225 10:52:11.728" level="TRACE">Arguments: [ '10' ]</msg>
+<msg timestamp="20171225 10:52:21.728" level="INFO">Slept 10 seconds</msg>
+<msg timestamp="20171225 10:52:21.728" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:21.729" starttime="20171225 10:52:11.727"></status>
+</kw>
+<kw name="Power Off" library="tdd_ev_robotws">
+<doc>control powerbreaker to power off a outlet</doc>
+<arguments>
+<arg>${IPHY_POWERBREAK_PORT}</arg>
+</arguments>
+<msg timestamp="20171225 10:52:21.730" level="TRACE">Arguments: [ [b'ATEN:10.42.222.167:5'] ]</msg>
+<msg timestamp="20171225 10:52:21.776" level="DEBUG">Setting outlet 5 to off</msg>
+<msg timestamp="20171225 10:52:21.795" level="DEBUG">Verifying outlet 5 status is off</msg>
+<msg timestamp="20171225 10:52:24.378" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:21.732" level="DEBUG">[powerbreaker_control.py@88] start power off 'ATEN:10.42.222.167:5'</msg>
+<msg timestamp="20171225 10:52:24.602" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:24.602" starttime="20171225 10:52:21.729"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20171225 10:52:24.603" level="TRACE">Arguments: [ '10' ]</msg>
+<msg timestamp="20171225 10:52:34.603" level="INFO">Slept 10 seconds</msg>
+<msg timestamp="20171225 10:52:34.604" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:34.604" starttime="20171225 10:52:24.603"></status>
+</kw>
+<kw name="Power On" library="tdd_ev_robotws">
+<doc>control powerbreaker to power on a outlet</doc>
+<arguments>
+<arg>${BTS_POWERBREAK_PORT[0]}</arg>
+</arguments>
+<msg timestamp="20171225 10:52:34.605" level="TRACE">Arguments: [ b'ATEN:10.42.222.167:4' ]</msg>
+<msg timestamp="20171225 10:52:34.656" level="DEBUG">Setting outlet 4 to on</msg>
+<msg timestamp="20171225 10:52:34.674" level="DEBUG">Verifying outlet 4 status is on</msg>
+<msg timestamp="20171225 10:52:37.256" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:39.263" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:41.272" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:34.607" level="DEBUG">[powerbreaker_control.py@52] start power on 'ATEN:10.42.222.167:4'</msg>
+<msg timestamp="20171225 10:52:41.278" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:41.278" starttime="20171225 10:52:34.605"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20171225 10:52:41.279" level="TRACE">Arguments: [ '1' ]</msg>
+<msg timestamp="20171225 10:52:42.279" level="INFO">Slept 1 second</msg>
+<msg timestamp="20171225 10:52:42.280" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:42.280" starttime="20171225 10:52:41.279"></status>
+</kw>
+<kw name="Power On" library="tdd_ev_robotws">
+<doc>control powerbreaker to power on a outlet</doc>
+<arguments>
+<arg>${IPHY_POWERBREAK_PORT}</arg>
+</arguments>
+<msg timestamp="20171225 10:52:42.281" level="TRACE">Arguments: [ [b'ATEN:10.42.222.167:5'] ]</msg>
+<msg timestamp="20171225 10:52:42.316" level="DEBUG">Setting outlet 5 to on</msg>
+<msg timestamp="20171225 10:52:42.330" level="DEBUG">Verifying outlet 5 status is on</msg>
+<msg timestamp="20171225 10:52:44.913" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:47.139" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:49.145" level="DEBUG">Outlet status verification failed. Retrying verification</msg>
+<msg timestamp="20171225 10:52:42.282" level="DEBUG">[powerbreaker_control.py@52] start power on 'ATEN:10.42.222.167:5'</msg>
+<msg timestamp="20171225 10:52:49.154" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:49.154" starttime="20171225 10:52:42.280"></status>
+</kw>
+<msg timestamp="20171225 10:52:49.155" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:52:49.155" starttime="20171225 10:52:09.073"></status>
+</kw>
+<kw name="Wait Until Units Startup" library="tdd_ev_robotws">
+<doc>This keyword tests the reachability of given unit/units.</doc>
+<arguments>
+<arg>600</arg>
+<arg>192.168.255.1</arg>
+<arg>192.168.255.129</arg>
+</arguments>
+<msg timestamp="20171225 10:52:49.156" level="TRACE">Arguments: [ '600' | '192.168.255.1' | '192.168.255.129' ]</msg>
+<msg timestamp="20171225 10:52:59.165" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:09.176" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:22.197" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:24.634" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:37.653" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:39.635" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:52.654" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:53:54.635" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:54:07.654" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:54:09.634" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:54:22.654" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+From 192.168.255.126 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:54:32.666" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms</msg>
+<msg timestamp="20171225 10:54:44.682" level="INFO">[ping_control.py@189] PING 192.168.255.1 (192.168.255.1) 56(84) bytes of data.
+64 bytes from 192.168.255.1: icmp_seq=1 ttl=255 time=1997 ms
+
+--- 192.168.255.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1997.026/1997.026/1997.026/0.000 ms</msg>
+<msg timestamp="20171225 10:54:44.684" level="INFO">[ping_control.py@155] ping 192.168.255.1 OK!</msg>
+<msg timestamp="20171225 10:54:44.694" level="INFO">[ping_control.py@189] PING 192.168.255.129 (192.168.255.129) 56(84) bytes of data.
+64 bytes from 192.168.255.129: icmp_seq=1 ttl=255 time=0.261 ms
+
+--- 192.168.255.129 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.261/0.261/0.261/0.000 ms</msg>
+<msg timestamp="20171225 10:54:44.695" level="INFO">[ping_control.py@155] ping 192.168.255.129 OK!</msg>
+<msg timestamp="20171225 10:54:54.708" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:54:54.708" starttime="20171225 10:52:49.155"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>180s</arg>
+</arguments>
+<msg timestamp="20171225 10:54:54.709" level="TRACE">Arguments: [ '180s' ]</msg>
+<msg timestamp="20171225 10:57:54.710" level="INFO">Slept 3 minutes</msg>
+<msg timestamp="20171225 10:57:54.710" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:57:54.711" starttime="20171225 10:54:54.709"></status>
+</kw>
+<kw name="Get IPhy UE Number" library="RRMTEL3_resources">
+<assign>
+<var>${iphyUeNumber}</var>
+</assign>
+<msg timestamp="20171225 10:57:54.712" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Variable Should Exist</arg>
+<arg>${UE_NUMBER}</arg>
+</arguments>
+<assign>
+<var>${iphyUeNumberExists}</var>
+</assign>
+<msg timestamp="20171225 10:57:54.713" level="TRACE">Arguments: [ 'Variable Should Exist' | '${UE_NUMBER}' ]</msg>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${UE_NUMBER}</arg>
+</arguments>
+<msg timestamp="20171225 10:57:54.714" level="TRACE">Arguments: [ '${UE_NUMBER}' ]</msg>
+<msg timestamp="20171225 10:57:54.715" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 10:57:54.715" starttime="20171225 10:57:54.714"></status>
+</kw>
+<msg timestamp="20171225 10:57:54.715" level="TRACE">Return: (b'PASS', None)</msg>
+<msg timestamp="20171225 10:57:54.715" level="INFO">${iphyUeNumberExists} = ('PASS', None)</msg>
+<status status="PASS" endtime="20171225 10:57:54.715" starttime="20171225 10:57:54.713"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'PASS'=='${iphyUeNumberExists[0]}'</arg>
+<arg>${UE_NUMBER}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${IPhy_Ue_Number}</var>
+</assign>
+<msg timestamp="20171225 10:57:54.717" level="TRACE">Arguments: [ "'PASS'=='PASS'" | '${UE_NUMBER}' | '1' ]</msg>
+<msg timestamp="20171225 10:57:54.717" level="TRACE">Return: '1'</msg>
+<msg timestamp="20171225 10:57:54.717" level="INFO">${IPhy_Ue_Number} = 1</msg>
+<status status="PASS" endtime="20171225 10:57:54.718" starttime="20171225 10:57:54.716"></status>
+</kw>
+<msg timestamp="20171225 10:57:54.718" level="TRACE">Return: '1'</msg>
+<msg timestamp="20171225 10:57:54.718" level="INFO">${iphyUeNumber} = 1</msg>
+<status status="PASS" endtime="20171225 10:57:54.718" starttime="20171225 10:57:54.711"></status>
+</kw>
+<kw name="Iphy Setup Ue" library="tdd_ev_robotws">
+<doc>instantiate UE type. ue mode is multiue if ue_number &gt; 1, ue mode is singleue if ue_number = 1.</doc>
+<arguments>
+<arg>${iphyUeNumber}</arg>
+</arguments>
+<msg timestamp="20171225 10:57:54.719" level="TRACE">Arguments: [ '1' ]</msg>
+<msg timestamp="20171225 10:57:54.720" level="INFO">ue setup</msg>
+<msg timestamp="20171225 10:57:54.720" level="INFO">None</msg>
+<msg timestamp="20171225 10:57:54.823" level="DEBUG">Adding ssh-rsa host key for 10.42.219.40: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:57:54.825" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:57:54.890" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:57:55.103" level="DEBUG">Adding ssh-rsa host key for 10.42.219.40: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:57:55.104" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:57:55.137" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:57:55.264" level="INFO">User sent reboot request to wtssim.</msg>
+<msg timestamp="20171225 10:57:55.283" level="INFO">The command executed success! ps -ef | egrep -w "egate|edaemon|sim_.*" | egrep "10000|20000|30000|40000|40001|60000|60001" |                     egrep -v grep | awk '{print $2}' | xargs -i sudo kill -9 {}</msg>
+<msg timestamp="20171225 10:57:55.284" level="INFO">copy script from/opt/ute/python/lib/python2.7/site-packages/tdd_lua_config/robotLuaScripts to /opt/iphy/latest/tddLuaScripts</msg>
+<msg timestamp="20171225 10:57:55.389" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:57:55.390" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:57:55.407" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:58:26.130" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 10:58:28.235" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:58:28.237" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:58:28.271" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:58:58.964" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 10:59:01.072" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:59:01.074" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:59:01.106" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 10:59:31.795" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 10:59:33.900" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 10:59:33.902" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 10:59:33.935" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:04.656" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 11:00:06.762" level="DEBUG">Adding ssh-rsa host key for 127.0.0.1: 8d909c60e7da1fa3ff31f051704d612f</msg>
+<msg timestamp="20171225 11:00:06.763" level="DEBUG">Trying discovered key a2b06d4a3c864637bace8c28f0ebe82a in /home/ute/.ssh/id_rsa</msg>
+<msg timestamp="20171225 11:00:06.796" level="DEBUG">[chan 0] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:37.497" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 11:00:39.501" level="WARN">generate lua failed! will use default enb_1.lua ! exception:generate lua timeout</msg>
+<msg timestamp="20171225 11:00:39.502" level="INFO">copy enb.lua from/tmp/enb_1.lua to /opt/iphy/latest/tddLuaScripts/config/enb_1.lua</msg>
+<msg timestamp="20171225 11:00:39.505" level="FAIL">IOError: [Errno 2] No such file or directory: '/tmp/enb_1.lua'</msg>
+<msg timestamp="20171225 11:00:39.505" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 52, in setup_ue
+    generate_lua_file=generate_lua_file, timeout=timeout, is_init_ue=is_init_ue)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/iphy/iphy.py", line 526, in ue_setup
+    self.start_egate_server_and_load_cfg_files()
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/iphy/iphy.py", line 463, in start_egate_server_and_load_cfg_files
+    shutil.copyfile("/tmp/enb_1.lua", dst)
+  File "/opt/ute/python/lib/python2.7/shutil.py", line 82, in copyfile
+    with open(src, 'rb') as fsrc:</msg>
+<status status="FAIL" endtime="20171225 11:00:39.505" starttime="20171225 10:57:54.719"></status>
+</kw>
+<status status="FAIL" endtime="20171225 11:00:39.506" starttime="20171225 10:52:09.072"></status>
+</kw>
+<status status="FAIL" endtime="20171225 11:00:39.507" starttime="20171225 10:51:21.301"></status>
+</kw>
+<kw type="teardown" name="Common Test Teardown FEVE" library="RT3_iphy_resource">
+<arguments>
+<arg>egate_console_LTE541</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.509" level="TRACE">Arguments: [ ${egate_console_log}='egate_console_LTE541' ]</msg>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>iphy detach all UE</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.511" level="TRACE">Arguments: [ 'iphy detach all UE' ]</msg>
+<kw name="Iphy Detach All Ue" library="tdd_ev_robotws">
+<doc>Detach all UEs which state is ue.ON or ue.IDLE.</doc>
+<msg timestamp="20171225 11:00:39.512" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:39.513" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:39.513" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:39.513" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 207, in detach_all_ue
+    self.store.get(alias)['ue_setup'].detach_all_ue(timeout=timeout)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20171225 11:00:39.514" starttime="20171225 11:00:39.511"></status>
+</kw>
+<msg timestamp="20171225 11:00:39.514" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20171225 11:00:39.514" starttime="20171225 11:00:39.510"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Get Egate Log</arg>
+<arg>${egate_console_log}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.515" level="TRACE">Arguments: [ 'Get Egate Log' | '${egate_console_log}' ]</msg>
+<kw name="Get Egate Log" library="RT3_iphy_resource">
+<arguments>
+<arg>${egate_console_log}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.517" level="TRACE">Arguments: [ ${egate_console_log}='egate_console_LTE541' | ${Egate_log_dir}='/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<kw name="Iphy Execute Ue Command" library="tdd_ev_robotws">
+<doc>to execute a single command passed to ue for the specific objective.</doc>
+<arguments>
+<arg>command=reset</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.518" level="TRACE">Arguments: [ command='reset' ]</msg>
+<msg timestamp="20171225 11:00:39.518" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:39.519" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:39.519" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 673, in execute_ue_command
+    return self.store.get(alias)['ue_setup'].execute_command(command, pass_regexp, fail_regexp, timeout)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20171225 11:00:39.519" starttime="20171225 11:00:39.518"></status>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<doc>Copies the source file into the destination.</doc>
+<arguments>
+<arg>/opt/iphy/latest/egate_console_test.log</arg>
+<arg>${Egate_log_dir}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.520" level="TRACE">Arguments: [ '/opt/iphy/latest/egate_console_test.log' | '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 11:00:39.521" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:39.521" level="FAIL">Source file '/opt/iphy/latest/egate_console_test.log' does not exist.</msg>
+<msg timestamp="20171225 11:00:39.521" level="DEBUG">Traceback (most recent call last):
+  None</msg>
+<status status="FAIL" endtime="20171225 11:00:39.522" starttime="20171225 11:00:39.520"></status>
+</kw>
+<msg timestamp="20171225 11:00:39.522" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20171225 11:00:39.522" starttime="20171225 11:00:39.516"></status>
+</kw>
+<msg timestamp="20171225 11:00:39.522" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20171225 11:00:39.523" starttime="20171225 11:00:39.515"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Save Infomodel Log</arg>
+<arg>${SAVE LOG DIRECTORY}${/}infomodel_log</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.524" level="TRACE">Arguments: [ 'Save Infomodel Log' | '${SAVE LOG DIRECTORY}${/}infomodel_log' ]</msg>
+<kw name="Save Infomodel Log" library="tdd_ev_robotws">
+<doc>Save InfoModel log.</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}${/}infomodel_log</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.525" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/infomodel_log' ]</msg>
+<msg timestamp="20171225 11:00:39.527" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:39.528" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:39.528" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/TdlteLib/enb_lib/infomodel_control.py", line 213, in save_infomodel_log
+    alias=alias)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_infomodel/interface.py", line 211, in save_infomodel_log
+    self.store.get(alias).save_log(filename)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20171225 11:00:39.528" starttime="20171225 11:00:39.524"></status>
+</kw>
+<msg timestamp="20171225 11:00:39.528" level="TRACE">Return: (b'FAIL', "AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.")</msg>
+<status status="PASS" endtime="20171225 11:00:39.529" starttime="20171225 11:00:39.523"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>run keyword and ignore error</arg>
+<arg>Stop Infomodel</arg>
+</arguments>
+<msg timestamp="20171225 11:00:39.529" level="TRACE">Arguments: [ 'run keyword and ignore error' | 'Stop Infomodel' ]</msg>
+<msg timestamp="20171225 11:00:39.530" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:39.530" starttime="20171225 11:00:39.529"></status>
+</kw>
+<kw name="iphy_stop_udp_log" library="iphy_resource">
+<msg timestamp="20171225 11:00:39.531" level="TRACE">Arguments: [ ${alias}='default' ]</msg>
+<kw name="Stop And Collect Iphy Syslog" library="tdd_ue">
+<doc>Stop syslogging and download the created file to the test result directory.</doc>
+<msg timestamp="20171225 11:00:39.531" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:39.532" level="DEBUG">[chan 1] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:39.587" level="INFO">Attempting to stop syslog (PID: {}) instance...</msg>
+<msg timestamp="20171225 11:00:39.588" level="DEBUG">[chan 2] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:40.653" level="DEBUG">[chan 3] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:40.697" level="INFO">Syslog (PID: 6423) stopped!</msg>
+<msg timestamp="20171225 11:00:40.697" level="DEBUG">Command to execute: sshpass -p ute ssh ute@10.42.219.40 '! fuser -s /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/iphylog_*.LOG'</msg>
+<msg timestamp="20171225 11:00:40.932" level="DEBUG">Command output:
+Warning: Permanently added '10.42.219.40' (ECDSA) to the list of known hosts.
+</msg>
+<msg timestamp="20171225 11:00:40.932" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:41.033" level="DEBUG">Command to execute: sudo dmidecode -s system-uuid 2&gt;&amp;1</msg>
+<msg timestamp="20171225 11:00:41.167" level="DEBUG">Command output:
+86AC320C-AA3C-480E-8E3F-A4E25C489E7F
+</msg>
+<msg timestamp="20171225 11:00:41.168" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:41.268" level="DEBUG">Command to execute: sshpass -p ute ssh ute@10.42.219.40 'sudo dmidecode -s system-uuid'</msg>
+<msg timestamp="20171225 11:00:41.512" level="DEBUG">Command output:
+86AC320C-AA3C-480E-8E3F-A4E25C489E7F
+</msg>
+<msg timestamp="20171225 11:00:41.512" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:41.613" level="INFO">Download operation will be performed locally</msg>
+<msg timestamp="20171225 11:00:41.613" level="DEBUG">Command to execute: mkdir -p /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability</msg>
+<msg timestamp="20171225 11:00:41.747" level="DEBUG">Command output:
+</msg>
+<msg timestamp="20171225 11:00:41.748" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:41.848" level="DEBUG">Command to execute: stat -c %i:%s \/home\/ute\/test\_results\/ev\_logs\/TA\_TD\_LTE\_TM8\_Tput\_UDP\_20M\_1\_7\_stability\_20171225104948\/TA\_TD\_LTE\_TM8\_Tput\_UDP\_20M\_1\_7\_stability/iphylog_*.LOG 2&gt;&amp;1</msg>
+<msg timestamp="20171225 11:00:41.975" level="DEBUG">Command output:
+100663429:5291944
+</msg>
+<msg timestamp="20171225 11:00:41.975" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:42.076" level="DEBUG">Command to execute: stat -c %i:%s \/home\/ute\/test\_results\/ev\_logs\/TA\_TD\_LTE\_TM8\_Tput\_UDP\_20M\_1\_7\_stability\_20171225104948\/TA\_TD\_LTE\_TM8\_Tput\_UDP\_20M\_1\_7\_stability/iphylog_*.LOG 2&gt;&amp;1</msg>
+<msg timestamp="20171225 11:00:42.207" level="DEBUG">Command output:
+100663429:5291944
+</msg>
+<msg timestamp="20171225 11:00:42.208" level="DEBUG">Command ends with exit code: 0</msg>
+<msg timestamp="20171225 11:00:42.309" level="DEBUG">[chan 4] Max packet in: 32768 bytes</msg>
+<msg timestamp="20171225 11:00:42.343" level="INFO">Attempting to stop syslog but no instance found.</msg>
+<msg timestamp="20171225 11:00:42.343" level="DEBUG">[chan 0] EOF sent (0)</msg>
+<msg timestamp="20171225 11:00:42.408" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.408" starttime="20171225 11:00:39.531"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.409" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.409" starttime="20171225 11:00:39.530"></status>
+</kw>
+<kw name="Stop Bts Udp Log" library="tdd_ev_robotws">
+<doc>This keyword stops BTS system(UDP) log catching.</doc>
+<msg timestamp="20171225 11:00:42.410" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:42.539" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.539" starttime="20171225 11:00:42.410"></status>
+</kw>
+<kw name="Iphy Get Ue Log" library="tdd_ev_robotws">
+<doc>get ue log to local path</doc>
+<arguments>
+<arg>${SAVE LOG DIRECTORY}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.541" level="TRACE">Arguments: [ '/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability' ]</msg>
+<msg timestamp="20171225 11:00:42.541" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:42.541" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:42.542" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 718, in get_ue_log
+    self.store.get(alias)['ue_setup'].get_ue_log(log_save_path, tag)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 81, in get
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20171225 11:00:42.542" starttime="20171225 11:00:42.540"></status>
+</kw>
+<kw name="Iphy Teardown Ue" library="tdd_ev_robotws">
+<doc>kill ssh connetion on ue control pc</doc>
+<msg timestamp="20171225 11:00:42.543" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:42.543" level="WARN">Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:42.543" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:42.544" level="FAIL">AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+<msg timestamp="20171225 11:00:42.544" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ue/interface.py", line 87, in teardown_ue
+    self.store.remove(alias)
+  File "/opt/ute/python/lib/python2.7/site-packages/ute_common_store/store.py", line 67, in remove
+    "Please setup library before any other operation.".format(alias))</msg>
+<status status="FAIL" endtime="20171225 11:00:42.544" starttime="20171225 11:00:42.542"></status>
+</kw>
+<kw name="Common Test Teardown" library="common_resource">
+<doc>[Caution] this keyword step:</doc>
+<msg timestamp="20171225 11:00:42.546" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Os Platform Version" library="tdd_ev_robotws">
+<doc>used to get operation system platform version, can be used to judge if</doc>
+<arguments>
+<arg>with_connection=${false}</arg>
+</arguments>
+<assign>
+<var>${platform_version}</var>
+</assign>
+<msg timestamp="20171225 11:00:42.547" level="TRACE">Arguments: [ with_connection=False ]</msg>
+<msg timestamp="20171225 11:00:42.547" level="TRACE">Return: b'Linux-3.16.0-4-amd64-x86_64-with-debian-8.9'</msg>
+<msg timestamp="20171225 11:00:42.547" level="INFO">${platform_version} = Linux-3.16.0-4-amd64-x86_64-with-debian-8.9</msg>
+<status status="PASS" endtime="20171225 11:00:42.547" starttime="20171225 11:00:42.546"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.548" level="TRACE">Arguments: [ 'Run Keyword And Ignore Error' | 'Run Keyword If' | "'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'" | 'One Key Capture Bts Logs' | '${SAVE_LOG_DIRECTORY}${/}capture_logs' | '${one_key_capture_logs_option}' ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.549" level="TRACE">Arguments: [ 'Run Keyword If' | "'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'" | 'One Key Capture Bts Logs' | '${SAVE_LOG_DIRECTORY}${/}capture_logs' | '${one_key_capture_logs_option}' ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${ONE_KEY_CAPTURE_LOGS_FLAG}'=='${True}'</arg>
+<arg>One Key Capture Bts Logs</arg>
+<arg>${SAVE_LOG_DIRECTORY}${/}capture_logs</arg>
+<arg>${one_key_capture_logs_option}</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.551" level="TRACE">Arguments: [ "'False'=='True'" | 'One Key Capture Bts Logs' | '${SAVE_LOG_DIRECTORY}${/}capture_logs' | '${one_key_capture_logs_option}' ]</msg>
+<msg timestamp="20171225 11:00:42.551" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.551" starttime="20171225 11:00:42.550"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.551" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.552" starttime="20171225 11:00:42.549"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.552" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.552" starttime="20171225 11:00:42.548"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.553" level="TRACE">Arguments: [ 'Run Keyword And Ignore Error' | 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Windows" in "${platform_version}"' | 'GUI SM Login' ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.554" level="TRACE">Arguments: [ 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Windows" in "${platform_version}"' | 'GUI SM Login' ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Login</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.555" level="TRACE">Arguments: [ '\'True\'==\'True\' and "Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | 'GUI SM Login' ]</msg>
+<msg timestamp="20171225 11:00:42.555" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.556" starttime="20171225 11:00:42.554"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.556" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.556" starttime="20171225 11:00:42.553"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.556" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.556" starttime="20171225 11:00:42.552"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.557" level="TRACE">Arguments: [ 'Run Keyword And Ignore Error' | 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Windows" in "${platform_version}"' | 'GUI SM Save Snapshot' | '3' ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.558" level="TRACE">Arguments: [ 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Windows" in "${platform_version}"' | 'GUI SM Save Snapshot' | '3' ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Windows" in "${platform_version}"</arg>
+<arg>GUI SM Save Snapshot</arg>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20171225 11:00:42.559" level="TRACE">Arguments: [ '\'True\'==\'True\' and "Windows" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9"' | 'GUI SM Save Snapshot' | '3' ]</msg>
+<msg timestamp="20171225 11:00:42.560" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:00:42.560" starttime="20171225 11:00:42.559"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.560" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.560" starttime="20171225 11:00:42.558"></status>
+</kw>
+<msg timestamp="20171225 11:00:42.560" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:00:42.560" starttime="20171225 11:00:42.557"></status>
+</kw>
+<kw name="Get Active Bts Sw Version" library="tdd_ev_robotws">
+<doc>get active BTS SW Build Version from enb targetBD file..</doc>
+<assign>
+<var>${version}</var>
+</assign>
+<msg timestamp="20171225 11:00:42.561" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:42.563" level="INFO">[enb_command_control.py@33] argument host is: 192.168.255.1</msg>
+<msg timestamp="20171225 11:00:52.576" level="TRACE">Return: None</msg>
+<msg timestamp="20171225 11:00:52.576" level="INFO">${version} = None</msg>
+<msg timestamp="20171225 11:00:52.576" level="FAIL">timeout: timed out</msg>
+<msg timestamp="20171225 11:00:52.577" level="DEBUG">Traceback (most recent call last):
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/TdlteLib/enb_lib/enb_command_control.py", line 428, in get_active_bts_sw_version
+    flash_dir = get_active_run_path(host)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/TdlteLib/enb_lib/enb_command_control.py", line 402, in get_active_run_path
+    conn = connect_to_bts(host)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/TdlteLib/enb_lib/enb_command_control.py", line 39, in connect_to_bts
+    timeout="10s")
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/CommonLib/connections/telnet_ssh_control.py", line 195, in connect_to_host
+    host, port=port, username=username, password=password, **kwargs)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/CommonLib/connections/connection_mgr.py", line 709, in connect_to_host
+    username_prompt, password_prompt)
+  File "/opt/ute/python/lib/python2.7/site-packages/tdd_ev_robotws/CommonLib/connections/ssh_common.py", line 175, in login
+    timeout=self._timeout)  # ,
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/client.py", line 305, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/util.py", line 269, in retry_on_signal
+    return function()
+  File "/opt/ute/python/lib/python2.7/site-packages/paramiko/client.py", line 305, in &lt;lambda&gt;
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/opt/ute/python/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)</msg>
+<status status="FAIL" endtime="20171225 11:00:52.577" starttime="20171225 11:00:42.561"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:00:52.579" level="TRACE">Arguments: [ 'Run Keyword And Ignore Error' | 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Linux" in "${platform_version}" and \'SBTS\' not in "${version}"' | 'semcli save snapshot' ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:00:52.580" level="TRACE">Arguments: [ 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and "Linux" in "${platform_version}" and \'SBTS\' not in "${version}"' | 'semcli save snapshot' ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and "Linux" in "${platform_version}" and 'SBTS' not in "${version}"</arg>
+<arg>semcli save snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:00:52.582" level="TRACE">Arguments: [ '\'True\'==\'True\' and "Linux" in "Linux-3.16.0-4-amd64-x86_64-with-debian-8.9" and \'SBTS\' not in "None"' | 'semcli save snapshot' ]</msg>
+<kw name="Semcli Save Snapshot" library="tdd_ev_robotws">
+<doc>Save snapshot</doc>
+<msg timestamp="20171225 11:00:52.583" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:00:52.587" level="INFO">[sem_control.py@134] Start to kill Site Manager process...</msg>
+<msg timestamp="20171225 11:00:52.591" level="DEBUG">[process_control.py@162] Run command: pkill -f .*com.nokia.em.poseidon.PoseidonStarter.*</msg>
+<msg timestamp="20171225 11:00:52.614" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 11:00:52.617" level="DEBUG">[process_control.py@162] Run command: pkill -f .*com.nokia.em.sitemgr.SitemgrStarter.*</msg>
+<msg timestamp="20171225 11:00:52.637" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 11:00:52.640" level="DEBUG">[process_control.py@162] Run command: pkill -f .*alclient.jar.*</msg>
+<msg timestamp="20171225 11:00:52.660" level="DEBUG">[process_control.py@170]</msg>
+<msg timestamp="20171225 11:00:52.663" level="INFO">[sem_control.py@143] Start to save snapshot to /home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/snapshot_201712251100.zip
+Add to os environ path:  /opt/NSN/Managers/BTS Site/BTS Site Manager
+DST:  /opt/NSN/Managers/BTS Site/BTS Site Manager</msg>
+<msg timestamp="20171225 11:00:52.736" level="INFO">[sem_control.py@151] command is "./BTSSiteManager.sh" -ne 192.168.255.129 -pw Nemuadmin:nemuuser -savesnapshot -snapshotfilename "/home/ute/test_results/ev_logs/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability_20171225104948/TA_TD_LTE_TM8_Tput_UDP_20M_1_7_stability/snapshot_201712251100.zip" -logcoverage all</msg>
+<msg timestamp="20171225 11:01:37.436" level="INFO">[sem_control.py@164] Save snapshot successfully!
+0</msg>
+<msg timestamp="20171225 11:01:37.439" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.439" starttime="20171225 11:00:52.583"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.439" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.440" starttime="20171225 11:00:52.581"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.440" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.440" starttime="20171225 11:00:52.580"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.440" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.440" starttime="20171225 11:00:52.578"></status>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<arguments>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.442" level="TRACE">Arguments: [ 'Run Keyword And Ignore Error' | 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and \'SBTS\' in "${version}"' | '_soam_snapshot' ]</msg>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.443" level="TRACE">Arguments: [ 'Run Keyword If' | '\'${AUTO_SNAPSHOT_FLAG}\'==\'${True}\' and \'SBTS\' in "${version}"' | '_soam_snapshot' ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${AUTO_SNAPSHOT_FLAG}'=='${True}' and 'SBTS' in "${version}"</arg>
+<arg>_soam_snapshot</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.445" level="TRACE">Arguments: [ '\'True\'==\'True\' and \'SBTS\' in "None"' | '_soam_snapshot' ]</msg>
+<msg timestamp="20171225 11:01:37.445" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.445" starttime="20171225 11:01:37.444"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.445" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.445" starttime="20171225 11:01:37.443"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.446" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.446" starttime="20171225 11:01:37.442"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.446" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20171225 11:01:37.446" starttime="20171225 11:00:42.545"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.447" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20171225 11:01:37.447" starttime="20171225 11:00:39.508">Several failures occurred:
+
+1) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+2) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+3) Source file '/opt/iphy/latest/egate_console_test.log' does not exist.
+
+4) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+5) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+6) timeout: timed out</status>
+</kw>
+<tags>
+<tag>CIT</tag>
+<tag>CLOUD_F</tag>
+<tag>iphy</tag>
+<tag>owner-zhiqiang.q.zhou@nokia.com</tag>
+<tag>QC_663971</tag>
+<tag>TL00</tag>
+</tags>
+<status status="FAIL" endtime="20171225 11:01:37.448" critical="yes" starttime="20171225 10:51:18.670">IOError: [Errno 2] No such file or directory: '/tmp/enb_1.lua'
+
+Also teardown failed:
+Several failures occurred:
+
+1) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+2) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+3) Source file '/opt/iphy/latest/egate_console_test.log' does not exist.
+
+4) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+5) AliasError: Provided alias (default) doesn't exist. Please setup library before any other operation.
+
+6) timeout: timed out</status>
+</test>
+<kw type="teardown" name="Common Suite Teardown FEVE" library="RT3_iphy_resource">
+<msg timestamp="20171225 11:01:37.450" level="TRACE">Arguments: [  ]</msg>
+<kw name="Common Suite Teardown" library="common_resource">
+<msg timestamp="20171225 11:01:37.451" level="TRACE">Arguments: [  ]</msg>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${REMOVE_LOGS}'=='on'</arg>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.452" level="TRACE">Arguments: [ "'off'=='on'" | 'Run Keyword If All Tests Passed' | 'Remove Directory' | '${SUITE_LOG_DIRECTORY}' | '${True}' ]</msg>
+<msg timestamp="20171225 11:01:37.452" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.452" starttime="20171225 11:01:37.451"></status>
+</kw>
+<kw name="Disconnect All Hosts" library="tdd_ev_robotws">
+<doc>Closes all existing telnet connections to remote hosts.</doc>
+<msg timestamp="20171225 11:01:37.453" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20171225 11:01:37.489" level="INFO">[ssh_common.py@141] Disconnect from 127.0.0.1:22 DeviceType:Linux Timeout:25 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1d875d830&gt;</msg>
+<msg timestamp="20171225 11:01:37.605" level="INFO">[ssh_common.py@141] Disconnect from 192.168.200.1:22 DeviceType:Linux Timeout:30 seconds &lt;tdd_ev_robotws.CommonLib.connections.ssh_common.SshCommon instance at 0x7fd1eaf9b9e0&gt;</msg>
+<msg timestamp="20171225 11:01:37.606" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.606" starttime="20171225 11:01:37.453"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.607" level="TRACE">Arguments: [ 'Run Keyword If All Tests Passed' | 'Zip File' | '${SUITE_LOG_DIRECTORY}' | '${SUITE_LOG_DIRECTORY}.zip' ]</msg>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Zip File</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${SUITE_LOG_DIRECTORY}.zip</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.608" level="TRACE">Arguments: [ 'Zip File' | '${SUITE_LOG_DIRECTORY}' | '${SUITE_LOG_DIRECTORY}.zip' ]</msg>
+<msg timestamp="20171225 11:01:37.608" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.608" starttime="20171225 11:01:37.608"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.608" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.609" starttime="20171225 11:01:37.607"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Run Keyword If All Tests Passed</arg>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.609" level="TRACE">Arguments: [ 'Run Keyword If All Tests Passed' | 'Remove Directory' | '${SUITE_LOG_DIRECTORY}' | '${True}' ]</msg>
+<kw name="Run Keyword If All Tests Passed" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
+<arguments>
+<arg>Remove Directory</arg>
+<arg>${SUITE_LOG_DIRECTORY}</arg>
+<arg>${True}</arg>
+</arguments>
+<msg timestamp="20171225 11:01:37.610" level="TRACE">Arguments: [ 'Remove Directory' | '${SUITE_LOG_DIRECTORY}' | '${True}' ]</msg>
+<msg timestamp="20171225 11:01:37.610" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.611" starttime="20171225 11:01:37.610"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.611" level="TRACE">Return: (b'PASS', None)</msg>
+<status status="PASS" endtime="20171225 11:01:37.611" starttime="20171225 11:01:37.609"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.611" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.611" starttime="20171225 11:01:37.450"></status>
+</kw>
+<msg timestamp="20171225 11:01:37.611" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20171225 11:01:37.611" starttime="20171225 11:01:37.449"></status>
+</kw>
+<status status="FAIL" endtime="20171225 11:01:37.612" starttime="20171225 10:48:12.491"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">CIT</stat>
+<stat fail="1" pass="0">CLOUD_F</stat>
+<stat fail="1" pass="0">iphy</stat>
+<stat fail="1" pass="0">owner-zhiqiang.q.zhou@nokia.com</stat>
+<stat fail="1" pass="0">QC_663971</stat>
+<stat fail="1" pass="0">TL00</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="TA TD LTE TM8 Tput UDP 20M 1 7 stability" pass="0">TA TD LTE TM8 Tput UDP 20M 1 7 stability</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20171225 10:58:26.130" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 10:58:58.964" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 10:59:31.795" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 11:00:04.656" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 11:00:37.497" level="WARN">generate_lua_configuration_for_wts failed:No existing session</msg>
+<msg timestamp="20171225 11:00:39.501" level="WARN">generate lua failed! will use default enb_1.lua ! exception:generate lua timeout</msg>
+<msg timestamp="20171225 11:00:42.543" level="WARN">Provided alias (default) doesn't exist. Please setup library before any other operation.</msg>
+</errors>
+</robot>
