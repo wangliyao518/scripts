@@ -45,4 +45,14 @@ class HeadlineHandler(ContentHandler):
 if __name__=='__main__':
     for fpathe, dirs, fs in os.walk(sys.argv[1]):
         for f in fs:
-            parse(os.path.join(fpathe, f), HeadlineHandler(os.path.join(fpathe, f)))
+            if os.path.splitext(f)[-1] == '.txt':
+                continue
+            try:
+                parse(os.path.join(fpathe, f), HeadlineHandler(os.path.join(fpathe, f)))
+                #os.remove(os.path.join(fpathe, f))
+            except Exception, e:
+                try:
+                    os.remove(os.path.join(fpathe, f))
+                except:
+                    print 'remove except'
+                print '+++', e
