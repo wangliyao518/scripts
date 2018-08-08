@@ -40,8 +40,8 @@ categories = category_list
 
 print('category_list:{}'.format(categories))
 for each_category in category_list:
-    for each_file in os.listdir('train\{}'.format(each_category)):
-        with open("train\{}\{}".format(each_category, each_file), encoding='utf-8') as f:
+    for each_file in os.listdir('train{}{}'.format(os.sep, each_category)):
+        with open("train/{}/{}".format(each_category, each_file), encoding='utf-8') as f:
             for each_sentence in f:
 
                 # remove any punctuation from the sentence
@@ -101,9 +101,10 @@ print ('---Initiate Tensorflow Text Classification---')
 tf.reset_default_graph()
 # Build neural network
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, 8) 
 net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
+#net = tflearn.fully_connected(net,len(train_y[0]),activation='ReLU')
 net = tflearn.regression(net)
  
 # Define model and setup tensorboard
@@ -115,9 +116,9 @@ model.save('model.tflearn')
 print ('-----Testing the Tensorflow Text Classification Model-----')
 # let's test the mdodel for a few sentences:
 # the first two sentences are used for training, and the last two sentences are not present in the training data.
-sent_1 = open('PreconditionInfoModelQueryTimeoutException_806_output.txt',  encoding='utf-8').read()
-#sent_2 = open('PreconditionInfoModelQueryTimeoutException_969_output.txt',  encoding='utf-8').read()
-#sent_3 = open('ProntoPR187330_4297_0015_LBT1603_01_01_CellSetupFailure_6253.txt',  encoding='utf-8').read()
+sent_1 = open('train/PreconditionInfoModelQueryTimeoutException/806_output.txt',  encoding='utf-8').read()
+sent_2 = open('train/PreconditionInfoModelQueryTimeoutException/969_output.txt',  encoding='utf-8').read()
+sent_3 = open('train/ProntoPR187330/4297_0015_LBT1603_01_01_CellSetupFailure_6253_No0_output.txt',  encoding='utf-8').read()
 #sent_4 = open('onair_397_output.txt',  encoding='utf-8').read()
  
 # a method that takes in a sentence and list of all words
