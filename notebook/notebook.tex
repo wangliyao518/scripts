@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{python\_intermediate\_training}
+    \title{python\_intermediate\_training\_without\_answer}
     
     
     
@@ -283,7 +283,6 @@
     \hypertarget{python-intermediate}{%
 \section{Python Intermediate}\label{python-intermediate}}
 
-\includegraphics{https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg}
 \#\#\#
 
 --by wang liyao (leo)
@@ -317,11 +316,7 @@
     \hypertarget{functional-programming}{%
 \subsection{Functional programming}\label{functional-programming}}
 
-\begin{figure}
-\centering
-\includegraphics{images/lambda.png}
-\caption{lambda}
-\end{figure}
+lambda
 
     \begin{quote}
 it's almost certainly ture that functional programming is the next big
@@ -337,35 +332,6 @@ thing
                 \PY{k}{return} \PY{p}{[}\PY{n}{callback}\PY{p}{(}\PY{n}{line}\PY{p}{)} \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{fp}\PY{p}{]}
 \end{Verbatim}
 
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{} return function}
-         \PY{k}{def} \PY{n+nf}{cache}\PY{p}{(}\PY{n}{func}\PY{p}{)}\PY{p}{:}
-             \PY{n}{cached} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
-             \PY{k}{def} \PY{n+nf}{\PYZus{}func}\PY{p}{(}\PY{n}{attr}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
-                 \PY{k}{if} \PY{n}{attr} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{cached}\PY{p}{:}
-                     \PY{n}{cached}\PY{p}{[}\PY{n}{attr}\PY{p}{]} \PY{o}{=} \PY{n}{func}\PY{p}{(}\PY{n}{attr}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
-                 \PY{k}{return} \PY{n}{cached}\PY{p}{[}\PY{n}{attr}\PY{p}{]}
-             
-             \PY{k}{return} \PY{n}{\PYZus{}func}
-         
-         \PY{k}{def} \PY{n+nf}{add\PYZus{}fun}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
-             \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
-         
-         \PY{n}{new\PYZus{}fun} \PY{o}{=} \PY{n}{cache}\PY{p}{(}\PY{n}{add\PYZus{}fun}\PY{p}{)}
-         \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
-         \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
-         \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
-                 
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-5
-5
-5
-
-    \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} lambda}
@@ -405,17 +371,31 @@ thing
 \subsubsection{Decorator}\label{decorator}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k}{class} \PY{n+nc}{MyDict}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{)}\PY{p}{:}
-            \PY{n+nd}{@property}
-            \PY{k}{def} \PY{n+nf}{max}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                \PY{k}{return} \PY{n+nb}{max}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} return function}
+        \PY{k}{def} \PY{n+nf}{cache}\PY{p}{(}\PY{n}{func}\PY{p}{)}\PY{p}{:}
+            \PY{n}{cached} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}func}\PY{p}{(}\PY{n}{attr}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{attr} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{cached}\PY{p}{:}
+                    \PY{n}{cached}\PY{p}{[}\PY{n}{attr}\PY{p}{]} \PY{o}{=} \PY{n}{func}\PY{p}{(}\PY{n}{attr}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cache hint!}\PY{l+s+s1}{\PYZsq{}}
+                \PY{k}{return} \PY{n}{cached}\PY{p}{[}\PY{n}{attr}\PY{p}{]}
+            
+            \PY{k}{return} \PY{n}{\PYZus{}func}
         
-        \PY{n}{MyDict}\PY{p}{(}\PY{n}{a}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}\PY{o}{.}\PY{n}{max}
+        \PY{k}{def} \PY{n+nf}{add\PYZus{}fun}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+        
+        \PY{n}{new\PYZus{}fun} \PY{o}{=} \PY{n}{cache}\PY{p}{(}\PY{n}{add\PYZus{}fun}\PY{p}{)}
+        \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
+        \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+        \PY{k}{print} \PY{n}{new\PYZus{}fun}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} cache wrapper}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} cache wrapper}
+        \PY{k+kn}{import} \PY{n+nn}{time}
         \PY{k}{def} \PY{n+nf}{cache}\PY{p}{(}\PY{n}{func}\PY{p}{)}\PY{p}{:}
             \PY{n}{cached} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
             \PY{k}{def} \PY{n+nf}{\PYZus{}f}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
@@ -430,24 +410,21 @@ thing
         \PY{n+nd}{@cache}
         \PY{k}{def} \PY{n+nf}{sum\PYZus{}}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
             \PY{k}{return} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{args}\PY{p}{)}
-        
+        \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
         \PY{k}{print} \PY{n}{sum\PYZus{}}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}  \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{}cache(sum)()}
+        \PY{n}{cur} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
         \PY{k}{print} \PY{n}{sum\PYZus{}}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 cost:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{cur} \PY{o}{\PYZhy{}} \PY{n}{start}
+        \PY{k}{print} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2 cost:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{cur}
 \end{Verbatim}
 
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-6
-cache hint!
-6
-
-    \end{Verbatim}
 
     \hypertarget{one-more-step}{%
 \subsubsection{One more step}\label{one-more-step}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} cache wrapper for function}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} cache wrapper for function}
         \PY{k+kn}{import} \PY{n+nn}{time}
         
         \PY{k}{def} \PY{n+nf}{cache}\PY{p}{(}\PY{n}{timeout}\PY{p}{)}\PY{p}{:}
@@ -472,19 +449,20 @@ cache hint!
         \PY{k}{print} \PY{n}{sum\PYZus{}}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
         \PY{k}{print} \PY{n}{sum\PYZus{}}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
         \PY{k+kn}{from} \PY{n+nn}{time} \PY{k+kn}{import} \PY{n}{sleep}
-        \PY{n}{sleep}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{sleep}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
         \PY{k}{print} \PY{n}{sum\PYZus{}}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-6
-cache hint!
-6
-cache hint!
-6
+{\color{incolor}In [{\color{incolor} }]:} \PY{k}{class} \PY{n+nc}{MyDict}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{)}\PY{p}{:}
+            \PY{n+nd}{@property}
+            \PY{k}{def} \PY{n+nf}{max}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n+nb}{max}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{values}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        
+        \PY{n}{MyDict}\PY{p}{(}\PY{n}{a}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}\PY{o}{.}\PY{n}{max}
+\end{Verbatim}
 
-    \end{Verbatim}
 
     \hypertarget{functools}{%
 \subsubsection{functools}\label{functools}}
@@ -494,7 +472,7 @@ Tools for working with functions and callable objects
 \end{quote}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} functools.partial}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} functools.partial}
         \PY{k+kn}{import} \PY{n+nn}{functools}
         
         \PY{k}{def} \PY{n+nf}{echo}\PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{n}{city}\PY{p}{,} \PY{n}{country}\PY{p}{)}\PY{p}{:}
@@ -507,12 +485,7 @@ Tools for working with functions and callable objects
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Tom and Jerry live in Hangzhou, China
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} functools.wraps}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} functools.wraps}
         \PY{k+kn}{import} \PY{n+nn}{functools}
         
         \PY{k}{def} \PY{n+nf}{before\PYZus{}deco}\PY{p}{(}\PY{n}{f}\PY{p}{)}\PY{p}{:}
@@ -528,22 +501,33 @@ Tom and Jerry live in Hangzhou, China
             \PY{k}{print} \PY{n}{name}
             
         \PY{k}{print} \PY{n}{test}\PY{o}{.}\PY{n}{func\PYZus{}name}
+        \PY{k}{print} \PY{n}{test}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hello}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-wrapper
-
-    \end{Verbatim}
-
     \hypertarget{practice}{%
 \subsubsection{Practice}\label{practice}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}斐波那契数列定义：From Wikipedia, the free encyclopedia}
+        
+        \PY{c+c1}{\PYZsh{}http://en.wikipedia.org/wiki/Fibonacci\PYZus{}number}
+        
+        \PY{c+c1}{\PYZsh{}In mathematics, the Fibonacci numbers or Fibonacci sequence are the numbers in the following integer sequence:[2][3]}
+        
+        \PY{c+c1}{\PYZsh{} 0,\PYZbs{};1,\PYZbs{};1,\PYZbs{};2,\PYZbs{};3,\PYZbs{};5,\PYZbs{};8,\PYZbs{};13,\PYZbs{};21,\PYZbs{};34,\PYZbs{};55,\PYZbs{};89,\PYZbs{};144,\PYZbs{}; \PYZbs{}ldots\PYZbs{}; (sequence A000045 in OEIS).}
+        \PY{c+c1}{\PYZsh{} In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation}
+        \PY{c+c1}{\PYZsh{}F\PYZus{}0 = 0, F\PYZus{}1 = 1. F\PYZus{}n = F\PYZus{}\PYZob{}n\PYZhy{}1\PYZcb{} + F\PYZus{}\PYZob{}n\PYZhy{}2\PYZcb{}.}
+        \PY{c+c1}{\PYZsh{} implement a function to evaluates the value of the postion N }
+\end{Verbatim}
+
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} implement a to\PYZus{}int function, that convert hex string data to integer}
         \PY{c+c1}{\PYZsh{} eg:}
         \PY{c+c1}{\PYZsh{}     to\PYZus{}int(\PYZsq{}\PYZbs{}xef\PYZsq{})  ==\PYZgt{} 239}
         \PY{c+c1}{\PYZsh{}     to\PYZus{}int(\PYZsq{}\PYZbs{}xef\PYZbs{}x01\PYZsq{})  ==\PYZgt{} 61185}
+        \PY{c+c1}{\PYZsh{}     to\PYZus{}int(\PYZsq{}\PYZbs{}xef\PYZbs{}x01\PYZbs{}x01\PYZsq{}) ==\PYZgt{} 15663361}
         \PY{c+c1}{\PYZsh{} NOTE: builtin function ord can return the integer ordinal of a one\PYZhy{}character string}
 \end{Verbatim}
 
@@ -552,7 +536,7 @@ wrapper
 \subsection{Unit Testing}\label{unit-testing}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} Unit Testing}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Unit Testing}
         \PY{k+kn}{import} \PY{n+nn}{unittest}
         
         \PY{k}{def} \PY{n+nf}{to\PYZus{}int}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{:}
@@ -564,7 +548,7 @@ wrapper
             \PY{k}{def} \PY{n+nf}{test\PYZus{}to\PYZus{}int\PYZus{}with\PYZus{}one\PYZus{}char\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{to\PYZus{}int}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}x01}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
             
-            \PY{k}{def} \PY{n+nf}{test\PYZus{}to\PYZus{}int\PYZus{}with\PYZus{}two\PYZus{}chars\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}test\PYZus{}to\PYZus{}int\PYZus{}with\PYZus{}two\PYZus{}chars\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{to\PYZus{}int}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}xef}\PY{l+s+se}{\PYZbs{}x01}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{61185}\PY{p}{)}
         
         \PY{n}{suite} \PY{o}{=} \PY{n}{unittest}\PY{o}{.}\PY{n}{TestLoader}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{loadTestsFromTestCase}\PY{p}{(}\PY{n}{TestToInt}\PY{p}{)}
@@ -572,19 +556,6 @@ wrapper
 \end{Verbatim}
 
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.001s
-
-OK
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}4}]:} <unittest.runner.TextTestResult run=1 errors=0 failures=0>
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Unit Testing}
         \PY{k+kn}{import} \PY{n+nn}{unittest}
@@ -609,7 +580,7 @@ OK
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{} Unit Testing}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Unit Testing}
         \PY{k+kn}{import} \PY{n+nn}{unittest}
         
         \PY{k}{def} \PY{n+nf}{to\PYZus{}int}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{:}
@@ -623,24 +594,14 @@ OK
             \PY{k}{def} \PY{n+nf}{test\PYZus{}to\PYZus{}int\PYZus{}with\PYZus{}two\PYZus{}chars\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{to\PYZus{}int}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}xef}\PY{l+s+se}{\PYZbs{}x01}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{61185}\PY{p}{)}
         
+            \PY{k}{def} \PY{n+nf}{test\PYZus{}to\PYZus{}int\PYZus{}with\PYZus{}three\PYZus{}chars\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{to\PYZus{}int}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}xef}\PY{l+s+se}{\PYZbs{}x01}\PY{l+s+se}{\PYZbs{}x01}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{15663361}\PY{p}{)}
+        
         \PY{n}{suite} \PY{o}{=} \PY{n}{unittest}\PY{o}{.}\PY{n}{TestLoader}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{loadTestsFromTestCase}\PY{p}{(}\PY{n}{TestToInt}\PY{p}{)}
         \PY{n}{unittest}\PY{o}{.}\PY{n}{TextTestRunner}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{suite}\PY{p}{)}
 \end{Verbatim}
 
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-..
-----------------------------------------------------------------------
-Ran 2 tests in 0.020s
-
-OK
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}1}]:} <unittest.runner.TextTestResult run=2 errors=0 failures=0>
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{} mock}
         \PY{k+kn}{import} \PY{n+nn}{time}
@@ -655,7 +616,7 @@ OK
         
         \PY{k}{class} \PY{n+nc}{TestDelayPrint}\PY{p}{(}\PY{n}{unittest}\PY{o}{.}\PY{n}{TestCase}\PY{p}{)}\PY{p}{:}
             \PY{k}{def} \PY{n+nf}{test\PYZus{}delay\PYZus{}print\PYZus{}empty\PYZus{}string}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                \PY{n}{delay\PYZus{}print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+                \PY{n}{delay\PYZus{}print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
                     
         \PY{n}{suite} \PY{o}{=} \PY{n}{unittest}\PY{o}{.}\PY{n}{TestLoader}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{loadTestsFromTestCase}\PY{p}{(}\PY{n}{TestDelayPrint}\PY{p}{)}
         \PY{n}{unittest}\PY{o}{.}\PY{n}{TextTestRunner}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{suite}\PY{p}{)}
@@ -674,7 +635,7 @@ OK
     \begin{Verbatim}[commandchars=\\\{\}]
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.003s
+Ran 1 test in 0.010s
 
 OK
 
@@ -688,77 +649,64 @@ OK
 \subsubsection{One more step}\label{one-more-step}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}12}]:} \PY{k+kn}{import} \PY{n+nn}{unittest}
-         \PY{k+kn}{from} \PY{n+nn}{mock} \PY{k+kn}{import} \PY{n}{Mock}
-         \PY{k+kn}{import} \PY{n+nn}{re}
-         
-         \PY{k}{class} \PY{n+nc}{FsmAccess}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
-         
-             \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{connection}\PY{p}{)}\PY{p}{:}
-                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{con} \PY{o}{=} \PY{n}{connection}
-         
-             \PY{k}{def} \PY{n+nf}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{result} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}
-                 \PY{n}{stderr}\PY{p}{,} \PY{n}{stdout} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ifconfig eth3}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-                 \PY{n}{pattern} \PY{o}{=} \PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{})}\PY{l+s+s2}{\PYZdq{}}
-                 \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{stdout}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
-                     \PY{n}{ret} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{n}{pattern}\PY{p}{,} \PY{n}{line}\PY{p}{)}
-                     \PY{k}{if} \PY{n}{ret}\PY{p}{:}
-                         \PY{n}{result} \PY{o}{=} \PY{n}{ret}\PY{o}{.}\PY{n}{groups}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
-                 \PY{k}{return} \PY{n}{result}
-         
-         
-         \PY{k}{class} \PY{n+nc}{MockConnection}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
-         
-             \PY{k}{def} \PY{n+nf}{exec\PYZus{}command}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{command}\PY{p}{)}\PY{p}{:}
-                 \PY{k}{return}  \PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}
-         
-         \PY{k}{class} \PY{n+nc}{TestFsmAccess}\PY{p}{(}\PY{n}{unittest}\PY{o}{.}\PY{n}{TestCase}\PY{p}{)}\PY{p}{:}
-             
-             \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}add\PYZus{}not\PYZus{}use\PYZus{}Mock}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{mock\PYZus{}instant} \PY{o}{=} \PY{n}{MockConnection}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{mock\PYZus{}instant}\PY{p}{)}
-                 \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
-                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         
-             \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{con\PYZus{}mock} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{con\PYZus{}mock}\PY{o}{.}\PY{n}{exec\PYZus{}command}\PY{o}{.}\PY{n}{return\PYZus{}value} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}
-                 \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{con\PYZus{}mock}\PY{p}{)}
-                 \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
-                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         
-             \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock\PYZus{}return\PYZus{}value}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{Mock}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-                 \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{n}{return\PYZus{}value}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-                 \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
-                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         
-             \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock\PYZus{}return\PYZus{}value\PYZus{}new}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{Mock}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-                 \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{n}{return\PYZus{}value}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet addr:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-                 \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
-                 \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         
-         \PY{n}{suite} \PY{o}{=} \PY{n}{unittest}\PY{o}{.}\PY{n}{TestLoader}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{loadTestsFromTestCase}\PY{p}{(}\PY{n}{TestFsmAccess}\PY{p}{)}
-         
-         \PY{n}{unittest}\PY{o}{.}\PY{n}{TextTestRunner}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{suite}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\ldots}
-----------------------------------------------------------------------
-Ran 4 tests in 0.017s
-
-OK
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}12}]:} <unittest.runner.TextTestResult run=4 errors=0 failures=0>
-\end{Verbatim}
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{unittest}
+        \PY{k+kn}{from} \PY{n+nn}{mock} \PY{k+kn}{import} \PY{n}{Mock}
+        \PY{k+kn}{import} \PY{n+nn}{re}
+        
+        \PY{k}{class} \PY{n+nc}{FsmAccess}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+        
+            \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{connection}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{con} \PY{o}{=} \PY{n}{connection}
+        
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{result} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}
+                \PY{n}{stderr}\PY{p}{,} \PY{n}{stdout} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ifconfig eth3}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                \PY{n}{pattern} \PY{o}{=} \PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{address:(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{}.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d\PYZob{}1,4\PYZcb{})}\PY{l+s+s2}{\PYZdq{}}
+                \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{stdout}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{ret} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{n}{pattern}\PY{p}{,} \PY{n}{line}\PY{p}{)}
+                    \PY{k}{if} \PY{n}{ret}\PY{p}{:}
+                        \PY{n}{result} \PY{o}{=} \PY{n}{ret}\PY{o}{.}\PY{n}{groups}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{k}{return} \PY{n}{result}
+        
+        
+        \PY{k}{class} \PY{n+nc}{MockConnection}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+        
+            \PY{k}{def} \PY{n+nf}{exec\PYZus{}command}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{command}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return}  \PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}
+        
+        \PY{k}{class} \PY{n+nc}{TestFsmAccess}\PY{p}{(}\PY{n}{unittest}\PY{o}{.}\PY{n}{TestCase}\PY{p}{)}\PY{p}{:}
             
+            \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}add\PYZus{}not\PYZus{}use\PYZus{}Mock}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{mock\PYZus{}instant} \PY{o}{=} \PY{n}{MockConnection}\PY{p}{(}\PY{p}{)}
+                \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{mock\PYZus{}instant}\PY{p}{)}
+                \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{con\PYZus{}mock} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{p}{)}
+                \PY{n}{con\PYZus{}mock}\PY{o}{.}\PY{n}{exec\PYZus{}command}\PY{o}{.}\PY{n}{return\PYZus{}value} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}
+                \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{con\PYZus{}mock}\PY{p}{)}
+                \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock\PYZus{}return\PYZus{}value}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{Mock}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{n}{return\PYZus{}value}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet address:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{\PYZus{}test\PYZus{}get\PYZus{}lmp\PYZus{}ip\PYZus{}address\PYZus{}use\PYZus{}mock\PYZus{}return\PYZus{}value\PYZus{}new}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{fsm\PYZus{}instance} \PY{o}{=} \PY{n}{FsmAccess}\PY{p}{(}\PY{n}{connection}\PY{o}{=}\PY{n}{Mock}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{con}\PY{o}{.}\PY{n}{exec\PYZus{}command} \PY{o}{=} \PY{n}{Mock}\PY{p}{(}\PY{n}{return\PYZus{}value}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{eth3      Link encap:Ethernet  HWaddr 00:0F:BB:BA:99:CD  }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{inet addr:10.0.1.2  Bcast:10.0.2.255  Mask:255.255.255.0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX packets:0 errors:0 dropped:0 overruns:0 frame:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{TX packets:16 errors:0 dropped:0 overruns:0 carrier:0}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{collisions:0 txqueuelen:1000}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{RX bytes:0 (0.0 B)  TX bytes:1152 (1.1 KiB)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n}{ret} \PY{o}{=} \PY{n}{fsm\PYZus{}instance}\PY{o}{.}\PY{n}{get\PYZus{}lmp\PYZus{}ip\PYZus{}address}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertEqual}\PY{p}{(}\PY{n}{ret}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{10.0.1.2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{n}{suite} \PY{o}{=} \PY{n}{unittest}\PY{o}{.}\PY{n}{TestLoader}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{loadTestsFromTestCase}\PY{p}{(}\PY{n}{TestFsmAccess}\PY{p}{)}
+        
+        \PY{n}{unittest}\PY{o}{.}\PY{n}{TextTestRunner}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{n}{suite}\PY{p}{)}
+\end{Verbatim}
+
+
     \hypertarget{practice}{%
 \subsubsection{Practice}\label{practice}}
 
@@ -777,12 +725,6 @@ def test_get_lmp_ip_address_with_new_output(self):
 
     \hypertarget{introspection}{%
 \subsection{Introspection}\label{introspection}}
-
-\begin{figure}
-\centering
-\includegraphics{images/introspection.jpg}
-\caption{introspection}
-\end{figure}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} dir}
@@ -834,41 +776,11 @@ Everything is an object in Python.
         \PY{c+c1}{\PYZsh{}}
         \PY{c+c1}{\PYZsh{}     bash = BashWrapper()}
         \PY{c+c1}{\PYZsh{}     bash.ping(\PYZsq{}10.69.69.124\PYZsq{})}
-        \PY{c+c1}{\PYZsh{}     bash.ls(\PYZsq{}\PYZhy{}l\PYZsq{}, \PYZsq{}\PYZti{}\PYZsq{})}
+        \PY{c+c1}{\PYZsh{}     bash.ls(\PYZsq{}\PYZhy{}l /\PYZsq{})}
         \PY{c+c1}{\PYZsh{}}
         \PY{c+c1}{\PYZsh{} Write your code here}
 \end{Verbatim}
 
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{import} \PY{n+nn}{subprocess}
-        \PY{k}{class} \PY{n+nc}{BashWrapper}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
-                \PY{n}{fun\PYZus{}name} \PY{o}{=} \PY{p}{[}\PY{p}{]}
-                \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}getattr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{fun}\PY{p}{)}\PY{p}{:} 
-                    \PY{n}{BashWrapper}\PY{o}{.}\PY{n}{fun\PYZus{}name}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{fun}\PY{p}{)}
-                    \PY{n+nb}{setattr}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{fun}\PY{p}{,} \PY{k}{lambda} \PY{n}{args}\PY{p}{:} \PY{n}{subprocess}\PY{o}{.}\PY{n}{check\PYZus{}output}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{} \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{BashWrapper}\PY{o}{.}\PY{n}{fun\PYZus{}name}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{args}\PY{p}{)}\PY{p}{,}\PY{n}{shell}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}
-                    \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{fun}
-                      
-        \PY{n}{bash} \PY{o}{=} \PY{n}{BashWrapper}\PY{p}{(}\PY{p}{)}
-        \PY{k}{print} \PY{n}{bash}\PY{o}{.}\PY{n}{ping}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}i 1 127.0.0.1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-Pinging 127.0.0.1 with 32 bytes of data:
-Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
-Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
-Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
-Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
-
-Ping statistics for 127.0.0.1:
-    Packets: Sent = 4, Received = 4, Lost = 0 (0\% loss),
-Approximate round trip times in milli-seconds:
-    Minimum = 0ms, Maximum = 0ms, Average = 0ms
-
-
-    \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} one more step...}
@@ -883,20 +795,15 @@ Approximate round trip times in milli-seconds:
     \hypertarget{parallel-handling}{%
 \subsection{Parallel Handling}\label{parallel-handling}}
 
-\begin{figure}
-\centering
-\includegraphics{images/run.png}
-\caption{run}
-\end{figure}
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{} fetch content size from a series of web sites}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} fetch content size from a series of web sites}
         \PY{k+kn}{import} \PY{n+nn}{urllib}
         \PY{k+kn}{import} \PY{n+nn}{time}
         
         \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.68.183.66/kiss/ute\PYZus{}tools/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.nsn\PYZhy{}rdnet.net/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
         \PY{n}{begin} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
         \PY{k}{for} \PY{n}{url} \PY{o+ow}{in} \PY{n}{urls}\PY{p}{:}
             \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{proxies}\PY{o}{=}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
@@ -906,22 +813,14 @@ Approximate round trip times in milli-seconds:
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-32234
-8614
-137994
-used time: 2.9279999733
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} introduce thread}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce thread}
         \PY{k+kn}{from} \PY{n+nn}{threading} \PY{k+kn}{import} \PY{n}{Thread}
         \PY{k+kn}{import} \PY{n+nn}{urllib}
         \PY{k+kn}{import} \PY{n+nn}{time}
         
         \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.68.183.66/kiss/ute\PYZus{}tools/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.nsn\PYZhy{}rdnet.net/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         
         \PY{k}{class} \PY{n+nc}{UrlFetchThread}\PY{p}{(}\PY{n}{Thread}\PY{p}{)}\PY{p}{:}
             \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{url}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
@@ -942,22 +841,14 @@ used time: 2.9279999733
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-32234
-2420
-2429
-used time: 2.75999999046
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} introduce multi process}
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce multi process}
         \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k+kn}{import} \PY{n}{Process}
         \PY{k+kn}{import} \PY{n+nn}{urllib}
         \PY{k+kn}{import} \PY{n+nn}{time}
         
         \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.68.183.66/kiss/ute\PYZus{}tools/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.nsn\PYZhy{}rdnet.net/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         
         \PY{k}{class} \PY{n+nc}{UrlFetchProcess}\PY{p}{(}\PY{n}{Process}\PY{p}{)}\PY{p}{:}
             \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{url}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
@@ -977,19 +868,14 @@ used time: 2.75999999046
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-used time: 2.54800009727
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} use Pool}
         \PY{k+kn}{import} \PY{n+nn}{time}
         \PY{k+kn}{from} \PY{n+nn}{multiprocessing} \PY{k+kn}{import} \PY{n}{Pool}
         \PY{k+kn}{from} \PY{n+nn}{multiprocessing.dummy} \PY{k+kn}{import} \PY{n}{Pool} \PY{k}{as} \PY{n}{ThreadPool}
         
         \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.68.183.66/kiss/ute\PYZus{}tools/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.nsn\PYZhy{}rdnet.net/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         
         \PY{k}{def} \PY{n+nf}{fetch\PYZus{}content}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{p}{:}
             \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
@@ -1015,11 +901,6 @@ used time: 2.54800009727
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-begin test!
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} introduce gevent}
         \PY{k+kn}{import} \PY{n+nn}{gevent}
         \PY{k+kn}{from} \PY{n+nn}{gevent} \PY{k+kn}{import} \PY{n}{monkey}
@@ -1027,8 +908,8 @@ begin test!
         \PY{n}{monkey}\PY{o}{.}\PY{n}{patch\PYZus{}all}\PY{p}{(}\PY{p}{)}
         
         \PY{n}{urls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://tdlte\PYZhy{}report\PYZhy{}server.china.nsn\PYZhy{}net.net}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.140.161.16/ta\PYZus{}doc/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.inside.nsn.com}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://10.68.183.66/kiss/ute\PYZus{}tools/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://pypi.ute.nsn\PYZhy{}rdnet.net/}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         
         \PY{k}{def} \PY{n+nf}{fetch\PYZus{}content}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{p}{:}
             \PY{k}{print} \PY{n+nb}{len}\PY{p}{(}\PY{n}{urllib}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
