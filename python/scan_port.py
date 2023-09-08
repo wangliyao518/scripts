@@ -54,20 +54,19 @@ def scanner(target_host,target_port):
            # print(' %s' % message.decode('utf-8'))
     except socket.timeout:
         pass
-        #print('[-]%s %3s port: close' % (target_host,target_port)) #如果连接超时，表示此端口关闭
+        print('[-]%s %3s port: close' % (target_host,target_port)) #如果连接超时，表示此端口关闭
     except Exception as err:
-        pass
-        #print('notes error 3:',sys.exc_info()[0],err)
+        print('notes error:',sys.exc_info()[0],err)
         exit(0)
 
 
         
 def main():
-   usage = 'Usage:%prog -h <host> -p <port>'
+   usage = 'Usage:%prog -H <host> -P <port>'
    parser = optparse.OptionParser(usage,version='%prog v1.0')
-   parser.add_option('--host',dest='target_host',type='string',
+   parser.add_option('-H', '--host',dest='target_host',type='string',
                      help='the host of scan, domain or IP')
-   parser.add_option('--port',dest='target_port',type='string',
+   parser.add_option('-P', '--port',dest='target_port',type='string',
                     help='the port of the host，suport 1-100 or 21,53,80 format')
    (options,args) = parser.parse_args()
    if options.target_host == None or options.target_port == None:
